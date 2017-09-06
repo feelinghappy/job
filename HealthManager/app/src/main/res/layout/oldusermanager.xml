@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@drawable/bguser"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+ >
+    <com.hrg.healthmanager.tietlelayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@id/first_img"
+        android:layout_width="fill_parent"
+        android:layout_height="0.0dip"
+        android:layout_weight="1.0"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:textSize="35.0sp"
+            android:textColor="@color/chartreuse"
+            android:id="@id/IntoTest_btn"
+            android:background="#bb0141a2"
+            android:layout_width="fill_parent"
+            android:layout_height="80.0dip"
+            android:layout_margin="5.0dip"
+            android:text="执行检测"
+            android:layout_weight="1.0" />
+
+        <Button
+            android:textSize="35.0sp"
+            android:textColor="@color/chartreuse"
+            android:id="@id/Querry_btn"
+            android:background="#bb0141a2"
+            android:layout_width="fill_parent"
+            android:layout_height="80.0dip"
+            android:layout_margin="5.0dip"
+            android:text="查看记录"
+            android:layout_weight="1.0" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:textSize="35.0sp"
+            android:textColor="@color/chartreuse"
+            android:id="@id/Change_btn"
+            android:background="#bb0141a2"
+            android:layout_width="fill_parent"
+            android:layout_height="80.0dip"
+            android:layout_margin="5.0dip"
+            android:text="数据修改"
+            android:layout_weight="1.0" />
+
+        <Button
+            android:textSize="35.0sp"
+            android:textColor="@color/chartreuse"
+            android:id="@id/Delet_btn"
+            android:background="#bb0141a2"
+            android:layout_width="fill_parent"
+            android:layout_height="80.0dip"
+            android:layout_margin="5.0dip"
+            android:text="用户删除"
+            android:layout_weight="1.0" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,33 @@
+<RelativeLayout
+	android:orientation="horizontal"
+	android:id="@+id/top_navigate" 
+	android:background="@drawable/top_back_image"
+	android:layout_width="fill_parent" 
+	android:layout_height="66px"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	
+	<LinearLayout 
+	    android:gravity="center"
+		android:layout_gravity="center_vertical" 
+		android:orientation="vertical"
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content"
+		android:layout_alignParentLeft="true" 
+		android:layout_centerVertical="true"
+		android:layout_marginLeft="5dip">
+		
+		<TextView android:textSize="13.5sp" 
+		    android:textColor="#ffffffff"
+			android:gravity="center" 
+			android:id="@+id/NavigateBack"
+			android:paddingLeft="4px" 
+			android:clickable="true" 
+			android:text="幸福一家"
+			android:background="@drawable/btn_back_bg" 
+			android:layout_width="150px"
+			android:layout_height="45px" />
+		
+	</LinearLayout>
+
+
+</RelativeLayout>

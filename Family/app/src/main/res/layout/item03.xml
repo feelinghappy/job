@@ -1,16 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-	android:background="#0000ff"
-    android:orientation="horizontal" >
-	<TextView
-		android:id="@+id/textView1"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:textSize="30dip"
-		android:textColor="#ffffff"
-		android:paddingLeft="30px"
-		android:paddingRight="30px"
-		android:text="item03"/>
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="1180px"
+	android:layout_height="660px"
+	android:background="@drawable/bgall"
+	android:orientation="horizontal">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="horizontal"
+		android:baselineAligned="false">
+		<LinearLayout
+			android:layout_width="276px"
+			android:layout_height="660px"
+			android:background="@drawable/detailbg"
+			android:orientation="vertical">
+			<include
+				android:id="@+id/pic"
+				layout="@layout/pic" />
+			<include
+				android:id="@+id/details"
+				layout="@layout/details" />
+		</LinearLayout>
+		<LinearLayout
+			android:layout_width="904px"
+			android:layout_height="660px"
+			android:orientation="vertical">
+
+			<LinearLayout
+				android:layout_width="904px"
+				android:layout_height="168px"
+				android:orientation="vertical">
+				<include
+					android:id="@+id/item_function"
+					layout="@layout/function" />
+			</LinearLayout>
+
+			<LinearLayout
+				android:layout_marginTop="40px"
+				android:layout_width="904px"
+				android:layout_height="190px"
+				android:orientation="horizontal">
+				<include
+					android:id="@+id/item_bp"
+					layout="@layout/bp" />
+				<include
+					android:id="@+id/item_heartrate"
+					layout="@layout/heartrate" />
+			</LinearLayout>
+
+			<LinearLayout
+				android:layout_width="904px"
+				android:layout_height="220px"
+				android:layout_marginBottom="50px"
+				android:orientation="horizontal">
+				<include android:id="@+id/sleep"
+					layout="@layout/sleep"/>
+				<include android:id="@+id/walk"
+					layout="@layout/walk"/>
+			</LinearLayout>
+
+		</LinearLayout>
+
+	</LinearLayout>
 </LinearLayout>

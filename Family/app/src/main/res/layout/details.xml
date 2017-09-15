@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_marginTop="66px"
+    android:layout_width="276px"
+    android:layout_height="240px"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_marginTop="0px"
+        android:layout_width="276px"
+        android:layout_height="36px"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_height="36px"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="56px"
+            android:text="年龄"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:textSize="28px" />
+
+        <TextView
+            android:id="@+id/txtAge"
+            android:layout_width="36px"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="38px"
+            android:text="23"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:textSize="28px" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="30px"
+        android:layout_width="276px"
+        android:layout_height="36px">
+        <TextView
+            android:textStyle="bold"
+            android:textSize="28px"
+            android:textColor="#ffffff"
+            android:layout_marginLeft="56px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="性别" />
+        <TextView
+            android:textSize="28px"
+            android:textColor="#ffffff"
+            android:id="@+id/txtSex"
+            android:textStyle="bold"
+            android:layout_marginLeft="38px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="男" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="30px"
+        android:layout_width="276px"
+        android:layout_height="36px"
+
+        android:orientation="horizontal">
+    <TextView
+        android:textSize="28px"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        android:layout_marginLeft="56px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="身高" />
+    <TextView
+        android:textSize="28px"
+        android:textColor="#ffffff"
+        android:id="@+id/txtHeight"
+        android:textStyle="bold"
+        android:layout_marginLeft="38px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="170cm" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="30px"
+        android:layout_width="276px"
+        android:layout_height="36px"
+    android:orientation="horizontal">
+    <TextView
+        android:textSize="28px"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        android:layout_marginLeft="56px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="体重" />
+    <TextView
+        android:textSize="28px"
+        android:textColor="#ffffff"
+        android:id="@+id/txtWeight"
+        android:textStyle="bold"
+        android:layout_marginLeft="38px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="75kg" />
+    </LinearLayout>
+</LinearLayout>

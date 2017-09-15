@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="276px"
+    android:orientation="vertical"
+    android:layout_height="290px">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="144px"
+        android:layout_height="144px"
+        android:layout_marginLeft="66px"
+        android:layout_marginTop="80px"
+        android:src="@drawable/pic" />
+
+    <TextView
+        android:id="@+id/txtName"
+        android:textSize="30px"
+        android:layout_marginTop="30px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:text="吴彦祖" />
+</LinearLayout>

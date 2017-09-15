@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_marginTop="30px"
+    android:layout_width="904px"
+    android:layout_height="168px">
+    <ImageView
+        android:layout_marginLeft="99px"
+        android:id="@+id/imgbtncall"
+        android:layout_width="112px"
+        android:layout_height="128px"
+        app:srcCompat="@drawable/call" />
+    <ImageView
+        android:layout_marginLeft="86px"
+        android:id="@+id/imgbtnreport"
+        android:layout_width="112px"
+        android:layout_height="128px"
+        app:srcCompat="@drawable/report" />
+    <ImageView
+        android:layout_marginLeft="86px"
+        android:id="@+id/imgbtnhistory"
+        android:layout_width="112px"
+        android:layout_height="128px"
+        app:srcCompat="@drawable/history" />
+    <ImageView
+        android:layout_marginLeft="86px"
+        android:id="@+id/imgbtnposition"
+        android:layout_width="112px"
+        android:layout_height="128px"
+        app:srcCompat="@drawable/position" />
+</LinearLayout>

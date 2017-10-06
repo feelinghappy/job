@@ -1,0 +1,19 @@
+<LinearLayout
+    android:orientation="horizontal"
+    android:id="@+id/top_title"
+    android:background="@drawable/top"
+    android:layout_width="1280px"
+    android:layout_height="110px"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+     <TextView
+        android:textSize="42px"
+         android:layout_gravity="center_horizontal|center_vertical"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:text="MRA健康筛查"
+         android:layout_marginLeft="500px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>

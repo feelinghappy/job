@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="1280px"
+    android:layout_height="300px"
+    >
+    <TextView
+        android:textSize="36px"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/tv_itemname_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="name" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textSize="32px"
+            android:id="@+id/tv_itemscrose_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30px"
+            android:text="TextView" />
+
+        <TextView
+            android:textSize="32px"
+            android:id="@+id/tv_itemdegree_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <TextView
+        android:textSize="32px"
+        android:id="@+id/tv_item1_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30px"
+        android:text="TextView"
+        android:singleLine="false" />
+
+    <TextView
+        android:textSize="32px"
+        android:id="@+id/tv_item2_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30px"
+        android:text="TextView"
+        android:singleLine="false" />
+
+    <TextView
+        android:textSize="32px"
+        android:id="@+id/tv_item3_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30px"
+        android:text="TextView"
+        android:singleLine="false" />
+
+    <TextView
+        android:textSize="32px"
+        android:id="@+id/tv_item4_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30px"
+        android:text="TextView"
+        android:singleLine="false" />
+</LinearLayout>

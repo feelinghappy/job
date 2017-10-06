@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bj"
+    android:orientation="vertical"
+    tools:context="com.hrg.anew.MainActivity">
+    <TextView
+        android:layout_marginTop="56px"
+        android:textSize="56px"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:text="@string/app_name"
+        />
+
+    <TextView
+        android:id="@+id/tventer"
+        android:layout_marginTop="500px"
+        android:clickable="true"
+        android:textSize="46px"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:text="立即使用>>"
+        />
+
+</LinearLayout>

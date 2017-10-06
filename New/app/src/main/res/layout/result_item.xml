@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/list_result_item_txt"
+        android:gravity="center_vertical"
+        android:layout_gravity="center_vertical"
+        android:textColor="#333333"
+        android:textSize="36px"
+        android:text="张三"
+        android:layout_width="1240px"
+        android:layout_height="88px" />
+</LinearLayout>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/bj"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:keepScreenOn="true">
+    <include
+        android:id="@+id/item_header"
+        layout="@layout/header_item" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="1280px"
+        android:layout_height="690px">
+        <LinearLayout
+            android:layout_width="670px"
+            android:layout_height="690px"> 
+            <TextView
+                android:layout_marginTop="40px"
+                android:layout_marginLeft="40px"
+                android:textSize="40px"
+                android:text="状态："
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginTop="40px"
+                android:id="@+id/connect_state"
+                android:textSize="40px"
+                android:text="正在检测"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <Button
+                android:layout_marginLeft="40px"
+                android:text="返回"
+                android:id ="@+id/btn_back"
+                android:layout_marginTop="40px"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="620px"
+            android:layout_height="690px">
+            <LinearLayout
+                android:layout_marginTop="40px"
+                android:orientation="horizontal"
+                android:layout_width="600px"
+                android:layout_height="130px">
+                <Button
+                    android:textColor="#FFFFFF"
+                    android:layout_width="130px"
+                    android:text="开始检测"
+                    android:textSize="34px"
+                    android:textStyle="bold"
+                    android:background="@drawable/circle"
+                    android:id="@+id/btn_start"
+                    android:layout_height="130px" />
+                <Button
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:textSize="34px"
+                    android:background="@drawable/circle"
+                    android:layout_marginLeft="60px"
+                    android:layout_width="130px"
+                    android:text="停止检测"
+                    android:id="@+id/btn_stop"
+                    android:layout_height="130px" />
+                <Button
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:textSize="34px"
+                    android:background="@drawable/circle"
+                    android:layout_marginLeft="60px"
+                    android:layout_width="130px"
+                    android:text="查看结果"
+                    android:id="@+id/btn_result"
+                    android:layout_height="130px" />
+            </LinearLayout>
+            <TextView
+                android:layout_marginTop="30px"
+                android:text="能量分析提示"
+                android:textColor="#FFFFFF"
+                android:textSize="36px"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:layout_marginTop="30px"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/layouts1"
+                        android:src="@drawable/testing1"
+                        android:layout_width="142px"
+                        android:layout_height="160px" />
+                    <ImageView
+                        android:id="@+id/layouts2"
+                        android:layout_marginLeft="42px"
+                        android:src="@drawable/testing2"
+                        android:layout_width="142px"
+                        android:layout_height="160px" />
+                    <ImageView
+                        android:id="@+id/layouts3"
+                        android:layout_marginLeft="42px"
+                        android:src="@drawable/testing3"
+                        android:layout_width="142px"
+                        android:layout_height="160px" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="40px"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/layouts4"
+                        android:src="@drawable/testing4"
+                        android:layout_width="142px"
+                        android:layout_height="160px" />
+                    <ImageView
+                        android:id="@+id/layouts5"
+                        android:layout_marginLeft="42px"
+                        android:src="@drawable/testing5"
+                        android:layout_width="142px"
+                        android:layout_height="160px" />
+                    <ImageView
+                        android:id="@+id/layouts6"
+                        android:layout_marginLeft="42px"
+                        android:src="@drawable/testing6"
+                        android:layout_width="142px"
+                        android:layout_height="160px" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

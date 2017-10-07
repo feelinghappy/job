@@ -350,14 +350,14 @@ public class checktheitems extends Activity {
             localcheckitem = new checkitem("蛋白质", 17);
             this.checkboxList.add(localcheckitem);
             localcheckitem = new checkitem("胶原蛋白", 33);
-            this.checkboxList.add(localcheckitem);
-            localcheckitem = new checkitem("眼部", 18);
+            //this.checkboxList.add(localcheckitem);
+            //localcheckitem = new checkitem("眼部", 18);
             this.checkboxList.add(localcheckitem);
             localcheckitem = new checkitem("皮肤", 19);
             this.checkboxList.add(localcheckitem);
             localcheckitem = new checkitem("胰腺功能", 20);
-            this.checkboxList.add(localcheckitem);
-            localcheckitem = new checkitem("血糖", 21);
+            //this.checkboxList.add(localcheckitem);
+            //localcheckitem = new checkitem("血糖", 21);
             this.checkboxList.add(localcheckitem);
             localcheckitem = new checkitem("辅酶", 22);
             this.checkboxList.add(localcheckitem);

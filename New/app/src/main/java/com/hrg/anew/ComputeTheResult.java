@@ -30,7 +30,8 @@ public class ComputeTheResult {
         }
 
         for (int i = minindex; i < (maxindex+1); i++) {
-            result[i] = computetheitems(i, 0);
+            result[i] = computetheitems(i, degree);
+            DegreeResult[i] = degree;
 
         }
 
@@ -86,13 +87,13 @@ public class ComputeTheResult {
         Log.e("compute0 paramInt",paramInt+"");
         double result;
         if (paramInt == 0) {
-            result = computeret(48.264000000000003D, 65.370999999999995D);
+            result = computeret(48.264D, 65.37D);
         } else if (paramInt == 1) {
-            result = computeret(65.370999999999995D, 69.644999999999996D);
+            result = computeret(65.37D, 69.645D);
         } else if (paramInt == 2) {
-            result = computeret(69.644999999999996D, 73.673000000000002D);
+            result = computeret(69.645D, 73.673D);
         } else {
-            result = computeret(100.0D, 73.673000000000002D);
+            result = computeret(100.0D, 73.673D);
         }
         Log.e("compute0",result+"");
         return result;
@@ -103,43 +104,45 @@ public class ComputeTheResult {
         Log.e("compute1 paramInt",paramInt+"");
         double result;
         if (paramInt == 0) {
-            result = computeret(56.749000000000002D, 67.522000000000006D);
+            result = computeret(56.749D, 67.522D);
         } else if (paramInt == 1) {
-            result = computeret(56.749000000000002D, 67.522000000000006D);
+            result = computeret(56.749D, 67.522D);
         } else if (paramInt == 2) {
-            result = computeret(69.447000000000003D, 74.927000000000007D);
+            result = computeret(69.447D, 74.927D);
         } else {
-            result = computeret(100.0D, 74.927000000000007D);
+            result = computeret(100.0D, 74.927D);
         }
         Log.e("compute1",result+"");
         return result;
     }
-
-    private double compute10(int paramInt) {
-        double result;
-        if (paramInt == 0) {
-            result = computeret(1.988D, 1.554D);
-        } else if (paramInt == 1) {
-            result = computeret(1.554D, 1.076D);
-        } else if (paramInt == 2) {
-            result = computeret(1.076D, 0.597D);
-        } else {
-            result = computeret(0.597D, 0.3D);
+    private double compute10(int degree) {
+        double ret = 0.0;
+        if(degree == 0) {
+            ret = computeret(1.99,1.55);
         }
-        Log.e("compute10",result+"");
-        return result;
+        else if(degree == 1) {
+            ret = computeret(1.55, 1.08);
+        }
+        else if(degree == 2) {
+            ret = computeret(1.08, 0.6);
+        }
+        else
+        {
+            ret = computeret(0.597D, 0.3D);
+        }
+        return ret;
     }
 
     private double compute100(int paramInt) {
         double result;
         if (paramInt == 0) {
-            result = computeret(65.424000000000007D, 59.786000000000001D);
+            result = computeret(65.424D, 59.786D);
         } else if (paramInt == 1) {
-            result = computeret(59.786000000000001D, 57.331000000000003D);
+            result = computeret(59.786D, 57.331D);
         } else if (paramInt == 2) {
-            result = computeret(57.331000000000003D, 54.347000000000001D);
+            result = computeret(57.331D, 54.347D);
         } else {
-            result = computeret(51.331000000000003D, 54.347000000000001D);
+            result = computeret(51.331D, 54.347D);
         }
         Log.e("compute100",result+"");
         return result;
@@ -148,13 +151,13 @@ public class ComputeTheResult {
     private double compute101(int paramInt) {
         double ret = 0.0;
         if (paramInt == 0) {
-            ret = computeret(63.213000000000001D, 58.715000000000003D);
+            ret = computeret(63.213D, 58.715D);
         } else if (paramInt == 1) {
-            ret = computeret(58.715000000000003D, 56.728999999999999D);
+            ret = computeret(58.715D, 56.729D);
         } else if (paramInt == 2) {
-            ret = computeret(56.728999999999999D, 52.743000000000002D);
+            ret = computeret(56.729D, 52.743D);
         } else {
-            ret = computeret(49.728999999999999D, 52.743000000000002D);
+            ret = computeret(49.729D, 52.743D);
         }
         Log.e("compute101",ret+"");
         return  ret;
@@ -163,13 +166,13 @@ public class ComputeTheResult {
     private double compute102(int paramInt) {
         double ret = 0.0;
         if (paramInt == 0) {
-            ret = computeret(37.642000000000003D, 33.966999999999999D);
+            ret = computeret(37.642D, 33.967D);
         } else if (paramInt == 1) {
-            ret = computeret(33.966999999999999D, 31.265000000000001D);
+            ret = computeret(33.967D, 31.265D);
         } else if (paramInt == 2) {
-            ret = computeret(33.966999999999999D, 31.265000000000001D);
+            ret = computeret(33.967D, 31.265D);
         } else {
-            ret = computeret(29.966999999999999D, 31.265000000000001D);
+            ret = computeret(29.967D, 31.265D);
         }
         return ret;
     }
@@ -192,7 +195,7 @@ public class ComputeTheResult {
         double ret = 0.0;
         if (paramInt == 0){
             ret = computeret(7.4D, 7.0D);}
-        if (paramInt == 1){
+        else if (paramInt == 1){
             ret = computeret(7.4D, 7.8D);}
         else {
             ret = computeret(5.5D, 7.0D);
@@ -205,9 +208,9 @@ public class ComputeTheResult {
         if (paramInt == 0) {
             ret = computeret(1.464D, 1.213D);
         }
-        if (paramInt == 1){
+        else if (paramInt == 1){
             ret = computeret(1.464D, 1.213D);}
-        if (paramInt == 2){
+        else if (paramInt == 2){
             ret = computeret(0.962D, 0.659D);}
         else {
             ret = computeret(0.362D, 0.659D);
@@ -302,7 +305,7 @@ public class ComputeTheResult {
     private double compute111(int paramInt) {
         double ret = 0.0;
         if (paramInt == 0) {
-            ret = computeret(11.529999999999999D, 9.256D);
+            ret = computeret(11.53D, 9.256D);
         } else if (paramInt == 1) {
             ret = computeret(9.256D, 6.982D);
         } else if (paramInt == 2) {
@@ -316,7 +319,7 @@ public class ComputeTheResult {
     private double compute112(int paramInt) {
         double ret = 0.0;
         if (paramInt == 0) {
-            ret = computeret(12.369999999999999D, 9.677D);
+            ret = computeret(12.37D, 9.677D);
         }
         else if (paramInt == 1) {
             ret = computeret(9.677D, 6.982D);
@@ -377,9 +380,9 @@ public class ComputeTheResult {
     private double compute116(int paramInt) {
         double ret = 0.0;
         if (paramInt == 0) {
-            ret = computeret(9.756D, 8.326000000000001D);
+            ret = computeret(9.756D, 8.326D);
         } else if (paramInt == 1) {
-            ret = computeret(8.326000000000001D, 4.687D);
+            ret = computeret(8.326D, 4.687D);
         } else if (paramInt == 2) {
             ret = computeret(4.687D, 3.195D);
         } else {
@@ -388,18 +391,26 @@ public class ComputeTheResult {
         return ret;
     }
     //
-    private double compute117(int paramInt) {
+
+    private double compute117(int degree) {
         double ret = 0.0;
-        if (paramInt == 0) {
-            ret = computeret(0.51D, 3.109D);
-        } else if (paramInt == 1) {
-            ret = computeret(3.109D, 7.285D);
-        } else if (paramInt == 2) {
-            ret = computeret(7.285D, 9.728999999999999D);
-        } else {
-            ret = computeret(10.285D, 9.728999999999999D);
+        if(degree == 0) {
+            ret = computeret(3.109, 0.51);
+        }
+        else if(degree == 1) {
+            ret = computeret(7.29, 3.109);
+            return ret;
+        }
+        else if(degree == 2) {
+            ret = computeret(9.73, 7.29);
+            return ret;
+        }
+        else
+        {
+            ret = computeret(10.25, 9.73);
         }
         return ret;
+
     }
 
     private double compute118(int paramInt) {
@@ -437,11 +448,11 @@ public class ComputeTheResult {
         if (paramInt == 0) {
             ret = computeret(7.154D, 8.481D);
         } else if (paramInt == 1) {
-            ret = computeret(8.481D, 18.417999999999999D);
+            ret = computeret(8.481D, 18.417D);
         } else if (paramInt == 2) {
-            ret = computeret(18.417999999999999D, 21.274000000000001D);
+            ret = computeret(18.417D, 21.274D);
         } else {
-            ret = computeret(21.274000000000001D, 25.0D);
+            ret = computeret(21.274D, 25.0D);
         }
         return  ret;
     }
@@ -455,7 +466,7 @@ public class ComputeTheResult {
         } else if (paramInt == 2) {
             ret = computeret(7.348D, 9.907D);
         } else {
-            ret = computeret(11.348000000000001D, 9.907D);
+            ret = computeret(11.348D, 9.907D);
         }
         return ret;
     }
@@ -463,9 +474,9 @@ public class ComputeTheResult {
     private double compute121(int paramInt) {
         double ret = 0.0;
         if (paramInt == 0) {
-            ret = computeret(0.233D, 0.5590000000000001D);
+            ret = computeret(0.233D, 0.559D);
         } else if (paramInt == 1) {
-            ret = computeret(0.5590000000000001D, 1.066D);
+            ret = computeret(0.559D, 1.066D);
         } else if (paramInt == 2) {
             ret = computeret(1.066D, 1.549D);
         } else {
@@ -509,9 +520,9 @@ public class ComputeTheResult {
         } else if (paramInt == 1) {
             ret = computeret(5.157D, 8.253D);
         } else if (paramInt == 2) {
-            ret = computeret(8.253D, 10.183999999999999D);
+            ret = computeret(8.253D, 10.184D);
         } else {
-            ret = computeret(12.253D, 10.183999999999999D);
+            ret = computeret(12.253D, 10.184D);
         }
         return ret;
     }
@@ -523,9 +534,9 @@ public class ComputeTheResult {
         } else if (paramInt == 1) {
             ret = computeret(3.453D, 6.723D);
         } else if (paramInt == 2) {
-            ret = computeret(6.723D, 9.954000000000001D);
+            ret = computeret(6.723D, 9.954D);
         } else {
-            ret = computeret(11.723000000000001D, 9.954000000000001D);
+            ret = computeret(11.723D, 9.954D);
         }
         return ret;
     }
@@ -562,9 +573,9 @@ public class ComputeTheResult {
         double ret = 0.0;
         if (paramInt == 0){
             ret = computeret(0.346D, 0.501D);}
-        if (paramInt == 1){
+        else if (paramInt == 1){
             ret = computeret(0.501D, 0.711D);}
-        if (paramInt == 2){
+        else if (paramInt == 2){
             ret = computeret(0.711D, 0.845D);}
         else {
             ret = computeret(1.111D, 0.845D);
@@ -620,13 +631,13 @@ public class ComputeTheResult {
     private double compute131(int paramInt) {
         double ret = 0.0;
         if (paramInt == 0){
-            ret = computeret(14.477D, 21.347999999999999D);}
+            ret = computeret(14.477D, 21.348D);}
         else if (paramInt == 1){
-            ret = computeret(21.347999999999999D, 28.431999999999999D);}
+            ret = computeret(21.348D, 28.432D);}
         else if (paramInt == 2){
-            ret = computeret(28.431999999999999D, 35.878999999999998D);}
+            ret = computeret(28.432D, 35.879D);}
         else {
-            ret = computeret(38.432000000000002D, 35.878999999999998D);
+            ret = computeret(38.4329D, 35.879D);
         }
         return ret;
     }
@@ -636,9 +647,9 @@ public class ComputeTheResult {
         if (paramInt == 0) {
             ret = computeret(1.035D, 3.23D);
         }
-        if (paramInt == 1){
+        else if (paramInt == 1){
             ret = computeret(3.23D, 5.545D);}
-        if (paramInt == 2) {
+        else if (paramInt == 2) {
             ret = computeret(5.545D, 7.831D);
         }
         else {
@@ -652,10 +663,10 @@ public class ComputeTheResult {
         if (paramInt == 0) {
             ret = computeret(0.218D, 0.953D);
         }
-        if (paramInt == 1) {
+        else if (paramInt == 1) {
             ret = computeret(0.953D, 1.623D);
         }
-        if (paramInt == 2) {
+        else if (paramInt == 2) {
             ret = computeret(1.623D, 2.369D);
         } else {
             ret = computeret(1.623D, 1.369D);
@@ -672,7 +683,7 @@ public class ComputeTheResult {
         else if (paramInt == 2){
             ret = computeret(6.076D, 7.983D);}
         else {
-            ret = computeret(9.076000000000001D, 7.983D);
+            ret = computeret(9.076D, 7.983D);
         }
         return ret;
     }
@@ -707,7 +718,7 @@ public class ComputeTheResult {
         double ret = 0.0;
         if (paramInt == 0){
             ret = computeret(2.412D, 2.974D);}
-        if (paramInt == 1){
+        else if (paramInt == 1){
             ret = computeret(3.174D, 2.974D);}
         else {
             ret = computeret(2.412D, 2.212D);
@@ -719,7 +730,7 @@ public class ComputeTheResult {
         double ret = 0.0;
         if (paramInt == 0){
             ret = computeret(2.967D, 3.528D);}
-        if (paramInt == 1){
+        else if (paramInt == 1){
             ret = computeret(3.728D, 3.528D);}
         else {
             ret = computeret(2.967D, 2.767D);
@@ -742,7 +753,7 @@ public class ComputeTheResult {
     private double compute14(int paramInt) {
         double ret = 0.0;
         if (paramInt == 0) {
-            ret = computeret(21.396000000000001D, 6.138D);
+            ret = computeret(21.396D, 6.138D);
         } else if (paramInt == 1) {
             ret = computeret(6.138D, 3.219D);
         } else if (paramInt == 2) {
@@ -798,9 +809,9 @@ public class ComputeTheResult {
         if (paramInt == 0) {
             ret = computeret(2.101D, 1.116D);
         } else if (paramInt == 1) {
-            ret = computeret(1.116D, 0.8090000000000001D);
+            ret = computeret(1.116D, 0.809D);
         } else if (paramInt == 2) {
-            ret = computeret(0.8090000000000001D, 0.432D);
+            ret = computeret(0.809D, 0.432D);
         } else {
             ret = computeret(0.209D, 0.432D);
         }
@@ -852,15 +863,15 @@ public class ComputeTheResult {
     private double compute147(int paramInt) {
         double ret = 0.0;
         if (paramInt == 0) {
-            ret = computeret(86.730000000000004D, 180.97D);
+            ret = computeret(86.73D, 180.97D);
         }
-        if (paramInt == 1) {
+        else if (paramInt == 1) {
             ret = computeret(180.97D, 190.37D);
         }
-        if (paramInt == 2) {
-            ret = computeret(190.37D, 203.99000000000001D);
+        else if (paramInt == 2) {
+            ret = computeret(190.37D, 203.99D);
         } else {
-            ret = computeret(210.37D, 203.99000000000001D);
+            ret = computeret(210.37D, 203.99D);
         }
         return ret;
     }
@@ -898,9 +909,9 @@ public class ComputeTheResult {
         if (paramInt == 0) {
             ret = computeret(210.81D, 143.37D);
         } else if (paramInt == 1) {
-            ret = computeret(143.37D, 110.23999999999999D);
+            ret = computeret(143.37D, 110.24D);
         } else if (paramInt == 2) {
-            ret = computeret(110.23999999999999D, 100.41D);
+            ret = computeret(110.24D, 100.41D);
         } else {
             ret = computeret(100.41D, 97.0D);
         }
@@ -916,7 +927,7 @@ public class ComputeTheResult {
         } else if (paramInt == 2) {
             ret = computeret(0.406D, 0.626D);
         } else {
-            ret = computeret(0.8060000000000001D, 0.626D);
+            ret = computeret(0.806D, 0.626D);
         }
         return ret;
     }
@@ -939,9 +950,9 @@ public class ComputeTheResult {
         double ret = 0.0;
         if (paramInt == 0)
             ret = computeret(0.713D, 0.992D);
-        if (paramInt == 1)
+        else if (paramInt == 1)
             ret = computeret(0.992D, 1.478D);
-        if (paramInt == 2)
+        else if (paramInt == 2)
             ret = computeret(1.478D, 1.897D);
         else {
             ret = computeret(1.897D, 1.677D);
@@ -1008,7 +1019,7 @@ public class ComputeTheResult {
     private double compute157(int paramInt) {
         double ret = 0.0;
         if (paramInt == 0) {
-            ret = computeret(8.930999999999999D, 4.886D);
+            ret = computeret(8.93D, 4.886D);
         } else if (paramInt == 1) {
             ret = computeret(4.886D, 3.631D);
         } else if (paramInt == 2) {
@@ -1036,7 +1047,7 @@ public class ComputeTheResult {
     private double compute159(int paramInt) {
         double ret = 0.0;
         if (paramInt == 0) {
-            ret = computeret(16.742999999999999D, 6.818D);
+            ret = computeret(16.743D, 6.818D);
         } else if (paramInt == 1) {
             ret = computeret(6.818D, 4.109D);
         } else if (paramInt == 2) {
@@ -1087,7 +1098,7 @@ public class ComputeTheResult {
             ret = computeret(5.755D, 7.948D);
         }
         else {
-            ret = computeret(8.755000000000001D, 7.948D);
+            ret = computeret(8.755D, 7.948D);
         }
         return ret;
     }
@@ -1101,7 +1112,7 @@ public class ComputeTheResult {
         else if (paramInt == 2){
             ret = computeret(7.213D, 9.413D);}
         else {
-            ret = computeret(10.212999999999999D, 9.413D);
+            ret = computeret(10.213D, 9.413D);
         }
         return ret;
     }
@@ -1128,9 +1139,9 @@ public class ComputeTheResult {
         else if (paramInt == 1){
             ret = computeret(4.892D, 7.033D);}
         else if (paramInt == 2){
-            ret = computeret(7.033D, 9.436999999999999D);}
+            ret = computeret(7.033D, 9.437D);}
         else {
-            ret = computeret(10.032999999999999D, 9.436999999999999D);
+            ret = computeret(10.033D, 9.437D);
         }
         return ret;
     }
@@ -1138,7 +1149,7 @@ public class ComputeTheResult {
     private double compute165(int paramInt) {
         double ret = 0.0;
         if (paramInt == 0){
-            ret = computeret(8.324999999999999D, 6.352D);}
+            ret = computeret(8.325D, 6.352D);}
         else if (paramInt == 1){
             ret = computeret(6.352D, 4.689D);}
         else if (paramInt == 2){
@@ -1153,9 +1164,9 @@ public class ComputeTheResult {
         double ret = 0.0;
         if (paramInt == 0){
             ret = computeret(8.362D, 7.235D);}
-        if (paramInt == 1){
+        else if (paramInt == 1){
             ret = computeret(7.235D, 6.658D);}
-        if (paramInt == 2){
+        else if (paramInt == 2){
             ret = computeret(6.658D, 4.265D);}
         else
         {
@@ -1167,10 +1178,10 @@ public class ComputeTheResult {
     private double compute167(int paramInt) {
         double ret = 0.0;
         if (paramInt == 0){
-            ret = computeret(8.122999999999999D, 7.235D);}
-        if (paramInt == 1){
+            ret = computeret(8.123D, 7.235D);}
+        else if (paramInt == 1){
             ret = computeret(7.235D, 5.354D);}
-        if (paramInt == 2){
+        else if (paramInt == 2){
             ret = computeret(5.354D, 3.369D);}
         else
         {
@@ -1182,7 +1193,7 @@ public class ComputeTheResult {
     private double compute168(int paramInt) {
         double ret = 0.0;
         if (paramInt == 0){
-            ret = computeret(8.234999999999999D, 6.326D);}
+            ret = computeret(8.235D, 6.326D);}
         else if (paramInt == 1){
             ret = computeret(6.326D, 4.365D);}
         else if (paramInt == 2){
@@ -1228,9 +1239,9 @@ public class ComputeTheResult {
         double ret = 0.0;
         if (paramInt == 0){
             ret = computeret(8.365D, 7.238D);}
-        if (paramInt == 1){
+        else if (paramInt == 1){
             ret = computeret(7.238D, 5.568D);}
-        if (paramInt == 2){
+        else if (paramInt == 2){
             ret = computeret(5.568D, 3.365D);}
         else
         {
@@ -1242,7 +1253,7 @@ public class ComputeTheResult {
     private double compute171(int paramInt) {
         double ret = 0.0;
         if (paramInt == 0)
-            ret = computeret(8.234999999999999D, 6.325D);
+            ret = computeret(8.235D, 6.325D);
         else if (paramInt == 1){
             ret = computeret(6.325D, 4.354D);}
         else if (paramInt == 2){
@@ -1256,7 +1267,7 @@ public class ComputeTheResult {
     private double compute172(int paramInt) {
         double ret = 0.0;
         if (paramInt == 0){
-            ret = computeret(8.234999999999999D, 6.354D);}
+            ret = computeret(8.235D, 6.354D);}
         else if (paramInt == 1){
             ret = computeret(6.354D, 5.568D);}
         else if (paramInt == 2){
@@ -1299,7 +1310,7 @@ public class ComputeTheResult {
     private double compute175(int paramInt) {
         double ret = 0.0;
         if (paramInt == 0){
-            ret = computeret(8.864000000000001D, 7.682D);}
+            ret = computeret(8.864D, 7.682D);}
         else if (paramInt == 1){
             ret = computeret(7.682D, 4.687D);}
         else if (paramInt == 2){
@@ -1330,7 +1341,7 @@ public class ComputeTheResult {
     private double compute177(int paramInt) {
         double ret = 0.0;
         if (paramInt == 0){
-            ret = computeret(8.239000000000001D, 7.357D);}
+            ret = computeret(8.239D, 7.357D);}
         else if (paramInt == 1){
             ret = computeret(7.357D, 5.654D);}
         else if (paramInt == 2){
@@ -1418,13 +1429,13 @@ public class ComputeTheResult {
     private double compute20(int paramInt) {
         double ret = 0.0;
         if (paramInt == 0) {
-            ret = computeret(220.62100000000001D, 116.34D);
+            ret = computeret(220.621D, 116.34D);
         } else if (paramInt == 1) {
-            ret = computeret(116.34D, 90.359999999999999D);
+            ret = computeret(116.34D, 90.36D);
         } else if (paramInt == 2) {
-            ret = computeret(90.359999999999999D, 60.229999999999997D);
+            ret = computeret(90.36D, 60.23D);
         } else {
-            ret = computeret(20.359999999999999D, 60.229999999999997D);
+            ret = computeret(20.36D, 60.23D);
         }
         return ret;
     }
@@ -1488,13 +1499,13 @@ public class ComputeTheResult {
     private double compute25(int paramInt) {
         double ret = 0.0;
         if (paramInt == 0) {
-            ret = computeret(65.233999999999995D, 59.847000000000001D);
+            ret = computeret(65.234D, 59.847D);
         } else if (paramInt == 1) {
-            ret = computeret(59.847000000000001D, 58.235999999999997D);
+            ret = computeret(59.847D, 58.236D);
         } else if (paramInt == 2) {
-            ret = computeret(58.235999999999997D, 55.347000000000001D);
+            ret = computeret(58.236D, 55.347D);
         } else {
-            ret = computeret(50.235999999999997D, 55.347000000000001D);
+            ret = computeret(50.236D, 55.347D);
         }
         return ret;
     }
@@ -1502,13 +1513,13 @@ public class ComputeTheResult {
     private double compute26(int paramInt) {
         double ret = 0.0;
         if (paramInt == 0) {
-            ret = computeret(61.213000000000001D, 58.424999999999997D);
+            ret = computeret(61.213D, 58.425D);
         } else if (paramInt == 1) {
-            ret = computeret(58.424999999999997D, 56.728999999999999D);
+            ret = computeret(58.425D, 56.729D);
         } else if (paramInt == 2) {
-            ret = computeret(56.728999999999999D, 53.103000000000002D);
+            ret = computeret(56.729D, 53.103D);
         } else {
-            ret = computeret(50.728999999999999D, 53.103000000000002D);
+            ret = computeret(50.729D, 53.103D);
         }
         return ret;
     }
@@ -1516,13 +1527,13 @@ public class ComputeTheResult {
     private double compute27(int paramInt) {
         double ret = 0.0;
         if (paramInt == 0) {
-            ret = computeret(35.642000000000003D, 34.366999999999997D);
+            ret = computeret(35.642D, 34.367D);
         } else if (paramInt == 1) {
-            ret = computeret(34.366999999999997D, 31.466999999999999D);
+            ret = computeret(34.367D, 31.467D);
         } else if (paramInt == 2)
-            ret = computeret(31.466999999999999D, 28.202999999999999D);
+            ret = computeret(31.467D, 28.203D);
         else {
-            ret = computeret(26.466999999999999D, 28.202999999999999D);
+            ret = computeret(26.467D, 28.203D);
         }
         return ret;
     }
@@ -1530,9 +1541,9 @@ public class ComputeTheResult {
     private double compute28(int paramInt) {
         double ret = 0.0;
         if (paramInt == 0) {
-            ret = computeret(140.476D, 133.43700000000001D);
+            ret = computeret(140.476D, 133.437D);
         } else if (paramInt == 1) {
-            ret = computeret(133.43700000000001D, 126.749D);
+            ret = computeret(133.437D, 126.749D);
         } else if (paramInt == 2) {
             ret = computeret(126.749D, 124.321D);
         } else {
@@ -1558,9 +1569,9 @@ public class ComputeTheResult {
     private double compute3(int paramInt) {
         double ret = 0.0;
         if (paramInt == 0) {
-            ret = computeret(0.327D, 0.9370000000000001D);
+            ret = computeret(0.327D, 0.937D);
         } else if (paramInt == 1) {
-            ret = computeret(0.9370000000000001D, 1.543D);
+            ret = computeret(0.937D, 1.543D);
         } else if (paramInt == 2)
             ret = computeret(1.543D, 1.857D);
         else {
@@ -1568,7 +1579,7 @@ public class ComputeTheResult {
         }
         return ret;
     }
-
+    //胆功能 血清球蛋白
     private double compute30(int paramInt) {
         double ret = 0.0;
         if (paramInt == 0) {
@@ -1584,11 +1595,11 @@ public class ComputeTheResult {
     private double compute31(int paramInt) {
         double ret = 0.0;
         if (paramInt == 0) {
-            ret = computeret(0.232D, 0.6860000000000001D);
+            ret = computeret(0.232D, 0.686D);
         } else if (paramInt == 2) {
             ret = computeret(0.12D, 0.232D);
         } else {
-            ret = computeret(0.6860000000000001D, 0.79D);
+            ret = computeret(0.686D, 0.79D);
         }
         return ret;
     }
@@ -1635,20 +1646,20 @@ public class ComputeTheResult {
         if (paramInt == 0) {
             ret = computeret(3348.0D, 3529.0D);
         }
-        if (paramInt == 1) {
+        else if (paramInt == 1) {
             ret = computeret(3759.0D, 3529.0D);
         } else {
             ret = computeret(3348.0D, 3112.0D);
         }
         return ret;
     }
-
+    //肺 肺总量
     private double compute36(int paramInt) {
         double ret = 0.0;
         if (paramInt == 0) {
             ret = computeret(4301.0D, 4782.0D);
         }
-        if (paramInt == 1) {
+        else if (paramInt == 1) {
             ret = computeret(4982.0D, 4782.0D);
         } else {
             ret = computeret(4301.0D, 4171.0D);
@@ -1671,11 +1682,11 @@ public class ComputeTheResult {
     private double compute38(int paramInt) {
         double ret = 0.0;
         if (paramInt == 0) {
-            ret = computeret(17.902999999999999D, 21.012D);
+            ret = computeret(17.903D, 21.012D);
         } else if (paramInt == 1) {
             ret = computeret(23.012D, 21.012D);
         } else {
-            ret = computeret(17.902999999999999D, 16.902999999999999D);
+            ret = computeret(17.903D, 16.903D);
         }
         return ret;
     }
@@ -1871,13 +1882,13 @@ public class ComputeTheResult {
         if (paramInt == 0) {
             ret = computeret(1.471D, 6.079D);
         }
-        if (paramInt == 1) {
-            ret = computeret(6.079D, 14.478999999999999D);
+        else if (paramInt == 1) {
+            ret = computeret(6.079D, 14.479D);
         }
-        if (paramInt == 2) {
-            ret = computeret(14.478999999999999D, 19.399000000000001D);
+        else if (paramInt == 2) {
+            ret = computeret(14.479D, 19.399D);
         } else {
-            ret = computeret(23.478999999999999D, 19.399000000000001D);
+            ret = computeret(23.479D, 19.40D);
         }
         return ret;
     }
@@ -1899,9 +1910,9 @@ public class ComputeTheResult {
     private double compute55(int paramInt) {
         double ret = 0.0;
         if (paramInt == 0) {
-            ret = computeret(78.328999999999994D, 61.430999999999997D);
+            ret = computeret(78.329D, 61.431D);
         } else {
-            ret = computeret(61.430999999999997D, 57.219000000000001D);
+            ret = computeret(61.44D, 57.219D);
         }
         return ret;
     }
@@ -1909,13 +1920,13 @@ public class ComputeTheResult {
     private double compute56(int paramInt) {
         double ret = 0.0;
         if (paramInt == 0) {
-            ret = computeret(73.245999999999995D, 66.432000000000002D);
+            ret = computeret(73.246D, 66.432D);
         } else if (paramInt == 1) {
-            ret = computeret(66.432000000000002D, 63.945999999999998D);
+            ret = computeret(66.432D, 63.9468D);
         } else if (paramInt == 2) {
-            ret = computeret(63.945999999999998D, 60.262D);
+            ret = computeret(63.946D, 60.262D);
         } else {
-            ret = computeret(57.945999999999998D, 60.262D);
+            ret = computeret(57.946D, 60.262D);
         }
         return ret;
     }
@@ -1952,11 +1963,14 @@ public class ComputeTheResult {
         double ret = 0.0;
         if (paramInt == 0)
             ret = computeret(0.842D, 1.643D);
-        if (paramInt == 1)
+        else if (paramInt == 1)
             ret = computeret(1.643D, 1.721D);
-        if (paramInt == 2)
+        else if (paramInt == 2)
             ret = computeret(1.721D, 1.943D);
-        return computeret(2.121D, 1.943D);
+        else {
+            ret = computeret(2.121D, 1.943D);
+        }
+        return  ret;
     }
 
     private double compute6(int paramInt) {
@@ -1978,7 +1992,7 @@ public class ComputeTheResult {
         if (paramInt == 0) {
             ret = computeret(0.401D, 0.346D);
         } else if (paramInt == 1) {
-            ret = computeret(0.346D, 0.311D);
+            ret = computeret(0.345D, 0.311D);
         } else if (paramInt == 2) {
             ret = computeret(0.311D, 0.286D);
         } else {
@@ -1992,10 +2006,10 @@ public class ComputeTheResult {
         if (paramInt == 0) {
             ret = computeret(5.023D, 4.543D);
         }
-        if (paramInt == 1) {
+        else if (paramInt == 1) {
             ret = computeret(4.543D, 3.872D);
         }
-        if (paramInt == 2) {
+        else if (paramInt == 2) {
             ret = computeret(3.872D, 3.153D);
         } else {
             ret = computeret(2.872D, 3.153D);
@@ -2054,7 +2068,7 @@ public class ComputeTheResult {
         } else if (paramInt == 2) {
             ret = computeret(1.229D, 1.147D);
         } else {
-            ret = computeret(0.9290000000000001D, 1.147D);
+            ret = computeret(0.929D, 1.147D);
         }
         return ret;
     }
@@ -2064,10 +2078,10 @@ public class ComputeTheResult {
         if (paramInt == 0) {
             ret = computeret(2.246D, 1.449D);
         }
-        if (paramInt == 1) {
+        else if (paramInt == 1) {
             ret = computeret(1.449D, 1.325D);
         }
-        if (paramInt == 2) {
+        else if (paramInt == 2) {
             ret = computeret(1.449D, 1.325D);
         } else {
             ret = computeret(1.149D, 1.325D);
@@ -2078,13 +2092,13 @@ public class ComputeTheResult {
     private double compute67(int paramInt) {
         double ret = 0.0;
         if (paramInt == 0) {
-            ret = computeret(21.347999999999999D, 14.477D);
+            ret = computeret(21.348D, 14.477D);
         } else if (paramInt == 1) {
-            ret = computeret(14.477D, 12.792999999999999D);
+            ret = computeret(14.477D, 12.793D);
         } else if (paramInt == 2) {
-            ret = computeret(12.792999999999999D, 8.742000000000001D);
+            ret = computeret(12.793D, 8.742D);
         } else {
-            ret = computeret(5.793D, 8.742000000000001D);
+            ret = computeret(5.793D, 8.742D);
         }
         return ret;
     }
@@ -2106,7 +2120,7 @@ public class ComputeTheResult {
     private double compute69(int paramInt) {
         double ret = 0.0;
         if (paramInt == 0) {
-            ret = computeret(21.396000000000001D, 6.428D);
+            ret = computeret(21.396D, 6.428D);
         } else if (paramInt == 1) {
             ret = computeret(6.428D, 3.219D);
         } else if (paramInt == 2) {
@@ -2138,7 +2152,7 @@ public class ComputeTheResult {
         } else if (paramInt == 1) {
             ret = computeret(5.327D, 4.201D);
         }
-        if (paramInt == 2) {
+        else if (paramInt == 2) {
             ret = computeret(4.201D, 2.413D);
         } else {
             ret = computeret(2.001D, 2.413D);
@@ -2151,10 +2165,10 @@ public class ComputeTheResult {
         if (paramInt == 0) {
             ret = computeret(421.0D, 490.0D);
         }
-        if (paramInt == 1) {
+        else if (paramInt == 1) {
             ret = computeret(490.0D, 510.0D);
         }
-        if (paramInt == 2) {
+        else if (paramInt == 2) {
             ret = computeret(510.0D, 540.0D);
         } else {
             ret = computeret(570.0D, 540.0D);
@@ -2169,9 +2183,9 @@ public class ComputeTheResult {
         } else if (paramInt == 1) {
             ret = computeret(7.531D, 8.214D);
         } else if (paramInt == 2) {
-            ret = computeret(8.214D, 9.137000000000001D);
+            ret = computeret(8.214D, 9.137D);
         } else {
-            ret = computeret(10.214D, 9.137000000000001D);
+            ret = computeret(10.214D, 9.137D);
         }
         return ret;
     }
@@ -2181,13 +2195,13 @@ public class ComputeTheResult {
         if (paramInt == 0) {
             ret = computeret(2.954D, 5.543D);
         }
-        if (paramInt == 1) {
+        else if (paramInt == 1) {
             ret = computeret(5.543D, 6.172D);
         }
-        if (paramInt == 2) {
+        else if (paramInt == 2) {
             ret = computeret(6.172D, 7.419D);
         } else {
-            ret = computeret(8.571999999999999D, 7.419D);
+            ret = computeret(8.572D, 7.419D);
         }
         return ret;
     }
@@ -2195,12 +2209,12 @@ public class ComputeTheResult {
     private double compute74(int paramInt) {
         double ret = 0.0;
         if (paramInt == 0) {
-            ret = computeret(4.023D, 11.627000000000001D);
+            ret = computeret(4.023D, 11.627D);
         }
-        if (paramInt == 1) {
-            ret = computeret(11.627000000000001D, 16.131D);
+        else if (paramInt == 1) {
+            ret = computeret(11.627D, 16.131D);
         }
-        if (paramInt == 2) {
+        else if (paramInt == 2) {
             ret = computeret(16.131D, 19.471D);
         } else {
             ret = computeret(21.131D, 19.471D);
@@ -2211,15 +2225,15 @@ public class ComputeTheResult {
     private double compute75(int paramInt) {
         double ret = 0.0;
         if (paramInt == 0) {
-            ret = computeret(86.730000000000004D, 180.97D);
+            ret = computeret(86.73D, 180.97D);
         }
-        if (paramInt == 1) {
+        else if (paramInt == 1) {
             ret = computeret(180.97D, 190.37D);
         }
-        if (paramInt == 2) {
-            ret = computeret(190.37D, 203.99000000000001D);
+        else if (paramInt == 2) {
+            ret = computeret(190.37D, 203.99D);
         } else {
-            ret = computeret(210.37D, 203.99000000000001D);
+            ret = computeret(210.37D, 203.99D);
         }
         return ret;
     }
@@ -2361,10 +2375,10 @@ public class ComputeTheResult {
         } else if (paramInt == 1) {
             ret = computeret(2.845D, 1.932D);
         }
-        if (paramInt == 2) {
+        else if (paramInt == 2) {
             ret = computeret(1.932D, 1.134D);
         } else {
-            ret = computeret(0.9320000000000001D, 1.134D);
+            ret = computeret(0.932D, 1.134D);
         }
         return ret;
     }
@@ -2388,16 +2402,17 @@ public class ComputeTheResult {
         if (paramInt == 0) {
             ret = computeret(7.34D, 2.163D);
         }
-        if (paramInt == 1) {
+        else if (paramInt == 1) {
             ret = computeret(2.163D, 1.309D);
         }
-        if (paramInt == 2) {
+        else if (paramInt == 2) {
             ret = computeret(1.309D, 0.641D);
         } else {
             ret = computeret(0.309D, 0.641D);
         }
         return ret;
     }
+
 
     private double compute88(int paramInt) {
         double ret = 0.0;
@@ -2408,7 +2423,7 @@ public class ComputeTheResult {
         } else if (paramInt == 2) {
             ret = computeret(2.187D, 0.966D);
         } else {
-            ret = computeret(0.6870000000000001D, 0.966D);
+            ret = computeret(0.687D, 0.966D);
         }
         return ret;
     }
@@ -2418,10 +2433,10 @@ public class ComputeTheResult {
         if (paramInt == 0) {
             ret = computeret(3.528D, 2.967D);
         }
-        if (paramInt == 1) {
+        else if (paramInt == 1) {
             ret = computeret(2.967D, 2.318D);
         }
-        if (paramInt == 2) {
+        else if (paramInt == 2) {
             ret = computeret(2.318D, 1.647D);
         } else {
             ret = computeret(1.318D, 1.647D);
@@ -2448,8 +2463,15 @@ public class ComputeTheResult {
         if (paramInt == 0) {
             ret = computeret (2.819D, 2.204D);
         }
+        else if(paramInt ==1.0)
+        {
+            ret = computeret (2.204D, 1.717D);
+        }
+        else if(paramInt ==2.0){
+            ret = computeret(1.717D, 1.028D);
+        }
         else {
-            ret = computeret(2.204D, 1.028D);
+            ret = computeret(1.028D,0D);
         }
         return  ret;
     }
@@ -2457,13 +2479,13 @@ public class ComputeTheResult {
     private double compute91(int paramInt) {
         double ret = 0.0;
         if (paramInt == 0) {
-            ret = computeret(133.43700000000001D, 140.47D);
+            ret = computeret(133.437D, 140.47D);
         } else if (paramInt == 1) {
-            ret = computeret(140.47D, 146.92599999999999D);
+            ret = computeret(140.47D, 146.926D);
         } else if (paramInt == 2) {
-            ret = computeret(146.92599999999999D, 153.16399999999999D);
+            ret = computeret(146.926D, 153.164D);
         } else {
-            ret = computeret(166.92599999999999D, 153.16399999999999D);
+            ret = computeret(166.926D, 153.164D);
         }
         return ret;
     }
@@ -2499,14 +2521,14 @@ public class ComputeTheResult {
     private double compute94(int paramInt) {
         double ret = 0.0;
         if (paramInt == 0) {
-            ret = computeret(35.642000000000003D, 34.366999999999997D);
+            ret = computeret(35.642D, 34.367D);
         } else if (paramInt == 1) {
-            ret = computeret(34.366999999999997D, 33.109000000000002D);
+            ret = computeret(34.367D, 33.109D);
         }
-        if (paramInt == 2) {
-            ret = computeret(33.109000000000002D, 29.946999999999999D);
+        else if (paramInt == 2) {
+            ret = computeret(33.109D, 29.947D);
         } else {
-            ret = computeret(23.109000000000002D, 29.946999999999999D);
+            ret = computeret(23.109D, 29.947D);
         }
         return ret;
     }
@@ -2514,13 +2536,13 @@ public class ComputeTheResult {
     private double compute95(int paramInt) {
         double ret = 0.0;
         if (paramInt == 0) {
-            ret = computeret(61.213000000000001D, 58.424999999999997D);
+            ret = computeret(61.213D, 58.425D);
         } else if (paramInt == 1) {
-            ret = computeret(58.424999999999997D, 55.627000000000002D);
+            ret = computeret(58.425D, 55.627D);
         } else if (paramInt == 2) {
-            ret = computeret(55.627000000000002D, 52.518000000000001D);
+            ret = computeret(55.627D, 52.518D);
         } else {
-            ret = computeret(49.627000000000002D, 52.518000000000001D);
+            ret = computeret(49.627D, 52.518D);
         }
         return ret;
     }
@@ -2586,11 +2608,11 @@ public class ComputeTheResult {
             GetTheItemComputeResult(0, 14, 0, 0, 0);
             return;
         }
-        if (this.degree == 1) {
+        else if (this.degree == 1) {
             GetTheItemComputeResult(0, 14, 1, 2, 0);
             return;
         }
-        if (this.degree == 2) {
+        else if (this.degree == 2) {
             GetTheItemComputeResult(0, 14, 2, 3, 0);
             return;
         }
@@ -2720,7 +2742,7 @@ public class ComputeTheResult {
     }
 
     private void compute_15() {
-        GetTheItemComputeResult(84, 89, 2, 0, 0);
+        GetTheItemComputeResult(84, 90, 2, 0, 0);
         if (this.degree == 3) {
             this.result[90] = compute90(1);
             this.DegreeResult[90] = 1.0D;
@@ -2791,11 +2813,13 @@ public class ComputeTheResult {
             GetTheItemComputeResult(117, 124, 0, 0, 0);
             return;
         }
-        if ((this.age > 24) && (this.age < 35)) {
+        else  if ((this.age > 24) && (this.age < 35)) {
             GetTheItemComputeResult(117, 124, 3, 0, 0);
             return;
         }
-        GetTheItemComputeResult(117, 124, 3, 4, 0);
+        else {
+            GetTheItemComputeResult(117, 124, 3, 4, 0);
+        }
     }
     //皮肤 调试ok
     private void compute_21() {
@@ -2809,40 +2833,50 @@ public class ComputeTheResult {
         }
         GetTheItemComputeResult(125, 134, 3, 4, 0);
     }
-
     private void compute_22() {
-        int i = this.ra.nextInt(2);
-        if ((this.degree == 0) || (!this.fatflag)) {
+        int ran = 0;
+        ran = ra.nextInt(2);
+        int rand1 = 0;
+        int rand2 = 0;
+        if((degree == 0) || (!fatflag)) {
             GetTheItemComputeResult(135, 137, 0, 0, 0);
+            rand1 = 1;
             return;
         }
-        if (this.degree == 1) {
-            if (i == 0) {
-                GetTheItemComputeResult(135, 137, 1, 0, 0);
+        if(degree == 1) {
+            if(ran == 0) {
+                GetTheItemComputeResult(135, 137,1,0, 0);
+                rand1 = 1 ;
                 return;
             }
             GetTheItemComputeResult(135, 137, 0, 1, 0);
+            rand1 = 1;
             return;
         }
-        int j;
-        if (this.degree == 2) {
-            do {
-                i = this.ra.nextInt(3);
-                j = this.ra.nextInt(3);
+        if(degree == 2) {
+            rand1=1;
+            rand1 = ra.nextInt(3);
+            rand2 = ra.nextInt(3);
+            if((rand1 + rand2) == 2) {
+                GetTheItemComputeResult(135, 137, rand1, rand2, 0);
             }
-            while (i + j != 2);
-            GetTheItemComputeResult(135, 137, i, j, 0);
             return;
         }
-        do {
-            i = this.ra.nextInt(4);
-            j = this.ra.nextInt(4);
+        rand1 = ra.nextInt(4);
+        rand2 = ra.nextInt(4);
+        if((rand1 + rand2) == 3) {
+            GetTheItemComputeResult(135, 137, rand1, rand2,0 );
         }
-        while (i + j != 3);
-        GetTheItemComputeResult(135, 137, i, j, 0);
+
     }
 
-    private void compute_23() {
+    private void compute_29()
+    {
+        GetTheItemComputeResult(138, 140, 0,0,0);
+    }
+
+
+  /*  private void compute_23() {
         int i = this.ra.nextInt(2);
         if ((this.degree == 0) || (!this.fatflag)) {
             GetTheItemComputeResult(147, 150, 0, 0, 0);
@@ -2872,7 +2906,43 @@ public class ComputeTheResult {
         }
         while (i + j != 3);
         GetTheItemComputeResult(147, 150, i, j, 0);
-    }
+    }*/
+  private void compute_23() {
+      int ran = 0;
+      int rand1 = 0;
+      int rand2 = 0;
+      ran = ra.nextInt(2);
+      if((degree == 0) || (!fatflag)) {
+          GetTheItemComputeResult(147, 150, 0, 0, 0);
+          rand1 = 1;
+          return;
+      }
+      if(degree == 1) {
+          if(ran == 0) {
+              GetTheItemComputeResult(147, 150, 1, 0, 0);
+              rand1 = 1;
+              return;
+          }
+          GetTheItemComputeResult(147, 150, 0, 1, 0);
+          rand1 = 1;
+          return;
+      }
+      if(degree == 2) {
+          rand1 = 1;
+          rand1 = ra.nextInt(3);
+          rand2 = ra.nextInt(3);
+          if((rand1 + rand2) == 2) {
+              GetTheItemComputeResult(147, 150, rand1, rand2, 0);
+          }
+          return;
+      }
+      rand1 = ra.nextInt(4);
+      rand2 = ra.nextInt(4);
+      if((rand1 + rand2) == 3) {
+          GetTheItemComputeResult(147, 150, rand1, rand2, 0);
+      }
+      // Parsing error may occure here :(
+  }
 
     private void compute_24() {
         GetTheItemComputeResult(141, 146, 2, 1, 0);
@@ -2947,8 +3017,35 @@ public class ComputeTheResult {
         }
         GetTheItemComputeResult(25, 29, 1, 3, 1);
     }
-
     private void compute_4() {
+        int ran = 0;
+        GetTheItemComputeResult(30, 34, 0, 0, 0);
+        DegreeResult[34] = 0;
+        if(degree == 3) {
+            if(fatflag) {
+                result[30] = compute30(1);
+                DegreeResult[30] = 1.0;
+            } else {
+                result[30] = compute30(2);
+                DegreeResult[30] = 2.0;
+            }
+        }
+        if((degree != 0) && (!fatflag)) {
+            ran = ra.nextInt(2) + 1;
+            result[31] = compute31(ran);
+            DegreeResult[31] = (double)ran;
+        }
+        if((degree == 3) && (!fatflag)) {
+            ran = ra.nextInt(2);
+            if(ran == 0) {
+                GetTheItemComputeResult(32, 34, 1, 0, 0);
+                return;
+            }
+            GetTheItemComputeResult(32, 34, 0, 1, 0);
+        }
+
+    }
+/*    private void compute_4() {
         int ran = 0;
         GetTheItemComputeResult(30, 34, 0,0, 0);
         DegreeResult[34] = 0;
@@ -2974,15 +3071,16 @@ public class ComputeTheResult {
             }
             GetTheItemComputeResult(32, 34, 0, 1, 1);
         }
-    }
+    }*/
 
 
     private void compute_5() {
         if (this.ra.nextInt(2) == 0) {
-            GetTheItemComputeResult(35, 38, 2, 0, 0);
-            return;
+            GetTheItemComputeResult(35, 38, 0, 0, 0);
         }
-        GetTheItemComputeResult(35, 38, 0, 2, 0);
+        else {
+            GetTheItemComputeResult(35, 38, 0, 2, 0);
+        }
     }
 
     private void compute_6() {
@@ -3043,68 +3141,47 @@ public class ComputeTheResult {
         switch (paramInt1) {
             case 0:
                 result = compute0(paramInt2);
-                Log.e("compute0",result+"");
                 break;
             case 1:
                 result = compute1(paramInt2);
-                Log.e("compute1",result+"");
                 break;
             case 2:
                 result = compute2(paramInt2);
-                Log.e("compute2",result+"");
                 break;
             case 3:
                 result = compute3(paramInt2);
-                Log.e("compute3",result+"");
                 break;
             case 4:
                 result = compute4(paramInt2);
-                Log.e("compute4",result+"");
                 break;
             case 5:
                 result = compute5(paramInt2);
-                Log.e("compute5",result+"");
                 break;
             case 6:
                 result = compute6(paramInt2);
-                Log.e("compute6",result+"");
                 break;
             case 7:
                 result = compute7(paramInt2);
-                Log.e("compute7",result+"");
                 break;
             case 8:
                 result = compute8(paramInt2);
-                Log.e("compute8",result+"");
                 break;
             case 9:
                 result = compute9(paramInt2);
-                Log.e("compute9",result+"");
                 break;
             case 10:
                 result = compute10(paramInt2);
-                Log.e("compute10",result+"");
             case 11:
                 result = compute11(paramInt2);
-                Log.e("compute11",result+"");
                 break;
             case 12:
                 result = compute12(paramInt2);
-                Log.e("compute12",result+"");
                 break;
             case 13:
                 result = compute13(paramInt2);
-                if(result==0.0D)
-                {
-
-                }
-                else {
-                    Log.e("compute13", result + "");
-                }
                 break;
             case 14:
                 result = compute14(paramInt2);
-                Log.e("compute14",result+"");
                 break;
             case 15:
                 result = compute15(paramInt2);
@@ -3444,23 +3521,18 @@ public class ComputeTheResult {
                 break;
             case 127:
                 result = compute127(paramInt2);
-                Log.e("compute127",result+"");
                 break;
             case 128:
                 result = compute128(paramInt2);
-                Log.e("compute128",result+"");
                 break;
             case 129:
                 result = compute129(paramInt2);
-                Log.e("compute129",result+"");
                 break;
             case 130:
                 result = compute130(paramInt2);
-                Log.e("compute130",result+"");
                 break;
             case 131:
                 result = compute131(paramInt2);
-                Log.e("compute131",result+"");
                 break;
             case 132:
                 result = compute132(paramInt2);
@@ -3685,6 +3757,7 @@ public class ComputeTheResult {
         compute_26();
         compute_27();
         compute_28();
+        compute_29();
     }
 
 }

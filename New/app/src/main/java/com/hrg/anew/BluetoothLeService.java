@@ -133,23 +133,19 @@ public class BluetoothLeService extends Service {
             }
             final int heartRate = characteristic.getIntValue(format, 1);
             Log.e(TAG, String.format("接收到心跳检测 : %d", heartRate));
-            if(heartRate>10 && heartRate<180)
+            if(heartRate > 0)
             {
                 intent.putExtra("com.example.bluetooth.le.EXTRA_DATA", "on");
                 Log.e("service","on");
             }
-            else if(heartRate>179)
-            {
-                intent.putExtra("com.example.bluetooth.le.EXTRA_DATA", "err");
-                Log.e("service","error");
-            }
-
-            else if(heartRate<11)
+            else
             {
                 intent.putExtra("com.example.bluetooth.le.EXTRA_DATA", "off");
                 Log.e("service","off");
             }
-        } else {
+            sendBroadcast(intent);
+        }
+        /*else {
             // 对于其它的规范, 写出 HEX 十六进制格式的数据
             final byte[] data = characteristic.getValue();
             if (data != null && data.length > 0) {
@@ -160,8 +156,8 @@ public class BluetoothLeService extends Service {
                         stringBuilder.toString());
 
             }
-        }
-        sendBroadcast(intent);
+        }*/
+
     }
     public void close() {
         if (this.mBluetoothGatt == null)
@@ -176,7 +172,7 @@ public class BluetoothLeService extends Service {
             {
                 Log.e("connect","paramString == null");
             }
-            Log.w("BluetoothLeService", "BluetoothAdapter not initialized or unspecified address.");
+            Log.e("BluetoothLeService", "BluetoothAdapter not initialized or unspecified address.");
             return false;
         }
         if ((this.mBluetoothDeviceAddress != null) && (paramString.equals(this.mBluetoothDeviceAddress)) && (this.mBluetoothGatt != null)) {

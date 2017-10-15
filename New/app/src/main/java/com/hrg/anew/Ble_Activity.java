@@ -16,8 +16,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,10 +32,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
+import android.widget.MediaController;
 
+import java.io.IOException;
+
+import pl.droidsonroids.gif.GifDrawable;
+import pl.droidsonroids.gif.GifImageView;
+
+import static android.view.View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
+import static android.view.View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION;
+import static android.view.View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
 import static android.view.Window.FEATURE_NO_TITLE;
 
-public class Ble_Activity extends Activity
+public class Ble_Activity extends AppCompatActivity
         implements View.OnClickListener {
     private static final int UPDATE_TEXT = 1;
     public static String GetUsername;
@@ -63,6 +74,9 @@ public class Ble_Activity extends Activity
     private String mDeviceAddress;
     private String mDeviceName;
     private ArrayList<ArrayList<BluetoothGattCharacteristic>> mGattCharacteristics = new ArrayList();
+    private GifImageView mGifImageView =  null;
+    int position = 0;//记住播放位置
+    GifDrawable gifDrawable;
     Thread Displayhread = new Thread(new Runnable() {
         public void run() {
             while (true) {
@@ -180,27 +194,21 @@ public class Ble_Activity extends Activity
         runOnUiThread(new Runnable() {
             public void run() {
                 int ran = 0;
-                if (startflag) {
+                if (true) {
                     if (strrev.equalsIgnoreCase("off")) {
                         Log.e("displayData", "off");
                         Ble_Activity.this.connect_state.setText("连接断开");
+                        position = gifDrawable.getCurrentPosition();
+                        gifDrawable.pause();
                         return;
                     }
-                    if (strrev.equalsIgnoreCase("err")) {
-                        Log.e("displayData", "error");
-                        connect_state.setText("连接错误");
-                        return;
-                    }
-                    if (loop == 1) {
-                        manpictrueindex = 1;
-                        loop = 0;
-                        Log.e("loop", loop + "");
-                        return;
+                    else
+                    {
+                        connect_state.setText("正在检测");
+                        gifDrawable.start();
 
-                    }
-                    if (loop < 1) {
-                        connect_state.setText("检测当中");
-                        String dot = "";
+
+
                     }
                 }
             }
@@ -403,6 +411,10 @@ public class Ble_Activity extends Activity
                 Ble_Activity.this.send_btn.setEnabled(false);
                 Ble_Activity.this.btn_startButton.setEnabled(false);
 
+                gifDrawable.setLoopCount(1);
+                Log.e("time","time"+i);
+
+
             }
         });
         this.stop_btn.setOnClickListener(new View.OnClickListener()
@@ -411,6 +423,7 @@ public class Ble_Activity extends Activity
             {
                 Ble_Activity.this.startflag = false;
                 Ble_Activity.this.btn_startButton.setEnabled(true);
+                gifDrawable.stop();
                 Ble_Activity.this.connect_state.setText("就绪");
             }
         });
@@ -475,11 +488,29 @@ public class Ble_Activity extends Activity
         intent.putExtra("displaymode", "newdisplay");
         startActivity(intent);
     }
+    private  void hideNavigationBar(){
+        View decorView = getWindow().getDecorView();
+        int uiOpions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |View.SYSTEM_UI_FLAG_FULLSCREEN
+                |View.SYSTEM_UI_FLAG_IMMERSIVE |SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                |SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION|SYSTEM_UI_FLAG_LAYOUT_STABLE;
+        decorView.setSystemUiVisibility(uiOpions);
 
+    }
+    /**
+     * 隐藏Android底部的虚拟按键
+     */
+    private void hideVirtualKey(){
+        Window window = getWindow();
+        WindowManager.LayoutParams params = window.getAttributes();
+        params.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+        window.setAttributes(params);
+    }
     protected void onCreate(Bundle paramBundle) {
         super.onCreate(paramBundle);
-        requestWindowFeature(FEATURE_NO_TITLE);
+        supportRequestWindowFeature(FEATURE_NO_TITLE);
         setContentView(R.layout.test);
+        hideNavigationBar();
+        hideVirtualKey();
         //隐藏状态栏  
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         //隐藏状态栏
@@ -490,6 +521,20 @@ public class Ble_Activity extends Activity
         this.mDeviceAddress = this.b.getString(EXTRAS_DEVICE_ADDRESS);
         this.mRssi = this.b.getString(EXTRAS_DEVICE_RSSI);
         this.dbHelper = new MyDatabaseHelper(this, "LiangZiUser.db", null, 2);
+        mGifImageView = (GifImageView) findViewById(R.id.activity_gif_giv);
+        try {
+            gifDrawable = new GifDrawable(getResources(), R.drawable.body);
+            mGifImageView.setImageDrawable(gifDrawable);
+            final MediaController mediaController = new MediaController(this);
+            mediaController.setMediaPlayer((GifDrawable) mGifImageView.getDrawable());
+            mediaController.setAnchorView(mGifImageView);
+            gifDrawable.stop();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+
         Cursor cursor;
         cursor = this.dbHelper.getReadableDatabase().rawQuery("select * from liangziuser where name=?", new String[] { this.uname });
         if (cursor.moveToFirst())
@@ -505,17 +550,6 @@ public class Ble_Activity extends Activity
         {
             this.manPatchString = "woman";
         }
-        Button titleEdit = (Button)findViewById(R.id.btn_back);
-        //   public static final int title_edit = 2131165254;
-        ((Button)findViewById(R.id.btn_back)).setOnClickListener(new View.OnClickListener()
-        {
-            public void onClick(View paramView)
-            {
-                Intent intent = new Intent(Ble_Activity.this, MainActivity.class);
-                Ble_Activity.this.startActivity(intent);
-                Ble_Activity.this.finish();
-            }
-        });
         Intent  intent = new Intent(this, BluetoothLeService.class);
         bindService(intent, this.mServiceConnection, Context.BIND_AUTO_CREATE);
         init();
@@ -527,6 +561,10 @@ public class Ble_Activity extends Activity
         unregisterReceiver(this.mGattUpdateReceiver);
         unbindService(this.mServiceConnection);
         mBluetoothLeService = null;
+        if(!gifDrawable.isRecycled())
+        {
+            gifDrawable.recycle();
+        }
     }
 
     protected void onResume() {

@@ -44,6 +44,7 @@
             android:launchMode="singleTask"
             android:theme="@style/NotitleTheme"/>
         <activity android:name=".newuser"
+            android:theme="@style/Theme.HalfScreen"
             android:screenOrientation="landscape"
             android:launchMode="singleTask"
             android:configChanges="orientation|keyboardHidden"/>
@@ -55,6 +56,11 @@
             android:screenOrientation="landscape"
             android:launchMode="singleTask"
             android:configChanges="orientation|keyboardHidden"/>
+        <activity android:name=".SelecteTheDataTime"
+            android:screenOrientation="landscape"
+            android:launchMode="singleTask"
+            android:configChanges="orientation|keyboardHidden"/>
+        <service android:name="com.hrg.anew.BluetoothLeService" android:enabled="true" />
     </application>
 
 </manifest>

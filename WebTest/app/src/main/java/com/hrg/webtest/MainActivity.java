@@ -1,5 +1,7 @@
 package com.hrg.webtest;
 
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -7,6 +9,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.Timestamp;
@@ -31,6 +36,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
+import static android.R.id.message;
 import static java.net.Proxy.Type.HTTP;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +46,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnsend,btnrev;
     Oauth oauth;
     public static final MediaType JSON=MediaType.parse("application/json; charset=utf-8");
+    public static final  int UPDATE_TEXT = 1;
+    public static final  int UPDATE_CUSTOM_TOKEN = 2;
     final OkHttpClient client = new OkHttpClient();
+    String strfromserver;
+    String Login_token;
+    String strfromserver1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,20 +81,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     private void getRequest() {
 
-        final Request request=new Request.Builder()
-                .get()
-                .tag(this)
-                .url("http://sun.healthywo.com/robot/family/get_monitor_history")
+        /**
+         * 创建请求的参数body
+         */
+        FormBody.Builder builder = new FormBody.Builder();
+        builder.add("client_type","robot");
+        builder.add("token",Login_token);
+        /**
+         * 遍历key
+         */
+        RequestBody requestBody = builder.build();
+        Log.e("requestBody",requestBody.toString());
+        //设置编码
+        //发送Post,并返回一个HttpResponse对象
+        final Request request = new Request.Builder()
+                .url("http://auth.healthywo.com/api/auth/robot")
+                .post(requestBody)
                 .build();
+        //发送请求获取响应
 
         new Thread(new Runnable() {
             @Override
             public void run() {
                 Response response = null;
+
                 try {
                     response = client.newCall(request).execute();
                     if (response.isSuccessful()) {
-                        Log.e("WY","打印GET响应的数据：" + response.body().string());
+                        strfromserver1 = response.body().string();
+                        Log.e("strfromserver1",strfromserver1);
+                        Message msg = new Message();
+                        msg.what = UPDATE_CUSTOM_TOKEN;
+                        handler.sendMessage(msg);
+
+                        //parseJSONWithJSONObject(strfromserver);
                     } else {
                         throw new IOException("Unexpected code " + response);
                     }
@@ -92,9 +123,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
         }).start();
-
     }
-
 
     private void postRequest() {
 
@@ -130,10 +159,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void run() {
                 Response response = null;
+
                 try {
                     response = client.newCall(request).execute();
                     if (response.isSuccessful()) {
-                        Log.e("WY","打印POST响应的数据：" + response.body().string());
+                        //Log.e("WY","打印POST响应的数据：" + response.body().string());
+                        strfromserver = response.body().string();
+                        Log.e("strfromserver",strfromserver);
+                        Message msg = new Message();
+                        msg.what = UPDATE_TEXT;
+                        handler.sendMessage(msg);
+                        //parseJSONWithJSONObject(strfromserver);
                     } else {
                         throw new IOException("Unexpected code " + response);
                     }
@@ -144,6 +180,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }).start();
 
     }
+    private Handler handler = new Handler() {
+
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case UPDATE_TEXT:
+                    try {
+                    parseJSONWithJSONObject(strfromserver);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                    break;
+                case UPDATE_CUSTOM_TOKEN:
+                    try {
+                        parseJSONWith1JSONObject(strfromserver);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+    };
+
     public void oauthInit()
     {
         oauth = new Oauth();
@@ -215,6 +277,43 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                   Log.e("生成的json串为:",jsonresult);
                   return jsonresult;
      }
+
+    //方法一：使用JSONObject
+    //{"code":"200","msg":"success","result":{"token":"00d00dfb95de7e5d077ad24754bb5b5d","expires_in":"86400"}}
+    private void parseJSONWithJSONObject(String strData) throws JSONException {
+            String str[] = new String[20];
+
+            JSONObject jsonObject = new JSONObject(strData);
+            int  code =Integer.parseInt(jsonObject.getString("code"));
+            Log.e("code",code+"");
+            String strresult = jsonObject.getString("result");
+            Log.e("strresult",strresult);
+            JSONObject jsonresult = new JSONObject(strresult);
+            String strtoken = jsonresult.getString("token");
+            Log.e("strtoken",strtoken);
+            String strexpires_in = jsonresult.getString("expires_in");
+            Log.e("strexpires_in",strexpires_in);
+            Login_token = strtoken;
+
+
+
+    }
+
+    private void parseJSONWith1JSONObject(String strData) throws JSONException {
+        String str[] = new String[20];
+
+        JSONObject jsonObject = new JSONObject(strData);
+        int  code =Integer.parseInt(jsonObject.getString("code"));
+        Log.e("code",code+"");
+        String strmsg = jsonObject.getString("msg");
+        Log.e("strmsg",strmsg);
+        String strresult = jsonObject.getString("result");
+        Log.e("strresult",strresult);
+        JSONObject jsonresult = new JSONObject(strresult);
+        String strcustomtoken = jsonresult.getString("custom_token");
+        Log.e("strcustomtoken",strcustomtoken);
+
+    }
 
 
 

@@ -12,11 +12,11 @@ import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.database.Cursor;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -33,6 +33,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 import android.widget.MediaController;
+import android.widget.Toast;
 
 import java.io.IOException;
 
@@ -44,12 +45,13 @@ import static android.view.View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION;
 import static android.view.View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
 import static android.view.Window.FEATURE_NO_TITLE;
 
-public class Ble_Activity extends AppCompatActivity
+public class Ble_Activity extends Activity
         implements View.OnClickListener {
     private static final int UPDATE_TEXT = 1;
     public static String GetUsername;
     private static final String TAG = Ble_Activity.class.getSimpleName();
-    public static String HEART_RATE_MEASUREMENT = "0000ffe1-0000-1000-8000-00805f9b34fb";
+    //   public static String HEART_RATE_MEASUREMENT = "0000fff1-0000-1000-8000-00805f9b34fb";
+    public static String HEART_RATE_MEASUREMENT = "0000ffe1-0000-1000-8000-00805f9b34fb";//调试耳机暂时注销
     public static String EXTRAS_DEVICE_NAME = "DEVICE_NAME";
     public static String EXTRAS_DEVICE_ADDRESS = "DEVICE_ADDRESS";
     public static String EXTRAS_DEVICE_RSSI = "RSSI";
@@ -70,6 +72,8 @@ public class Ble_Activity extends AppCompatActivity
     ImageView ls4;
     ImageView ls5;
     ImageView ls6;
+    int last = 0;
+    boolean endflag = false;
     private boolean mConnected = false;
     private String mDeviceAddress;
     private String mDeviceName;
@@ -194,7 +198,7 @@ public class Ble_Activity extends AppCompatActivity
         runOnUiThread(new Runnable() {
             public void run() {
                 int ran = 0;
-                if (true) {
+                if (startflag) {
                     if (strrev.equalsIgnoreCase("off")) {
                         Log.e("displayData", "off");
                         Ble_Activity.this.connect_state.setText("连接断开");
@@ -204,11 +208,54 @@ public class Ble_Activity extends AppCompatActivity
                     }
                     else
                     {
+                        last++;
+                        Log.e("last",last+"");
                         connect_state.setText("正在检测");
-                        gifDrawable.start();
-
-
-
+                        if(!(gifDrawable.isRunning())) {
+                            gifDrawable.start();
+                        }
+                        if(last/250< 1)
+                        {
+                            displayresult(0);
+                        }
+                        else if(last/250 == 1)
+                        {
+                            displayresult(1);
+                        }
+                        else if(last/250 == 2)
+                        {
+                            displayresult(2);
+                        }
+                        else if(last/300 == 3)
+                        {
+                            displayresult(3);
+                        }
+                        else if(last/250 ==4)
+                        {
+                            displayresult(4);
+                        }
+                        else if(last/250 == 5)
+                        {
+                            displayresult(5);
+                        }
+                        else if(last/250 > 5)
+                        {
+                            Ble_Activity.this.connect_state.setText("检查完成");
+                            Ble_Activity.this.btn_startButton.setEnabled(false);
+                            Ble_Activity.this.send_btn.setEnabled(true);
+                            displayresult(6);
+                            endflag = true;
+                            startflag = false;
+                            last = 0;
+                            gifDrawable.stop();
+                            try {
+                                gifDrawable = new GifDrawable(getResources(), R.drawable.first);
+                                mGifImageView.setImageDrawable(gifDrawable);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            return;
+                        }
                     }
                 }
             }
@@ -270,7 +317,7 @@ public class Ble_Activity extends AppCompatActivity
                         Log.e("nihao", "gattCharacteristic的属性为:  具备广播属性");
                     }
 
-                    Log.e("Uuid()", gattCharacteristic.getUuid().toString());
+                    Log.e("HEART_RATE_MEASUREMENT", gattCharacteristic.getUuid().toString());
                     // 测试读取当前Characteristic数据，会触发mOnDataAvailable.onCharacteristicRead()
                     mhandler.postDelayed(new Runnable() {
                         @Override
@@ -410,9 +457,14 @@ public class Ble_Activity extends AppCompatActivity
                 Ble_Activity.this.startflag = true;
                 Ble_Activity.this.send_btn.setEnabled(false);
                 Ble_Activity.this.btn_startButton.setEnabled(false);
+                if(endflag == true)
+                {
+                    Ble_Activity.this.startflag = false;
+                    Ble_Activity.this.send_btn.setEnabled(true);
+                    Toast.makeText(getApplicationContext(), "检测完成，请查看报告",
+                            Toast.LENGTH_LONG).show();
 
-                gifDrawable.setLoopCount(1);
-                Log.e("time","time"+i);
+                }
 
 
             }
@@ -423,8 +475,9 @@ public class Ble_Activity extends AppCompatActivity
             {
                 Ble_Activity.this.startflag = false;
                 Ble_Activity.this.btn_startButton.setEnabled(true);
-                gifDrawable.stop();
+                gifDrawable.pause();
                 Ble_Activity.this.connect_state.setText("就绪");
+
             }
         });
     }
@@ -450,34 +503,42 @@ public class Ble_Activity extends AppCompatActivity
 
     void displayresult(int paramInt) {
         switch (paramInt) {
-            default:
-                return;
+
             case 0:
-                this.ls1.setBackgroundColor(Color.argb(255, 138, 138, 138));
-                return;
+                this.ls1.setImageDrawable(getResources().getDrawable(R.drawable.selected1));
+                break;
             case 1:
-                this.ls2.setBackgroundColor(Color.argb(255, 138, 138, 138));
-                return;
+                this.ls2.setImageDrawable(getResources().getDrawable(R.drawable.selected2));
+                this.ls1.setImageDrawable(getResources().getDrawable(R.drawable.testing1));
+                break;
             case 2:
-                this.ls3.setBackgroundColor(Color.argb(255, 138, 138, 138));
-                return;
+                this.ls3.setImageDrawable(getResources().getDrawable(R.drawable.selected3));
+                this.ls2.setImageDrawable(getResources().getDrawable(R.drawable.testing2));
+                break;
             case 3:
-                this.ls4.setBackgroundColor(Color.argb(255, 138, 138, 138));
-                return;
+                this.ls4.setImageDrawable(getResources().getDrawable(R.drawable.selected4));
+                this.ls3.setImageDrawable(getResources().getDrawable(R.drawable.testing3));
+                break;
             case 4:
-                this.ls5.setBackgroundColor(Color.argb(255, 138, 138, 138));
-                return;
+                this.ls5.setImageDrawable(getResources().getDrawable(R.drawable.selected5));
+                this.ls4.setImageDrawable(getResources().getDrawable(R.drawable.testing4));
+                break;
             case 5:
-                this.ls6.setBackgroundColor(Color.argb(255, 138, 138, 138));
-                return;
+                this.ls6.setImageDrawable(getResources().getDrawable(R.drawable.selected6));
+                this.ls5.setImageDrawable(getResources().getDrawable(R.drawable.testing5));
+                break;
             case 6:
+                this.ls6.setImageDrawable(getResources().getDrawable(R.drawable.testing6));
+            default:
+                this.ls1.setImageDrawable(getResources().getDrawable(R.drawable.testing1));
+                this.ls2.setImageDrawable(getResources().getDrawable(R.drawable.testing2));
+                this.ls3.setImageDrawable(getResources().getDrawable(R.drawable.testing3));
+                this.ls4.setImageDrawable(getResources().getDrawable(R.drawable.testing4));
+                this.ls5.setImageDrawable(getResources().getDrawable(R.drawable.testing5));
+                this.ls6.setImageDrawable(getResources().getDrawable(R.drawable.testing6));
+                return;
         }
-        this.ls1.setBackgroundColor(Color.argb(255, 0, 0, 0));
-        this.ls2.setBackgroundColor(Color.argb(255, 0, 0, 0));
-        this.ls3.setBackgroundColor(Color.argb(255, 0, 0, 0));
-        this.ls4.setBackgroundColor(Color.argb(255, 0, 0, 0));
-        this.ls5.setBackgroundColor(Color.argb(255, 0, 0, 0));
-        this.ls6.setBackgroundColor(Color.argb(255, 0, 0, 0));
+
 
     }
 
@@ -507,7 +568,7 @@ public class Ble_Activity extends AppCompatActivity
     }
     protected void onCreate(Bundle paramBundle) {
         super.onCreate(paramBundle);
-        supportRequestWindowFeature(FEATURE_NO_TITLE);
+        requestWindowFeature(FEATURE_NO_TITLE);
         setContentView(R.layout.test);
         hideNavigationBar();
         hideVirtualKey();
@@ -522,10 +583,11 @@ public class Ble_Activity extends AppCompatActivity
         this.mRssi = this.b.getString(EXTRAS_DEVICE_RSSI);
         this.dbHelper = new MyDatabaseHelper(this, "LiangZiUser.db", null, 2);
         mGifImageView = (GifImageView) findViewById(R.id.activity_gif_giv);
+        last = 0;
         try {
             gifDrawable = new GifDrawable(getResources(), R.drawable.body);
             mGifImageView.setImageDrawable(gifDrawable);
-            final MediaController mediaController = new MediaController(this);
+            final MediaController mediaController = new MediaController(Ble_Activity.this);
             mediaController.setMediaPlayer((GifDrawable) mGifImageView.getDrawable());
             mediaController.setAnchorView(mGifImageView);
             gifDrawable.stop();
@@ -534,7 +596,8 @@ public class Ble_Activity extends AppCompatActivity
         {
             e.printStackTrace();
         }
-
+        gifDrawable.setLoopCount(2);
+        Log.e("time","time"+i);
         Cursor cursor;
         cursor = this.dbHelper.getReadableDatabase().rawQuery("select * from liangziuser where name=?", new String[] { this.uname });
         if (cursor.moveToFirst())

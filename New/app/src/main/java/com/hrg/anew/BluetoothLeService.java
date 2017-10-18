@@ -121,7 +121,34 @@ public class BluetoothLeService extends Service {
         // parsing is carried out as per profile specifications.
         // 心率监测规范的特殊处理
         // 数据解析在每个规范中完成
-        if (HEART_RATE_MEASUREMENT.equals(characteristic.getUuid().toString())) {
+        Log.e("before",characteristic.getUuid().toString());
+/*        if (HEART_RATE_MEASUREMENT.equals(characteristic.getUuid().toString())) {
+            Log.e("after",characteristic.getUuid().toString());
+            final int heartRate = characteristic.getIntValue(BluetoothGattCharacteristic.FORMAT_UINT16, 6);
+            Log.e(TAG, String.format("接收到心跳检测 : %d", heartRate));
+            if (heartRate > 0) {
+                intent.putExtra("com.example.bluetooth.le.EXTRA_DATA", "on");
+                Log.e("service", "on");
+            } else {
+                intent.putExtra("com.example.bluetooth.le.EXTRA_DATA", "off");
+                Log.e("service", "off");
+            }
+            sendBroadcast(intent);
+        }
+        else
+        {
+            final int heartRate = characteristic.getIntValue(BluetoothGattCharacteristic.FORMAT_UINT16, 6);
+            Log.e(TAG, String.format("接收到心跳检测 : %d", heartRate));
+            if (heartRate > 0) {
+                intent.putExtra("com.example.bluetooth.le.EXTRA_DATA", "on");
+                Log.e("service", "on");
+            } else {
+                intent.putExtra("com.example.bluetooth.le.EXTRA_DATA", "off");
+                Log.e("service", "off");
+            }
+            sendBroadcast(intent);
+        }*/
+         if (HEART_RATE_MEASUREMENT.equals(characteristic.getUuid().toString())) {
             int flag = characteristic.getProperties();
             int format = -1;
             if ((flag & 0x01) != 0) {
@@ -145,18 +172,6 @@ public class BluetoothLeService extends Service {
             }
             sendBroadcast(intent);
         }
-        /*else {
-            // 对于其它的规范, 写出 HEX 十六进制格式的数据
-            final byte[] data = characteristic.getValue();
-            if (data != null && data.length > 0) {
-                final StringBuilder stringBuilder = new StringBuilder(data.length);
-                for(byte byteChar : data)
-                    stringBuilder.append(String.format("%02X ", byteChar));
-                intent.putExtra(EXTRA_DATA, new String(data) + "\n" +
-                        stringBuilder.toString());
-
-            }
-        }*/
 
     }
     public void close() {
@@ -294,6 +309,7 @@ public class BluetoothLeService extends Service {
             mBluetoothGatt.writeDescriptor(dp);
         }
         UUID uuid = UUID.fromString("00002902-0000-1000-8000-00805f9b34fb");
+        //UUID uuid = UUID.fromString("00002902-0000-1000-8000-00805f9b34fb");//调试耳机注销
         BluetoothGattDescriptor clientConfig = paramBluetoothGattCharacteristic.getDescriptor(uuid);
 
         if(enabled) {

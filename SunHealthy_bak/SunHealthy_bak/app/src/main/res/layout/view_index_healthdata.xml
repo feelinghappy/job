@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <ImageView
+        android:id="@+id/iv_health_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="202px"
+        android:layout_centerVertical="true"
+        android:src="@mipmap/icon_blood_pressure"/>
+
+    <TextView
+        android:id="@+id/tv_health_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30px"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/iv_health_data"
+        android:textSize="40px"
+        android:textColor="@color/black"
+        android:text="血压"/>
+
+    <TextView
+        android:id="@+id/tv_health_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50px"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/tv_health_name"
+        android:textSize="40px"
+        android:textColor="@color/black"
+        android:text="120/78"/>
+
+    <TextView
+        android:id="@+id/tv_health_unit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/tv_health_value"
+        android:layout_toRightOf="@id/tv_health_value"
+        android:textSize="20px"
+        android:layout_marginLeft="@dimen/text_size_20"
+        android:textColor="@color/mine_tx_color"
+        android:text="mmgh"/>
+</com.zhy.autolayout.AutoRelativeLayout>

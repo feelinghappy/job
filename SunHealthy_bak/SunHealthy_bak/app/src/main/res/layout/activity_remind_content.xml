@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mine_bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_bar"></include>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="24px">
+    <EditText
+        android:id="@+id/et_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:hint="提醒内容"
+        android:paddingLeft="30px"
+        android:paddingTop="20px"
+        android:textColorHint="@color/grey"
+        android:gravity="top"
+        android:maxLength="30"
+        android:background="@android:color/white"
+        android:textColor="@color/black"/>
+
+        <ImageView
+            android:id="@+id/edit_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_delete"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingTop="20px"
+            android:layout_marginRight="@dimen/text_size_20"
+            android:visibility="gone"/>
+    </RelativeLayout>
+</LinearLayout>

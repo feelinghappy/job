@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:paddingTop="20px">
+
+    <CheckBox
+        android:id="@+id/order_item_select"
+        android:layout_width="26px"
+        android:layout_height="26px"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="@dimen/text_size_30"
+        android:background="@null"
+        android:clickable="false"
+        android:button="@drawable/goods_info_selector" />
+
+    <TextView
+        android:id="@+id/sales_txt_order_info"
+        android:layout_width="528px"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100px"
+        android:text="您的订单已拣货完毕，待出库交至顺丰速运，运单号为：6158922783847"
+        android:textColor="@color/dark_gray"
+        android:textSize="26px" />
+
+    <TextView
+        android:id="@+id/sales_txt_time"
+        android:layout_width="528px"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sales_txt_order_info"
+        android:layout_marginLeft="100px"
+        android:layout_marginTop="18px"
+        android:text="2017-08-14 15:30"
+        android:textColor="@color/dark_gray"
+        android:textSize="26px" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@id/sales_txt_time"
+        android:layout_marginTop="20px"
+        android:background="@color/mine_bg"
+        android:layout_marginLeft="100px" />
+</RelativeLayout>

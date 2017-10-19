@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_bar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:scrollbars="none"
+        android:fillViewport="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="66px"
+                android:background="@color/light_gray5"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/text_size_38"
+                android:text="@string/new_order_khxx"
+                android:textSize="@dimen/text_size_26"
+                android:textColor="@color/light_gray"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="92px"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/text_size_38"
+                    android:text="@string/apply_sale_tv4"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_30" />
+
+                <TextView
+                    android:id="@+id/ship_info_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/text_size_38"
+                    android:text="xxx"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_30" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/fg_line" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="92px"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/text_size_38"
+                    android:text="@string/sales_tel"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_30" />
+
+                <TextView
+                    android:id="@+id/ship_info_tel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/text_size_38"
+                    android:text="131-1231-1231"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_30" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/fg_line" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="66px"
+                android:background="@color/light_gray5"
+                android:gravity="center_vertical"
+                android:text="@string/ship_dingdan"
+                android:paddingLeft="@dimen/text_size_38"
+                android:textSize="@dimen/text_size_26"
+                android:textColor="@color/light_gray"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="186px"
+                android:layout_below="@id/transfer_layout1"
+                android:background="@drawable/btn_sales_bg_selector"
+                android:clickable="true">
+
+                <ImageView
+                    android:id="@+id/ship_info_iv"
+                    android:layout_width="128px"
+                    android:layout_height="128px"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="30px"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/ic_sales_robot" />
+
+                <TextView
+                    android:id="@+id/ship_robot_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="28px"
+                    android:layout_marginTop="20px"
+                    android:layout_toRightOf="@id/ship_info_iv"
+                    android:text="产品名称："
+                    android:textColor="@color/black"
+                    android:textSize="30px" />
+
+                <TextView
+                    android:id="@+id/ship_info_serial"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ship_robot_name"
+                    android:layout_marginLeft="28px"
+                    android:layout_marginTop="34px"
+                    android:layout_toRightOf="@id/ship_info_iv"
+                    android:text="@string/sales_product_model"
+                    android:textColor="@color/black"
+                    android:textSize="26px"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/ship_info_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ship_info_serial"
+                    android:layout_marginLeft="28px"
+                    android:layout_marginTop="16px"
+                    android:layout_toRightOf="@id/ship_info_iv"
+                    android:text="数量：0"
+                    android:textColor="@color/black"
+                    android:textSize="26px" />
+
+                <ImageView
+                    android:layout_width="16px"
+                    android:layout_height="26px"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/text_size_38"
+                    android:src="@mipmap/mine_jiantou_img"
+                    android:visibility="gone" />
+            </RelativeLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="66px"
+                android:background="@color/light_gray5"
+                android:gravity="center_vertical"
+                android:text="@string/new_order_ddxx"
+                android:paddingLeft="@dimen/text_size_38"
+                android:textSize="@dimen/text_size_26"
+                android:textColor="@color/light_gray" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="92px"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/text_size_38"
+                    android:text="@string/sales_dingdan_num"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_30" />
+
+                <TextView
+                    android:id="@+id/ship_info_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/text_size_38"
+                    android:text="xxx"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_30" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/fg_line" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="92px"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/text_size_38"
+                    android:text="@string/ship_xiadan"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_30" />
+
+                <TextView
+                    android:id="@+id/ship_info_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/text_size_38"
+                    android:text="xxx"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_30" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/fg_line" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="92px"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/text_size_38"
+                    android:text="@string/ship_time"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_30" />
+
+                <TextView
+                    android:id="@+id/ship_info_time2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/text_size_38"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_30" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/fg_line" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="92px"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/text_size_38"
+                    android:text="@string/ship_time3"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_30" />
+
+                <TextView
+                    android:id="@+id/ship_info_time3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/text_size_38"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_30" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/fg_line" />
+            </RelativeLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="66px"
+                android:background="@color/light_gray5"
+                android:gravity="center_vertical"
+                android:text="@string/ship_fahuo"
+                android:paddingLeft="@dimen/text_size_38"
+                android:textSize="@dimen/text_size_26"
+                android:textColor="@color/light_gray" />
+            <com.longcai.medical.ui.view.FamilyListView
+                android:id="@+id/ship_info_lv"
+                android:divider="@null"
+                android:scrollbars="none"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </com.longcai.medical.ui.view.FamilyListView>
+            <RelativeLayout
+                android:id="@+id/ship_info_scanner"
+                android:layout_width="match_parent"
+                android:layout_height="92px"
+                android:background="@color/white"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/saomiao" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/text_size_42"
+                    android:text="@string/sales_saomiao2"
+                    android:textColor="@color/black"
+                    android:layout_toRightOf="@+id/iv"
+                    android:textSize="@dimen/text_size_32" />
+
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+    <Button
+        android:id="@+id/ship_info_btn"
+        android:layout_width="match_parent"
+        android:layout_height="98px"
+        android:text="@string/store_chuku"
+        android:textColor="@color/blue1"
+        android:background="@color/white"
+        android:textSize="@dimen/text_size_40"/>
+</LinearLayout>

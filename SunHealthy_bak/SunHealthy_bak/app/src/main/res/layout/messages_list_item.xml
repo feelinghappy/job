@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:background="@color/white"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/messagelist_item_system_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/text_size_30"
+            android:src="@mipmap/icon_system_notice"
+            android:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/messagelist_item_family_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/text_size_30"
+            android:src="@mipmap/icon_invitation"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/messagelist_item_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/text_size_22"
+            android:layout_toRightOf="@id/messagelist_item_system_iv"
+            android:text="这是一条系统通知"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_32" />
+
+        <ImageView
+            android:id="@+id/messagelist_item_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/text_size_20"
+            android:src="@mipmap/mine_jiantou_img" />
+    </RelativeLayout>
+</RelativeLayout>

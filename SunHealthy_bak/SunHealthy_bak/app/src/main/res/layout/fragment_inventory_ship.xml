@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/inventory_item_transfer"
+        android:layout_width="match_parent"
+        android:layout_height="186px"
+        android:layout_marginTop="@dimen/text_size_20"
+        android:background="@color/white"
+        android:visibility="gone">
+        <ImageView
+            android:layout_marginLeft="@dimen/text_size_28"
+            android:layout_marginRight="@dimen/text_size_28"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/shenqingdiaohuo"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/ship_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@null"
+        android:scrollbars="none">
+
+    </com.handmark.pulltorefresh.library.PullToRefreshListView>
+</LinearLayout>

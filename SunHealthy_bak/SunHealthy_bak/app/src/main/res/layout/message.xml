@@ -1,0 +1,38 @@
+<!-- 消息界面  autor ajiang  2017.05.17 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/homepage_gray_color"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_bar"></include>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line_eee"></View>
+    <!-- 列表 -->
+
+    <ListView
+        android:id="@+id/message_list_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"></ListView>
+    <!-- 没有信息 -->
+
+    <RelativeLayout
+        android:id="@+id/message_list_rl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="157dp"
+            android:background="@drawable/message_list_item_none" />
+    </RelativeLayout>
+
+</LinearLayout>

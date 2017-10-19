@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/title_common"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/title_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/text_size_40"
+            android:src="@mipmap/icon_login_delete" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/sale_tv1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title_common"
+        android:gravity="center_horizontal"
+        android:textColor="@color/blue"
+        android:layout_marginTop="110px"
+        android:textSize="64px"
+        android:text="@string/sale_tv1" />
+    <ImageView
+        android:id="@+id/sale_iv1"
+        android:layout_below="@+id/sale_tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/sale_cwxfs"
+        android:layout_marginTop="96px"
+        android:layout_centerHorizontal="true"/>
+    <Button
+        android:id="@+id/sale_btn_join"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/text_size_50"
+        android:layout_marginRight="@dimen/text_size_50"
+        android:layout_height="88px"
+        android:layout_marginTop="87dp"
+        android:text="@string/sale_btn_join"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_32"
+        android:gravity="center"
+        android:background="@drawable/btn_bg_selector"
+        android:layout_below="@+id/sale_iv1"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/sale_btn_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="189px"
+        android:layout_alignParentBottom="true"
+        android:padding="@dimen/text_size_50"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20px"
+        android:text="@string/sale_btn_next"
+        android:textColor="@color/dark_gray3"
+        android:textSize="@dimen/text_size_32"/>
+
+</RelativeLayout>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="profession">
+        <item>无</item>
+        <item>国家公务员</item>
+        <item>专业技术人员</item>
+        <item>职员</item>
+        <item>企业管理人员</item>
+        <item>工人</item>
+        <item>农民</item>
+        <item>学生</item>
+        <item>现役军人</item>
+        <item>自由职业者</item>
+        <item>个体经营者</item>
+        <item>退(离)休人员</item>
+    </string-array>
+
+    <string-array name="medical_type">
+        <item>城镇职工医保</item>
+        <item>新农合医保</item>
+        <item>无</item>
+        <item>其他</item>
+    </string-array>
+
+    <string-array name="sex">
+        <item>男</item>
+        <item>女</item>
+    </string-array>
+
+    <string-array name="advice_type">
+        <item>APP使用</item>
+        <item>账号</item>
+        <item>智能硬件</item>
+        <item>营养师</item>
+    </string-array>
+
+    <string-array name="remind_step">
+        <item>确定</item>
+        <item>取消</item>
+    </string-array>
+
+    <string-array name="trade_way">
+        <item>快递</item>
+        <item>当面交易</item>
+    </string-array>
+
+    <!--假数据-->
+    <string-array name="listpersons">
+        <item> 马云</item>
+        <item> 马化腾</item>
+        <item> 佩兰</item>
+        <item> 奥巴马</item>
+        <item> 普京</item>
+        <item> 金三胖</item>
+        <item> 暗影军团</item>
+        <item> 141特遣队</item>
+        <item> 冲锋号</item>
+        <item> +胜利号</item>
+        <item> 超级赛亚人</item>
+        <item> 金克拉</item>
+        <item> 亚古兽</item>
+        <item> 数码宝贝大冒险</item>
+        <item> 大胜归来</item>
+        <item> 长沙市长</item>
+    </string-array>
+</resources>

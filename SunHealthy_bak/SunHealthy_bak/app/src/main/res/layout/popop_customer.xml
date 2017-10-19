@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="209px"
+    android:background="@drawable/addphotoradius"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="121px"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="88px"
+            android:gravity="center"
+            android:text="您确定要删除吗"
+            android:textColor="#000000" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#d9d9d9"></View>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="88px"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/delete_cancel"
+            android:layout_width="270px"
+            android:layout_height="88px"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="#000000" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="104px"
+            android:background="#d9d9d9"></View>
+
+        <TextView
+            android:id="@+id/delete_ok"
+            android:layout_width="270px"
+            android:layout_height="88px"
+            android:gravity="center"
+            android:text="确定"
+            android:textColor="@color/theme_blue" />
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

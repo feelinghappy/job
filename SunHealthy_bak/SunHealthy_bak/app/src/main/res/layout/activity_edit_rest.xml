@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_edit_rest"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_color"
+    tools:context="com.longcai.medical.ui.activity.EditRestActivity">
+
+    <RelativeLayout
+        android:id="@+id/title_container"
+        android:layout_width="match_parent"
+        android:layout_height="106px"
+        android:background="@color/appColor2"
+        android:tag="(0,106)">
+
+        <RelativeLayout
+            android:id="@+id/bank_btn"
+            android:layout_width="200px"
+            android:layout_height="match_parent"
+            android:tag="(200,0)">
+
+            <ImageView
+                android:layout_width="24px"
+                android:layout_height="48px"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="22px"
+                android:src="@mipmap/fanhui"
+                android:tag="(24,48){22,0,0,0}" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:tag="(37)"
+            android:text="编辑作息"
+            android:textColor="@color/white_color"
+            android:textSize="37px" />
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/time_container"
+        android:layout_width="match_parent"
+        android:layout_height="340px"
+        android:layout_below="@+id/title_container"
+        android:background="@color/white_color"
+        android:tag="(0,340)">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal">
+
+            <com.longcai.medical.ui.view.MyTimePickerView
+                android:id="@+id/time_picker_tx1"
+                android:layout_width="130px"
+                android:layout_height="260px"
+                android:tag="(130,260)" />
+
+            <com.longcai.medical.ui.view.MyTimePickerView
+                android:id="@+id/time_picker_tx2"
+                android:layout_width="130px"
+                android:layout_height="260px"
+                android:layout_marginLeft="30px"
+                android:tag="(130,260){30,0,0,0}" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/position01"
+        android:layout_width="match_parent"
+        android:layout_height="300px"
+        android:layout_below="@+id/time_container"
+        android:layout_marginLeft="124px"
+        android:layout_marginRight="110px"
+        android:background="@color/white_color"
+        android:orientation="vertical"
+        android:tag="(0,300){124,0,110,0}">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:tag="(25)"
+                android:text="作息分类"
+                android:textColor="#282634"
+                android:textSize="25px" />
+
+
+            <RelativeLayout
+                android:id="@+id/fl_tx1"
+                android:layout_width="0dp"
+                android:layout_height="50px"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="33px"
+                android:layout_weight="1"
+                android:background="@drawable/edit_rest_bkg"
+                android:tag="{33,0,0,0}(0,50)">
+
+                <TextView
+                    android:id="@+id/class_tx1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="28px"
+                    android:tag="(25)[28,0,0,0]"
+                    android:text="@string/rest_text1"
+                    android:textColor="#252525"
+                    android:textSize="25px" />
+
+                <ImageView
+                    android:layout_width="19px"
+                    android:layout_height="13px"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15px"
+                    android:src="@mipmap/xxjt_img"
+                    android:tag="(19,13){0,0,15,0}" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:tag="(25)"
+                android:text="添加标签"
+                android:textColor="#282634"
+                android:textSize="25px" />
+
+            <RelativeLayout
+                android:id="@+id/fl_tx2"
+                android:layout_width="0dp"
+                android:layout_height="50px"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="33px"
+                android:layout_weight="1"
+                android:background="@drawable/edit_rest_bkg"
+                android:tag="{33,0,0,0}(0,50)">
+
+                <TextView
+                    android:id="@+id/class_tx2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="28px"
+                    android:tag="(25)[28,0,0,0]"
+                    android:text="哈哈"
+                    android:textColor="#252525"
+                    android:textSize="25px" />
+
+                <ImageView
+                    android:layout_width="19px"
+                    android:layout_height="13px"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15px"
+                    android:src="@mipmap/xxjt_img"
+                    android:tag="(19,13){0,0,15,0}" />
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:tag="(25)"
+                android:text="作息重复"
+                android:textColor="#282634"
+                android:textSize="25px" />
+
+            <RelativeLayout
+                android:id="@+id/fl_tx3"
+                android:layout_width="0dp"
+                android:layout_height="50px"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="33px"
+                android:layout_weight="1"
+                android:background="@drawable/edit_rest_bkg"
+                android:tag="{33,0,0,0}(0,50)">
+
+                <TextView
+                    android:id="@+id/class_tx3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="28px"
+                    android:tag="(25)[28,0,0,0]"
+                    android:text="@string/rest_text2"
+                    android:textColor="#252525"
+                    android:textSize="25px" />
+
+                <ImageView
+                    android:layout_width="19px"
+                    android:layout_height="13px"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15px"
+                    android:src="@mipmap/xxjt_img"
+                    android:tag="(19,13){0,0,15,0}" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:tag="(25)"
+                android:text="提示类型"
+                android:textColor="#282634"
+                android:textSize="25px" />
+
+            <RelativeLayout
+                android:id="@+id/fl_tx4"
+                android:layout_width="0dp"
+                android:layout_height="50px"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="33px"
+                android:layout_weight="1"
+                android:background="@drawable/edit_rest_bkg"
+                android:tag="{33,0,0,0}(0,50)">
+
+                <TextView
+                    android:id="@+id/class_tx4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="28px"
+                    android:tag="(25)[28,0,0,0]"
+                    android:text="@string/rest_text3"
+                    android:textColor="#252525"
+                    android:textSize="25px" />
+
+                <ImageView
+                    android:layout_width="19px"
+                    android:layout_height="13px"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15px"
+                    android:src="@mipmap/xxjt_img"
+                    android:tag="(19,13){0,0,15,0}" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/zuoxiang_xq"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        android:layout_below="@+id/position01"
+        android:layout_marginLeft="124px"
+        android:layout_marginRight="110px"
+        android:orientation="horizontal"
+        android:tag="(0,120){124,0,110,0}">
+
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center_vertical"-->
+        <!--android:TAG="(25)"-->
+        <!--android:text="添加标签"-->
+        <!--android:textColor="#282634"-->
+        <!--android:textSize="25px" />-->
+
+        <!--<RelativeLayout-->
+        <!--android:id="@+id/fl_tx5"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="50px"-->
+        <!--android:layout_gravity="center_vertical"-->
+        <!--android:layout_marginLeft="33px"-->
+        <!--android:layout_weight="1"-->
+        <!--android:background="@drawable/edit_rest_bkg"-->
+        <!--android:TAG="{33,0,0,0}(0,50)">-->
+
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:paddingLeft="28px"-->
+        <!--android:TAG="(25)[28,0,0,0]"-->
+        <!--android:text="哈哈"-->
+        <!--android:textColor="#252525"-->
+        <!--android:textSize="25px" />-->
+
+        <!--<ImageView-->
+        <!--android:layout_width="19px"-->
+        <!--android:layout_height="13px"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:layout_marginRight="15px"-->
+        <!--android:src="@mipmap/xxjt_img"-->
+        <!--android:TAG="(19,13){0,0,15,0}" />-->
+
+        <!--</RelativeLayout>-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:tag="(25)"
+            android:text="作息详情"
+            android:textColor="#282634"
+            android:textSize="25px" />
+
+        <RelativeLayout
+            android:id="@+id/fl_tx5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="33px"
+            android:layout_weight="1"
+            android:background="@drawable/edit_rest_bkg"
+            android:tag="{33,0,0,0}">
+
+            <EditText
+                android:id="@+id/class_tx5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:background="@null"
+                android:gravity="top"
+                android:paddingLeft="6px"
+                android:tag="(25){6,0,0,0}"
+                android:textColor="#252525"
+                android:textSize="25px" />
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60px"
+        android:layout_below="@+id/zuoxiang_xq"
+        android:layout_marginLeft="161px"
+        android:layout_marginRight="169px"
+        android:layout_marginTop="80px"
+        android:tag="(0,60){161,80,169,0}">
+
+        <RelativeLayout
+            android:id="@+id/quxiao_btn"
+            android:layout_width="180px"
+            android:layout_height="match_parent"
+            android:background="@drawable/forget_btn_bkg"
+            android:tag="(180,0)">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:tag="(28)"
+                android:text="取消设置"
+                android:textColor="@color/white_color"
+                android:textSize="28px" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/tijiao_btn"
+            android:layout_width="180px"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/forget_btn_bkg"
+            android:tag="(180,0)">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:tag="(28)"
+                android:text="提交"
+                android:textColor="@color/white_color"
+                android:textSize="28px" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

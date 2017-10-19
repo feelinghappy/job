@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_sport"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.longcai.medical.ui.activity.SportActivity">
+
+    <RelativeLayout
+        android:id="@+id/title_container"
+        android:layout_width="match_parent"
+        android:layout_height="104px"
+        android:background="@color/appColor2"
+        android:tag="(0,104)">
+
+        <RelativeLayout
+            android:id="@+id/bank_img"
+            android:layout_width="200px"
+            android:layout_height="match_parent"
+            android:tag="(200,0)">
+
+            <ImageView
+                android:layout_width="24px"
+                android:layout_height="48px"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20px"
+                android:src="@mipmap/fanhui"
+                android:tag="(24,48)" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:tag="(37)"
+            android:text="我的运动"
+            android:textColor="@color/white_color"
+            android:textSize="37px" />
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/time_select"
+        android:layout_width="match_parent"
+        android:layout_height="118px"
+        android:layout_below="@+id/title_container"
+        android:background="#ebebeb"
+        android:tag="(0,118)">
+
+        <TextView
+            android:id="@+id/time_tx1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20px"
+            android:layout_marginTop="61px"
+            android:tag="(25){20,61,0,0}"
+            android:textColor="#252525"
+            android:textSize="25px" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/time_list"
+            android:layout_width="0dp"
+            android:layout_height="50px"
+            android:layout_marginTop="54px"
+            android:layout_weight="1"
+            android:tag="(0,50){0,54,0,0}"></android.support.v7.widget.RecyclerView>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/sport_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/time_select"
+        android:background="#ebebeb">
+
+    </android.support.v7.widget.RecyclerView>
+</RelativeLayout>

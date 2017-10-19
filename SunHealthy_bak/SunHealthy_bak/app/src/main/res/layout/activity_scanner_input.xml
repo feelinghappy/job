@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/iv_return_capter"
+            android:layout_width="wrap_content"
+            android:layout_height="90px"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="6px"
+            android:src="@drawable/family_title_bar_back" />
+
+        <TextView
+            android:id="@+id/title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="手动输入"
+            android:textColor="@color/black"
+            android:textSize="36px" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/fg_line"/>
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingBottom="@dimen/text_size_60"
+        android:paddingTop="@dimen/text_size_60">
+
+        <com.longcai.medical.ui.view.ClearEditText
+            android:id="@+id/scanner_input_ID"
+            android:layout_width="match_parent"
+            android:layout_height="84px"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="@dimen/text_size_30"
+            android:layout_marginRight="@dimen/text_size_30"
+            android:background="@drawable/scanner_input_gray"
+            android:hint="请输入机器人编码"
+            android:paddingLeft="30px"
+            android:gravity="center_vertical"
+            android:digits="@string/robot_limit"
+            android:textColor="@color/black"
+            android:textColorHint="@color/light_gray7"
+            android:textSize="@dimen/text_size_30" />
+
+        <EditText
+            android:id="@+id/scanner_input_serial"
+            android:layout_width="match_parent"
+            android:layout_height="122px"
+            android:layout_gravity="center"
+            android:layout_marginTop="22px"
+            android:background="@color/white"
+            android:hint="请输入序列号（注意字母大小写）"
+            android:paddingLeft="30px"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="32px"
+            android:visibility="gone" />
+        <!--android:hint="请输入序列号（注意字母大小写）"-->
+
+        <Button
+            android:id="@+id/scanner_input_back"
+            android:layout_width="330px"
+            android:layout_height="84px"
+            android:layout_below="@+id/scanner_input_ID"
+            android:layout_marginLeft="@dimen/text_size_30"
+            android:layout_marginRight="@dimen/text_size_30"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/text_size_38"
+            android:background="@drawable/tijiao_bottom_btn_bkg2"
+            android:text="返回扫码"
+            android:textColor="@color/black"
+            android:textSize="30px" />
+
+        <Button
+            android:id="@+id/scanner_input_bind"
+            android:layout_width="330px"
+            android:layout_height="84px"
+            android:layout_below="@+id/scanner_input_ID"
+            android:layout_marginLeft="@dimen/text_size_30"
+            android:layout_marginRight="@dimen/text_size_30"
+            android:layout_marginTop="@dimen/text_size_38"
+            android:gravity="center"
+            android:layout_toRightOf="@+id/scanner_input_back"
+            android:background="@drawable/tijiao_bottom_btn_bkg"
+            android:text="绑定"
+            android:textColor="@color/white"
+            android:textSize="32px" />
+    </RelativeLayout>
+</com.zhy.autolayout.AutoLinearLayout>

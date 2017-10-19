@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#cc1f2025"
+    >
+
+    <com.wilddog.video.WilddogVideoViewLayout
+        android:id="@+id/calling_local_video_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.wilddog.video.WilddogVideoView
+            android:id="@+id/calling_local_video_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.wilddog.video.WilddogVideoViewLayout>
+
+    <RelativeLayout
+        android:id="@+id/calling_remote_user_layout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/calling_user_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="#f0f0f0"
+            android:src="@mipmap/video_timg"
+            android:scaleType="fitXY"
+
+            />
+        <TextView
+            android:id="@+id/calling_friend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="27sp"
+            android:textColor="#ffffff"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="12dp"
+            android:layout_toRightOf="@id/calling_user_image"
+            android:text="小龙人"
+            />
+
+        <TextView
+            android:layout_below="@id/calling_friend"
+            android:layout_toRightOf="@id/calling_user_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textSize="17sp"
+            android:layout_marginLeft="15dp"
+            android:text="邀请你视频通话..."
+            />
+
+
+    </RelativeLayout>
+
+
+
+
+
+
+
+    <RelativeLayout
+        android:id="@+id/calling_come_layout"
+        android:layout_marginBottom="18dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingLeft="65dp"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+                <ImageButton
+                    android:id="@+id/calling_reject"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:layout_marginBottom="15dp"
+                    android:scaleType="centerInside"
+                    android:src="@mipmap/video_image_call_cancel"
+                    android:background="#00000000"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:text="拒绝"
+                    />
+            </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:paddingRight="65dp"
+            android:gravity="center"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageButton
+                android:id="@+id/calling_accept"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginBottom="15dp"
+                android:scaleType="centerInside"
+                android:src="@mipmap/video_image_call_accept"
+                android:background="#00000000"
+                 />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:textSize="20sp"
+                android:text="接听"
+                />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/calling_outgoing_layout"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="18dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:text="正在等待对方接受..."
+            />
+        <ImageButton
+            android:id="@+id/calling_cancel"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginTop="34dp"
+            android:layout_marginBottom="15dp"
+            android:src="@mipmap/video_image_call_cancel"
+            android:background="#00000000"
+            android:scaleType="centerInside"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:text="取消"
+            />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

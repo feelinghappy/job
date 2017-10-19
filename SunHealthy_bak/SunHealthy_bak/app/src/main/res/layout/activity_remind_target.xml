@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_bar"></include>
+
+    <RelativeLayout
+        android:id="@+id/remind_target_layout1"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_below="@+id/remind_item_layout3"
+        android:layout_marginTop="@dimen/text_size_24"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/remind_target_left"
+            android:layout_width="70px"
+            android:layout_height="70px"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/text_size_50"
+            android:layout_marginRight="@dimen/text_size_30"
+            android:src="@mipmap/icon_remind_jiatingtixing" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/remind_target_left"
+            android:text="@string/remind_target_family"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_32" />
+
+        <CheckBox
+            android:id="@+id/remind_target_select1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:button="@drawable/remind_target_selector"
+            android:paddingRight="@dimen/text_size_30"  />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/fg_line" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/remind_target_layout2"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_below="@+id/remind_item_layout1"
+        android:background="@color/white"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/remind_target_left2"
+            android:layout_width="70px"
+            android:layout_height="70px"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/text_size_50"
+            android:layout_marginRight="@dimen/text_size_30"
+            android:src="@mipmap/icon_remind_tuisong" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/remind_target_left2"
+            android:text="@string/remind_target_robot"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_32" />
+
+        <CheckBox
+            android:id="@+id/remind_target_select2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:button="@drawable/remind_target_selector"
+            android:paddingRight="@dimen/text_size_30" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/fg_line" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/remind_target_layout3"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_below="@+id/remind_item_layout2"
+        android:background="@color/white"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/remind_target_left3"
+            android:layout_width="70px"
+            android:layout_height="70px"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/text_size_50"
+            android:layout_marginRight="@dimen/text_size_30"
+            android:src="@mipmap/icon_remind_tixingziji" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/remind_target_left3"
+            android:text="@string/remind_target_own"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_32" />
+
+        <CheckBox
+            android:id="@+id/remind_target_select3"
+            android:layout_width="26px"
+            android:layout_height="26px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/text_size_30"
+            android:background="@null"
+            android:button="@drawable/remind_target_selector" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/fg_line" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/remind_target_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:divider="@null">
+
+    </ListView>
+</LinearLayout>

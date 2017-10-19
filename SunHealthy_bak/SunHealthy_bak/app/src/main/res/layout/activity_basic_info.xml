@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mine_bg">
+    <include layout="@layout/title_bar" />
+
+    <RelativeLayout
+        android:id="@+id/rl_basicinfo_name"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_marginTop="20px"
+        android:background="@android:color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30px"
+            android:text="@string/basicinfo_name"
+            android:textColor="@color/black"
+            android:textSize="32px" />
+
+        <ImageView
+            android:id="@+id/iv_basicinfo_name"
+            android:layout_width="16px"
+            android:layout_height="26px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/text_size_24"
+            android:src="@mipmap/mine_jiantou_img" />
+
+        <TextView
+            android:id="@+id/tv_basicinfo_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="right"
+            android:layout_marginRight="20px"
+            android:layout_toLeftOf="@id/iv_basicinfo_name"
+            android:background="@null"
+            android:hint="@string/basicinfo_undone"
+            android:textColor="@color/gray"
+            android:textSize="32px" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_basicinfo_sex"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_marginTop="1px"
+        android:background="@android:color/white">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30px"
+            android:layout_centerVertical="true"
+            android:textColor="@color/black"
+            android:textSize="32px"
+            android:text="@string/basicinfo_sex"/>
+
+        <ImageView
+            android:id="@+id/iv_basicinfo_sex"
+            android:layout_width="16px"
+            android:layout_height="26px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/text_size_24"
+            android:src="@mipmap/mine_jiantou_img" />
+
+        <TextView
+            android:id="@+id/tv_basicinfo_sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20px"
+            android:layout_toLeftOf="@id/iv_basicinfo_sex"
+            android:layout_centerVertical="true"
+            android:textColor="@color/gray"
+            android:textSize="32px"
+            android:text="@string/basicinfo_undone"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rl_basicinfo_age"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_marginTop="1px"
+        android:background="@android:color/white">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30px"
+            android:layout_centerVertical="true"
+            android:textColor="@color/black"
+            android:textSize="32px"
+            android:text="@string/basicinfo_age"/>
+
+        <ImageView
+            android:id="@+id/iv_basicinfo_age"
+            android:layout_width="16px"
+            android:layout_height="26px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/text_size_24"
+            android:src="@mipmap/mine_jiantou_img" />
+
+        <TextView
+            android:id="@+id/tv_basicinfo_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20px"
+            android:layout_toLeftOf="@id/iv_basicinfo_age"
+            android:layout_centerVertical="true"
+            android:textColor="@color/gray"
+            android:textSize="32px"
+            android:text="@string/basicinfo_undone"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_basicinfo_height"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_marginTop="1px"
+        android:background="@android:color/white">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30px"
+            android:layout_centerVertical="true"
+            android:textColor="@color/black"
+            android:textSize="32px"
+            android:text="@string/basicinfo_height"/>
+
+        <ImageView
+            android:id="@+id/iv_basicinfo_height"
+            android:layout_width="16px"
+            android:layout_height="26px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/text_size_24"
+            android:src="@mipmap/mine_jiantou_img" />
+
+        <TextView
+            android:id="@+id/tv_basicinfo_height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20px"
+            android:layout_toLeftOf="@id/iv_basicinfo_height"
+            android:layout_centerVertical="true"
+            android:textColor="@color/gray"
+            android:textSize="32px"
+            android:text="@string/basicinfo_undone"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_basicinfo_weight"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_marginTop="1px"
+        android:background="@android:color/white">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30px"
+            android:layout_centerVertical="true"
+            android:textColor="@color/black"
+            android:textSize="32px"
+            android:text="@string/basicinfo_weight"/>
+
+        <ImageView
+            android:id="@+id/iv_basicinfo_weight"
+            android:layout_width="16px"
+            android:layout_height="26px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/text_size_24"
+            android:src="@mipmap/mine_jiantou_img" />
+
+        <TextView
+            android:id="@+id/tv_basicinfo_weight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20px"
+            android:layout_toLeftOf="@id/iv_basicinfo_weight"
+            android:layout_centerVertical="true"
+            android:textColor="@color/gray"
+            android:textSize="32px"
+            android:text="@string/basicinfo_undone"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_basicinfo_profession"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_marginTop="1px"
+        android:background="@android:color/white">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30px"
+            android:layout_centerVertical="true"
+            android:textColor="@color/black"
+            android:textSize="32px"
+            android:text="@string/basicinfo_profession"/>
+
+        <ImageView
+            android:id="@+id/iv_basicinfo_profession"
+            android:layout_width="16px"
+            android:layout_height="26px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/text_size_24"
+            android:src="@mipmap/mine_jiantou_img" />
+
+        <TextView
+            android:id="@+id/tv_basicinfo_profession"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20px"
+            android:layout_toLeftOf="@id/iv_basicinfo_profession"
+            android:layout_centerVertical="true"
+            android:textColor="@color/gray"
+            android:textSize="32px"
+            android:text="@string/basicinfo_undone"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_basicinfo_medical"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_marginTop="1px"
+        android:background="@android:color/white">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30px"
+            android:layout_centerVertical="true"
+            android:textColor="@color/black"
+            android:textSize="32px"
+            android:text="@string/basicinfo_medical_type"/>
+
+        <ImageView
+            android:id="@+id/iv_basicinfo_medical"
+            android:layout_width="16px"
+            android:layout_height="26px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/text_size_24"
+            android:src="@mipmap/mine_jiantou_img" />
+
+        <TextView
+            android:id="@+id/tv_basicinfo_medical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20px"
+            android:layout_toLeftOf="@id/iv_basicinfo_medical"
+            android:layout_centerVertical="true"
+            android:textColor="@color/gray"
+            android:textSize="32px"
+            android:text="@string/basicinfo_undone"/>
+    </RelativeLayout>
+</LinearLayout>

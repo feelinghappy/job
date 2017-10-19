@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_er_qi_opinion"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.longcai.medical.ui.activity.ErQiOpinionActivity">
+
+    <RelativeLayout
+        android:id="@+id/title_position"
+        android:layout_width="match_parent"
+        android:layout_height="106px"
+        android:background="@color/appColor2">
+
+        <RelativeLayout
+            android:id="@+id/opinion_back_btn"
+            android:layout_width="200px"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="24px"
+                android:layout_height="42px"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="35px"
+                android:src="@mipmap/fanhui" />
+        </RelativeLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="意见反馈"
+            android:textColor="@color/white_color"
+            android:textSize="37px" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/homepage_gray_color" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/title_position">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="28px"
+            android:layout_marginRight="28px"
+            android:layout_marginTop="30px"
+            android:background="@drawable/apply_sales_bkg2">
+
+            <EditText
+                android:id="@+id/erqi_opinion_et"
+                android:layout_width="match_parent"
+                android:layout_height="300px"
+                android:background="@null"
+                android:gravity="start"
+                android:hint="输入您要反馈的内容..."
+                android:padding="20px"
+                android:textColor="@color/text_back"
+                android:textColorHint="@color/center_text_back"
+                android:textSize="30px" />
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/tijiao_btn"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_marginLeft="56px"
+        android:layout_marginRight="56px"
+        android:layout_marginTop="510px"
+        android:background="@drawable/apply_sales_bkg1"
+        android:tag="(0,88){56,500,56,0}">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:tag="(33)"
+            android:text="提交"
+            android:textColor="@color/white"
+            android:textSize="33px" />
+    </RelativeLayout>
+
+</RelativeLayout>

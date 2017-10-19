@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mine_bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_bar" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="118px">
+
+                <RelativeLayout
+                    android:id="@+id/sales_relative_wait"
+                    android:layout_width="match_parent"
+                    android:layout_height="160px"
+                    android:background="@mipmap/ic_confirm_wait_bg">
+
+                    <TextView
+                        android:id="@+id/sales_txt_wait"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="98px"
+                        android:layout_marginTop="45px"
+                        android:text="等待买家付款"
+                        android:textColor="@android:color/white"
+                        android:textSize="30px" />
+
+                    <TextView
+                        android:id="@+id/sales_txt_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/sales_txt_wait"
+                        android:layout_marginLeft="98px"
+                        android:layout_marginTop="20px"
+                        android:text=""
+                        android:textColor="@android:color/white"
+                        android:textSize="24px" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/sales_relative_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sales_relative_wait"
+                    android:background="@drawable/btn_sales_bg_selector">
+
+                    <ImageView
+                        android:id="@+id/sales_complete_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginBottom="20px"
+                        android:layout_marginTop="20px"
+                        android:src="@mipmap/ic_complete_receive_address_bg"
+                        android:visibility="visible" />
+
+                    <RelativeLayout
+                        android:id="@+id/sales_relative_show_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingBottom="22px"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:id="@+id/sales_img_address"
+                            android:layout_width="24px"
+                            android:layout_height="36px"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="36px"
+                            android:layout_marginRight="34px"
+                            android:src="@mipmap/ic_confirm_locale" />
+
+                        <TextView
+                            android:id="@+id/sales_txt_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20px"
+                            android:layout_toRightOf="@id/sales_img_address"
+                            android:text="张三丰"
+                            android:textColor="@color/black"
+                            android:textSize="26px" />
+
+                        <TextView
+                            android:id="@+id/sales_txt_tel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="22px"
+                            android:layout_marginTop="20px"
+                            android:layout_toRightOf="@id/sales_txt_name"
+                            android:text="17635140987"
+                            android:textColor="@color/black"
+                            android:textSize="26px" />
+
+                        <TextView
+                            android:id="@+id/sales_txt_address"
+                            android:layout_width="528px"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/sales_txt_tel"
+                            android:layout_marginTop="20px"
+                            android:layout_toRightOf="@id/sales_img_address"
+                            android:text="北京市朝阳区北苑路5号黄金苑小区1号楼5单元601室"
+                            android:textColor="@color/black"
+                            android:textSize="26px" />
+
+                        <ImageView
+                            android:layout_width="16px"
+                            android:layout_height="26px"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/text_size_38"
+                            android:src="@mipmap/mine_jiantou_img" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/sales_linear_idcard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sales_relative_address"
+                    android:layout_marginTop="20px"
+                    android:background="@drawable/btn_sales_bg_selector"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingRight="@dimen/text_size_20"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginBottom="20px"
+                            android:layout_marginLeft="38px"
+                            android:layout_marginTop="20px"
+                            android:text="@string/sales_idcard_receiver"
+                            android:textColor="@color/black"
+                            android:textSize="32px" />
+
+                        <com.longcai.medical.ui.view.ClearEditText
+                            android:id="@+id/sales_et_idcard"
+                            android:layout_width="0px"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="@dimen/text_size_10"
+                            android:layout_marginLeft="38px"
+                            android:layout_weight="1"
+                            android:background="@android:color/white"
+                            android:hint="@string/sales_idcard_hint"
+                            android:maxLength="21"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/light_gray"
+                            android:textSize="30px" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/light_gray5"
+                        android:visibility="visible" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20px"
+                        android:background="@drawable/btn_sales_bg_selector"
+                        android:paddingBottom="30px"
+                        android:paddingLeft="38px"
+                        android:text="@string/sales_idcard_explain2"
+                        android:visibility="visible" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/sales_relative_robot"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sales_linear_idcard"
+                    android:layout_marginTop="20px"
+                    android:background="#fafafa"
+                    android:clickable="true"
+                    android:paddingBottom="20px">
+
+                    <ImageView
+                        android:id="@+id/sales_img_robot"
+                        android:layout_width="128px"
+                        android:layout_height="128px"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="38px"
+                        android:scaleType="fitCenter"
+                        android:src="@mipmap/test_zhanweitu" />
+
+                    <TextView
+                        android:id="@+id/sales_txt_robotname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="38px"
+                        android:layout_marginTop="18px"
+                        android:layout_toRightOf="@id/sales_img_robot"
+                        android:text="@string/app_name"
+                        android:textColor="@color/black"
+                        android:textSize="32px" />
+
+                    <TextView
+                        android:id="@+id/sales_txt_serial"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/sales_txt_robotname"
+                        android:layout_marginLeft="38px"
+                        android:layout_marginTop="10px"
+                        android:layout_toRightOf="@id/sales_img_robot"
+                        android:text="@string/sales_product_serial"
+                        android:textColor="@color/black"
+                        android:textSize="26px"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/sales_txt_company"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/sales_txt_serial"
+                        android:layout_marginLeft="38px"
+                        android:layout_marginTop="10px"
+                        android:layout_toRightOf="@id/sales_img_robot"
+                        android:text="出货公司："
+                        android:textColor="@color/black"
+                        android:textSize="26px" />
+                    <TextView
+                        android:id="@+id/sales_txt_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/sales_txt_company"
+                        android:layout_marginLeft="38px"
+                        android:layout_marginTop="10px"
+                        android:layout_toRightOf="@id/sales_img_robot"
+                        android:text="产品数量："
+                        android:textColor="@color/black"
+                        android:textSize="26px" />
+                    <TextView
+                        android:id="@+id/sales_txt_money"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/sales_txt_num"
+                        android:layout_marginLeft="38px"
+                        android:layout_marginTop="10px"
+                        android:layout_toRightOf="@id/sales_img_robot"
+                        android:text="押金："
+                        android:textColor="@color/black"
+                        android:textSize="26px" />
+
+                    <ImageView
+                        android:layout_width="16px"
+                        android:layout_height="26px"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/text_size_20"
+                        android:layout_marginTop="20px"
+                        android:src="@mipmap/ic_confirm_help"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/sales_relative_way"
+                    android:layout_width="match_parent"
+                    android:layout_height="88px"
+                    android:layout_below="@id/sales_relative_robot"
+                    android:background="@android:color/white">
+
+                    <TextView
+                        android:id="@+id/sales_txt_payway"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="30px"
+                        android:text="支付方式："
+                        android:textColor="@color/black"
+                        android:textSize="26px" />
+
+                    <TextView
+                        android:id="@+id/sales_txt_tradeway"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="30px"
+                        android:text="交易方式："
+                        android:textColor="@color/black"
+                        android:textSize="26px" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/sales_relative_adviser"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sales_relative_way"
+                    android:layout_marginTop="20px"
+                    android:paddingBottom="@dimen/text_size_20"
+                    android:background="@android:color/white">
+
+                    <TextView
+                        android:id="@+id/sales_txt_order_serial2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40px"
+                        android:layout_marginTop="15px"
+                        android:text="订单编号："
+                        android:textColor="#989898"
+                        android:textSize="24px" />
+
+                    <TextView
+                        android:id="@+id/sales_txt_order_serial"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15px"
+                        android:layout_toRightOf="@id/sales_txt_order_serial2"
+                        android:textColor="#989898"
+                        android:textIsSelectable="true"
+                        android:textSize="24px" />
+
+                    <TextView
+                        android:id="@+id/sales_txt_order_adviser"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/sales_txt_order_serial"
+                        android:layout_marginLeft="40px"
+                        android:layout_marginTop="5px"
+                        android:text="健康顾问："
+                        android:textColor="#989898"
+                        android:textSize="24px" />
+
+                    <TextView
+                        android:visibility="gone"
+                        android:id="@+id/sales_txt_order_adviser_tel2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/sales_txt_order_adviser"
+                        android:layout_marginLeft="40px"
+                        android:layout_marginTop="5px"
+                        android:text=""
+                        android:textColor="#989898"
+                        android:textSize="24px" />
+
+
+                    <TextView
+                        android:id="@+id/sales_txt_order_adviser_tel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40px"
+                        android:layout_below="@id/sales_txt_order_adviser"
+                        android:layout_marginTop="5px"
+                        android:textColor="#989898"
+                        android:textSize="24px"
+                        android:text=""/>
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/sales_txt_servicetel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/sales_relative_adviser"
+                    android:layout_marginRight="18px"
+                    android:layout_marginTop="30px"
+                    android:text="400-100-2918"
+                    android:textColor="#21a9fb"
+                    android:textSize="24px" />
+
+                <TextView
+                    android:id="@+id/sales_txt_tel_service"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sales_relative_adviser"
+                    android:layout_marginTop="30px"
+                    android:layout_toLeftOf="@id/sales_txt_servicetel"
+                    android:text="有问题请联系客服："
+                    android:textColor="#989898"
+                    android:textSize="24px" />
+            </RelativeLayout>
+        </ScrollView>
+
+        <RelativeLayout
+            android:id="@+id/pay_layout"
+            android:layout_width="match_parent"
+            android:layout_height="98px"
+            android:layout_alignParentBottom="true"
+            android:background="@android:color/white">
+
+            <TextView
+                android:id="@+id/sales_txt_sum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="38px"
+                android:text="实付押金"
+                android:textColor="@color/black"
+                android:textSize="26px" />
+
+            <TextView
+                android:id="@+id/sales_txt_sum_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20px"
+                android:layout_toRightOf="@id/sales_txt_sum"
+                android:text="￥"
+                android:textColor="#32a1fd"
+                android:textSize="39px" />
+
+            <Button
+                android:id="@+id/sales_btn_submit"
+                android:layout_width="270px"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/btn_pay_bg_selector"
+                android:gravity="center"
+                android:text="去付款"
+                android:textColor="@android:color/white"
+                android:textSize="37px" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <include layout="@layout/title_bar"/>
+    <ListView
+        android:id="@+id/address_lv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:divider="@null"
+        android:scrollbars="none"
+        android:layout_marginTop="@dimen/text_size_20"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/text_size_20">
+        <!-- android:background="@color/white"-->
+        <Button
+            android:id="@+id/address_add_btn"
+            android:layout_width="700px"
+            android:layout_height="88px"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/text_size_30"
+            android:background="@drawable/apply_sales_bkg1"
+            android:text="@string/add_address"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_36" />
+    </RelativeLayout>
+
+</LinearLayout>

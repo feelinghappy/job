@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="540px"
+        android:layout_height="209px"
+        android:background="@drawable/addphotoradius"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="122px"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/pop_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="88px"
+                android:gravity="center"
+                android:text="是否确定录入全部产品？"
+                android:textColor="#000000" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#d9d9d9"></View>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="88px"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/pop_cancel"
+                android:layout_width="0px"
+                android:layout_height="88px"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="取消"
+                android:textColor="#000000" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="104px"
+                android:background="#d9d9d9"></View>
+
+            <TextView
+                android:id="@+id/pop_ok"
+                android:layout_width="0px"
+                android:layout_height="88px"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="确定"
+                android:textColor="#26AFDC" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

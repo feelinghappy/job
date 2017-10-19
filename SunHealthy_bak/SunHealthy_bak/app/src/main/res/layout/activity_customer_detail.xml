@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mine_bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_bar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="1334px"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1334px"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20px"
+                android:background="@android:color/white"
+                android:paddingBottom="52px">
+
+                <TextView
+                    android:id="@+id/customer_txt_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="38px"
+                    android:layout_marginTop="52px"
+                    android:text="姓名："
+                    android:textColor="@color/dark_gray"
+                    android:textSize="34px" />
+
+                <TextView
+                    android:id="@+id/customer_txt_realname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="52px"
+                    android:layout_toRightOf="@id/customer_txt_name"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="34px" />
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/customer_txt_sex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="210px"
+                    android:layout_marginTop="52px"
+                    android:layout_toRightOf="@id/customer_txt_realname"
+                    android:text="性别："
+                    android:textColor="@color/dark_gray"
+                    android:textSize="34px" />
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/customer_txt_gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="52px"
+                    android:layout_toRightOf="@id/customer_txt_sex"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="34px" />
+
+                <TextView
+                    android:id="@+id/customer_txt_contact"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/customer_txt_name"
+                    android:layout_marginLeft="38px"
+                    android:layout_marginTop="50px"
+                    android:text="联系方式："
+                    android:textColor="@color/dark_gray"
+                    android:textSize="34px" />
+
+                <TextView
+                    android:id="@+id/customer_txt_tel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/customer_txt_name"
+                    android:layout_marginTop="50px"
+                    android:layout_toRightOf="@id/customer_txt_contact"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="34px" />
+
+                <TextView
+                    android:id="@+id/customer_txt_money"
+                    android:visibility="visible"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/customer_txt_contact"
+                    android:layout_marginLeft="38px"
+                    android:layout_marginTop="50px"
+                    android:text="已消费金额:"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="34px" />
+
+                <TextView
+                    android:id="@+id/customer_txt_product"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/customer_txt_contact"
+                    android:layout_marginLeft="38px"
+                    android:layout_marginTop="50px"
+                    android:text="购买意向："
+                    android:textSize="@dimen/text_size_34"
+                    android:textColor="@color/dark_gray"/>
+
+                <TextView
+                    android:id="@+id/customer_txt_remark"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/customer_txt_product"
+                    android:layout_marginLeft="38px"
+                    android:layout_marginTop="50px"
+                    android:text="备注："
+                    android:textColor="@color/dark_gray"
+                    android:textSize="34px" />
+
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/customer_txt_addr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/customer_txt_money"
+                    android:layout_marginLeft="38px"
+                    android:layout_marginTop="50px"
+                    android:text="地址："
+                    android:textColor="@color/dark_gray"
+                    android:textSize="34px" />
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/customer_txt_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/customer_txt_money"
+                    android:layout_marginTop="50px"
+                    android:layout_toRightOf="@id/customer_txt_addr"
+                    android:textColor="@color/black"
+                    android:textSize="34px" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/customer_layout1"
+                android:layout_width="match_parent"
+                android:layout_height="92px"
+                android:layout_marginTop="20px"
+                android:background="@android:color/white"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:visibility="gone"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textSize="34px"
+                    android:textColor="@color/dark_gray"
+                    android:gravity="center"
+                    android:text="健康报告"/>
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="#e6e6e6" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textSize="34px"
+                    android:textColor="@color/dark_gray"
+                    android:gravity="center"
+                    android:text="产品推荐"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/customer_layout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/img_robot_bg_shape"
+                android:layout_marginTop="20px"
+                android:layout_marginLeft="20px"
+                android:layout_marginRight="20px"
+                android:paddingBottom="40px"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="300px"
+                    android:layout_marginTop="30px"
+                    android:src="@mipmap/ic_customerdetail_placehold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30px"
+                    android:layout_marginLeft="38px"
+                    android:text="一代机器人"
+                    android:textSize="34px"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20px"
+                    android:layout_marginLeft="38px"
+                    android:text="@string/sales_product_serial"
+                    android:textSize="34px"
+                    android:textColor="@color/dark_gray"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mine_bg">
+    <include
+        android:id="@+id/title_bar"
+        layout="@layout/title_bar" />
+
+    <TextView
+        android:id="@+id/tv_advice_title"
+        android:layout_width="match_parent"
+        android:layout_height="128px"
+        android:layout_below="@id/title_bar"
+        android:layout_marginLeft="24px"
+        android:layout_marginRight="24px"
+        android:layout_marginTop="24px"
+        android:paddingLeft="30px"
+        android:textSize="32px"
+        android:gravity="center_vertical"
+        android:textColor="@color/grey_advice"
+        android:background="@android:color/white"
+        android:text="@string/advice_title" />
+
+    <RelativeLayout
+        android:id="@+id/rl_advice_type"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_below="@id/tv_advice_title"
+        android:layout_marginLeft="24px"
+        android:layout_marginRight="24px"
+        android:layout_marginTop="1px"
+        android:background="@android:color/white">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30px"
+            android:layout_centerVertical="true"
+            android:textColor="@color/grey_advice"
+            android:textSize="30px"
+            android:text="@string/advice_type"/>
+
+        <ImageView
+            android:id="@+id/iv_advice_type"
+            android:layout_width="16px"
+            android:layout_height="26px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/text_size_24"
+            android:src="@mipmap/mine_jiantou_img" />
+
+        <TextView
+            android:id="@+id/tv_advice_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_marginRight="20px"
+            android:layout_toLeftOf="@id/iv_advice_type"
+            android:layout_centerVertical="true"
+            android:textColorHint="@color/grey"
+            android:textColor="@color/black"
+            android:textSize="24px"
+            android:hint="@string/advice_type_select"/>
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/et_advice_content"
+        android:layout_width="match_parent"
+        android:layout_height="400px"
+        android:layout_below="@id/rl_advice_type"
+        android:layout_marginTop="20px"
+        android:layout_marginLeft="24px"
+        android:layout_marginRight="24px"
+        android:gravity="left"
+        android:paddingLeft="30px"
+        android:paddingTop="20px"
+        android:background="@android:color/white"
+        android:hint="@string/advice_content_hint"
+        android:maxLength="100"
+        android:textSize="24px"
+        android:textColor="@color/grey_advice"/>
+
+    <EditText
+        android:id="@+id/et_advice_contact"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_below="@id/et_advice_content"
+        android:layout_marginTop="20px"
+        android:layout_marginLeft="24px"
+        android:layout_marginRight="24px"
+        android:gravity="center"
+        android:background="@android:color/white"
+        android:hint="@string/advice_contact_hint"
+        android:textSize="24px"
+        android:textColor="@color/grey_advice"/>
+    <TextView
+        android:id="@+id/tv_submit"
+        android:layout_width="match_parent"
+        android:layout_height="99px"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:background="#21a9fb"
+        android:textColor="@color/white"
+        android:textSize="36px"
+        android:text="@string/advice_submit"/>
+</RelativeLayout>

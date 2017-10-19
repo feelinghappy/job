@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mine_bg">
+
+    <RelativeLayout
+        android:layout_marginTop="@dimen/text_size_20"
+        android:id="@+id/product_relative_orderno"
+        android:layout_width="match_parent"
+        android:layout_height="58px"
+        android:background="@android:color/white">
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="5px"
+            android:layout_height="30px"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="36px"
+            android:layout_marginRight="20px"
+            android:layout_marginTop="20px"
+            android:background="#21a9fb" />
+
+        <TextView
+            android:id="@+id/allorder_txt_serial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/line"
+            android:text="@string/sales_myorder_serial"
+            android:textColor="#555555"
+            android:textSize="26px" />
+
+        <TextView
+            android:id="@+id/allorder_txt_paystate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="36px"
+            android:text="待返利"
+            android:textColor="#21a9fb"
+            android:textSize="28px" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/fg_line" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/product_relative_orderno"
+        android:background="@android:color/white"
+        android:paddingBottom="30px">
+
+        <TextView
+            android:id="@+id/allorder_txt_robotname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="36px"
+            android:layout_marginTop="20px"
+            android:text="@string/app_name"
+            android:textColor="@color/black"
+            android:textSize="32px" />
+
+        <TextView
+            android:id="@+id/allorder_txt_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/allorder_txt_robotname"
+            android:layout_marginLeft="36px"
+            android:layout_marginTop="20px"
+            android:text="￥3999元"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+
+        <TextView
+            android:id="@+id/allorder_txt_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/allorder_txt_money"
+            android:layout_marginLeft="36px"
+            android:layout_marginTop="20px"
+            android:text="2017-1-1"
+            android:textColor="@color/dark_gray"
+            android:textSize="26px" />
+
+    </RelativeLayout>
+</RelativeLayout>

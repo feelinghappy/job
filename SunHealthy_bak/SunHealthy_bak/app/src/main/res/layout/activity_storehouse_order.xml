@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/order_chuku_layout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/text_size_20"
+        android:gravity="center_horizontal">
+
+        <RelativeLayout
+            android:layout_width="600px"
+            android:layout_height="58px"
+            android:background="@drawable/apply_sales_bkg2">
+
+            <EditText
+                android:id="@+id/order_head_ed"
+                android:layout_width="600px"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:gravity="center_horizontal|center_vertical"
+                android:hint="@string/order_head_search"
+                android:textColorHint="@color/light_gray"
+                android:textSize="@dimen/text_size_26" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:paddingLeft="@dimen/text_size_20"
+                android:src="@mipmap/sousuo" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/order_head_search"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/text_size_40"
+            android:paddingRight="@dimen/text_size_20"
+            android:text="@string/family_search" />
+    </LinearLayout>
+
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/store_order_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/order_chuku_layout1"
+        android:layout_marginTop="@dimen/text_size_20"
+        android:background="@color/white"
+        android:divider="@null"
+        android:scrollbars="none" />
+
+
+</RelativeLayout>

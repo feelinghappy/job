@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="88px">
+
+        <ImageView
+            android:id="@+id/login_back"
+            android:layout_width="42px"
+            android:layout_height="42px"
+            android:layout_marginLeft="35px"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/icon_login_delete" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64px"
+        android:layout_gravity="center_horizontal"
+        android:text="手机号绑定"
+        android:textSize="36px"
+        android:textColor="@color/black"/>
+
+
+    <RelativeLayout
+        android:id="@+id/layout_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="114px"
+        android:layout_marginLeft="103px"
+        android:layout_marginRight="103px"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+        <!--<ImageView-->
+            <!--android:id="@+id/img_phone"-->
+            <!--android:layout_width="23px"-->
+            <!--android:layout_height="32px"-->
+            <!--android:layout_marginLeft="5px"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:layout_marginBottom="10px"-->
+            <!--android:src="@mipmap/icon_phone"/>-->
+
+        <!--<View-->
+            <!--android:id="@+id/view_phone"-->
+            <!--android:layout_width="1px"-->
+            <!--android:layout_height="30px"-->
+            <!--android:layout_marginBottom="10px"-->
+            <!--android:layout_marginLeft="43px"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:background="@color/black" />-->
+
+        <com.longcai.medical.ui.view.ClearEditText
+            android:id="@+id/ed_bind_phone"
+            android:layout_width="match_parent"
+            android:layout_height="88px"
+            android:drawableLeft="@mipmap/icon_phone"
+            android:drawablePadding="46px"
+            android:paddingLeft="28px"
+            android:background="@null"
+            android:maxLength="13"
+            android:hint="手机号"
+            android:textColor="@color/black"
+            android:textColorHint="@color/light_gray"
+            android:textSize="@dimen/text_size_30"
+            android:inputType="phone"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="103px"
+        android:layout_marginRight="103px"
+        android:background="@color/theme_blue"
+        android:layout_gravity="center" />
+
+    <LinearLayout
+        android:id="@+id/layout_pin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line1"
+        android:layout_marginLeft="103px"
+        android:layout_marginRight="103px"
+        android:orientation="horizontal">
+        <!--<ImageView-->
+            <!--android:id="@+id/img_pin"-->
+            <!--android:layout_width="33px"-->
+            <!--android:layout_height="33px"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:src="@mipmap/icon_code"/>-->
+
+        <!--<View-->
+            <!--android:id="@+id/view_pin"-->
+            <!--android:layout_width="1px"-->
+            <!--android:layout_height="30px"-->
+            <!--android:layout_marginBottom="5px"-->
+            <!--android:layout_marginLeft="43px"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:background="@color/black" />-->
+
+        <com.longcai.medical.ui.view.ClearEditText
+            android:id="@+id/ed_bind_pin"
+            android:layout_width="0px"
+            android:layout_height="88px"
+            android:layout_weight="1"
+            android:drawablePadding="46px"
+            android:paddingLeft="28px"
+            android:drawableLeft="@mipmap/icon_code"
+            android:background="@null"
+            android:hint="验证码"
+            android:maxLength="6"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textColorHint="@color/light_gray"
+            android:textSize="@dimen/text_size_30" />
+
+        <TextView
+            android:id="@+id/tv_bind_send"
+            android:layout_width="wrap_content"
+            android:layout_height="50px"
+            android:paddingTop="10px"
+            android:paddingBottom="10px"
+            android:paddingLeft="15px"
+            android:paddingRight="15px"
+            android:gravity="center"
+            android:enabled="false"
+            android:layout_centerVertical="true"
+            android:background="@drawable/btn_confirm_pay_bg_selector"
+            android:text="@string/pin2"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_size_28"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="103px"
+        android:layout_marginRight="103px"
+        android:layout_marginTop="10px"
+        android:layout_below="@+id/layout_pin"
+        android:layout_gravity="center"
+        android:background="@color/theme_blue" />
+
+    <Button
+        android:id="@+id/btn_bind"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_marginLeft="103px"
+        android:layout_marginRight="103px"
+        android:layout_below="@+id/line2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="93px"
+        android:enabled="false"
+        android:background="@drawable/btn_bg_selector"
+        android:text="@string/login"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_38" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_login"
+        android:layout_marginTop="30px"
+        android:layout_marginLeft="103px"
+        android:text="@string/hint"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_24" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout_tv1"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hint2"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_24"
+            android:layout_marginLeft="103px"
+            android:layout_marginTop="@dimen/text_size_10"/>
+
+        <TextView
+            android:id="@+id/login_agreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hint3"
+            android:textColor="@color/theme_blue"
+            android:textSize="@dimen/text_size_24"
+            android:layout_marginTop="@dimen/text_size_10"/>
+    </LinearLayout>
+
+</LinearLayout>

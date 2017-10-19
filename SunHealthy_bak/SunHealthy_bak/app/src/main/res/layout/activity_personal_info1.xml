@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/title_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/text_size_40"
+            android:src="@mipmap/title_back" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="110px"
+        android:text="应该怎样称呼您？"
+        android:textColor="@color/blue"
+        android:textSize="64px" />
+
+    <ImageView
+        android:id="@+id/img_avatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="60px"
+        android:src="@mipmap/icon_login_avatar" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16px"
+        android:text="修改头像"
+        android:textColor="@color/light_gray8"
+        android:textSize="24px" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50px"
+        android:layout_marginRight="50px"
+        android:layout_marginTop="48px"
+        android:orientation="horizontal">
+
+        <!--<ImageView-->
+            <!--android:id="@+id/img_name"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="28px"-->
+            <!--android:paddingBottom="35px"-->
+            <!--android:src="@mipmap/zhenshixingming" />-->
+
+        <!--<View-->
+            <!--android:id="@+id/view_phone"-->
+            <!--android:layout_width="1px"-->
+            <!--android:layout_height="30px"-->
+            <!--android:layout_marginBottom="10px"-->
+            <!--android:layout_marginLeft="66px"-->
+            <!--android:background="@color/black"-->
+            <!--android:visibility="gone" />-->
+
+        <com.longcai.medical.ui.view.ClearEditText
+            android:id="@+id/cet_nickname"
+            android:layout_width="match_parent"
+            android:layout_height="88px"
+            android:drawablePadding="46px"
+            android:paddingLeft="28px"
+            android:drawableLeft="@mipmap/zhenshixingming"
+            android:background="@null"
+            android:hint="昵称"
+            android:maxLength="16"
+            android:textColor="@color/black"
+            android:textColorHint="@color/light_gray"
+            android:textSize="28px" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:layout_centerVertical="true"
+            android:textColor="@color/black"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_gravity="center"
+        android:layout_marginLeft="50px"
+        android:layout_marginRight="50px"
+        android:background="@color/personback" />
+
+    <RelativeLayout
+        android:id="@+id/linear_code"
+        android:layout_width="match_parent"
+        android:layout_height="106px"
+        android:layout_marginLeft="50px"
+        android:layout_marginRight="50px"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+
+        <!--<ImageView-->
+            <!--android:id="@+id/img_code"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:layout_gravity="bottom"-->
+            <!--android:paddingBottom="35px"-->
+            <!--android:layout_marginLeft="28px"-->
+            <!--android:src="@mipmap/yanzhengma" />-->
+
+        <!--<View-->
+            <!--android:visibility="gone"-->
+            <!--android:id="@+id/view_code"-->
+            <!--android:layout_width="1px"-->
+            <!--android:layout_height="30px"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:layout_marginBottom="10px"-->
+            <!--android:layout_marginLeft="66px"-->
+            <!--android:background="@color/black" />-->
+
+        <com.longcai.medical.ui.view.ClearEditText
+            android:id="@+id/cet_code"
+            android:layout_width="match_parent"
+            android:drawableLeft="@mipmap/yanzhengma"
+            android:layout_height="match_parent"
+            android:drawablePadding="46px"
+            android:paddingLeft="28px"
+            android:background="@null"
+            android:digits="@string/robot_limit"
+            android:hint="邀请码(选填)"
+            android:maxLength="8"
+            android:textColor="@color/black"
+            android:textColorHint="@color/light_gray"
+            android:textSize="28px" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_gravity="center"
+        android:layout_marginLeft="50px"
+        android:layout_marginRight="50px"
+        android:background="@color/personback" />
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_marginLeft="50px"
+        android:layout_marginRight="50px"
+        android:layout_marginTop="80px"
+        android:gravity="center"
+        android:enabled="false"
+        android:background="@drawable/btn_bg_selector"
+        android:text="下一步"
+        android:textColor="@android:color/white"
+        android:textSize="38px" />
+</LinearLayout>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/zm_tx"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:padding="@dimen/text_size_16"
+        android:text="A"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/text_size_20" />
+
+    <RelativeLayout
+        android:id="@+id/contact_item_view2"
+        android:layout_width="match_parent"
+        android:layout_height="148px"
+        android:background="@color/white"
+        android:visibility="visible">
+
+        <View
+            android:id="@+id/view_lv_item_line"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginLeft="16px"
+            android:background="@color/fg_line" />
+
+        <ImageView
+            android:id="@+id/customer_btn_head"
+            android:layout_width="84px"
+            android:layout_height="84px"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16px"
+            android:src="@mipmap/head"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/name_tx"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30px"
+            android:layout_toRightOf="@+id/customer_btn_head"
+            android:gravity="center_vertical"
+            android:text="12312321"
+            android:textColor="@color/black"
+            android:textSize="34px" />
+
+        <ImageView
+            android:id="@+id/customer_btn_recommend"
+            android:layout_width="100px"
+            android:layout_height="40px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="38px"
+            android:src="@mipmap/qianzaikehu"
+            android:visibility="gone" />
+    </RelativeLayout>
+</LinearLayout>
+    <!--<ImageView
+                android:id="@+id/customer_img_head"
+                android:layout_width="84px"
+                android:layout_height="84px"
+                android:layout_marginLeft="30px"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/head"/>
+
+            <TextView
+                android:id="@+id/customer_txt_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30px"
+                android:layout_toRightOf="@id/customer_img_head"
+                android:textSize="30px"
+                android:textColor="@color/black"
+                android:text="张先生"/>
+
+            <Button
+                android:id="@+id/customer_btn_report"
+                android:layout_width="100px"
+                android:layout_height="40px"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="38px"
+                android:background="@drawable/btn_report_bg_selector"
+                android:textColor="#21a9fb"
+                android:textSize="20px"
+                android:text="健康报告"/>
+
+            <Button
+                android:id="@+id/customer_btn_recommend"
+                android:layout_width="100px"
+                android:layout_height="40px"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="16px"
+                android:layout_toLeftOf="@id/customer_btn_report"
+                android:background="@drawable/btn_recommend_bg_selector"
+                android:textColor="@android:color/white"
+                android:textSize="20px"
+                android:text="产品推荐"/>-->

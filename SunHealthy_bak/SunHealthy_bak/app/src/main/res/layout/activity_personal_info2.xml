@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/title_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/text_size_40"
+            android:src="@mipmap/title_back"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="110px"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/blue"
+        android:textSize="64px"
+        android:text="填写个人信息"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30px"
+        android:layout_gravity="center_horizontal"
+        android:textSize="24px"
+        android:textColor="@color/black"
+        android:text="为保障测量结果准确，请认真填写个人信息哦！"/>
+
+    <LinearLayout
+        android:id="@+id/linear_height"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_marginTop="72px"
+        android:layout_marginLeft="50px"
+        android:layout_marginRight="50px"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:paddingBottom="35px"
+            android:layout_marginLeft="28px"
+            android:src="@mipmap/icon_height"/>
+
+        <View
+            android:visibility="gone"
+            android:layout_width="1px"
+            android:layout_height="30px"
+            android:layout_marginBottom="10px"
+            android:gravity="bottom"
+            android:background="@color/black" />
+
+        <TextView
+            android:id="@+id/txt_height"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="46px"
+            android:paddingBottom="35px"
+            android:textSize="@dimen/text_size_28"
+            android:gravity="bottom"
+            android:textColor="@color/black"
+            android:textColorHint="@color/light_gray"
+            android:hint="身高"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="*"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="50px"
+        android:layout_marginRight="50px"
+        android:layout_gravity="center"
+        android:background="@color/personback" />
+
+    <LinearLayout
+        android:id="@+id/linear_weight"
+        android:layout_width="match_parent"
+        android:layout_height="106px"
+        android:layout_marginLeft="50px"
+        android:layout_marginRight="50px"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:paddingBottom="35px"
+            android:layout_marginRight="46px"
+            android:layout_marginLeft="@dimen/text_size_28"
+            android:src="@mipmap/icon_weight"/>
+
+        <View
+            android:visibility="gone"
+            android:layout_width="1px"
+            android:layout_height="30px"
+            android:gravity="bottom"
+            android:layout_marginBottom="10px"
+            android:background="@color/black" />
+
+        <TextView
+            android:id="@+id/txt_weight"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:paddingBottom="35px"
+            android:paddingTop="35px"
+            android:textSize="@dimen/text_size_28"
+            android:textColor="@color/black"
+            android:textColorHint="@color/light_gray"
+            android:hint="体重"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="*"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="50px"
+        android:layout_marginRight="50px"
+        android:layout_gravity="center"
+        android:background="@color/personback" />
+
+    <LinearLayout
+        android:id="@+id/linear_birthday"
+        android:layout_width="match_parent"
+        android:layout_height="106px"
+        android:layout_marginLeft="50px"
+        android:layout_marginRight="50px"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="@dimen/text_size_28"
+            android:paddingBottom="35px"
+            android:paddingTop="35px"
+            android:layout_marginRight="46px"
+            android:src="@mipmap/icon_birthday"/>
+
+        <View
+            android:visibility="gone"
+            android:layout_width="1px"
+            android:layout_height="30px"
+            android:layout_marginBottom="10px"
+            android:background="@color/black" />
+
+        <TextView
+            android:id="@+id/txt_birthday"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:paddingBottom="35px"
+            android:paddingTop="35px"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_28"
+            android:textColorHint="@color/light_gray"
+            android:hint="出生年月"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="*"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="50px"
+        android:layout_marginRight="50px"
+        android:layout_gravity="center"
+        android:background="@color/personback" />
+
+    <Button
+        android:id="@+id/btn_check"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_marginLeft="50px"
+        android:layout_marginRight="50px"
+        android:layout_marginTop="80px"
+        android:gravity="center"
+        android:enabled="false"
+        android:background="@drawable/btn_bg_selector"
+        android:textSize="38px"
+        android:textColor="@android:color/white"
+        android:text="提交审核"/>
+</LinearLayout>

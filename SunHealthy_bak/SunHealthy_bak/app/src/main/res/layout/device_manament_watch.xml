@@ -1,0 +1,43 @@
+<!-- 设备管理  手表  界面  autor ajiang 2017.05.18 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/robot_myWatch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="22dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="22dp"
+        android:text="我的穿戴设备"
+        android:textColor="#333333"
+        android:textSize="16sp" />
+    <!-- 列表 -->
+
+    <ListView
+        android:id="@+id/watch_managment_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"></ListView>
+    <!-- 没有信息 -->
+
+    <RelativeLayout
+        android:id="@+id/watch_managment_rl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/device_whatch_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="107dp"
+            android:background="@mipmap/quickly_binding" />
+    </RelativeLayout>
+
+</LinearLayout>

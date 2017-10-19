@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mine_bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_bar" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20px"
+        android:paddingBottom="20px"
+        android:background="@drawable/btn_sales_bg_selector"
+        android:clickable="true">
+
+        <!--<ImageView-->
+            <!--android:id="@+id/sales_img_robot"-->
+            <!--android:layout_width="128px"-->
+            <!--android:layout_height="128px"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginLeft="38px"-->
+            <!--android:scaleType="fitXY"-->
+            <!--android:src="@mipmap/ic_sales_robot"-->
+            <!--android:visibility="gone"/>-->
+
+        <TextView
+            android:id="@+id/sales_txt_company"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="38px"
+            android:layout_marginTop="20px"
+            android:text="物流公司："
+            android:textColor="@color/black"
+            android:textSize="32px" />
+
+        <TextView
+            android:id="@+id/sales_txt_order_serial2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sales_txt_company"
+            android:layout_marginLeft="38px"
+            android:layout_marginTop="10px"
+            android:text="@string/sales_detail_order_serial2"
+            android:textColor="@color/black"
+            android:textSize="32px" />
+
+        <TextView
+            android:id="@+id/sales_txt_order_serial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sales_txt_company"
+            android:layout_marginTop="10px"
+            android:layout_toRightOf="@id/sales_txt_order_serial2"
+            android:textColor="@color/black"
+            android:textIsSelectable="true"
+            android:textSize="32px" />
+
+        <TextView
+            android:id="@+id/sales_txt_transport_person2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sales_txt_order_serial"
+            android:layout_marginLeft="38px"
+            android:layout_marginTop="10px"
+            android:layout_toRightOf="@id/sales_img_robot"
+            android:text="@string/sales_transport_person"
+            android:textColor="@color/black"
+            android:textSize="32px"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/sales_txt_transport_person"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sales_txt_order_serial"
+            android:layout_marginTop="10px"
+            android:layout_toRightOf="@id/sales_txt_transport_person2"
+            android:textColor="@color/black"
+            android:textSize="32px"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20px"
+        android:divider="@null"/>
+</LinearLayout>

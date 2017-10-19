@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="106px"
+            android:background="@color/appColor2"
+            android:tag="(0,106)">
+
+            <RelativeLayout
+                android:id="@+id/back_btn"
+                android:layout_width="100px"
+                android:layout_height="match_parent"
+                android:tag="(100,0)">
+
+                <ImageView
+                    android:id="@+id/back"
+                    android:layout_width="24px"
+                    android:layout_height="48px"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20px"
+                    android:src="@mipmap/fanhui"
+                    android:tag="(24,48){20,0,0,0}" />
+
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:tag="(36)"
+                android:text="@string/title_rest"
+                android:textColor="@color/white"
+                android:textSize="36px" />
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/title"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:id="@+id/rest_layout_morning"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/title"
+                    android:layout_marginLeft="20px"
+                    android:layout_marginRight="20px"
+                    android:orientation="vertical"
+                    android:tag="{20,0,20,0}">
+
+                    <TextView
+                        android:id="@+id/rest_text"
+                        android:layout_width="151px"
+                        android:layout_height="52px"
+                        android:gravity="center_vertical"
+                        android:tag="(151,52,26)"
+                        android:text="早上"
+                        android:textColor="@color/appColor"
+                        android:textSize="26px"
+                        android:visibility="gone" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2px"
+                        android:background="@color/person_view_line"
+                        android:tag="(0,2)"
+                        android:visibility="gone">
+
+                    </View>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/morning_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="50px"
+                        android:tag="{0,50,0,0}">
+
+                    </android.support.v7.widget.RecyclerView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/add_rest_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="260px"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:tag="(0,260)">
+
+                    <ImageView
+                        android:layout_width="109px"
+                        android:layout_height="109px"
+                        android:src="@mipmap/add_rest" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20px"
+                        android:tag="(20){0,20,0,0}"
+                        android:text="新建作息时间"
+                        android:textColor="@color/center_text_back"
+                        android:textSize="20px" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_bar"></include>
+
+        <com.longcai.medical.ui.view.ClearEditText
+            android:id="@+id/person_edit_name"
+            android:layout_width="match_parent"
+            android:layout_height="88px"
+            android:background="@drawable/apply_sales_bkg2"
+            android:hint="@string/name2"
+            android:gravity="left|center_vertical"
+            android:maxLength="16"
+            android:paddingLeft="20px"
+            android:layout_marginTop="@dimen/text_size_20"
+            android:layout_marginLeft="@dimen/text_size_30"
+            android:layout_marginRight="@dimen/text_size_30"
+            android:lines="1"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_32" />
+
+</LinearLayout>

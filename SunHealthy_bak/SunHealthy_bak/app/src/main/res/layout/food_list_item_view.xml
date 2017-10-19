@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_size_20">
+
+        <ImageView
+            android:id="@+id/food_list_item_view_img"
+            android:layout_width="240px"
+            android:layout_height="240px"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="13px"
+            android:scaleType="fitXY"/>
+
+        <TextView
+            android:id="@+id/food_list_item_view_tx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="90px"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textColor="@color/black"
+            android:textSize="32px" />
+    </RelativeLayout>
+
+
+</LinearLayout>

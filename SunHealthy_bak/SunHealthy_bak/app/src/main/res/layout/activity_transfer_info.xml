@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/title_bar"/>
+    <RelativeLayout
+        android:id="@+id/layout1"
+        android:layout_below="@+id/title_common"
+        android:layout_width="match_parent"
+        android:layout_height="88px">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/order_status"
+            android:textSize="@dimen/text_size_32"
+            android:textColor="@color/black"
+            android:layout_marginLeft="@dimen/text_size_38"
+            android:layout_centerVertical="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="待支付"
+            android:textSize="@dimen/text_size_32"
+            android:textColor="@color/orange"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/text_size_38"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_below="@+id/layout1"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/text_size_30">
+        <RelativeLayout
+            android:id="@+id/layout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white">
+
+            <TextView
+                android:id="@+id/transfer_tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="38px"
+                android:layout_marginTop="20px"
+                android:text="订单编号："
+                android:textColor="@color/dark_gray"
+                android:textSize="28px" />
+
+            <TextView
+                android:id="@+id/transfer_info_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="76px"
+                android:layout_toRightOf="@+id/transfer_tv1"
+                android:layout_marginTop="20px"
+                android:textColor="@color/black"
+                android:textSize="28px" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/layout3"
+            android:layout_below="@+id/layout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/text_size_28"
+            android:background="@android:color/white">
+
+            <TextView
+                android:id="@+id/transfer_tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="38px"
+                android:text="产品名称："
+                android:textColor="@color/dark_gray"
+                android:textSize="28px" />
+
+            <TextView
+                android:id="@+id/transfer_info_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="76px"
+                android:layout_toRightOf="@+id/transfer_tv2"
+                android:textColor="@color/black"
+                android:textSize="28px" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/layout4"
+            android:layout_below="@+id/layout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/text_size_28"
+            android:background="@android:color/white">
+
+            <TextView
+                android:id="@+id/transfer_tv3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="38px"
+                android:text="产品名称："
+                android:textColor="@color/dark_gray"
+                android:textSize="28px" />
+
+            <TextView
+                android:id="@+id/transfer_info_model"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="76px"
+                android:layout_toRightOf="@+id/transfer_tv3"
+                android:textColor="@color/black"
+                android:textSize="28px" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/layout5"
+            android:layout_below="@+id/layout4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/text_size_28"
+            android:background="@android:color/white">
+
+            <TextView
+                android:id="@+id/transfer_tv4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="38px"
+                android:text="调货数量："
+                android:textColor="@color/dark_gray"
+                android:textSize="28px" />
+
+            <TextView
+                android:id="@+id/transfer_info_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="76px"
+                android:layout_toRightOf="@+id/transfer_tv4"
+                android:textColor="@color/black"
+                android:textSize="28px" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/layout6"
+            android:layout_below="@+id/layout5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/text_size_28"
+            android:background="@android:color/white">
+
+            <TextView
+                android:id="@+id/transfer_tv5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="38px"
+                android:text="金额总计："
+                android:textColor="@color/dark_gray"
+                android:textSize="28px" />
+
+            <TextView
+                android:id="@+id/transfer_info_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="76px"
+                android:layout_toRightOf="@+id/transfer_tv5"
+                android:textColor="@color/black"
+                android:textSize="28px" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/layout7"
+            android:layout_below="@+id/layout6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/text_size_28"
+            android:background="@android:color/white">
+
+            <TextView
+                android:id="@+id/transfer_tv6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="38px"
+                android:text="下单时间："
+                android:textColor="@color/dark_gray"
+                android:textSize="28px" />
+
+            <TextView
+                android:id="@+id/transfer_info_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="76px"
+                android:layout_toRightOf="@+id/transfer_tv6"
+                android:textColor="@color/black"
+                android:textSize="28px" />
+        </RelativeLayout>
+        <!--代付款状态 付款倒计时70小时后关闭入口 已关闭-->
+        <RelativeLayout
+            android:id="@+id/layout8"
+            android:layout_below="@+id/layout7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/text_size_28"
+            android:background="@android:color/white">
+
+            <TextView
+                android:id="@+id/transfer_tv7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="38px"
+                android:text="审核通过："
+                android:textColor="@color/dark_gray"
+                android:textSize="28px" />
+
+            <TextView
+                android:id="@+id/transfer_info_time2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="76px"
+                android:layout_toRightOf="@+id/transfer_tv7"
+                android:textColor="@color/black"
+                android:textSize="28px" />
+        </RelativeLayout>
+        <!--待发货状态   -->
+        <RelativeLayout
+            android:id="@+id/layout9"
+            android:layout_below="@+id/layout8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/text_size_28"
+            android:background="@android:color/white">
+
+            <TextView
+                android:id="@+id/transfer_tv8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="38px"
+                android:text="买家付款："
+                android:textColor="@color/dark_gray"
+                android:textSize="28px" />
+
+            <TextView
+                android:id="@+id/transfer_info_paytime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="76px"
+                android:layout_toRightOf="@+id/transfer_tv8"
+                android:textColor="@color/black"
+                android:textSize="28px" />
+        </RelativeLayout>
+        <!--待收货状态   -->
+        <RelativeLayout
+            android:id="@+id/layout10"
+            android:layout_below="@+id/layout9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/text_size_28"
+            android:background="@android:color/white">
+
+            <TextView
+                android:id="@+id/transfer_tv9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="38px"
+                android:text="货运公司："
+                android:textColor="@color/dark_gray"
+                android:textSize="28px" />
+
+            <TextView
+                android:id="@+id/transfer_info_company"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="76px"
+                android:layout_toRightOf="@+id/transfer_tv9"
+                android:textColor="@color/black"
+                android:textSize="28px" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/layout11"
+            android:layout_below="@+id/layout10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/text_size_28"
+            android:background="@android:color/white">
+
+            <TextView
+                android:id="@+id/transfer_tv10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="38px"
+                android:text="货运单号："
+                android:textColor="@color/dark_gray"
+                android:textSize="28px" />
+
+            <TextView
+                android:id="@+id/transfer_info_track"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="76px"
+                android:layout_toRightOf="@+id/transfer_tv10"
+                android:textColor="@color/black"
+                android:textSize="28px" />
+        </RelativeLayout>
+        <!--已入库-->
+        <RelativeLayout
+            android:id="@+id/layout12"
+            android:layout_below="@+id/layout11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/text_size_28"
+            android:background="@android:color/white">
+
+            <TextView
+                android:id="@+id/transfer_tv11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="38px"
+                android:text="入库时间："
+                android:textColor="@color/dark_gray"
+                android:textSize="28px" />
+
+            <TextView
+                android:id="@+id/transfer_info_entry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="76px"
+                android:layout_toRightOf="@+id/transfer_tv11"
+                android:textColor="@color/black"
+                android:textSize="28px" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/layout13"
+            android:layout_below="@+id/layout12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/text_size_28"
+            android:background="@android:color/white">
+
+            <TextView
+                android:id="@+id/transfer_tv12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="38px"
+                android:text="入库数量："
+                android:textColor="@color/dark_gray"
+                android:textSize="28px" />
+
+            <TextView
+                android:id="@+id/transfer_info_num2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="76px"
+                android:layout_toRightOf="@+id/transfer_tv12"
+                android:textColor="@color/black"
+                android:textSize="28px" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/transfer_info_commit"
+        android:layout_width="match_parent"
+        android:layout_height="98px"
+        android:background="@color/white"
+        android:layout_alignParentBottom="true"
+        android:text="@string/pay"
+        android:textSize="@dimen/text_size_40"
+        android:textColor="@color/blue1"/>
+</RelativeLayout>

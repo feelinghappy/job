@@ -1,0 +1,545 @@
+<resources>
+    <string name="app_name">太阳健康</string>
+
+    <string name="code">+86</string>
+    <string name="phone_number">请输入正确的手机号</string>
+    <string name="pin1">请输入验证码</string>
+    <string name="pin2">获取验证码</string>
+    <string name="login">登录</string>
+    <string name="hint">温馨提示：未注册账号的手机号，登录时自动注册，</string>
+    <string name="hint2">并代表您已经同意</string>
+    <string name="hint3">《用户服务协议》</string>
+    <string name="other">第三方登录</string>
+    <string name="nickcheng">昵称</string>
+    <string name="name">请输入你的昵称</string>
+    <string name="age1">请输入你的年龄</string>
+    <string name="xuantian">选填</string>
+    <string name="height1">请输入你的身高</string>
+    <string name="weight1">请输入你的体重</string>
+    <string name="place">居住地</string>
+    <string name="place1">请选择你的居住地</string>
+    <string name="success_tv">愿今后在赚钱这条路上</string>
+    <string name="success_tv2">我们与您携手前行！</string>
+    <string name="apply">申请销售人员</string>
+    <string name="login2">直接登录</string>
+    <string name="success_tv3">申请成功</string>
+    <string name="apply_suc_tv1">您的资料已经提交成功，工作人员会在</string>
+    <string name="apply_suc_tv2">10个工作日内与您联系</string>
+    <string name="go_main">前往首页</string>
+    <string name="intent">5s后自动跳转</string>
+    <string name="apply_suc_tv3">您也可以拨打上海常仁客服电话</string>
+    <string name="apply_suc_tv4">400-100-2918</string>
+    <string name="apply_suc_tv5">咨询详情</string>
+    <string name="bind">绑定</string>
+    <string name="apply_sale_tv1">工作性质</string>
+    <string name="apply_sale_tv2">同意</string>
+    <string name="apply_sale_fuli">《销售人员待遇及福利》</string>
+    <string name="apply_sale_tv3">请完善个人信息</string>
+    <string name="apply_sale_tv4">姓名</string>
+    <string name="apply_sale_tv5">请输入你的真实姓名</string>
+    <string name="apply_sale_tv6">身份证号</string>
+    <string name="apply_sale_tv7">请输入你的身份证号</string>
+    <string name="apply_sale_tv8">提醒：身份验证后不可更改，请谨慎操作</string>
+    <string name="apply_sale_tv9">一寸照</string>
+    <string name="apply_sale_tv10">身份证正面</string>
+    <string name="apply_sale_tv11">身份证反面</string>
+    <string name="apply_sale_tv12">所属公司</string>
+    <string name="apply_sale_tv13">请选择所属公司</string>
+    <!--ajiang Start-->
+    <!--二维码 start-->
+    <!--二维码 end-->
+    <!--ajiang end-->
+    <string name="person_setting_title">个人中心</string>
+    <!--<string name="login">很抱歉，您还没有登录(注册)成功\n请登录(注册)后完成体质测试</string>-->
+    <!--上拉加载下拉刷新-->
+    <string name="list_footer_loading">正在加载中…</string>
+    <string name="list_footer_network_error">点击重新加载</string>
+    <string name="list_footer_end">已经到底了</string>
+
+    <string name="center">活动中心</string>
+    <string name="mycenter">我的活动</string>
+    <string name="center_text4">在山西体育馆我们将举行老年活动在山西体育馆我们将举行老年活动在山西体育馆我们将举行老
+        年活动在山西体育馆我们将举行老年活动在山西体育馆我们将举行老年活动在山西体育馆我们将举行老年活动在山西体育馆我们将举
+        行老年活动在山西体育馆我们将举行老年活动在山西体育馆我们将举行老年活动在山西体育馆我们将举行老年活动在山西体育馆我们将举行老年</string>
+    <string name="center_details">活动详情</string>
+    <string name="center_details_sign">恭喜你报名成功，请在我的活动中
+        查看报名详情</string>
+
+    <string name="problem">常见问题</string>
+
+    <string name="contact">联系我们</string>
+    <string name="contact_text1">上海市常仁信息科技有限公司</string>
+    <string name="contact_text3">电话：0351-80808085</string>
+    <string name="contact_text4">网址：WWW.BAIDU.COM</string>
+    <string name="contact_text5">地址：山西太原南内环长风街口</string>
+
+    <string name="setting">更多设置</string>
+    <string name="setting_text1">意见反馈</string>
+    <string name="setting_text2">清除缓存</string>
+    <string name="setting_clean">清除完成</string>
+    <string name="setting_text3">版本更新</string>
+    <string name="setting_text4">退出登录</string>
+
+    <!--资讯-->
+    <string name="information_text1">深秋吃什么滋阴润肺</string>
+    <string name="information_text2">2016-10-21</string>
+
+    <!--家人-->
+    <string name="family">家人</string>
+    <!--添加家人-->
+    <string name="family_add_text1">姓名</string>
+
+    <string name="title_rest">我的作息</string>
+    <!---->
+    <string name="rest_text1">请选择作息分类</string>
+    <string name="rest_text2">请选择作息重复</string>
+    <string name="rest_text3">请选择提示类型</string>
+    <!---->
+    <string name="person_text1">请填写昵称</string>
+    <string name="person_text2">请填写性别</string>
+    <string name="person_text3">请填写年龄</string>
+    <string name="person_text4">请填写居住地</string>
+    <string name="person_text5">请填写个性签名</string>
+    <string name="person_text6">年龄超过限制，请重新输入</string>
+
+
+    <string name="jsonfail">网络错误</string>
+
+    <string name="sport_success">恭喜您，已完成目标</string>
+    <string name="sport_fail">未完成目标</string>
+
+    <string name="setting_hint">输入您要反馈的内容...</string>
+
+    <string name="add_alarm">"添加玲闹钟"</string>
+    <string name="desk_clock_button_description">"时钟显示"</string>
+    <string name="default_label">"闹钟"</string>
+    <string name="menu_desk_clock">"座钟"</string>
+    <string name="menu_edit_alarm">"修改闹钟设置"</string>
+    <string name="enable_alarm">"启用闹钟"</string>
+    <string name="delete_alarm">"取消闹钟"</string>
+    <string name="disable_alarm">"停用闹钟"</string>
+    <string name="delete_alarm_confirm">"将会取消此闹钟。"</string>
+    <string name="alarm_repeat">"重复"</string>
+    <string name="alarm_vibrate">"振动"</string>
+    <string name="alert">"铃声"</string>
+    <string name="time">"时间"</string>
+    <string name="set_alarm">"设置闹钟"</string>
+
+    <string name="done">"完成"</string>
+    <string name="revert">"取消设置"</string>
+    <string name="delete">"删除闹钟"</string>
+    <string name="alarm_alert_dismiss_text">"取消"</string>
+    <string name="alarm_volume_title">"闹钟音量"</string>
+    <string name="alarm_volume_summary">"设置闹钟音量"</string>
+    <string name="silent_alarm_summary">"静音"</string>
+    <string name="alarm_notify_text">"选择暂停或关闭此闹钟。"</string>
+    <string name="alarm_alert_snooze_text">"暂停再响"</string>
+
+
+    <string name="day">"1 天"</string>
+    <string name="hour">"1 小时"</string>
+    <string name="minute">"1 分钟"</string>
+    <string name="every_day">"每天"</string>
+    <string name="never">"永不"</string>
+    <string name="day_concat">", "</string>
+    <string name="settings">"设置"</string>
+    <string name="alarm_in_silent_mode_title">"静音模式下闹钟响"</string>
+    <string name="alarm_in_silent_mode_summary">"手机处于静音模式时，闹钟仍会响"</string>
+    <string name="snooze_duration_title">"再响间隔"</string>
+    <string-array name="snooze_duration_entries">
+        <item msgid="8337408933053603125">"5 分钟"</item>
+        <item msgid="5294206441496024610">"10 分钟"</item>
+        <item msgid="2165904039211935470">"15 分钟"</item>
+        <item msgid="7248236967714374250">"20 分钟"</item>
+        <item msgid="738394723625179423">"25 分钟"</item>
+        <item msgid="1180222611308391616">"30 分钟"</item>
+    </string-array>
+    <string-array name="snooze_duration_values">
+        <item msgid="3655014754453084122">"5"</item>
+        <item msgid="8939029597449573449">"10"</item>
+        <item msgid="3922647341176353315">"15"</item>
+        <item msgid="5821804105985044459">"20"</item>
+        <item msgid="6048861883552402852">"25"</item>
+        <item msgid="2740866721232379791">"30"</item>
+    </string-array>
+    <string name="alarm_klaxon_service_desc">"在 DeskClock 中设置的闹钟铃声播放服务。"</string>
+
+    <string name="main_btn01">首页</string>
+    <string name="main_btn02">资讯</string>
+    <string name="main_btn03">家庭</string>
+    <string name="main_btn04">我的</string>
+
+    <string name="robot">机器人</string>
+    <string name="workandrest">计作息</string>
+    <string name="chair">听讲座</string>
+    <string name="diet">饮食</string>
+    <string name="motion">运动</string>
+    <string name="lecture">讲座</string>
+    <string name="today_sport">今日运动</string>
+    <string name="look_over">查看您的体质</string>
+    <string name="er_sport_tx">每日运动-健康的必修课</string>
+
+    <string name="second_title_tx2">食材</string>
+    <string name="second_title_tx3">食谱</string>
+
+    <string name="kefu_tx">我的客服</string>
+    <string name="kefu_tx2">我们将会全心全意为您提供满意周到的咨询服务，也希望您能支持和监督我们的服务！</string>
+    <string name="kefu_tx3">拨打客服电话</string>
+
+    <string name="chat_name">张三丰</string>
+    <string name="chat_title">内部沟通</string>
+    <string name="chat_btn1_tx">最近联系</string>
+    <string name="chat_btn2_tx">通讯录</string>
+    <string name="unable_connect">当前网络不可用,请检查网络设置</string>
+    <string name="Cant_chat_with_yourself">cannot chat with yourself</string>
+    <string name="at_your_in_group">%s @ you in group chat</string>
+    <string name="emojicon_test_name">Test</string>
+
+    <string name="team_title1">已完成</string>
+    <string name="team_title2">待审核</string>
+    <string name="team_tx1">共完成</string>
+    <string name="team_tx11">笔订单</string>
+    <string name="team_tx111">待审核</string>
+    <string name="team_tx2">合计</string>
+    <string name="team_tx22">元</string>
+    <string name="team_tx3">订单编号:65487538552</string>
+    <string name="team_tx4">已完成</string>
+    <string name="team_tx5">一代机器人</string>
+    <string name="team_tx6">¥3999元</string>
+    <string name="team_tx7">2017年4月12日</string>
+    <string name="team_tx8">销售员:</string>
+    <string name="team_tx9">张三</string>
+
+    <string name="shipment_title_tx">出货</string>
+    <string name="shipment_bottom_tx">立即发货</string>
+    <string name="shipment_order_tx">订单信息</string>
+    <string name="shipment_order_bh">订单编号</string>
+    <string name="shipment_order_sm">扫描编号</string>
+    <string name="shipment_info_kd">快递信息</string>
+    <string name="shipment_info_ps">配送方式</string>
+    <string name="shipment_info_dh">快递单号</string>
+
+    <string name="shipment_hint_tx2">请输入配送方式</string>
+
+    <string name="new_order_title">新订单</string>
+    <string name="new_order_tj">提交订单</string>
+    <string name="new_order_hj">合计:</string>
+    <string name="new_order_jyfs">交易方式</string>
+    <string name="new_order_ddxx">订单信息</string>
+    <string name="new_order_cpxh">产品型号</string>
+    <string name="new_order_khxx">客户信息</string>
+    <string name="new_order_name">姓名</string>
+    <string name="new_order_sex">性别</string>
+    <string name="new_order_phone">电话</string>
+    <string name="new_order_address1">选择地区</string>
+    <string name="new_order_address">收货地址</string>
+    <string name="new_order_smbh">扫描编号</string>
+
+
+    <string name="new_setting_tx1">个人资料</string>
+    <string name="new_setting_tx2">版本更新</string>
+    <string name="new_setting_tx3">关于我们</string>
+    <string name="new_setting_tx4">意见反馈</string>
+    <string name="new_setting_tx5">清理缓存</string>
+    <string name="new_setting_tx6">退出登录</string>
+
+    <string name="edit_person_title">个人资料</string>
+    <string name="edit_person_name">昵称</string>
+    <string name="edit_person_sex">性别</string>
+    <string name="edit_person_age">年龄</string>
+    <string name="edit_person_address">居住地</string>
+
+    <string name="order_info_title">订单详情</string>
+    <string name="order_info_tx1">订单编号:</string>
+    <string name="order_info_tx2">交易方式:</string>
+    <string name="order_info_tx3">下单时间:</string>
+    <string name="order_info_tx4">订单金额:</string>
+    <string name="order_info_tx5">已完成</string>
+    <string name="order_info_tx6">订单信息</string>
+    <string name="order_info_tx7">产品型号</string>
+    <string name="order_info_tx8">产品编号</string>
+    <string name="order_info_tx9">客户姓名</string>
+    <string name="order_info_tx10">性别</string>
+    <string name="order_info_tx11">联系方式</string>
+    <string name="order_info_tx12">地址</string>
+    <string name="order_info_tx13">配送信息</string>
+    <string name="order_info_tx14">发货员</string>
+    <string name="order_info_tx15">配送方式</string>
+    <string name="order_info_tx16">物流单号</string>
+
+    <string name="me_sport_tx">运动目标-x步</string>
+
+    <string name="mine_collect_title">我的收藏</string>
+    <!--ajiang  start-->
+
+    <string-array name="tab_names">
+        <item>机器人管理</item>
+        <item>穿戴设备管理</item>
+    </string-array>
+
+    <string-array name="tab_remind_names">
+        <item>吃药提醒</item>
+        <item>事项提醒</item>
+    </string-array>
+
+    <!-- 对话框start -->
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
+    <!-- 对话框endss -->
+    <!--ajiang  end-->
+    <!--familyYang start-->
+    <string name="sex">性别:</string>
+    <string name="height">身高:</string>
+    <string name="age">年龄:</string>
+    <string name="weight">体重:</string>
+    <string name="step">今日步数</string>
+    <string name="heart">心率</string>
+    <string name="blood">血压</string>
+    <string name="sleep">睡眠</string>
+    <string name="heart_pic">心电图</string>
+    <string name="login3">查看该信息需要登录</string>
+    <item name="tag_first_vp" type="id"></item>
+
+    <!--familyYang end-->
+    <string name="encode_qrcode">生成二维码</string>
+    <string name="dencode_qrcode">扫描二维码</string>
+    <string name="code_text">请输入生成二维码的文本信息</string>
+    <string name="qrcodetext">这里显示扫描结果</string>
+    <string name="phone">手机号</string>
+    <string name="tizhi">体质</string>
+    <string name="tizhi1">请测试体质</string>
+    <string name="shebei">设备</string>
+    <string name="shebei1">扫一扫绑定穿戴设备</string>
+    <string name="mine_health">健康档案</string>
+    <string name="mine_device">我的设备</string>
+    <string name="mine_call">联系客服</string>
+    <string name="mine_setting">设置</string>
+    <string name="mine_help">帮助与反馈</string>
+    <string name="person">账号</string>
+    <string name="head">头像</string>
+    <string name="register_tx9">重新发送</string>
+
+    <string name="health_doc_basicinfo">基本资料</string>
+    <string name="health_doc_data">健康数据</string>
+    <string name="health_doc_uncomplete">未完善</string>
+    <string name="health_doc_complete_degree">资料完整度：</string>
+    <string name="feedback_advice">吐槽&amp;建议</string>
+    <string name="setting_clear">清理缓存</string>
+    <string name="setting_clear_content">包括：图片,历史数据</string>
+    <string name="setting_version">版本号</string>
+    <string name="basicinfo_name">姓名</string>
+    <string name="basicinfo_sex">性别</string>
+    <string name="basicinfo_age">年龄</string>
+    <string name="basicinfo_height">身高</string>
+    <string name="basicinfo_weight">体重</string>
+    <string name="basicinfo_profession">职业</string>
+    <string name="basicinfo_medical_type">医保类型</string>
+    <string name="basicinfo_undone">未设置</string>
+    <string name="bind_device">绑定设备</string>
+    <string name="advice_title">感谢您的宝贵意见\n我们会在第一时间给予反馈！</string>
+    <string name="advice_type">问题类型</string>
+    <string name="advice_type_select">请选择问题类型</string>
+    <string name="advice_submit">提交</string>
+    <string name="advice_content_hint">请在这里输入你的问题与意见</string>
+    <string name="advice_contact_hint">联系电话、QQ（方便我们与您反馈信息）</string>
+    <string name="mylocation">我的位置</string>
+    <string name="histroy">历史记录</string>
+    <string name="manage_family">管理家庭</string>
+    <string name="quit_family">退出家庭</string>
+    <string name="family_none">还没有加入家庭，快去加入吧~</string>
+    <string name="family_search">搜索</string>
+    <string name="family_video">视频通话</string>
+    <string name="family_remind">设置提醒</string>
+    <string name="family_tongzhi">家庭通知栏</string>
+    <string name="fm_name">家庭名称</string>
+    <string name="fm_photo">家庭合影</string>
+    <string name="fm_bind">扫码绑定机器人</string>
+    <string name="fm_member">邀请成员</string>
+    <string name="save">保存</string>
+    <string name="fm_create">创建新成员</string>
+    <string name="fm_invite">邀请新成员</string>
+    <string name="next">下一步</string>
+    <string name="family_invite">不要吝啬你的光芒</string>
+    <string name="family_invite2">用热情呼唤更多的人来一起点燃家庭狂欢的篝火！</string>
+    <string name="remind_content">提醒内容</string>
+    <string name="remind_time">时间</string>
+    <string name="remind_repeat">重复</string>
+    <string name="remind_target">提醒对象</string>
+    <string name="yingyong">应用</string>
+    <string name="remind_target_family">家庭提醒</string>
+    <string name="remind_target_robot">推送给机器人</string>
+    <string name="remind_target_own">给自己设置提醒</string>
+    <string name="pop_create">创建家庭</string>
+    <string name="pop_join">加入家庭</string>
+    <string name="family_robot">机器人编号:  </string>
+
+    <string name="tag_hint">Tag为大小写字母，数字，下划线,中文， 多个用以逗号分隔</string>
+    <string name="alias_hint">Alias为大小写字母，数字，下划线</string>
+    <string name="style_hint">style为数字</string>
+    <string name="error_style_empty">style不能为空</string>
+    <string name="error_alias_empty">alias不能为空</string>
+    <string name="error_tag_empty">tag不能为空</string>
+    <string name="error_tag_gs_empty">格式不对</string>
+    <string name="error_network">网络连接异常,初始化失败 请检查网络！</string>
+    <string name="logining">程序在后台执行, 请查看日志！</string>
+    <string name="setting_su">设置成功</string>
+    <string name="mine_dingdan">我的订单&#160;&#160;</string>
+    <string name="mine_sales">管理系统</string>
+    <string name="store_chuku">发货</string>
+    <string name="store_ruku">入库</string>
+    <string name="store_diaohuo">调货</string>
+    <string name="order_head_search">搜索相关订单</string>
+
+    <string name="sales_product_model">产品型号：%s</string>
+    <string name="sales_product_serial">产品编号：%s</string>
+    <string name="sales_product_serial2">产品编号：</string>
+    <string name="sales_money">￥%s</string>
+    <string name="sales_margin">押金：￥%s</string>
+    <string name="sales_money_sum">金额：￥%s</string>
+    <string name="sales_number">数量</string>
+    <string name="sales_number_robot">数量：%s</string>
+    <string name="sales_product_company">出货公司：%s</string>
+    <string name="sales_edit_address">编辑客户信息</string>
+    <string name="sales_name">收货人&#160;&#160;&#160;&#160;</string>
+    <string name="sales_name_hint">请输入客户姓名</string>
+    <string name="sales_tel">联系方式</string>
+    <string name="sales_tel_hint">请输入客户联系电话</string>
+    <string name="sales_area">所在地区</string>
+    <string name="sales_area_hint">请选择所在地区</string>
+    <string name="sales_area_detail">详细地址</string>
+    <string name="sales_area_detail_hint">请输入详细地址</string>
+    <string name="sales_mail_code">邮政编码</string>
+    <string name="sales_mail_code_hint">请输入邮政编码</string>
+    <string name="sales_address_hint">请输入收货地址</string>
+    <string name="sales_idcard">身份证号</string>
+    <string name="sales_idcard_receiver">收货人身份证号</string>
+    <string name="sales_idcard_hint">请输入身份证号码</string>
+    <string name="sales_idcard_explain">请向用户解释身份证用途：\n身份证将作为押金退还的重要凭证之一，本公司向您保证，我们将严格保护您的信息安全。</string>
+    <string name="sales_idcard_explain2">身份证将作为押金退还的重要凭证之一，本公司向您保证，我们将严格保护您的信息安全。</string>
+    <string name="sales_tradeway">交易方式</string>
+    <string name="sales_trade_way">交易方式：%s</string>
+    <string name="sales_tradeway_hint">请选择交易方式</string>
+    <string name="sales_sum">合计：</string>
+    <string name="sales_sum_money">￥%s</string>
+    <string name="sales_submit_order">提交订单</string>
+    <string name="sales_deposit">%s元</string>
+    <string name="sales_model">产品型号：%s</string>
+    <string name="sales_myorder_serial">订单编号：%s</string>
+    <string name="sales_myorder_serial2">订单编号：</string>
+    <string name="sales_myorder_money">订单金额：%s</string>
+    <string name="sales_confirm_id">身份证号：%s</string>
+    <string name="sales_confirm_payway">支付方式：%s</string>
+    <string name="sales_confirm_tradeway">交易方式：%s</string>
+    <string name="sales_confirm_adviser">健康顾问：%s</string>
+    <string name="sales_confirm_adviser_tel">顾问电话：%s</string>
+    <string name="sales_confirm_adviser_tel2">顾问电话：</string>
+    <string name="sales_confirm_order_time">下单时间：%s</string>
+    <string name="sales_confirm_active_time">激活时间：%s</string>
+    <string name="sales_detail_company">物流公司：%s</string>
+    <string name="sales_detail_order_serial">货运单号：%s</string>
+    <string name="sales_detail_order_serial2">货运单号：</string>
+    <string name="sales_detail_transport_serial">运单号为：%s</string>
+    <string name="sales_goods_company">物流公司：%s</string>
+    <string name="sales_transport_person">承运人：</string>
+    <string name="sales_shouhuoren">收货人信息</string>
+    <string name="sales_xinghao">产品型号</string>
+    <string name="sales_youzheng">邮政编码</string>
+    <string name="sales_address">收货地址</string>
+    <string name="sales_dingdan">订单信息</string>
+    <string name="sales_dingdan_num">订单编号</string>
+    <string name="sales_saomiao">扫描货品编码</string>
+    <string name="sales_kuaidi">快递信息</string>
+    <string name="sales_kuaidi_name">发货员</string>
+    <string name="sales_kuaidi_company">快递公司</string>
+    <string name="sales_kuaidi_num">物流单号</string>
+    <string name="store_ruku_saomiao">扫描产品编码入库</string>
+    <string name="store_ruku_jinri">本次入库</string>
+    <string name="store_ruku2">入库完毕</string>
+    <string name="store_dioahuo_chuku">待出库总计</string>
+    <string name="store_chuku2">出库完毕</string>
+    <string name="store_chuku_saomiao">扫描产品编码出库</string>
+    <string name="sales_kuaidi2">配送信息</string>
+    <string name="sales_kuaidi_company2">配送公司</string>
+    <string name="sales_kuaidi_status">配送状态</string>
+    <string name="store_complete">完成</string>
+    <string name="kuaidi_wuliu">物流公司</string>
+    <string name="kuaidi_wuliu2">请输入物流公司名称</string>
+    <string name="kuaidi_danhao">货运单号</string>
+    <string name="kuaidi_danhao2">请输入货运单号</string>
+    <string name="kuaidi_danhao3">添加运单</string>
+    <string name="store_diaohuo2">调货完毕</string>
+    <string name="name2">请输入真实姓名</string>
+
+    <string name="label_cancel">取消</string>
+    <string name="label_ok">确定</string>
+    <string name="permission_title_rationale">权限需求</string>
+    <string name="permission_read_storage_rationale">选择图片时需要读取权限</string>
+    <string name="permission_write_storage_rationale">拍照时需要存储权限</string>
+    <string name="setting_address">管理收货地址</string>
+    <string name="add_address">添加新地址</string>
+    <string name="delete1">删除</string>
+    <string name="edit">编辑</string>
+    <string name="sales_product_num">产品数量</string>
+    <string name="sales_comfirm_num">产品数量：%s</string>
+    <string name="customer_name">名字 *</string>
+    <string name="customer_ed_name">请输入客户名字</string>
+    <string name="customer_tel">手机号码 *</string>
+    <string name="customer_ed_tel">请输入客户手机号码</string>
+    <string name="customer_buy">购买意向 *</string>
+    <string name="customer_mark">备注:</string>
+    <string name="customer_mark2">* 该客户30天内产生消费则绑定，之后产生所有消费均算入业绩</string>
+    <string name="sale_code1">用户扫码即可下载app</string>
+    <string name="sale_code2">长按二维码，保存到手机图库</string>
+    <string name="customer_ed_buy">请输入客户购买意向</string>
+    <string name="sale_tv1">成为个人消费商</string>
+    <string name="sale_btn_join">我要加入</string>
+    <string name="sale_btn_next">跳过</string>
+    <string name="apply_tv1">申请个人消费商</string>
+    <string name="apply_name">真实姓名</string>
+    <string name="apply_card">身份证号</string>
+    <string name="apply_invite">邀请码</string>
+    <string name="apply_agree">我已认真阅读并且同意签署《个人消费商协议》</string>
+    <string name="sale_btn_commit">提交审核</string>
+    <string name="card_front">上传身份证正面</string>
+    <string name="card_behind">上传身份证背面</string>
+    <string name="card_hand">手持身份证拍照</string>
+    <string name="team_mem">团队成员</string>
+    <string name="team_amount">业绩总额</string>
+    <string name="robot_limit">0123456789abcdefghigklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="order_status">订单状态</string>
+    <string name="pay">立即支付</string>
+    <string name="ship_dingdan">订单内容</string>
+    <string name="ship_time">支付时间</string>
+    <string name="ship_fahuo">扫码发货</string>
+    <string name="sales_saomiao2">扫描产品sn码</string>
+    <string name="ship_time3">发货时间</string>
+    <string name="ship_time4">发货时间：%s</string>
+    <string name="ship_xiadan">下单时间</string>
+    <string name="sales_area_detail_hint2">街道、楼牌号等</string>
+    <string name="watch_name">智能健康手表</string>
+    <string name="watch_lianxi">联系人</string>
+    <string name="watch_xinxi">设备信息</string>
+    <string name="watch_step">步数： &#8212;&#8212;%s</string>
+    <string name="watch_sleep">睡眠： &#8212;&#8212;%s</string>
+    <string name="watch_heart">心率： &#8212;&#8212;%s</string>
+    <string name="watch_blood">血压： &#8212;&#8212;%s</string>
+    <string name="other2">其他登录方式</string>
+    <string name="scan_text">将二维码放入框内, 即可自动扫描</string>
+    <string name="connected">已连接</string>
+    <string name="disconnected">连接断开</string>
+    <string name="no_response">未接听</string>
+    <string name="no_camera_permission">没有摄像头权限</string>
+    <string name="no_record_permission">没有录音权限</string>
+    <string name="calling">正在连接视频</string>
+    <string name="hang_up">挂断</string>
+    <string name="sound_off">静音</string>
+    <string name="switch_camera">切换</string>
+    <string name="invite">邀请</string>
+    <string name="conn_exception">初始化异常</string>
+    <string name="hanguping">挂断中,请稍后</string>
+    <string name="answering">接听中,请稍后</string>
+    <string name="control_disconn">机器人控制断开,请重新登陆</string>
+    <string name="video_not_init">视频没有初始化</string>
+    <string name="back">返回</string>
+    <string name="hang_up_video_first">请先挂断视频！</string>
+</resources>

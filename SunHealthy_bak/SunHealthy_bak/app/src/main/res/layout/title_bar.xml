@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100px"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:id="@+id/title_common">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/title_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:paddingLeft="35px"
+            android:paddingRight="35px"
+            android:scaleType="centerInside"
+            android:src="@mipmap/icon_fanhui" />
+
+        <TextView
+            android:id="@+id/title_left_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="100px"
+            android:gravity="center"
+            android:text="取消"
+            android:paddingLeft="35px"
+            android:paddingRight="35px"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_32"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="标题栏"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_36" />
+
+        <TextView
+            android:id="@+id/title_right_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:paddingLeft="36px"
+            android:paddingRight="36px"
+            android:text="下一步"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_32" />
+
+        <ImageView
+            android:id="@+id/title_right_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="36px"
+            android:paddingRight="36px"
+            android:scaleType="centerInside"
+            android:src="@mipmap/menu"
+            android:visibility="gone" />
+        <View
+            android:id="@+id/title_line"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/fg_line2"
+            android:layout_alignParentBottom="true"/>
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

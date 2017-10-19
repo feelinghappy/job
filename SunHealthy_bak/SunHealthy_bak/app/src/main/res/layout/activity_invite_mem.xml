@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_bar"></include>
+
+    <LinearLayout
+        android:id="@+id/invite_layout1"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_below="@+id/title_common"
+        android:layout_marginTop="@dimen/text_size_24"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/family_invite"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/fg_iv1"
+                android:layout_width="44px"
+                android:layout_height="44px"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/text_size_30"
+                android:src="@mipmap/icon_family_tianjia" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/text_size_30"
+                android:layout_toRightOf="@+id/fg_iv1"
+                android:text="@string/fm_invite"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_30" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="70px"
+            android:layout_gravity="center_vertical"
+            android:background="@color/fg_line" />
+
+        <RelativeLayout
+            android:id="@+id/family_invite_create"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/fg_iv2"
+                android:layout_width="44px"
+                android:layout_height="44px"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/text_size_30"
+                android:src="@mipmap/icon_family_tianjia" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/text_size_30"
+                android:layout_toRightOf="@+id/fg_iv2"
+                android:text="@string/fm_create"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_30" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/family_invite_lv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/invite_layout1"
+        android:layout_marginTop="@dimen/text_size_20"
+        android:background="@color/white"
+        android:divider="@null">
+
+    </ListView>
+
+    <Button
+        android:id="@+id/family_invite_save"
+        android:layout_width="700px"
+        android:layout_height="88px"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/text_size_30"
+        android:background="@drawable/apply_sales_bkg1"
+        android:text="@string/next"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_36" />
+
+    <TextView
+        android:id="@+id/fg_tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/family_invite_save"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="98px"
+        android:text="@string/family_invite2"
+        android:textColor="@color/grey"
+        android:textSize="@dimen/text_size_24" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/fg_tv2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="18px"
+        android:text="@string/family_invite"
+        android:textColor="@color/grey"
+        android:textSize="@dimen/text_size_24" />
+</RelativeLayout>

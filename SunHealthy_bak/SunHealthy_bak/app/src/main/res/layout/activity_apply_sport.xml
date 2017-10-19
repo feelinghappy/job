@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_apply_sport"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.longcai.medical.ui.activity.ApplySportActivity">
+
+    <RelativeLayout
+        android:id="@+id/title_container"
+        android:layout_width="match_parent"
+        android:layout_height="104px"
+        android:background="@color/appColor2"
+        android:tag="(0,104)">
+
+        <RelativeLayout
+            android:id="@+id/bank_img"
+            android:layout_width="200px"
+            android:layout_height="match_parent"
+            android:tag="(200,0)">
+
+            <ImageView
+                android:layout_width="24px"
+                android:layout_height="42px"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="35px"
+                android:src="@mipmap/fanhui"
+                android:tag="(24,42){35,0,0,0}" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:tag="(37)"
+            android:text="我要报名"
+            android:textColor="@color/white_color"
+            android:textSize="37px" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/title_container"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:id="@+id/position10"
+            android:layout_width="match_parent"
+            android:layout_height="260px"
+            android:layout_marginTop="49px"
+            android:orientation="vertical"
+            android:paddingLeft="158px"
+            android:paddingRight="190px"
+            android:tag="(0,260){0,49,0,0}[158,0,190,0]">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:tag="(24)"
+                    android:text="姓名"
+                    android:textColor="#242424"
+                    android:textSize="24px" />
+
+                <RelativeLayout
+                    android:layout_width="298px"
+                    android:layout_height="40px"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/optional_food_item_bkg"
+                    android:tag="(298,40)">
+
+                    <TextView
+                        android:id="@+id/name_tx"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:tag="(22)"
+                        android:textColor="#242424"
+                        android:textSize="22px"
+                        android:visibility="gone" />
+
+                    <EditText
+                        android:id="@+id/name_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:background="@null"
+                        android:maxLength="10"
+                        android:paddingLeft="10px"
+                        android:tag="(22){10,0,0,0}"
+                        android:textColor="#242424"
+                        android:textSize="22px" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:tag="(24)"
+                    android:text="性别"
+                    android:textColor="#242424"
+                    android:textSize="24px" />
+
+
+                <LinearLayout
+                    android:id="@+id/sex_man"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="84px"
+                    android:orientation="horizontal"
+                    android:tag="{84,0,0,0}">
+
+                    <ImageView
+                        android:id="@+id/sex_man_img"
+                        android:layout_width="34px"
+                        android:layout_height="34px"
+                        android:src="@drawable/choose_man_img"
+                        android:tag="(34,34)" />
+
+                    <TextView
+                        android:id="@+id/sex_man_tx"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="17px"
+                        android:tag="(23){17,0,0,0}"
+                        android:text="男"
+                        android:textColor="@color/choose_sex_tx"
+                        android:textSize="23px" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/sex_woman"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="77px"
+                    android:orientation="horizontal"
+                    android:tag="{0,0,77,0}">
+
+                    <ImageView
+                        android:id="@+id/sex_woman_img"
+                        android:layout_width="34px"
+                        android:layout_height="34px"
+                        android:src="@drawable/choose_woman_img"
+                        android:tag="(34,34)" />
+
+                    <TextView
+                        android:id="@+id/sex_woman_tx"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="17px"
+                        android:tag="(23){17,0,0,0}"
+                        android:text="女"
+                        android:textColor="@color/choose_sex_tx"
+                        android:textSize="23px" />
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:tag="(24)"
+                    android:text="年龄"
+                    android:textColor="#242424"
+                    android:textSize="24px" />
+
+                <RelativeLayout
+                    android:layout_width="298px"
+                    android:layout_height="40px"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/optional_food_item_bkg"
+                    android:tag="(298,40)">
+
+                    <TextView
+                        android:id="@+id/age_tx"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:tag="(24)"
+                        android:textColor="#242424"
+                        android:textSize="24px"
+                        android:visibility="gone" />
+
+
+                    <EditText
+                        android:id="@+id/age_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:background="@null"
+                        android:inputType="number"
+                        android:paddingLeft="10px"
+                        android:tag="(22){10,0,0,0}"
+                        android:textColor="#242424"
+                        android:textSize="22px" />
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:tag="(24)"
+                    android:text="电话"
+                    android:textColor="#242424"
+                    android:textSize="24px" />
+
+                <RelativeLayout
+                    android:layout_width="298px"
+                    android:layout_height="40px"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/optional_food_item_bkg"
+                    android:tag="(298,40)">
+
+                    <TextView
+                        android:id="@+id/phone_tx"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:tag="(24)"
+                        android:textColor="#242424"
+                        android:textSize="24px"
+                        android:visibility="gone" />
+
+
+                    <EditText
+                        android:id="@+id/phone_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:background="@null"
+                        android:paddingLeft="10px"
+                        android:tag="(22){10,0,0,0}"
+                        android:textColor="#242424"
+                        android:textSize="22px" />
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/position10"
+            android:layout_marginTop="57px"
+            android:tag="{0,57,0,0}">
+
+            <LinearLayout
+                android:id="@+id/apply_btn"
+                android:layout_width="188px"
+                android:layout_height="50px"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/forget_btn_bkg"
+                android:gravity="center"
+                android:tag="(188,50)">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="(24)"
+                    android:text="提交报名信息"
+                    android:textColor="@color/white"
+                    android:textSize="24px" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+</RelativeLayout>

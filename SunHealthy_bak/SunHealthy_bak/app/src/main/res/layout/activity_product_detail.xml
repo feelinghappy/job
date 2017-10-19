@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mine_bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_bar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="300px"
+            android:layout_marginTop="20px"
+            android:background="#f7f7f7">
+                <ImageView
+                    android:id="@+id/product_img_bg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitCenter"
+                    android:src="@mipmap/test_zhanweitu" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:paddingBottom="30px">
+
+            <TextView
+                android:id="@+id/sales_txt_name"
+                android:layout_width="300px"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="38px"
+                android:layout_marginTop="30px"
+                android:text="@string/app_name"
+                android:textColor="@color/black"
+                android:textSize="32px" />
+
+            <TextView
+                android:id="@+id/sales_txt_deposit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="38px"
+                android:layout_marginTop="30px"
+                android:textColor="#21a9fb"
+                android:textSize="32px" />
+
+            <TextView
+                android:id="@+id/sales_txt_gc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30px"
+                android:layout_toLeftOf="@id/sales_txt_deposit"
+                android:layout_alignBaseline="@id/sales_txt_deposit"
+                android:text="金额："
+                android:textColor="#21a9fb"
+                android:textSize="28px" />
+
+            <TextView
+                android:id="@+id/sales_txt_model"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/sales_txt_name"
+                android:layout_marginLeft="38px"
+                android:layout_marginTop="30px"
+                android:text="产品型号："
+                android:textColor="@color/dark_gray"
+                android:textSize="32px"
+                android:visibility="gone"/>
+
+            <Button
+                android:id="@+id/sales_btn_select"
+                android:layout_width="140px"
+                android:layout_height="54px"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/sales_txt_deposit"
+                android:layout_marginRight="38px"
+                android:layout_marginTop="16px"
+                android:background="@drawable/btn_pay_roundbg_selector"
+                android:text="去支付"
+                android:textColor="@android:color/white"
+                android:textSize="28px"
+                android:visibility="gone"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20px"
+            android:background="@android:color/white"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="30px">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1px"
+                android:layout_marginLeft="38px"
+                android:layout_weight="1"
+                android:background="@color/light_gray5" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="详细参数"
+                android:textColor="@color/black"
+                android:textSize="32px" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1px"
+                android:layout_marginRight="38px"
+                android:layout_weight="1"
+                android:background="@color/light_gray5" />
+
+        </LinearLayout>
+
+        <ListView
+            android:id="@android:id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:divider="@null" />
+    </LinearLayout>
+</LinearLayout>

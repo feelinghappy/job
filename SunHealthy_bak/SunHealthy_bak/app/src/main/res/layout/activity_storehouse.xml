@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_bar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/store_chuku_layout"
+                android:layout_width="match_parent"
+                android:layout_height="92px"
+                android:layout_marginTop="@dimen/text_size_20"
+                android:background="@drawable/btn_sales_bg_selector"
+                android:clickable="true">
+
+                <ImageView
+                    android:id="@+id/imageView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/text_size_28"
+                    android:src="@mipmap/chuku" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/text_size_30"
+                    android:layout_toRightOf="@+id/imageView1"
+                    android:text="@string/store_chuku"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_32" />
+
+                <ImageView
+                    android:layout_width="16px"
+                    android:layout_height="26px"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/text_size_38"
+                    android:src="@mipmap/mine_jiantou_img" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/store_ruku_layout"
+                android:layout_width="match_parent"
+                android:layout_height="92px"
+                android:layout_marginTop="@dimen/text_size_20"
+                android:background="@drawable/btn_sales_bg_selector"
+                android:clickable="true">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/text_size_28"
+                    android:src="@mipmap/ruku" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/text_size_30"
+                    android:layout_toRightOf="@+id/imageView2"
+                    android:text="@string/store_ruku"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_32" />
+
+                <ImageView
+                    android:layout_width="16px"
+                    android:layout_height="26px"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/text_size_38"
+                    android:src="@mipmap/mine_jiantou_img" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:visibility="gone"
+                android:id="@+id/store_diaohuo_layout"
+                android:layout_width="match_parent"
+                android:layout_height="92px"
+                android:layout_marginTop="@dimen/text_size_20"
+                android:background="@drawable/btn_sales_bg_selector"
+                android:clickable="true">
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/text_size_28"
+                    android:src="@mipmap/diaohuo" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/text_size_30"
+                    android:layout_toRightOf="@+id/imageView3"
+                    android:text="@string/store_diaohuo"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_32" />
+
+                <ImageView
+                    android:layout_width="16px"
+                    android:layout_height="26px"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/text_size_38"
+                    android:src="@mipmap/mine_jiantou_img" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_stamina"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.longcai.medical.ui.activity.StaminaActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/title_container"
+            android:layout_width="match_parent"
+            android:layout_height="92px"
+            android:background="@color/appColor2"
+            android:tag="(0,92)">
+
+            <RelativeLayout
+                android:id="@+id/bank_btn"
+                android:layout_width="100px"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="20px"
+                    android:layout_height="34px"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="22px"
+                    android:src="@mipmap/fanhui"
+                    android:tag="(20,34){22,0,0,0}" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:tag="(37)"
+                android:text="体能测试"
+                android:textColor="@color/white_color"
+                android:textSize="37px" />
+
+
+        </RelativeLayout>
+
+        <!--<RelativeLayout-->
+        <!--android:id="@+id/stamina_layout_text"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/title_container"-->
+        <!--android:layout_marginTop="70px"-->
+        <!--android:TAG="{0,70,0,0}"-->
+        <!--android:visibility="gone">-->
+
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:TAG="(25)"-->
+        <!--android:text="3分钟了解您的体制，获得个性化调理方案"-->
+        <!--android:textColor="#888888"-->
+        <!--android:textSize="25px" />-->
+        <!--</RelativeLayout>-->
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/stamina_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/stamina_layout3"
+            android:layout_below="@+id/title_container"
+            android:layout_marginBottom="2px"
+            android:background="#efefef"
+            android:tag="{0,0,0,2}">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <RelativeLayout
+            android:id="@+id/stamina_layout3"
+            android:layout_width="match_parent"
+            android:layout_height="148px"
+            android:layout_alignParentBottom="true"
+            android:background="#efefef"
+            android:tag="(0,148)">
+
+
+            <RelativeLayout
+                android:id="@+id/stamina_btn_erqi"
+                android:layout_width="match_parent"
+                android:layout_height="88px"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="20px"
+                android:layout_marginRight="20px"
+                android:background="@drawable/er_btn_bkg1"
+                android:tag="(0,88){20,0,20,0}">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:tag="(38)"
+                    android:text="提交"
+                    android:textColor="@color/white_color"
+                    android:textSize="38px" />
+
+            </RelativeLayout>
+            <!--<RelativeLayout-->
+            <!--android:id="@+id/submit_btn"-->
+            <!--android:layout_width="300px"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="@drawable/forget_btn_bkg"-->
+            <!--android:TAG="(300,0)">-->
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerInParent="true"-->
+            <!--android:TAG="(25)"-->
+            <!--android:text="提交测试"-->
+            <!--android:textColor="@color/white_color"-->
+            <!--android:textSize="25px" />-->
+
+            <!--</RelativeLayout>-->
+
+
+            <!--<RelativeLayout-->
+            <!--android:id="@+id/go_home_btn"-->
+            <!--android:layout_width="300px"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_alignParentEnd="true"-->
+            <!--android:background="@drawable/forget_btn_bkg"-->
+            <!--android:TAG="(300,0)">-->
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerInParent="true"-->
+            <!--android:TAG="(25)"-->
+            <!--android:text="跳过测试,进入主页"-->
+            <!--android:textColor="@color/white_color"-->
+            <!--android:textSize="25px" />-->
+
+            <!--</RelativeLayout>-->
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/over_cs_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/kefu_dialog_kbg"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="513px"
+            android:layout_marginLeft="73px"
+            android:layout_marginRight="73px"
+            android:layout_marginTop="310px"
+            android:background="@drawable/no_test_bkg"
+            android:tag="(0,513){73,310,73,0}">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="10px"
+                android:layout_marginRight="10px"
+                android:layout_marginTop="40px"
+                android:background="#398cdd"
+                android:tag="(0,1){10,40,10,0}" />
+
+            <TextView
+                android:layout_width="144px"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="26px"
+                android:background="@color/appColor2"
+                android:gravity="center_horizontal"
+                android:tag="(144,0,30)"
+                android:text="调查结果"
+                android:textColor="#398cdd"
+                android:textSize="30px" />
+
+            <ImageView
+                android:layout_width="87px"
+                android:layout_height="110px"
+                android:layout_marginLeft="153px"
+                android:layout_marginTop="117px"
+                android:src="@mipmap/jz_img"
+                android:tag="(87,110){153,117,0,0}" />
+
+            <TextView
+                android:id="@+id/ceshi_tx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="268px"
+                android:layout_marginTop="148px"
+                android:tag="(49){268,148,0,0}"
+                android:textColor="#398cdd"
+                android:textSize="49px" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="271px"
+                android:tag="{0,271,0,0}(31)"
+                android:text="感谢你完成体制监测"
+                android:textColor="@color/white_color"
+                android:textSize="31px" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="320px"
+                android:tag="{0,320,0,0}(31)"
+                android:text="以上结果仅供参考"
+                android:textColor="@color/white_color"
+                android:textSize="31px" />
+
+            <RelativeLayout
+                android:id="@+id/ceshi_btn"
+                android:layout_width="262px"
+                android:layout_height="76px"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="35px"
+                android:background="@drawable/no_test_bkg2"
+                android:tag="(262,72){0,0,0,35}">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:tag="(34)"
+                    android:text="返回"
+                    android:textColor="@color/white_color"
+                    android:textSize="34px" />
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</RelativeLayout>

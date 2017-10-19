@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="254px"
+        android:paddingLeft="20px"
+        android:paddingRight="20px"
+        android:tag="(0,254)[20,0,20,0]">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="#dcdcdc"
+            android:tag="(0,1)" />
+
+        <TextView
+            android:id="@+id/tx1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/image_icon"
+            android:layout_marginLeft="30px"
+            android:layout_toRightOf="@+id/image_icon"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:tag="(24){30,0,0,0}"
+            android:textColor="#252525"
+            android:textSize="24px" />
+
+
+        <TextView
+            android:id="@+id/tv_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="6px"
+            android:paddingLeft="26px"
+            android:paddingRight="26px"
+            android:paddingTop="6px"
+            android:layout_marginLeft="30px"
+            android:layout_marginTop="10px"
+            android:layout_toRightOf="@+id/image_icon"
+            android:layout_below="@+id/tx1"
+            android:tag="(18){30,10,0,0}[30,3,16,3]"
+            android:textColor="@color/white_color"
+            android:background="@drawable/tag_item_bkg"
+            android:textSize="18px" />
+
+        <com.longcai.medical.ui.view.FlowTagLayout
+            android:id="@+id/flow_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_tag"
+            android:layout_toRightOf="@+id/tv_tag"
+            android:visibility="visible">
+
+        </com.longcai.medical.ui.view.FlowTagLayout>
+
+
+        <TextView
+            android:id="@+id/tx3"
+            android:layout_width="wrap_content"
+            android:layout_height="70px"
+            android:layout_below="@+id/tv_tag"
+            android:layout_marginLeft="30px"
+            android:layout_marginTop="10px"
+            android:layout_toRightOf="@+id/image_icon"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:tag="(0,70,20){30,10,0,0}"
+            android:text=""
+            android:textColor="#666666"
+            android:textSize="20px" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="30px"
+            android:layout_below="@+id/tx3"
+            android:layout_marginLeft="30px"
+            android:layout_marginTop="15px"
+            android:layout_toRightOf="@+id/image_icon"
+            android:tag="{30,15,0,0}(0,30)">
+
+            <TextView
+                android:id="@+id/tx2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="(16)"
+                android:textColor="#888888"
+                android:textSize="16px" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="88px"
+            android:layout_height="23px"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/tx3"
+            android:layout_marginTop="20px"
+            android:tag="(88,23){0,20,0,0}">
+
+            <ImageView
+                android:layout_width="35px"
+                android:layout_height="match_parent"
+                android:src="@mipmap/eye_img"
+                android:tag="(35,0)" />
+
+            <TextView
+                android:id="@+id/tx4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:tag="(17)"
+                android:textColor="#888888"
+                android:textSize="17px" />
+        </RelativeLayout>
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/image_icon"
+            android:layout_width="261px"
+            android:layout_height="193px"
+            android:tag="(261,193)"
+            fresco:placeholderImage="@mipmap/zw01"
+            fresco:placeholderImageScaleType="fitXY"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
+</LinearLayout>

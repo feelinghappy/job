@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mine_bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_bar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/sales_relative_goods"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20px"
+                android:background="@drawable/btn_sales_bg_selector"
+                android:paddingBottom="16px">
+
+                <TextView
+                    android:id="@+id/sales_txt_company"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="36px"
+                    android:layout_marginTop="20px"
+                    android:text="物流公司："
+                    android:textColor="@color/black"
+                    android:textSize="26px" />
+
+                <TextView
+                    android:id="@+id/sales_txt_goods_serial"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sales_txt_company"
+                    android:layout_marginLeft="36px"
+                    android:layout_marginTop="20px"
+                    android:text="货运单号："
+                    android:textColor="@color/black"
+                    android:textSize="26px" />
+
+                <ImageView
+                    android:layout_width="16px"
+                    android:layout_height="26px"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/text_size_38"
+                    android:src="@mipmap/mine_jiantou_img" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:paddingBottom="20px">
+
+                <CheckBox
+                    android:id="@+id/order_item_select"
+                    android:layout_width="26px"
+                    android:layout_height="26px"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="30px"
+                    android:layout_marginRight="@dimen/text_size_30"
+                    android:background="@null"
+                    android:button="@drawable/goods_info_selector"
+                    android:checked="true"
+                    android:clickable="false" />
+
+                <TextView
+                    android:id="@+id/sales_txt_order_info"
+                    android:layout_width="528px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="100px"
+                    android:layout_marginTop="20px"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="26px" />
+
+                <TextView
+                    android:id="@+id/sales_txt_time"
+                    android:layout_width="528px"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sales_txt_order_info"
+                    android:layout_marginLeft="100px"
+                    android:layout_marginTop="18px"
+                    android:text=""
+                    android:textColor="@color/dark_gray"
+                    android:textSize="26px" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/sales_relative_robot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20px"
+                android:background="#fafafa"
+                android:clickable="true"
+                android:paddingBottom="24px">
+
+                <ImageView
+                    android:id="@+id/sales_img_robot"
+                    android:layout_width="128px"
+                    android:layout_height="128px"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="38px"
+                    android:scaleType="fitCenter"
+                    android:src="@mipmap/test_zhanweitu" />
+
+                <TextView
+                    android:id="@+id/sales_txt_robotname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="38px"
+                    android:layout_marginTop="18px"
+                    android:layout_toRightOf="@id/sales_img_robot"
+                    android:text="@string/app_name"
+                    android:textColor="@color/black"
+                    android:textSize="32px" />
+
+                <TextView
+                    android:id="@+id/sales_txt_serial"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sales_txt_robotname"
+                    android:layout_marginLeft="38px"
+                    android:layout_marginTop="10px"
+                    android:layout_toRightOf="@id/sales_img_robot"
+                    android:text="@string/sales_product_serial"
+                    android:textColor="@color/black"
+                    android:textSize="26px"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/sales_txt_product_company"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sales_txt_serial"
+                    android:layout_marginLeft="38px"
+                    android:layout_marginTop="10px"
+                    android:layout_toRightOf="@id/sales_img_robot"
+                    android:text="出货公司："
+                    android:textColor="@color/black"
+                    android:textSize="26px" />
+
+                <TextView
+                    android:id="@+id/sales_txt_product_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sales_txt_product_company"
+                    android:layout_marginLeft="38px"
+                    android:layout_marginTop="10px"
+                    android:layout_toRightOf="@id/sales_img_robot"
+                    android:text="产品数量："
+                    android:textColor="@color/black"
+                    android:textSize="26px" />
+
+                <TextView
+                    android:id="@+id/sales_txt_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sales_txt_product_num"
+                    android:layout_marginLeft="38px"
+                    android:layout_marginTop="10px"
+                    android:layout_toRightOf="@id/sales_img_robot"
+                    android:text="金额："
+                    android:textColor="@color/black"
+                    android:textSize="26px" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/sales_relative_way"
+                android:layout_width="match_parent"
+                android:layout_height="88px"
+                android:layout_below="@id/sales_relative_robot"
+                android:layout_marginTop="20px"
+                android:background="@android:color/white">
+
+                <TextView
+                    android:id="@+id/sales_txt_payway"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="30px"
+                    android:layout_centerVertical="true"
+                    android:text="支付方式："
+                    android:textColor="@color/black"
+                    android:textSize="26px" />
+
+                <TextView
+                    android:id="@+id/sales_txt_tradeway"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="30px"
+                    android:text="交易方式："
+                    android:textColor="@color/black"
+                    android:textSize="26px" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/sales_relative_order_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/sales_relative_way"
+                android:layout_marginTop="20px"
+                android:background="@android:color/white"
+                android:paddingBottom="20px">
+
+                <TextView
+                    android:id="@+id/sales_txt_order_serial2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40px"
+                    android:layout_marginTop="15px"
+                    android:text="@string/sales_myorder_serial2"
+                    android:textColor="#989898"
+                    android:textSize="24px" />
+
+                <TextView
+                    android:id="@+id/sales_txt_order_serial"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15px"
+                    android:layout_toRightOf="@id/sales_txt_order_serial2"
+                    android:textColor="#989898"
+                    android:textIsSelectable="true"
+                    android:textSize="24px" />
+
+                <TextView
+                    android:id="@+id/sales_txt_order_adviser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sales_txt_order_serial"
+                    android:layout_marginLeft="40px"
+                    android:layout_marginTop="5px"
+                    android:text="健康顾问："
+                    android:textColor="#989898"
+                    android:textSize="24px" />
+
+                <TextView
+                    android:id="@+id/sales_txt_order_adviser_tel2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sales_txt_order_adviser"
+                    android:layout_marginLeft="40px"
+                    android:layout_marginTop="5px"
+                    android:text="@string/sales_confirm_adviser_tel2"
+                    android:textColor="#989898"
+                    android:textSize="24px" />
+
+                <TextView
+                    android:id="@+id/sales_txt_order_adviser_tel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sales_txt_order_adviser"
+                    android:layout_marginTop="5px"
+                    android:layout_toRightOf="@id/sales_txt_order_adviser_tel2"
+                    android:textColor="#989898"
+                    android:textSize="24px" />
+
+                <TextView
+                    android:id="@+id/sales_txt_order_order_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sales_txt_order_adviser_tel"
+                    android:layout_marginLeft="40px"
+                    android:layout_marginTop="5px"
+                    android:text="下单时间："
+                    android:textColor="#989898"
+                    android:textSize="24px" />
+                <TextView
+                    android:id="@+id/sales_txt_order_order_time2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sales_txt_order_order_time"
+                    android:layout_marginLeft="40px"
+                    android:layout_marginTop="5px"
+                    android:text="发货时间："
+                    android:textColor="#989898"
+                    android:textSize="24px" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="42px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sales_relative_order_info"
+                    android:layout_toLeftOf="@id/sales_txt_tel"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="有问题请联系客服："
+                    android:textColor="#989898"
+                    android:textSize="24px" />
+
+                <TextView
+                    android:id="@+id/sales_txt_tel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/sales_relative_order_info"
+                    android:layout_marginRight="20px"
+                    android:text="400-100-2918"
+                    android:textColor="#21a9fb"
+                    android:textSize="24px" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

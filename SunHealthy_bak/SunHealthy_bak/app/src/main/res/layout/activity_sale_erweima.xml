@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/light_gray5">
+
+    <include layout="@layout/title_bar" />
+
+    <LinearLayout
+        android:layout_width="664px"
+        android:layout_height="880px"
+        android:layout_gravity="center"
+        android:layout_marginTop="120px"
+        android:background="@drawable/sale_code_gray"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_size_70"
+            android:gravity="center_horizontal"
+            android:text="@string/sale_code1"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_24" />
+
+        <ImageView
+            android:id="@+id/mine_code_iv"
+            android:layout_width="560px"
+            android:layout_height="560px"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="74px"
+            android:src="@mipmap/test_zhanweitu"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="46px"
+            android:gravity="center_horizontal"
+            android:text="@string/sale_code2"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_24" />
+    </LinearLayout>
+</LinearLayout>

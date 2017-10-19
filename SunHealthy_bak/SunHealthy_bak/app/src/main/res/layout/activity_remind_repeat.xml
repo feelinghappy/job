@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_bar"></include>
+
+    <RelativeLayout
+        android:id="@+id/remind_target_layout1"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:background="@color/white"
+        android:layout_marginTop="@dimen/text_size_24">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30px"
+            android:text="每周一"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_32" />
+
+        <CheckBox
+            android:id="@+id/remind_target_select1"
+            android:layout_width="26px"
+            android:layout_height="26px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/text_size_20"
+            android:button="@drawable/remind_target_selector"
+            android:background="@null"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/fg_line" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/remind_target_layout2"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30px"
+            android:text="每周二"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_32" />
+
+        <CheckBox
+            android:id="@+id/remind_target_select2"
+            android:layout_width="26px"
+            android:layout_height="26px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/text_size_20"
+            android:button="@drawable/remind_target_selector"
+            android:background="@null" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/fg_line" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/remind_target_layout3"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30px"
+            android:text="每周三"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_32" />
+
+        <CheckBox
+            android:id="@+id/remind_target_select3"
+            android:layout_width="26px"
+            android:layout_height="26px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/text_size_20"
+            android:button="@drawable/remind_target_selector"
+            android:background="@null" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/fg_line" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/remind_target_layout4"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30px"
+            android:text="每周四"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_32" />
+
+        <CheckBox
+            android:id="@+id/remind_target_select4"
+            android:layout_width="26px"
+            android:layout_height="26px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/text_size_20"
+            android:button="@drawable/remind_target_selector"
+            android:background="@null" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/fg_line" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/remind_target_layout5"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30px"
+            android:text="每周五"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_32" />
+
+        <CheckBox
+            android:id="@+id/remind_target_select5"
+            android:layout_width="26px"
+            android:layout_height="26px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/text_size_20"
+            android:button="@drawable/remind_target_selector"
+            android:background="@null" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/fg_line" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/remind_target_layout6"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30px"
+            android:text="每周六"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_32" />
+
+        <CheckBox
+            android:id="@+id/remind_target_select6"
+            android:layout_width="26px"
+            android:layout_height="26px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/text_size_20"
+            android:button="@drawable/remind_target_selector"
+            android:background="@null" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/fg_line" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/remind_target_layout7"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30px"
+            android:text="每周日"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_32" />
+
+        <CheckBox
+            android:id="@+id/remind_target_select7"
+            android:layout_width="26px"
+            android:layout_height="26px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/text_size_20"
+            android:button="@drawable/remind_target_selector"
+            android:background="@null" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/fg_line" />
+    </RelativeLayout>
+</LinearLayout>

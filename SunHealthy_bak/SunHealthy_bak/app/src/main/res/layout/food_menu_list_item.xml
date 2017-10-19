@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="320px"
+        android:background="#efefef"
+        android:tag="(0,320)">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="300px"
+            android:layout_alignParentBottom="true"
+            android:paddingLeft="13px"
+            android:paddingRight="13px"
+            android:tag="(0,300)[13,0,13,0]">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/food_menu_list_item_img"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="66px"
+                android:layout_alignParentBottom="true"
+                android:background="@color/kefu_dialog_kbg"
+                android:gravity="center"
+                android:tag="(0,66)">
+
+                <TextView
+                    android:id="@+id/food_menu_list_item_tx"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="(34)"
+                    android:textColor="@color/white"
+                    android:textSize="34px" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</LinearLayout>

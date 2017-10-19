@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="138px"
+            android:layout_height="144px"
+            android:tag="(138,144)">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/food_bottom_view_item_img"
+                android:layout_width="88px"
+                android:layout_height="88px"
+                android:layout_centerInParent="true"
+                android:tag="(88,88)" />
+
+            <TextView
+                android:id="@+id/food_bottom_view_item_tx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:tag="(22)"
+                android:textColor="@color/white_color"
+                android:textSize="22px" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+</LinearLayout>

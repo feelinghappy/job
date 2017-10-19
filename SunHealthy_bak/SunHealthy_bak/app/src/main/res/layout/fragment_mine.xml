@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bg_mine"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="352px">
+
+        <RelativeLayout
+            android:id="@+id/mine_head_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="150px"
+                android:layout_height="150px"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="24px"
+                android:background="@drawable/mine_head_border"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/mine_head_iv"
+                android:layout_width="142px"
+                android:layout_height="142px"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/text_size_28"
+                android:src="@mipmap/head" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/mine_head_iv"
+                android:layout_centerVertical="true">
+                <TextView
+                    android:id="@+id/mine_name_tx"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/text_size_50"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_36"
+                    android:text="登录"/>
+                <TextView
+                    android:id="@+id/mine_balance_tx"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36px"
+                    android:layout_below="@+id/mine_name_tx"
+                    android:layout_marginTop="@dimen/text_size_26"
+                    android:layout_marginLeft="@dimen/text_size_50"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_24"
+                    android:text="余额：0"
+                    android:paddingLeft="12px"
+                    android:paddingRight="12px"
+                    android:gravity="center"
+                    android:background="@drawable/mine_acount_bg"/>
+                <TextView
+                    android:id="@+id/mine_point_tx"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36px"
+                    android:layout_below="@+id/mine_name_tx"
+                    android:layout_marginTop="@dimen/text_size_26"
+                    android:layout_marginLeft="@dimen/text_size_24"
+                    android:layout_toRightOf="@+id/mine_balance_tx"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_24"
+                    android:text="积分：0"
+                    android:paddingLeft="12px"
+                    android:paddingRight="12px"
+                    android:gravity="center"
+                    android:background="@drawable/mine_acount_bg"/>
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/mine_notice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:padding="24px"
+            android:src="@mipmap/icon_notice" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/mine_jkda_btn"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_marginTop="@dimen/text_size_20"
+        android:background="@color/white">
+
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/text_size_28"
+            android:src="@mipmap/icon_archives" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/text_size_22"
+            android:layout_toRightOf="@+id/imageView"
+            android:text="@string/mine_health"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_32" />
+
+        <ImageView
+            android:layout_width="16px"
+            android:layout_height="26px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/text_size_24"
+            android:src="@mipmap/mine_jiantou_img" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1px"
+        android:background="@color/fg_line" />
+
+    <RelativeLayout
+        android:id="@+id/mine_sb_btn"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:background="@color/white">
+
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/text_size_28"
+            android:src="@mipmap/icon_equipment" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/text_size_22"
+            android:layout_toRightOf="@+id/imageView2"
+            android:text="@string/mine_device"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_32" />
+
+        <ImageView
+            android:layout_width="16px"
+            android:layout_height="26px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/text_size_24"
+            android:src="@mipmap/mine_jiantou_img" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/mine_lxkf_btn"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_marginTop="@dimen/text_size_20"
+        android:background="@color/white">
+
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/text_size_28"
+            android:src="@mipmap/icon_service" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/text_size_22"
+            android:layout_toRightOf="@+id/imageView4"
+            android:text="@string/mine_call"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_32" />
+
+        <ImageView
+            android:layout_width="16px"
+            android:layout_height="26px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/text_size_24"
+            android:src="@mipmap/mine_jiantou_img" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1px"
+        android:background="@color/fg_line" />
+
+    <RelativeLayout
+        android:id="@+id/mine_bzfk_btn"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/text_size_28"
+            android:src="@mipmap/icon_help" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/text_size_22"
+            android:layout_toRightOf="@+id/imageView3"
+            android:text="@string/mine_help"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_32" />
+
+        <ImageView
+            android:layout_width="16px"
+            android:layout_height="26px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/text_size_24"
+            android:src="@mipmap/mine_jiantou_img" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/mine_setting_btn"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_marginTop="@dimen/text_size_30"
+        android:background="@color/white">
+
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/text_size_28"
+            android:src="@mipmap/icon_set" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/text_size_22"
+            android:layout_toRightOf="@+id/imageView5"
+            android:text="@string/mine_setting"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_32" />
+
+        <ImageView
+            android:layout_width="16px"
+            android:layout_height="26px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/text_size_24"
+            android:src="@mipmap/mine_jiantou_img" />
+    </RelativeLayout>
+
+</LinearLayout>

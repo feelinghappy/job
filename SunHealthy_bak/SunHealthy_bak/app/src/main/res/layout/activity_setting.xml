@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mine_bg"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/title_bar"
+        layout="@layout/title_bar" />
+
+    <RelativeLayout
+        android:layout_marginTop="28px"
+        android:id="@+id/rl_setting_address"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:background="@android:color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30px"
+            android:text="@string/setting_address"
+            android:textColor="@color/black"
+            android:textSize="32px" />
+        <ImageView
+            android:id="@+id/iv_setting_address"
+            android:layout_width="16px"
+            android:layout_height="26px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/text_size_24"
+            android:src="@mipmap/mine_jiantou_img" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/fg_line"
+            android:layout_alignParentBottom="true"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_setting_clear"
+        android:layout_width="match_parent"
+        android:layout_height="150px"
+        android:layout_marginTop="1px"
+        android:background="@android:color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30px"
+            android:layout_marginTop="30px"
+            android:text="@string/setting_clear"
+            android:textColor="@color/black"
+            android:textSize="32px" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="30px"
+            android:layout_marginLeft="30px"
+            android:text="@string/setting_clear_content"
+            android:textColor="#515151"
+            android:textSize="24px" />
+
+        <ImageView
+            android:id="@+id/iv_setting_clear"
+            android:layout_width="16px"
+            android:layout_height="26px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/text_size_24"
+            android:src="@mipmap/mine_jiantou_img" />
+
+        <TextView
+            android:id="@+id/tv_setting_clear_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20px"
+            android:layout_toLeftOf="@id/iv_setting_clear"
+            android:textColor="@color/gray"
+            android:textSize="24px" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_setting_version"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_marginTop="1px"
+        android:background="@android:color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30px"
+            android:text="@string/setting_version"
+            android:textColor="@color/black"
+            android:textSize="32px" />
+
+        <TextView
+            android:id="@+id/tv_setting_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20px"
+            android:layout_toLeftOf="@id/iv_doc_data"
+            android:textColor="#515151"
+            android:textSize="24px"
+            android:text="3.2.0"/>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_setting_logout"
+        android:layout_width="500px"
+        android:layout_height="100px"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="100px"
+        android:background="@drawable/btn_background_shape"
+        android:gravity="center"
+        android:text="退出当前账号"
+        android:textColor="@android:color/white"
+        android:textSize="32px" />
+</LinearLayout>

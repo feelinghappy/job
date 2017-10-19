@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mine_bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_bar" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20px"
+                android:orientation="vertical"
+                android:paddingBottom="132px">
+
+                <RelativeLayout
+                    android:id="@+id/sales_relative_product"
+                    android:layout_width="match_parent"
+                    android:layout_height="186px"
+                    android:background="@drawable/btn_sales_bg_selector"
+                    android:clickable="true">
+
+                    <ImageView
+                        android:id="@+id/sales_img_select_product"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_margin="25px"
+                        android:src="@mipmap/ic_select_product"
+                        android:visibility="visible" />
+
+                    <RelativeLayout
+                        android:id="@+id/sales_relative_show_product"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:id="@+id/sales_img_robot"
+                            android:layout_width="128px"
+                            android:layout_height="128px"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="38px"
+                            android:scaleType="fitXY"
+                            android:src="@mipmap/ic_placeorder_placehold" />
+
+                        <TextView
+                            android:id="@+id/sales_txt_robotname"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="38px"
+                            android:layout_marginTop="28px"
+                            android:layout_toRightOf="@id/sales_img_robot"
+                            android:text="@string/app_name"
+                            android:textColor="@color/black"
+                            android:textSize="32px" />
+
+                        <TextView
+                            android:id="@+id/sales_txt_model"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/sales_txt_robotname"
+                            android:layout_marginLeft="38px"
+                            android:layout_marginTop="10px"
+                            android:layout_toRightOf="@id/sales_img_robot"
+                            android:text="产品型号"
+                            android:textColor="@color/black"
+                            android:textSize="32px"/>
+
+                        <TextView
+                            android:id="@+id/sales_txt_money"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/sales_txt_model"
+                            android:layout_marginLeft="38px"
+                            android:layout_marginTop="10px"
+                            android:layout_toRightOf="@id/sales_img_robot"
+                            android:text="￥"
+                            android:textColor="@color/black"
+                            android:textSize="32px" />
+
+                        <ImageView
+                            android:layout_width="16px"
+                            android:layout_height="26px"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/text_size_38"
+                            android:src="@mipmap/mine_jiantou_img" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="92px"
+                    android:layout_marginTop="20px"
+                    android:background="@android:color/white"
+                    android:clickable="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="38px"
+                        android:text="@string/sales_number"
+                        android:textColor="@color/black"
+                        android:textSize="32px" />
+
+                    <RelativeLayout
+                        android:id="@+id/sales_btn_add"
+                        android:layout_width="88px"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:descendantFocusability="blocksDescendants"
+                        android:clickable="true"
+                        android:layout_centerVertical="true">
+
+                        <Button
+                            android:layout_width="40px"
+                            android:layout_height="40px"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="16px"
+                            android:clickable="false"
+                            android:background="@drawable/btn_add_bg_selector" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/sales_txt_number"
+                        android:layout_width="80px"
+                        android:layout_height="40px"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@id/sales_btn_add"
+                        android:background="@color/mine_bg"
+                        android:gravity="center"
+                        android:text="1"
+                        android:textColor="@color/black"
+                        android:textSize="24px" />
+
+                    <RelativeLayout
+                        android:id="@+id/sales_btn_reduce"
+                        android:layout_width="88px"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="16px"
+                        android:layout_toLeftOf="@id/sales_txt_number"
+                        android:clickable="true"
+                        android:descendantFocusability="blocksDescendants">
+
+                        <Button
+                            android:layout_width="40px"
+                            android:layout_height="40px"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/btn_reduce_bg_selector"
+                            android:clickable="false" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="66px"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="38px"
+                    android:text="@string/sales_edit_address"
+                    android:textColor="@color/light_gray"
+                    android:textSize="25px" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="92px"
+                    android:background="@android:color/white"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingRight="@dimen/text_size_20">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="38px"
+                        android:text="@string/sales_name"
+                        android:textColor="@color/black"
+                        android:textSize="32px" />
+
+                    <com.longcai.medical.ui.view.ClearEditText
+                        android:id="@+id/sales_et_name"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="38px"
+                        android:layout_weight="1"
+                        android:background="@android:color/white"
+                        android:drawablePadding="10px"
+                        android:gravity="center_vertical"
+                        android:hint="@string/sales_name_hint"
+                        android:inputType="text"
+                        android:maxLength="8"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/light_gray"
+                        android:textSize="30px" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/light_gray5" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="92px"
+                    android:background="@android:color/white"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingRight="@dimen/text_size_20">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="38px"
+                        android:text="@string/sales_tel"
+                        android:textColor="@color/black"
+                        android:textSize="32px" />
+
+                    <com.longcai.medical.ui.view.ClearEditText
+                        android:id="@+id/sales_et_tel"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="38px"
+                        android:layout_weight="1"
+                        android:background="@android:color/white"
+                        android:hint="@string/sales_tel_hint"
+                        android:inputType="phone"
+                        android:maxLength="13"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/light_gray"
+                        android:textSize="30px" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/light_gray5" />
+
+                <LinearLayout
+                    android:id="@+id/sales_linear_area"
+                    android:layout_width="match_parent"
+                    android:layout_height="92px"
+                    android:background="@drawable/btn_sales_bg_selector"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="38px"
+                        android:text="@string/sales_area"
+                        android:textColor="@color/black"
+                        android:textSize="32px" />
+
+                    <TextView
+                        android:id="@+id/sales_txt_area"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="38px"
+                        android:layout_marginRight="24px"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:hint="@string/sales_area_hint"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/light_gray"
+                        android:textSize="32px" />
+
+                    <ImageView
+                        android:layout_width="16px"
+                        android:layout_height="26px"
+                        android:layout_marginRight="@dimen/text_size_38"
+                        android:src="@mipmap/mine_jiantou_img" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/light_gray5"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="132px"
+                    android:background="@drawable/btn_sales_bg_selector"
+                    android:clickable="true"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="38px"
+                        android:text="@string/sales_area_detail"
+                        android:textColor="@color/black"
+                        android:textSize="32px" />
+
+                    <com.longcai.medical.ui.view.ClearEditText
+                        android:id="@+id/sales_et_area_detail"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="38px"
+                        android:layout_weight="1"
+                        android:background="@android:color/white"
+                        android:gravity="top"
+                        android:hint="@string/sales_area_detail_hint"
+                        android:inputType="text"
+                        android:paddingTop="30px"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/light_gray"
+                        android:textSize="30px" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/light_gray5"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="92px"
+                    android:background="@drawable/btn_sales_bg_selector"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="38px"
+                        android:text="@string/sales_mail_code"
+                        android:textColor="@color/black"
+                        android:textSize="32px" />
+
+                    <com.longcai.medical.ui.view.ClearEditText
+                        android:id="@+id/sales_et_mail_code"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="38px"
+                        android:layout_weight="1"
+                        android:background="@android:color/white"
+                        android:hint="@string/sales_mail_code_hint"
+                        android:inputType="number"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/light_gray"
+                        android:textSize="30px" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/light_gray5"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/sales_linear_idcard"
+                    android:layout_width="match_parent"
+                    android:layout_height="92px"
+                    android:background="@android:color/white"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:paddingRight="@dimen/text_size_20">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="38px"
+                        android:text="@string/sales_idcard"
+                        android:textColor="@color/black"
+                        android:textSize="32px" />
+
+                    <com.longcai.medical.ui.view.ClearEditText
+                        android:id="@+id/sales_et_idcard"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="38px"
+                        android:layout_weight="1"
+                        android:background="@android:color/white"
+                        android:hint="@string/sales_idcard_hint"
+                        android:maxLength="21"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/light_gray"
+                        android:textSize="30px" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/idcard_explain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:paddingBottom="30px"
+                    android:paddingLeft="38px"
+                    android:text="@string/sales_idcard_explain" />
+
+                <LinearLayout
+                    android:id="@+id/sales_linear_tradeway"
+                    android:layout_width="match_parent"
+                    android:layout_height="92px"
+                    android:layout_marginTop="20px"
+                    android:background="@drawable/btn_sales_bg_selector"
+                    android:clickable="true"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="38px"
+                        android:text="@string/sales_tradeway"
+                        android:textColor="@color/black"
+                        android:textSize="32px" />
+
+                    <TextView
+                        android:id="@+id/sales_txt_tradeway"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="38px"
+                        android:layout_marginRight="24px"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:hint="@string/sales_tradeway_hint"
+                        android:text="快递"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/light_gray"
+                        android:textSize="30px" />
+
+                    <ImageView
+                        android:layout_width="16px"
+                        android:layout_height="26px"
+                        android:layout_marginRight="@dimen/text_size_38"
+                        android:src="@mipmap/mine_jiantou_img" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="40px" />
+
+            </LinearLayout>
+        </ScrollView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="92px"
+            android:layout_alignParentBottom="true"
+            android:background="@android:color/white">
+
+            <TextView
+                android:id="@+id/sales_txt_sum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="38px"
+                android:text="@string/sales_sum"
+                android:textColor="@color/dark_gray"
+                android:textSize="26px" />
+
+            <TextView
+                android:id="@+id/sales_txt_sum_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20px"
+                android:layout_toRightOf="@id/sales_txt_sum"
+                android:text=""
+                android:textColor="#32a1fd"
+                android:textSize="39px" />
+
+            <Button
+                android:id="@+id/sales_btn_submit"
+                android:layout_width="270px"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/btn_pay_bg_selector"
+                android:gravity="center"
+                android:text="@string/sales_submit_order"
+                android:textColor="@android:color/white"
+                android:textSize="37px" />
+        </RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>

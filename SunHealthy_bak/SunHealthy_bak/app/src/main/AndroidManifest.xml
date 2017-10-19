@@ -1,0 +1,809 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.longcai.medical">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!--ajiang Start-->
+    <!-- 机器人 start -->
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+    <!-- 机器人 end -->
+    <!-- 科大讯飞  start -->
+    <!--连接网络权限，用于执行云端语音能力 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--获取手机录音机使用权限，听写、识别、语义理解需要用到此权限 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!--读取网络信息状态 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--获取当前wifi状态 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!--允许程序改变网络连接状态 -->
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <!--读取手机信息权限 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!--读取联系人权限，上传联系人需要用到此权限 -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <!--外存储写权限，构建语法需要用到此权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--外存储读权限，构建语法需要用到此权限 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!--配置权限，用来记录应用配置信息 -->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <!--手机定位信息，用来为语义等功能提供定位，提供更精准的服务-->
+    <!--定位信息是敏感信息，可通过Setting.setLocationEnable(false)关闭定位请求 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!--如需使用人脸识别，还要添加：摄相头权限，拍照需要用到 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- 科大讯飞  end -->
+    <!--二维码 start-->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 网络权限 -->
+    <uses-permission android:name="android.permission.VIBRATE" /> <!-- 震动权限 -->
+    <uses-permission android:name="android.permission.CAMERA" /> <!-- 摄像头权限 -->
+    <uses-feature android:name="android.hardware.camera.autofocus" /> <!-- 自动聚焦权限 -->
+    <!--二维码 end-->
+    <!--百度地图  start-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!--<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />-->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <!--百度地图  end-->
+
+    <!--ajiang end-->
+
+    <!--之前1.0版本的所有权限 start-->
+    <!-- 蒲公英 -->
+    <!-- 允许程序录制音频 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!-- 获取logcat日志 -->
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <!-- 振动 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!-- 获取网络状态 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <!-- 唤醒锁定，允许程序在屏幕关闭后运行 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- 获取wifi状态 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 读写系统设置 -->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <!-- 调用系统弹框 -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <!-- 这个权限用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 这个权限用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
+    <!--<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />-->
+    <!-- 获取运营商信息，用于支持提供运营商信息相关的接口 -->
+    <uses-permission android:name="android.perm.ission.ACCESS_NETWORK_STATE" />
+    <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!-- 用于读取手机当前的状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 写入扩展存储，向扩展卡写入数据，用于写入离线定位数据 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 访问网络，网络定位需要上网 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- SD卡读取权限，用户写入离线定位数据 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <!-- 添加可以向外拨打电话的权限 -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!-- 短信相关权限 -->
+    <!--
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    -->
+    <!-- 读写联系人 -->
+    <!--
+     <uses-permission android:name="android.permission.READ_CONTACTS" />
+     <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    -->
+    <!-- 支付宝权限 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 计步器 -->
+    <uses-feature android:name="android.hardware.sensor.accelerometer" />
+    <!-- 开机自动允许 -->
+    <!-- <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /> -->
+    <!-- 读取设备外部存储空间 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <!-- 闹钟 -->
+    <!-- 允许程序开机自启 -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- 允许程序在屏幕关闭后运行 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- 允许振动 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!-- 允许程序禁用键盘锁 -->
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <!-- 读取电话状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 判断当前页面是否在 -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 底层电源管理 -->
+    <!-- <uses-permission android:name="android.permission.DEVICE_POWER" /> -->
+    <!--之前1.0版本的所有权限 end-->
+
+    <permission
+        android:name="com.longcai.medical.permission.JPUSH_MESSAGE"
+        android:protectionLevel="signature" />
+    <uses-permission android:name="com.longcai.medical.permission.JPUSH_MESSAGE" />
+    <!--android:label="太阳健康"-->
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/app_logo"
+
+        android:supportsRtl="true"
+        android:theme="@style/AnimationAppTheme">
+        <!--android:theme="@style/Theme.AppCompat.Light.NoActionBar"-->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.longcai.medical.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <!--百度地图  start-->
+        <!--<meta-data-->
+            <!--android:name="com.baidu.lbsapi.API_KEY"-->
+            <!--android:value="KsxQFmfImNYOWtYwNU742EAMzOyK1vj3" />-->
+
+        <!--百度地图  end
+        FdaG3vo02U4KM5WK2Nll1vr9pnPbliAh-->
+        <!-- 百度定位服务    android:permission="android.permission.BAIDU_LOCATION_SERVICE">-->
+        <!--<service-->
+            <!--android:name="com.baidu.location.f"-->
+            <!--android:enabled="true"-->
+            <!--android:process=":remote" />-->
+
+        <!--AutoLayout  Start-->
+        <meta-data
+            android:name="design_width"
+            android:value="750" />
+        <meta-data
+            android:name="design_height"
+            android:value="1334" />
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="598ebed1aed1792b1200122a" />
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="Umeng" />
+
+        <meta-data
+            android:name="com.openinstall.APP_KEY"
+            android:value="uxtva4" />
+
+        <meta-data android:name="com.amap.api.v2.apikey" android:value="2a7424b6932bbdc12292c2cc0bf0cc13">
+        </meta-data>
+        <meta-data
+            android:name="com.longcai.medical.ui.view.GlideConfiguration"
+            android:value="GlideModule"/>
+        <!--AutoLayout  End-->
+        <!--闹铃、计步器、开机广播  start-->
+        <!-- 服务 -->
+        <!--<service-->
+        <!--android:name="com.longcai.medical.ui.view.Alarm.LongRunningService"-->
+        <!--android:process="system" />-->
+        <!--&lt;!&ndash; 广播 &ndash;&gt;-->
+        <!--<receiver android:name="com.longcai.medical.ui.view.Alarm.AlarmReceiver">-->
+        <!--<intent-filter>-->
+        <!--<action android:name="com.longcai.alarm.clock" />-->
+        <!--</intent-filter>-->
+        <!--</receiver>-->
+
+        <!--&lt;!&ndash; 计步器 &ndash;&gt;-->
+        <!--<service-->
+        <!--android:name="com.longcai.medical.ui.view.StepService"-->
+        <!--android:priority="1000"-->
+        <!--android:process="com.base.basepedo.step">-->
+        <!--<intent-filter>-->
+
+        <!--&lt;!&ndash; 系统启动完成后会调用 &ndash;&gt;-->
+        <!--<action android:name="android.intent.action.DATE_CHANGED" />-->
+        <!--<action android:name="android.intent.action.MEDIA_MOUNTED" />-->
+        <!--<action android:name="android.intent.action.USER_PRESENT" />-->
+        <!--<action android:name="android.intent.action.ACTION_TIME_TICK" />-->
+        <!--<action android:name="android.intent.action.ACTION_POWER_CONNECTED" />-->
+        <!--<action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />-->
+        <!--</intent-filter>-->
+        <!--</service>-->
+
+
+        <!--闹铃、计步器、开机广播  end-->
+
+        <!-- qq登录 -->
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- tencent你的AppId      测试  tencent222222     APP ID  1105727161  APP KEYABjhqtptVy1uWPiX -->
+                <data android:scheme="tencent1105781173" />
+                <!--1105727161-->
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!-- 微信登录 -->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="wx83a6c8b880163e00" />
+            </intent-filter>
+        </activity>
+
+        <receiver android:name=".wxapi.AppRegister">
+            <intent-filter>
+                <action android:name="com.tencent.mm.plugin.openapi.Intent.ACTION_REFRESH_WXAPP" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.sina.weibo.sdk.share.WbShareTransActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name="com.alipay.sdk.app.H5AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <!--欢迎页-->
+        <activity
+            android:name=".ui.activity.SplashActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.activity.GuideActivity"
+            android:screenOrientation="portrait" />
+        <!--主页-->
+        <activity
+            android:name=".ui.activity.MainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="op429i6p" />
+            </intent-filter>
+        </activity>
+        <!--登录-->
+        <activity
+            android:name=".ui.activity.LoginActivity"
+            android:windowSoftInputMode="stateVisible|adjustPan"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <!--注册-->
+        <activity
+            android:name=".ui.activity.RegisterActivity"
+            android:windowSoftInputMode="stateVisible|adjustPan"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <!--注册成功-->
+        <activity
+            android:name=".ui.activity.RegisterSuccessActivity"
+            android:screenOrientation="portrait" />
+        <!--申请销售人员-->
+        <activity
+            android:name=".ui.activity.ApplySaleActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <!--申请销售人员成功-->
+        <activity
+            android:name=".ui.activity.ApplySuccessActivity"
+            android:screenOrientation="portrait" />
+        <!--绑定手机号-->
+        <activity
+            android:name=".ui.activity.BindPhoneActivity"
+            android:windowSoftInputMode="stateVisible|adjustPan"
+            android:screenOrientation="portrait" />
+        <!--我的跳转网页-->
+        <activity
+            android:name=".ui.activity.WebActivity"
+            android:screenOrientation="portrait" />
+        <!--意见反馈-->
+        <activity
+            android:name=".ui.activity.ErQiOpinionActivity"
+            android:screenOrientation="portrait" />
+        <!--个人资料-->
+        <activity
+            android:name=".ui.activity.NewPersonInfoActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+
+        </activity>
+        <!--更多设置-->
+        <activity
+            android:name=".ui.activity.person.SettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.NewSettingActivity"
+            android:screenOrientation="portrait" />
+        <!--健康档案-->
+        <activity
+            android:name=".ui.activity.person.healthdoc.HealthDocActivity"
+            android:screenOrientation="portrait" />
+        <!--基本资料-->
+        <activity
+            android:name=".ui.activity.person.healthdoc.HealthBasicInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.person.healthdoc.HealthEditNameActivity"
+            android:screenOrientation="portrait" />
+        <!--帮助与反馈-->
+        <activity
+            android:name=".ui.activity.person.help.HelpInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.person.help.HelpInfoContentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.person.help.AdviceActivity"
+            android:screenOrientation="portrait" />
+        <!--我的收藏-->
+        <activity
+            android:name=".ui.activity.MineCollectActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityPushStyle">
+
+        </activity>
+        <!--公共类1-->
+        <activity
+            android:name=".ui.activity.GloabeActivityFirst"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <!--计作息-->
+        <activity
+            android:name=".ui.activity.MineRestActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <!--听讲座-->
+        <activity
+            android:name=".ui.activity.CenterActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <!--饮食-->
+        <activity
+            android:name=".ui.activity.SecondFoodActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <!--运动-->
+        <activity
+            android:name=".ui.activity.ApplySportActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <!--检测体质-->
+        <activity
+            android:name=".ui.activity.StaminaActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityPushStyle">
+
+        </activity>
+        <!--今日运动-->
+        <activity
+            android:name=".ui.activity.SportActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityPushStyle">
+
+        </activity>
+        <!--咨询网页详情-->
+        <activity
+            android:name=".ui.activity.Web2Activity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity
+            android:name=".ui.activity.GloabeActivitySecond"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden">
+
+        </activity>
+
+        <!--设备管理-->
+        <activity
+            android:name=".ui.activity.DeviceManagmentActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <!--robotCall Start-->
+        <!--机器人视频通话-->
+        <!--接受机器人视频电话-->
+        <!--机器人接听视频电话服务-->
+        <!--robotCall end-->
+        <!--二维码-->
+        <activity
+            android:name="com.longcai.medical.zxing.activity.CaptureActivity"
+            android:screenOrientation="portrait" />
+        <!--手动添加二维码-->
+        <activity
+            android:name="com.longcai.medical.zxing.activity.CaptureInputActivity"
+            android:windowSoftInputMode="stateAlwaysVisible"
+            android:screenOrientation="portrait" />
+        <!--位置-->
+        <activity
+            android:name=".ui.activity.AMapActivity"
+            android:screenOrientation="portrait" />
+        <!--我的活动-->
+        <activity
+            android:name=".ui.activity.MyCenterActivity"
+            android:screenOrientation="portrait" />
+        <!--创建家庭-->
+        <activity
+            android:name=".ui.activity.family.CreateFamilyActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden">
+
+        </activity>
+        <!--家庭详情-->
+        <activity
+            android:name=".ui.activity.family.FamilyDetailActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <!--家庭管理-->
+        <activity
+            android:name=".ui.activity.family.FamilyManagerActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+
+        </activity>
+
+        <!--家庭成员详细-->
+        <activity
+            android:name=".ui.activity.family.FamilyMemberActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden">
+
+        </activity>
+        <!--搜索会员-->
+        <activity
+            android:name=".ui.activity.family.SearchActivity"
+            android:screenOrientation="portrait" />
+        <!--生成食谱-->
+        <activity
+            android:name=".ui.activity.BuilderFoodMenuActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.PedometerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.SportInfoActivity"
+            android:screenOrientation="portrait" />
+        <!--编辑作息-->
+        <activity
+            android:name=".ui.activity.EditRestActivity"
+            android:screenOrientation="portrait" />
+        <!--系统通知列表-->
+        <activity
+            android:name=".ui.activity.person.MessageListActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <!--系统通知和家庭消息-->
+        <activity
+            android:name=".ui.activity.person.MessagesActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <!--个人信息修改昵称-->
+        <activity
+            android:name=".ui.activity.person.PersonEditNameActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <!--个人信息 我的设备-->
+        <activity
+            android:name=".ui.activity.person.PersonDeviceActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <!--资讯列表-->
+        <activity
+            android:name=".ui.activity.index.ZiXunActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <!--资讯详情-->
+        <activity
+            android:name=".ui.activity.index.ZiXunInfoActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <!--添加提醒-->
+        <activity
+            android:name=".ui.activity.AddRemindsActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <!--邀请和创建家庭成员-->
+        <activity
+            android:name=".ui.activity.family.InviteFamilyMemActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <!--提醒内容-->
+        <activity
+            android:name=".ui.activity.RemindContentActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <!--选择提醒对象-->
+        <activity
+            android:name=".ui.activity.RemindTargetActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity
+            android:name=".ui.activity.remind.RemindSetActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.remind.RemindRepeatActivity"
+            android:screenOrientation="portrait" />
+        <!--敬请期待-->
+        <activity
+            android:name=".ui.activity.EmptyActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity
+            android:name=".ui.activity.GloabeActivityThired"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.discover.FoodDetailAcivity"
+            android:screenOrientation="portrait" />
+
+        <!--图片裁剪-->
+        <activity
+            android:name=".photo.CropActivity"
+            android:screenOrientation="portrait" />
+        <!--收货地址列表-->
+        <activity
+            android:name=".ui.activity.person.address.AddressManageActivity"
+            android:screenOrientation="portrait" />
+        <!--成为个人消费商-->
+        <activity
+            android:name=".ui.activity.login.PersonSaleActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <!--申请个人消费商-->
+        <activity android:name=".ui.activity.login.PersonApplyActivity"
+            android:windowSoftInputMode="stateVisible|adjustPan"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".ui.activity.login.PersonInfoActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible|adjustPan">
+
+        </activity>
+        <!--智能硬件-->
+        <activity
+            android:name=".ui.activity.index.DeviceWatchActivity"
+            android:screenOrientation="portrait">
+            <!--<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
+        </activity>
+
+
+        <!-- Required SDK 核心功能-->
+        <!-- 可配置android:process参数将PushService放在其他进程中 -->
+        <service
+            android:name="cn.jpush.android.service.PushService"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTER" />
+                <action android:name="cn.jpush.android.intent.REPORT" />
+                <action android:name="cn.jpush.android.intent.PushService" />
+                <action android:name="cn.jpush.android.intent.PUSH_TIME" />
+            </intent-filter>
+        </service>
+
+        <!-- since 1.8.0 option 可选项。用于同一设备中不同应用的JPush服务相互拉起的功能。 -->
+        <!-- 若不启用该功能可删除该组件，将不拉起其他应用也不能被其他应用拉起 -->
+        <service
+            android:name="cn.jpush.android.service.DaemonService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.DaemonService" />
+                <category android:name="com.longcai.medical" />
+            </intent-filter>
+        </service>
+
+        <!-- Required SDK核心功能-->
+        <receiver
+            android:name="cn.jpush.android.service.PushReceiver"
+            android:enabled="true">
+            <intent-filter android:priority="1000">
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" />
+                <category android:name="com.longcai.medical" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <!-- Optional -->
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Required SDK核心功能-->
+        <activity
+            android:name="cn.jpush.android.ui.PushActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:exported="false"
+            android:theme="@android:style/Theme.NoTitleBar">
+            <intent-filter>
+                <action android:name="cn.jpush.android.ui.PushActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.longcai.medical" />
+            </intent-filter>
+        </activity>
+        <!-- SDK核心功能-->
+        <activity
+            android:name="cn.jpush.android.ui.PopWinActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:exported="false"
+            android:theme="@style/MyDialogStyle">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.longcai.medical" />
+            </intent-filter>
+        </activity>
+
+        <!-- Required SDK核心功能-->
+        <service
+            android:name="cn.jpush.android.service.DownloadService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <!-- Required SDK核心功能-->
+        <receiver android:name="cn.jpush.android.service.AlarmReceiver" />
+
+        <!-- Required since 3.0.7 -->
+        <!-- 新的tag/alias接口结果返回需要开发者配置一个自定的广播 -->
+        <!-- 该广播需要继承JPush提供的JPushMessageReceiver类, 并如下新增一个 Intent-Filter -->
+        <receiver
+            android:name=".ui.MyJPushMessageReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />
+                <category android:name="com.longcai.medical" />
+            </intent-filter>
+        </receiver>
+
+        <!-- User defined. 用户自定义的广播接收器-->
+        <!--<receiver-->
+        <!--android:name="您自己定义的Receiver"-->
+        <!--android:enabled="true">-->
+        <!--<intent-filter>-->
+        <!--&lt;!&ndash;Required 用户注册SDK的intent&ndash;&gt;-->
+        <!--<action android:name="cn.jpush.android.intent.REGISTRATION" />-->
+        <!--&lt;!&ndash;Required 用户接收SDK消息的intent&ndash;&gt;-->
+        <!--<action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" />-->
+        <!--&lt;!&ndash;Required 用户接收SDK通知栏信息的intent&ndash;&gt;-->
+        <!--<action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" />-->
+        <!--&lt;!&ndash;Required 用户打开自定义通知栏的intent&ndash;&gt;-->
+        <!--<action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" />-->
+        <!--&lt;!&ndash; 接收网络变化 连接/断开 since 1.6.3 &ndash;&gt;-->
+        <!--<action android:name="cn.jpush.android.intent.CONNECTION" />-->
+        <!--<category android:name="您应用的包名" />-->
+        <!--</intent-filter>-->
+        <!--</receiver>-->
+
+        <!-- Required. For publish channel feature -->
+        <!-- JPUSH_CHANNEL 是为了方便开发者统计APK分发渠道。-->
+        <!-- 例如: -->
+        <!-- 发到 Google Play 的APK可以设置为 google-play; -->
+        <!-- 发到其他市场的 APK 可以设置为 xxx-market。 -->
+        <!-- 目前这个渠道统计功能的报表还未开放。-->
+        <meta-data
+            android:name="JPUSH_CHANNEL"
+            android:value="developer-default" />
+        <!-- Required. AppKey copied from Portal -->
+        <meta-data
+            android:name="JPUSH_APPKEY"
+            android:value="25b3a2a3df4d0d26b55ea031" />
+	    
+	    <activity android:name=".rob.ui.RobotHomeActivity"
+                  android:screenOrientation="portrait"/>
+
+
+        <receiver android:name="com.wilddog.client.receiver.WilddogAuthCastReceiver">
+            <intent-filter>
+                <action android:name="com.wilddog.wilddogauth.signinsuccess"/>
+                <action android:name="com.wilddog.wilddogauth.signoutsuccess"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name=".rob.ui.CalledActivity"
+            android:screenOrientation="landscape"
+            android:launchMode="singleTask"
+            />
+        <activity android:name=".rob.ui.CallingActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask"
+            />
+        <service android:name=".service.VideoCallService"/>
+    </application>
+
+</manifest>

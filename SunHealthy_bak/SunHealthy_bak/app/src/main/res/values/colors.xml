@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="white">#fff</color>
+    <color name="mine_bg">#f2f2f2</color>
+    <color name="appColor">#0DA6D8</color>
+    <color name="tabNoSelect">#929292</color>
+    <color name="tabSelect">#00b0ff</color>
+
+    <color name="black">#333333</color>
+    <color name="blue">#21a9fb</color>
+    <color name="blue1">#32a1fd</color>
+    <color name="light_gray">#999999</color>
+    <color name="light_gray2">#cccccc</color>
+    <color name="light_gray3">#eeeeee</color>
+    <color name="light_gray4">#f2f2f2</color>
+    <color name="light_gray5">#efefef</color>
+    <color name="light_gray6">#fafafa</color>
+    <color name="light_gray7">#8d8d8d</color>
+    <color name="dark_gray">#666666</color>
+    <color name="dark_gray2">#555555</color>
+    <color name="fg_line">#f2f2f2</color>
+    <color name="fg_line2">#e1e1e1</color>
+
+    <!--ajiang  Start-->
+    <!--二维码  start-->
+    <!-- QRCode scanner color begin -->
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="result_view">#B0000000</color>
+    <color name="viewfinder_frame">#90FFFFFF</color>
+    <color name="result_point_color">#C0FFFF00</color>
+    <color name="laser_color">#0F0</color>
+    <color name="corner_color">#00FF00</color>
+    <!-- QRCode scanner color end -->
+    <!--二维码  end-->
+    <!--ajiang  end-->
+    <!--首页-->
+    <!--<color name="appColor">#67b34f</color>-->
+    <color name="appColor2">#0DA6D8</color>
+    <color name="homepage_tx22">#444444</color>
+    <color name="homepage_line_bkg">#dcdcdc</color>
+    <color name="white_color">#ffffff</color>
+    <color name="homepage_tq_tx">#252525</color>
+    <color name="homepage_new_tx">#666666</color>
+    <color name="common_bg">#fcfcfc</color>
+
+    <!--个人中心-->
+    <color name="vip_color">#ebc11a</color>
+    <color name="personback">#ebebeb</color>
+
+    <color name="person_view_line">#d2d2d2</color>
+    <!--活动中心-->
+    <color name="center_text_back">#666666</color>
+    <color name="text_back">#252525</color>
+
+    <color name="sport_tx1">#999999</color>
+    <color name="second_tx2">#999999</color>
+    <!--选择城市-->
+    <color name="select_city_tx1">#252525</color>
+    <color name="select_zm_bkg">#ebebeb</color>
+    <color name="select_zm_bkg2">#ffffff</color>
+    <color name="select_tag_bkg1">#656565</color>
+
+    <!--二期修改-->
+    <color name="homepage_gray_color">#efefef</color>
+    <color name="homepage_er_tx_color">#333333</color>
+    <color name="food_second_line_bkg">#cccccc</color>
+    <color name="mine_tx_color">#666666</color>
+    <color name="black_color">#000000</color>
+    <color name="gray_color66">#666666</color>
+    <color name="kefu_dialog_kbg">#f2313134</color>
+
+    <color name="team_tx1_color">#666666</color>
+    <color name="team_tx2_color">#b2b2b2</color>
+
+    <color name="new_setting_tx_color">#333333</color>
+    <color name="create_person_selector_tx">#666666</color>
+    <!--  ajiang   start-->
+    <color name="gray">#999999</color>
+    <color name="Lightred">#FF9797</color>
+    <color name="search">#666</color>
+    <color name="line_eee">#eee</color>
+    <color name="line">#ffd0d0d0</color>
+    <color name="family_list">#efefef</color>
+
+    <!-- 谷歌电子市场  start -->
+    <color name="bg_tab_pressed">#6633b5e5</color>
+    <!-- 蓝色 -->
+    <color name="bg_tab_normal">#00000000</color>
+    <!-- <color name="bg_tab_pressed2">#ff3898ff</color> -->
+
+    <!-- 选中文字颜色 -->
+    <color name="tab_text_color_normal">#ff737373</color>
+    <!-- 未选中文字颜色 -->
+
+    <!-- 谷歌电子市场  end -->
+    <!-- 二维码 start -->
+    <color name="contents_text">#ff000000</color>
+    <color name="encode_view">#ffffffff</color>
+    <color name="possible_result_points">#c0ffbd21</color>
+    <!-- Android standard ICS color -->
+    <color name="result_minor_text">#ffc0c0c0</color>
+    <color name="result_points">#c099cc00</color>
+    <!-- Android standard ICS color -->
+    <color name="result_text">#ffffffff</color>
+    <color name="status_text">#ffffffff</color>
+    <color name="transparent">#00000000</color>
+    <color name="viewfinder_laser">#ffcc0000</color>
+    <!-- Android standard ICS color -->
+    <!-- 二维码 end -->
+    <!--  ajiang   end-->
+    <!--family  start-->
+
+    <color name="hui">#333333</color>
+    <color name="lan">#26AFDC</color>
+    <color name="qianhui">#999999</color>
+    <color name="line_ca">#cacaca</color>
+    <color name="head_border">#99d0fe</color>
+
+    <!--family  end-->
+
+    <color name="grey">#c7c7cc</color>
+    <color name="grey_advice">#515151</color>
+    <color name="message_gray">#b4b4b4</color>
+    <color name="theme_blue">#21a9fb</color>
+    <color name="b3">#b3b3b3</color>
+    <color name="family_none_green">#35d47a</color>
+    <color name="family_none_orange">#ff6d60</color>
+    <color name="orange">#f29a28</color>
+    <color name="light_gray8">#c6c6c6</color>
+    <color name="dark_gray3">#5d5d5d</color>
+</resources>

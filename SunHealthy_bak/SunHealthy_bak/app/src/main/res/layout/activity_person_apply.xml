@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/title_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/text_size_40"
+            android:src="@mipmap/title_back" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="110px"
+        android:gravity="center_horizontal"
+        android:text="@string/apply_tv1"
+        android:textColor="@color/blue"
+        android:textSize="64px" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/text_size_48">
+
+            <LinearLayout
+                android:id="@+id/layout_phone"
+                android:layout_width="match_parent"
+                android:layout_height="88px"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/text_size_50"
+                android:layout_marginRight="@dimen/text_size_50"
+                android:layout_marginTop="72px"
+                android:clickable="true"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:paddingBottom="35px"
+                    android:paddingLeft="28px"
+                    android:src="@mipmap/zhenshixingming" />
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="30px"
+                    android:layout_marginBottom="10px"
+                    android:layout_marginLeft="16px"
+                    android:background="@color/black"
+                    android:visibility="gone" />
+
+                <com.longcai.medical.ui.view.ClearEditText
+                    android:id="@+id/apply_ed_name"
+                    android:layout_width="0px"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="46px"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="bottom"
+                    android:hint="@string/apply_name"
+                    android:inputType="text"
+                    android:lines="1"
+                    android:maxLength="8"
+                    android:paddingBottom="35px"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/light_gray"
+                    android:textSize="@dimen/text_size_28" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="5px"
+                    android:text="*"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_24" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/line1"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_below="@+id/layout_phone"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/text_size_50"
+                android:layout_marginRight="@dimen/text_size_50"
+                android:background="@color/personback" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="106px"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/text_size_50"
+                android:layout_marginRight="@dimen/text_size_50"
+                android:clickable="true"
+                android:gravity="bottom"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:paddingBottom="35px"
+                    android:paddingLeft="28px"
+                    android:src="@mipmap/shenfenzheng" />
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="30px"
+                    android:layout_marginBottom="10px"
+                    android:layout_marginLeft="12px"
+                    android:background="@color/black"
+                    android:visibility="gone" />
+
+                <com.longcai.medical.ui.view.ClearEditText
+                    android:id="@+id/apply_ed_card"
+                    android:layout_width="0px"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="46px"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:digits="@string/robot_limit"
+                    android:gravity="bottom"
+                    android:hint="@string/apply_card"
+                    android:inputType="number"
+                    android:lines="1"
+                    android:maxLength="21"
+                    android:paddingBottom="35px"
+                    android:paddingTop="35px"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/light_gray"
+                    android:textSize="@dimen/text_size_28" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="5px"
+                    android:text="*"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_24" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/text_size_50"
+                android:layout_marginRight="@dimen/text_size_50"
+                android:background="@color/personback" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="106px"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/text_size_50"
+                android:layout_marginRight="@dimen/text_size_50"
+                android:clickable="true"
+                android:gravity="bottom"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:paddingBottom="35px"
+                    android:paddingLeft="28px"
+                    android:src="@mipmap/yanzhengma" />
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="30px"
+                    android:layout_marginBottom="10px"
+                    android:layout_marginLeft="12px"
+                    android:background="@color/black"
+                    android:visibility="gone" />
+
+                <com.longcai.medical.ui.view.ClearEditText
+                    android:id="@+id/apply_ed_invite"
+                    android:layout_width="0px"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="46px"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:digits="@string/robot_limit"
+                    android:gravity="bottom"
+                    android:hint="邀请码(选填)"
+                    android:lines="1"
+                    android:maxLength="8"
+                    android:paddingBottom="35px"
+                    android:paddingTop="35px"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/light_gray"
+                    android:textSize="@dimen/text_size_28" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_below="@+id/layout_phone"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/text_size_50"
+                android:layout_marginRight="@dimen/text_size_50"
+                android:background="@color/personback" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="110px"
+                android:layout_marginRight="110px"
+                android:layout_marginTop="@dimen/text_size_50">
+
+                <ImageView
+                    android:id="@+id/apply_iv_card1"
+                    android:layout_width="237px"
+                    android:layout_height="176px"
+                    android:src="@mipmap/sale_sfzzm" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@+id/apply_iv_card1"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/apply_iv_card1"
+                    android:layout_marginTop="@dimen/text_size_16"
+                    android:gravity="center"
+                    android:text="@string/card_front"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="@dimen/text_size_24" />
+
+                <ImageView
+                    android:id="@+id/apply_iv_card2"
+                    android:layout_width="237px"
+                    android:layout_height="176px"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/sale_sfzzm" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@+id/apply_iv_card2"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignStart="@+id/apply_iv_card2"
+                    android:layout_below="@+id/apply_iv_card2"
+                    android:layout_marginTop="@dimen/text_size_16"
+                    android:gravity="center"
+                    android:text="@string/card_behind"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="@dimen/text_size_24" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/text_size_30"
+                android:layout_marginLeft="78px"
+                android:layout_marginRight="@dimen/text_size_50">
+
+                <CheckBox
+                    android:id="@+id/apply_agree_cb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/cb_selector"
+                    android:checked="false"
+                    android:paddingTop="@dimen/text_size_30"
+                    android:paddingBottom="@dimen/text_size_20"
+                    android:paddingRight="15px"/>
+
+                <TextView
+                    android:id="@+id/apply_tv_agree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/apply_agree_cb"
+                    android:text="@string/apply_agree"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_20" />
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/apply_iv_commit"
+                android:layout_width="match_parent"
+                android:layout_height="88px"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/text_size_50"
+                android:layout_marginRight="@dimen/text_size_50"
+                android:layout_marginTop="@dimen/text_size_20"
+                android:background="@drawable/btn_bg_selector"
+                android:enabled="false"
+                android:gravity="center"
+                android:text="@string/sale_btn_commit"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_32" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

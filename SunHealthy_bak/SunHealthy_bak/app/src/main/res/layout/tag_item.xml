@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20px"
+        android:layout_marginTop="20px"
+        android:background="@drawable/tag_item_bkg"
+        android:tag="{20,20,0,0}">
+
+        <TextView
+            android:id="@+id/tv_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="6px"
+            android:paddingLeft="26px"
+            android:paddingRight="26px"
+            android:paddingTop="6px"
+            android:tag="(21)[26,6,26,6]"
+            android:textColor="@color/white_color"
+            android:textSize="21px" />
+    </RelativeLayout>
+
+</LinearLayout>

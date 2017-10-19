@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="540px"
+    android:layout_height="264px"
+    android:background="@drawable/addphotoradius"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:gravity="center"
+        android:text="添加封面"
+        android:textColor="#000000" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#d9d9d9"></View>
+
+    <TextView
+        android:id="@+id/tv_takephoto"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:gravity="center"
+        android:text="拍照"
+        android:textColor="#26AFDC" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#d9d9d9"></View>
+
+    <TextView
+        android:id="@+id/tv_choosephoto"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:gravity="center"
+        android:text="从相册选择图片"
+        android:textColor="#26AFDC" />
+
+
+</com.zhy.autolayout.AutoLinearLayout>

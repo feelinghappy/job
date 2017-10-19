@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_bar" />
+
+    <RelativeLayout
+        android:id="@+id/mine_code_layout"
+        android:layout_width="match_parent"
+        android:layout_height="156px"
+        android:layout_marginTop="@dimen/text_size_24"
+        android:background="@drawable/btn_sales_bg_selector">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/text_size_38">
+
+            <TextView
+                android:id="@+id/mine_sale_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" "
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_34" />
+
+            <TextView
+                android:id="@+id/mine_sale_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="56px"
+                android:layout_toRightOf="@+id/mine_sale_name"
+                android:text="兼职个人消费商"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_26"
+                android:layout_above="@+id/mine_sale_invite" />
+
+            <TextView
+                android:id="@+id/mine_sale_invite1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/mine_sale_name"
+                android:layout_marginTop="@dimen/text_size_28"
+                android:lineSpacingExtra="@dimen/text_size_28"
+                android:text="我的邀请码："
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_26" />
+            <TextView
+                android:id="@+id/mine_sale_invite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/mine_sale_name"
+                android:layout_toRightOf="@+id/mine_sale_invite1"
+                android:layout_marginTop="@dimen/text_size_28"
+                android:lineSpacingExtra="@dimen/text_size_28"
+                android:text=""
+                android:textIsSelectable="true"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_26" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="58px"
+                android:src="@mipmap/erweima"
+                android:visibility="gone" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="20px"
+                android:src="@mipmap/right_arrow"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/mine_total_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/text_size_20"
+        android:background="@drawable/btn_sales_bg_selector"
+        android:gravity="center_vertical"
+        android:paddingBottom="@dimen/text_size_20"
+        android:paddingLeft="@dimen/text_size_38">
+
+        <TextView
+            android:id="@+id/mine_sale_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_size_20"
+            android:lineSpacingExtra="@dimen/text_size_28"
+            android:text="共计0人\n团队业绩总计：0元 "
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_26" />
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/mine_fanli_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/text_size_24"
+            android:layout_marginTop="@dimen/text_size_20"
+            android:lineSpacingExtra="@dimen/text_size_28"
+            android:text="总返利金额：100元\n已返利金额：100元"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_26" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/mine_team_layout"
+        android:layout_width="match_parent"
+        android:layout_height="66px"
+        android:layout_marginTop="@dimen/text_size_20"
+        android:background="@color/white"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/text_size_38"
+            android:text="@string/team_mem"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_26" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/text_size_24"
+            android:text="@string/team_amount"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_26" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/fg_line" />
+
+    <ListView
+        android:visibility="gone"
+        android:id="@+id/mine_team_lv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@null"
+        android:scrollbars="none">
+
+    </ListView>
+</LinearLayout>

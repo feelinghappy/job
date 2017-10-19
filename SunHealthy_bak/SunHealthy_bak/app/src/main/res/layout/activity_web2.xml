@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_web2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.longcai.medical.ui.activity.Web2Activity">
+
+    <RelativeLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="104px"
+        android:background="@color/appColor2"
+        android:tag="(0,104)">
+
+        <RelativeLayout
+            android:id="@+id/bank_btn"
+            android:layout_width="200px"
+            android:layout_height="match_parent"
+            android:tag="(200,0)">
+
+            <ImageView
+                android:layout_width="24px"
+                android:layout_height="42px"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="35px"
+                android:src="@mipmap/fanhui"
+                android:tag="(24,42){35,0,0,0}" />
+        </RelativeLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:tag="(37)"
+            android:text="资讯详情"
+            android:textColor="@color/white"
+            android:textSize="37px" />
+
+        <RelativeLayout
+            android:id="@+id/collect_btn"
+            android:layout_width="200px"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:tag="(200,0)"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/collect_tx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="30px"
+                android:tag="(34){0,0,30,0}"
+                android:textColor="@color/white"
+                android:textSize="34px" />
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+    <WebView
+        android:id="@+id/collect_webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/title" />
+
+</RelativeLayout>

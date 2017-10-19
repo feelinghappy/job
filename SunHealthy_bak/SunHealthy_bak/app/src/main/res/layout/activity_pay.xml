@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mine_bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_bar" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="138px">
+
+                <RelativeLayout
+                    android:id="@+id/sales_relative_wait"
+                    android:layout_width="match_parent"
+                    android:layout_height="160px"
+                    android:background="@mipmap/ic_confirm_wait_bg">
+
+                    <TextView
+                        android:id="@+id/sales_txt_wait"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="98px"
+                        android:layout_marginTop="45px"
+                        android:text="剩余59分43分"
+                        android:textColor="@android:color/white"
+                        android:textSize="30px" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/sales_txt_wait"
+                        android:layout_marginLeft="98px"
+                        android:layout_marginTop="20px"
+                        android:text="逾期订单将自动取消"
+                        android:textColor="@android:color/white"
+                        android:textSize="24px" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/sales_relative_product"
+                    android:layout_width="match_parent"
+                    android:layout_height="186px"
+                    android:layout_below="@id/sales_relative_wait"
+                    android:layout_marginTop="20px"
+                    android:background="#fafafa"
+                    android:clickable="true">
+
+                    <ImageView
+                        android:id="@+id/sales_img_robot"
+                        android:layout_width="128px"
+                        android:layout_height="128px"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="38px"
+                        android:scaleType="fitCenter"
+                        android:src="@mipmap/test_zhanweitu" />
+
+                    <TextView
+                        android:id="@+id/sales_txt_robotname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="38px"
+                        android:layout_marginTop="16px"
+                        android:layout_toRightOf="@id/sales_img_robot"
+                        android:textColor="@color/black"
+                        android:textSize="32px" />
+
+                    <TextView
+                        android:id="@+id/sales_txt_deposit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/sales_txt_robotname"
+                        android:layout_marginLeft="38px"
+                        android:layout_marginTop="10px"
+                        android:layout_toRightOf="@id/sales_img_robot"
+                        android:text="金额："
+                        android:textColor="@color/black"
+                        android:textSize="26px" />
+
+                    <TextView
+                        android:id="@+id/sales_txt_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/sales_txt_deposit"
+                        android:layout_marginLeft="38px"
+                        android:layout_marginTop="10px"
+                        android:layout_toRightOf="@id/sales_img_robot"
+                        android:text="数量："
+                        android:textColor="@color/black"
+                        android:textSize="26px" />
+
+                    <TextView
+                        android:id="@+id/sales_txt_tradeway"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/sales_txt_number"
+                        android:layout_marginLeft="38px"
+                        android:layout_marginTop="10px"
+                        android:layout_toRightOf="@id/sales_img_robot"
+                        android:text="交易方式："
+                        android:textColor="@color/black"
+                        android:textSize="26px" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/sales_txt_pay"
+                    android:layout_width="match_parent"
+                    android:layout_height="66px"
+                    android:layout_below="@id/sales_relative_product"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="30px"
+                    android:text="支付方式"
+                    android:textColor="@color/black"
+                    android:textSize="32px" />
+
+                <RelativeLayout
+                    android:id="@+id/sales_relative_weixin_pay"
+                    android:layout_width="match_parent"
+                    android:layout_height="88px"
+                    android:layout_below="@id/sales_txt_pay"
+                    android:clickable="true"
+                    android:background="@drawable/btn_sales_bg_selector">
+
+                    <ImageView
+                        android:id="@+id/weixin_item_icon"
+                        android:layout_width="70px"
+                        android:layout_height="70px"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/text_size_40"
+                        android:layout_marginRight="@dimen/text_size_30"
+                        android:src="@mipmap/ic_weixin_pay" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/weixin_item_icon"
+                        android:text="微信支付"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_32" />
+
+                    <CheckBox
+                        android:id="@+id/weixin_item_select"
+                        android:layout_width="26px"
+                        android:layout_height="26px"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/text_size_30"
+                        android:clickable="false"
+                        android:background="@null"
+                        android:button="@drawable/pay_way_selector"
+                        android:checked="true" />
+
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_below="@id/sales_relative_weixin_pay"
+                    android:background="@color/fg_line" />
+
+                <RelativeLayout
+                    android:id="@+id/sales_relative_zhifubao_pay"
+                    android:layout_width="match_parent"
+                    android:layout_height="88px"
+                    android:layout_below="@id/line"
+                    android:clickable="true"
+                    android:background="@drawable/btn_sales_bg_selector">
+
+                    <ImageView
+                        android:id="@+id/zhifubao_item_icon"
+                        android:layout_width="70px"
+                        android:layout_height="70px"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/text_size_40"
+                        android:layout_marginRight="@dimen/text_size_30"
+                        android:src="@mipmap/ic_zhifubao_pay" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/zhifubao_item_icon"
+                        android:text="支付宝支付"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_32" />
+
+                    <CheckBox
+                        android:id="@+id/zhifubao_item_select"
+                        android:layout_width="26px"
+                        android:layout_height="26px"
+                        android:clickable="false"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/text_size_30"
+                        android:background="@null"
+                        android:button="@drawable/pay_way_selector" />
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/sales_btn_confirm_pay"
+            android:layout_width="match_parent"
+            android:layout_height="88px"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="30px"
+            android:layout_marginLeft="30px"
+            android:layout_marginRight="30px"
+            android:background="@drawable/btn_confirm_pay_bg_selector"
+            android:text="确认支付"
+            android:textColor="@android:color/white"
+            android:textSize="38px" />
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_bar" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="160px"
+        android:src="@mipmap/chenggong" />
+
+    <TextView
+        android:id="@+id/store_success_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/text_size_30"
+        android:text="发货成功"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_40" />
+
+    <Button
+        android:id="@+id/store_success_btn"
+        android:layout_width="600px"
+        android:layout_height="88px"
+        android:layout_marginTop="180px"
+        android:background="@drawable/apply_sales_bkg1"
+        android:text="@string/store_complete"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_34" />
+</com.zhy.autolayout.AutoLinearLayout>

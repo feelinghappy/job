@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_bar" />
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/fmem_layout1"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_below="@+id/title_common"
+        android:layout_marginTop="@dimen/text_size_24"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/text_size_40"
+            android:text="@string/head"
+            android:textSize="@dimen/text_size_32" />
+
+        <ImageView
+            android:id="@+id/family_mem_head"
+            android:layout_width="70px"
+            android:layout_height="70px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/text_size_50"
+            android:src="@mipmap/head" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/fg_line" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/fmem_layout2"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_below="@+id/fmem_layout1"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/fmem_tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/text_size_40"
+            android:text="@string/nickcheng"
+            android:textSize="@dimen/text_size_32" />
+
+        <com.longcai.medical.ui.view.ClearEditText
+            android:id="@+id/family_mem_name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/text_size_30"
+            android:layout_toRightOf="@+id/fmem_tv2"
+            android:background="@null"
+            android:gravity="right|center_vertical"
+            android:hint="@string/name"
+            android:maxLength="16"
+            android:textColor="@color/black"
+            android:textColorHint="@color/grey"
+            android:textCursorDrawable="@null"
+            android:textSize="@dimen/text_size_32" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/fg_line" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/fmem_layout3"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_below="@+id/fmem_layout2"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/phone"
+            android:textSize="@dimen/text_size_32"
+            android:paddingLeft="@dimen/text_size_40" />
+
+        <ImageView
+            android:id="@+id/family_mem_right1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/text_size_20"
+            android:src="@mipmap/icon_right"
+            android:visibility="gone"/>
+
+        <com.longcai.medical.ui.view.ClearEditText
+            android:id="@+id/family_mem_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/text_size_20"
+            android:layout_alignParentRight="true"
+            android:background="@null"
+            android:gravity="right|center_vertical"
+            android:hint="@string/phone_number"
+            android:maxLength="13"
+            android:textColor="@color/black"
+            android:textColorHint="@color/grey"
+            android:textCursorDrawable="@null"
+            android:textSize="@dimen/text_size_32" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/fg_line" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/fmem_layout4"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_below="@+id/fmem_layout3"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/edit_person_sex"
+            android:textSize="@dimen/text_size_32"
+            android:paddingLeft="@dimen/text_size_40" />
+
+        <TextView
+            android:id="@+id/family_mem_sex"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/text_size_20"
+            android:layout_toLeftOf="@+id/family_mem_right2"
+            android:gravity="right|center_vertical"
+            android:textSize="@dimen/text_size_32"
+            android:text="请选择性别"
+            android:textColor="@color/grey"/>
+
+        <ImageView
+            android:id="@+id/family_mem_right2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/text_size_20"
+            android:src="@mipmap/icon_right" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/fg_line" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/fmem_layout5"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_below="@+id/fmem_layout4"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/edit_person_age"
+            android:textSize="@dimen/text_size_32"
+            android:paddingLeft="@dimen/text_size_40" />
+
+        <TextView
+            android:id="@+id/family_mem_age"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/text_size_20"
+            android:layout_toLeftOf="@+id/family_mem_right3"
+            android:gravity="right|center_vertical"
+            android:text="请选择年龄"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/text_size_32" />
+
+        <ImageView
+            android:id="@+id/family_mem_right3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/text_size_20"
+            android:src="@mipmap/icon_right" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/fg_line" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/fmem_layout6"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_below="@+id/fmem_layout5"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/basicinfo_height"
+            android:textSize="@dimen/text_size_32"
+            android:paddingLeft="@dimen/text_size_40"/>
+
+        <TextView
+            android:id="@+id/family_mem_height"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/text_size_20"
+            android:layout_toLeftOf="@+id/family_mem_right4"
+            android:gravity="right|center_vertical"
+            android:text="请选择身高"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/text_size_32" />
+
+        <ImageView
+            android:id="@+id/family_mem_right4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/text_size_20"
+            android:src="@mipmap/icon_right" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/fg_line" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/fmem_layout7"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_below="@+id/fmem_layout6"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/basicinfo_weight"
+            android:textSize="@dimen/text_size_32"
+            android:paddingLeft="@dimen/text_size_40" />
+
+        <TextView
+            android:id="@+id/family_mem_weight"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/text_size_20"
+            android:layout_toLeftOf="@+id/family_mem_right5"
+            android:gravity="right|center_vertical"
+            android:text="请选择体重"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/text_size_32" />
+
+        <ImageView
+            android:id="@+id/family_mem_right5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/text_size_20"
+            android:src="@mipmap/icon_right" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/fg_line" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/fmem_layout8"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_below="@+id/fmem_layout7"
+        android:background="@color/white"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/shebei"
+            android:textSize="@dimen/text_size_32"
+            android:paddingLeft="@dimen/text_size_40" />
+
+        <TextView
+            android:id="@+id/family_mem_shebei"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/text_size_20"
+            android:layout_toLeftOf="@+id/family_mem_right6"
+            android:gravity="right|center_vertical"
+            android:text="@string/shebei1"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/text_size_32" />
+
+        <ImageView
+            android:id="@+id/family_mem_right6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/text_size_20"
+            android:src="@mipmap/icon_right" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <Button
+        android:id="@+id/family_mem_save"
+        android:layout_width="700px"
+        android:layout_height="88px"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/text_size_30"
+        android:background="@drawable/apply_sales_bkg1"
+        android:text="@string/save"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_36" />
+</com.zhy.autolayout.AutoRelativeLayout>

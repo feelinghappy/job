@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--<include layout="@layout/title_bar" />-->
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/refresh_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@null"
+        android:scrollbars="none" />
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/relative_title"
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:background="#ffffff">
+
+        <TextView
+            android:id="@+id/title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="太阳健康"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_36"/>
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <ImageView
+        android:id="@+id/img_shader"
+        android:layout_width="match_parent"
+        android:layout_height="5px"
+        android:layout_below="@id/relative_title"
+        android:visibility="visible"
+        android:scaleType="fitXY"
+        android:src="@mipmap/title_shader"/>
+
+</RelativeLayout>

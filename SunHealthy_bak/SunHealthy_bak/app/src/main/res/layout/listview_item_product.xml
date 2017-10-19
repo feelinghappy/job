@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants">
+
+    <RelativeLayout
+        android:id="@+id/product_relative_bg"
+        android:layout_width="match_parent"
+        android:layout_height="300px"
+        android:layout_marginTop="20px"
+        android:background="#f7f7f7">
+        <ImageView
+            android:id="@+id/product_img_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/test_zhanweitu" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/product_relative_bg"
+        android:background="@android:color/white"
+        android:paddingBottom="30px">
+
+        <TextView
+            android:id="@+id/product_txt_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="38px"
+            android:layout_marginTop="30px"
+            android:text="@string/app_name"
+            android:textColor="@color/black"
+            android:textSize="32px" />
+
+        <TextView
+            android:id="@+id/product_txt_currency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/product_txt_name"
+            android:layout_marginLeft="38px"
+            android:layout_marginTop="20px"
+            android:text="￥"
+            android:textColor="#21a9fb"
+            android:textSize="22px" />
+
+        <TextView
+            android:id="@+id/product_txt_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/product_txt_currency"
+            android:layout_below="@id/product_txt_name"
+            android:layout_marginTop="20px"
+            android:layout_toRightOf="@id/product_txt_currency"
+            android:textColor="#21a9fb"
+            android:textSize="28px" />
+
+        <Button
+            android:id="@+id/product_btn_select"
+            android:layout_width="130px"
+            android:layout_height="60px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="38px"
+            android:background="@drawable/btn_feedback_bg_selector"
+            android:text="选择"
+            android:textColor="#21a9fb"
+            android:textSize="26px"
+            android:visibility="visible" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5px"
+        android:layout_alignParentBottom="true"
+        android:background="@color/mine_bg" />
+</RelativeLayout>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/light_gray5" />
+
+        <com.longcai.medical.ui.view.NoScrollViewPager
+            android:id="@+id/main_vp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"></com.longcai.medical.ui.view.NoScrollViewPager>
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1px"
+            android:background="@color/line_ca"
+            android:visibility="gone"/>
+
+        <RadioGroup
+            android:id="@+id/rg_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center"
+            android:paddingTop="13px"
+            android:paddingBottom="5px"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_home"
+                style="@style/Bottom_Tab_Style"
+                android:checked="true"
+                android:drawableTop="@drawable/tab_smart_selector"
+                android:text="太阳健康" />
+
+            <RadioButton
+                android:id="@+id/rb_family"
+                style="@style/Bottom_Tab_Style"
+                android:drawableTop="@drawable/tab_home_selector"
+                android:text="家庭" />
+
+            <RadioButton
+                android:visibility="gone"
+                android:id="@+id/rb_news"
+                style="@style/Bottom_Tab_Style"
+                android:drawableTop="@drawable/tab_news_selector"
+                android:text="发现" />
+
+            <RadioButton
+                android:id="@+id/rb_mine"
+                style="@style/Bottom_Tab_Style"
+                android:drawableTop="@drawable/tab_gov_selector"
+                android:text="我的" />
+
+        </RadioGroup>
+    </LinearLayout>
+</RelativeLayout>

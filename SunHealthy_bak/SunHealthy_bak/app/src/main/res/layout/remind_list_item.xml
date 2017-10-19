@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:descendantFocusability="blocksDescendants">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/text_size_20"
+        android:background="@color/white">
+        <TextView
+            android:id="@+id/remind_item_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/text_size_36"
+            android:layout_marginTop="@dimen/text_size_20"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_24" />
+
+        <TextView
+            android:id="@+id/remind_item_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/remind_item_time"
+            android:layout_marginLeft="@dimen/text_size_36"
+            android:layout_marginTop="@dimen/text_size_20"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_30" />
+
+        <TextView
+            android:id="@+id/remind_item_repeat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/remind_item_content"
+            android:layout_marginBottom="@dimen/text_size_20"
+            android:layout_marginLeft="@dimen/text_size_36"
+            android:layout_marginTop="@dimen/text_size_20"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_24" />
+
+        <TextView
+            android:id="@+id/remind_item_target"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/remind_item_content"
+            android:layout_marginBottom="@dimen/text_size_20"
+            android:layout_marginLeft="@dimen/text_size_36"
+            android:layout_marginRight="@dimen/text_size_20"
+            android:layout_marginTop="@dimen/text_size_20"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_30" />
+
+        <CheckBox
+            android:id="@+id/remind_toggleButton"
+            android:layout_width="70px"
+            android:layout_height="40px"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/text_size_20"
+            android:layout_marginTop="@dimen/text_size_20"
+            android:background="@drawable/remind_toggle_button"
+            android:button="@null"/>
+    </RelativeLayout>
+</LinearLayout>

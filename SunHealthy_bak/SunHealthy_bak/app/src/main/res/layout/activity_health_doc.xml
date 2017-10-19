@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mine_bg">
+    <include layout="@layout/title_bar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="86px"
+        android:layout_marginTop="28px"
+        android:orientation="horizontal"
+        android:background="@android:color/white">
+        <ImageView
+            android:id="@+id/iv_doc_avatar"
+            android:layout_width="70px"
+            android:layout_height="70px"
+            android:layout_marginTop="8px"
+            android:layout_marginLeft="30px"/>
+
+        <TextView
+            android:id="@+id/tv_doc_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24px"
+            android:layout_gravity="center_vertical"/>
+
+        <TextView
+            android:id="@+id/tv_doc_sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20px"
+            android:layout_gravity="center_vertical"
+            android:text="男"/>
+
+        <TextView
+            android:id="@+id/tv_doc_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20px"
+            android:layout_gravity="center_vertical"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="114px"
+        android:background="@android:color/white">
+        <TextView
+            android:id="@+id/tv_info_complete_degree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30px"
+            android:layout_marginTop="26px"
+            android:textColor="@color/black"
+            android:textSize="24px"
+            android:text="@string/health_doc_complete_degree"/>
+        
+        <ProgressBar
+            android:id="@+id/pb_info_degree"
+            android:layout_width="520px"
+            android:layout_height="10px"
+            android:layout_marginLeft="30px"
+            android:layout_marginTop="34px"
+            style="@style/progress_horizontal_custom"
+            android:layout_below="@id/tv_info_complete_degree"
+            android:max="100"
+            android:progress="0"/>
+
+        <TextView
+            android:id="@+id/tv_info_degree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20px"
+            android:layout_marginTop="24px"
+            android:layout_below="@id/tv_info_complete_degree"
+            android:layout_toRightOf="@id/pb_info_degree"
+            android:layout_alignBottom="@id/pb_info_degree"
+            android:textColor="@color/black"
+            android:textSize="20px"
+            android:text="0%"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_doc_basicinfo"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_marginTop="20px"
+        android:background="@android:color/white">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30px"
+            android:layout_centerVertical="true"
+            android:textColor="@color/black"
+            android:textSize="32px"
+            android:text="@string/health_doc_basicinfo"/>
+
+        <ImageView
+            android:id="@+id/iv_doc_basicinfo"
+            android:layout_width="16px"
+            android:layout_height="26px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/text_size_24"
+            android:src="@mipmap/mine_jiantou_img" />
+
+        <TextView
+            android:id="@+id/tv_doc_basicinfo_complete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20px"
+            android:layout_toLeftOf="@id/iv_doc_basicinfo"
+            android:layout_centerVertical="true"
+            android:textColor="@color/gray"
+            android:textSize="32px"
+            android:text="@string/health_doc_uncomplete"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_doc_data"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_marginTop="1px"
+        android:background="@android:color/white">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30px"
+            android:layout_centerVertical="true"
+            android:textColor="@color/black"
+            android:textSize="32px"
+            android:text="@string/health_doc_data"/>
+
+        <ImageView
+            android:id="@+id/iv_doc_data"
+            android:layout_width="16px"
+            android:layout_height="26px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/text_size_24"
+            android:src="@mipmap/mine_jiantou_img" />
+
+        <TextView
+            android:id="@+id/tv_doc_data_complete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20px"
+            android:layout_toLeftOf="@id/iv_doc_data"
+            android:layout_centerVertical="true"
+            android:textColor="@color/gray"
+            android:textSize="32px"/>
+    </RelativeLayout>
+</LinearLayout>

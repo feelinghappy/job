@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#ebebeb"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="50px"
+        android:layout_height="50px"
+        android:layout_marginLeft="20px"
+        android:layout_marginRight="20px"
+        android:background="@drawable/sport_timebkg"
+        android:tag="(50,50){20,0,20,0}">
+
+        <TextView
+            android:id="@+id/months_day_tx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:tag="(20)"
+            android:textColor="@color/sport_day_color_tx"
+            android:textSize="20px" />
+
+    </RelativeLayout>
+
+</LinearLayout>

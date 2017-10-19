@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_bar" />
+
+
+    <RelativeLayout
+        android:id="@+id/transfer_layout1"
+        android:layout_below="@+id/title_common"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/text_size_20"
+        android:background="@drawable/btn_sales_bg_selector"
+        android:paddingBottom="22px"
+        android:visibility="visible">
+        <ImageView
+            android:id="@+id/transfer_none_addr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title_common"
+            android:layout_marginBottom="20px"
+            android:layout_marginTop="20px"
+            android:src="@mipmap/ic_complete_receive_address_bg"
+            android:visibility="visible" />
+        <RelativeLayout
+            android:id="@+id/transfer_show_addr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+            <ImageView
+                android:id="@+id/transfer_iv"
+                android:layout_width="26px"
+                android:layout_height="38px"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="40px"
+                android:layout_marginRight="34px"
+                android:src="@mipmap/ic_confirm_locale" />
+
+            <TextView
+                android:id="@+id/transfer_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20px"
+                android:layout_toRightOf="@id/transfer_iv"
+                android:text="张三丰"
+                android:textColor="@color/black"
+                android:textSize="26px" />
+
+            <TextView
+                android:id="@+id/transfer_tel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20px"
+                android:layout_marginTop="20px"
+                android:layout_toRightOf="@id/transfer_name"
+                android:text="17635140987"
+                android:textColor="@color/black"
+                android:textSize="26px" />
+
+            <TextView
+                android:id="@+id/transfer_address"
+                android:layout_width="528px"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/transfer_tel"
+                android:layout_marginTop="20px"
+                android:layout_toRightOf="@id/transfer_iv"
+                android:lineSpacingExtra="@dimen/text_size_18"
+                android:text="北京市朝阳区北苑路5号黄金苑小区1号楼5单元601室"
+                android:textColor="@color/black"
+                android:textSize="26px" />
+
+            <ImageView
+                android:layout_width="16px"
+                android:layout_height="26px"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/text_size_38"
+                android:src="@mipmap/mine_jiantou_img" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/transfer_layout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/transfer_layout1"
+        android:layout_marginTop="20px"
+        android:background="@drawable/btn_sales_bg_selector"
+        android:clickable="true"
+        android:paddingBottom="20px">
+
+        <ImageView
+            android:id="@+id/transfer_robot"
+            android:layout_width="128px"
+            android:layout_height="128px"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30px"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_sales_robot" />
+
+        <TextView
+            android:id="@+id/transfer_robot_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="28px"
+            android:layout_marginTop="22px"
+            android:layout_toRightOf="@id/transfer_robot"
+            android:text="@string/app_name"
+            android:textColor="@color/black"
+            android:textSize="30px" />
+
+        <TextView
+            android:id="@+id/transfer_robot_serial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/transfer_robot_name"
+            android:layout_marginLeft="28px"
+            android:layout_marginTop="34px"
+            android:layout_toRightOf="@id/transfer_robot"
+            android:text="@string/sales_product_serial"
+            android:textColor="@color/black"
+            android:textSize="26px"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/transfer_robot_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/transfer_robot_serial"
+            android:layout_marginLeft="38px"
+            android:layout_marginTop="16px"
+            android:layout_toRightOf="@id/transfer_robot"
+            android:text="￥4880"
+            android:textColor="@color/black"
+            android:textSize="26px" />
+
+        <ImageView
+            android:layout_width="16px"
+            android:layout_height="26px"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/text_size_38"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/mine_jiantou_img"
+            android:visibility="visible" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_below="@+id/transfer_layout2"
+        android:layout_marginTop="@dimen/text_size_20"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="92px">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sales_number"
+            android:textSize="@dimen/text_size_32"
+            android:layout_centerVertical="true"
+            android:textColor="@color/black"
+            android:layout_marginLeft="@dimen/text_size_38"/>
+        <EditText
+            android:id="@+id/transfer_num"
+            android:layout_centerVertical="true"
+            android:layout_width="98px"
+            android:layout_height="50px"
+            android:inputType="number"
+            android:lines="1"
+            android:textSize="@dimen/text_size_30"
+            android:gravity="center"
+            android:background="@drawable/transfer_gray"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/text_size_38"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="98px"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/white">
+
+        <TextView
+            android:id="@+id/transfer_tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="38px"
+            android:text="@string/sales_sum"
+            android:textColor="@color/black"
+            android:textSize="30px" />
+
+        <TextView
+            android:id="@+id/transfer_total_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20px"
+            android:layout_toRightOf="@id/transfer_tv1"
+            android:text="￥"
+            android:textColor="@color/theme_blue"
+            android:textSize="30px" />
+
+        <Button
+            android:id="@+id/transfer_btn_commit"
+            android:layout_width="310px"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/btn_pay_bg_selector"
+            android:gravity="center"
+            android:text="@string/sale_btn_commit"
+            android:textColor="@android:color/white"
+            android:textSize="36px" />
+    </RelativeLayout>
+</RelativeLayout>

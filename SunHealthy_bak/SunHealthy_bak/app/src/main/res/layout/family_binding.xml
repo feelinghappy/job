@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?><!-- 选择绑定家庭  界面autor ajiang 2017.05.18 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_bar" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/txt_select_family"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20px"
+            android:text="选择已有家庭"
+            android:textColor="@color/black"
+            android:textSize="30px" />
+
+        <Button
+            android:id="@+id/robot_binding_select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/txt_select_family"
+            android:layout_marginBottom="40px"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/btn_create_family_selector"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/robot_binding_establish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20px"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/btn_select_family_selector"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/txt_create_family"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40px"
+            android:layout_below="@id/robot_binding_establish"
+            android:layout_centerHorizontal="true"
+            android:text="创建新家庭"
+            android:textColor="@color/black"
+            android:textSize="30px" />
+    </RelativeLayout>
+
+
+</LinearLayout>

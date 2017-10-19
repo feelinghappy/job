@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootLinear"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_bar" />
+
+    <ImageView
+        android:id="@+id/register_head"
+        android:layout_width="150px"
+        android:layout_height="150px"
+        android:layout_gravity="center"
+        android:layout_marginBottom="88px"
+        android:layout_marginTop="112px"
+        android:src="@mipmap/head2x" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_marginLeft="70px"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nickcheng"
+            android:textSize="@dimen/text_size_28" />
+
+        <EditText
+            android:id="@+id/ed_register_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="100px"
+            android:background="@null"
+            android:hint="@string/name"
+            android:maxLength="10"
+            android:textColor="@color/black"
+            android:textColorHint="@color/light_gray"
+            android:textSize="29px" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:layout_marginLeft="70px"
+        android:background="@color/light_gray3" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_marginLeft="70px"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/sex"
+            android:textSize="@dimen/text_size_28" />
+
+        <ImageView
+            android:id="@+id/register_nan"
+            android:layout_width="77px"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginLeft="100px"
+            android:src="@drawable/register_sex_selector"/>
+
+        <ImageView
+            android:id="@+id/register_nv"
+            android:layout_width="77px"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginLeft="70px"
+            android:src="@drawable/register_sex2_selector"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:layout_marginLeft="70px"
+        android:background="@color/light_gray3" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_marginLeft="70px"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/age"
+            android:textSize="@dimen/text_size_28"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/ed_register_age"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="100px"
+                android:background="@null"
+                android:hint="@string/age1"
+                android:textColorHint="@color/light_gray"
+                android:textSize="29px"
+                android:textColor="@color/black"
+                android:inputType="numberDecimal"/>
+
+            <ImageView
+                android:layout_width="36px"
+                android:layout_height="49px"
+                android:padding="10px"
+                android:layout_marginRight="36px"
+                android:src="@mipmap/re_jiantou2x"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="68px"
+        android:background="@color/light_gray4"
+        android:gravity="center_vertical"
+        android:paddingLeft="32px"
+        android:text="@string/xuantian"
+        android:textSize="@dimen/text_size_28" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_marginLeft="70px"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/height"
+            android:textSize="@dimen/text_size_28"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/ed_register_height"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="100px"
+                android:background="@null"
+                android:hint="@string/height1"
+                android:textColorHint="@color/light_gray"
+                android:textSize="29px"
+                android:textColor="@color/black"
+                android:inputType="numberDecimal"/>
+
+            <ImageView
+                android:layout_width="36px"
+                android:layout_height="49px"
+                android:padding="10px"
+                android:layout_marginRight="36px"
+                android:src="@mipmap/re_jiantou2x"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:layout_marginLeft="70px"
+        android:background="@color/light_gray3" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_marginLeft="70px"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/weight"
+            android:textSize="@dimen/text_size_28" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/ed_register_weight"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="100px"
+                android:background="@null"
+                android:hint="@string/weight1"
+                android:textColorHint="@color/light_gray"
+                android:textSize="29px"
+                android:textColor="@color/black"
+                android:inputType="numberDecimal"/>
+
+            <ImageView
+                android:layout_width="36px"
+                android:layout_height="49px"
+                android:padding="10px"
+                android:layout_marginRight="36px"
+                android:src="@mipmap/re_jiantou2x"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:layout_marginLeft="70px"
+        android:background="@color/light_gray3" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_marginLeft="70px"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/place"
+            android:textSize="@dimen/text_size_28"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/ed_register_place"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="70px"
+                android:text="@string/place1"
+                android:textColor="@color/light_gray"
+                android:textSize="29px"
+                android:gravity="center_vertical"/>
+
+            <ImageView
+                android:layout_width="36px"
+                android:layout_height="49px"
+                android:padding="10px"
+                android:layout_marginRight="36px"
+                android:src="@mipmap/re_jiantou2x"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:layout_marginLeft="70px"
+        android:background="@color/light_gray3" />
+</LinearLayout>

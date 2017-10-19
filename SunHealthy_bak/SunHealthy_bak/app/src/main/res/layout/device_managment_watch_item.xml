@@ -1,0 +1,89 @@
+<!-- 设备管理  手表  item 界面    autor ajiang  2017.5.18 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        android:orientation="horizontal"
+        android:paddingLeft="18dp"
+        android:paddingRight="18dp">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="63dp"
+                android:layout_height="63dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/watch" />
+        </RelativeLayout>
+
+        <!-- 手表、已绑定 -->
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.8"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="手表手表"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/device_whatch_imei"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Y20B1484013138354"
+                android:textColor="@color/gray"
+                android:textSize="13sp" />
+        </LinearLayout>
+        <!-- 更换、已解除 -->
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/device_whatch_replace"
+                android:layout_width="79dp"
+                android:layout_height="29dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/shape_corner_blue"
+                android:text="更换"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/device_whatch_unbundling"
+                android:layout_width="79dp"
+                android:layout_height="29dp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/device_whatch_replace"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/shape_corner_red"
+                android:text="解除"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/DividingLine"
+        android:layout_width="313dp"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="22dp"></LinearLayout>
+
+</LinearLayout>

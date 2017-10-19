@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?><!-- 机器人   界面  autor ajiang 2017.05.18 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/robot_binding_rl_load"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/robot_binding_load"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="30dp" />
+    </RelativeLayout>
+
+    <!-- 无绑定机器人时 -->
+
+    <RelativeLayout
+        android:id="@+id/robot_binding_watch"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:visibility="visible">
+        <ImageView
+            android:id="@+id/robot_binding_watch_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="88px"
+            android:src="@mipmap/bangding"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/text_size_60"
+            android:layout_centerHorizontal="true"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/quickly_binding"
+            android:layout_above="@+id/robot_binding_watch_iv"
+            android:layout_marginBottom="90px"
+            android:layout_centerHorizontal="true"/>
+
+    </RelativeLayout>
+
+    <!-- 绑定机器人时 -->
+
+    <LinearLayout
+        android:id="@+id/robot_bottom_all_ll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <!-- 步数、心率 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <LinearLayout style="@style/robot_binding_have_ll">
+
+                <RelativeLayout
+                    style="@style/TextviewPadding"
+                    android:layout_marginLeft="20px">
+
+                    <TextView
+                        android:id="@+id/robot_bottom_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/black"
+                        android:textSize="40px" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20px"
+                        android:layout_toRightOf="@id/robot_bottom_num"
+                        android:layout_alignBaseline="@id/robot_bottom_num"
+                        android:text="步"
+                        android:textColor="@color/black"
+                        android:textSize="20px" />
+
+                </RelativeLayout>
+
+                <TextView
+                    style="@style/TextviewPadding"
+                    android:layout_marginLeft="20px"
+                    android:text="今日步数"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_30" />
+
+                <ImageView
+                    style="@style/TextviewPadding"
+                    android:layout_marginLeft="5px"
+                    android:src="@drawable/robot_step"/>
+
+            </LinearLayout>
+
+            <View
+                style="@style/DividingLine"
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20px"/>
+
+            <LinearLayout style="@style/robot_binding_have_ll">
+
+                <RelativeLayout
+                    style="@style/TextviewPadding"
+                    android:layout_marginLeft="20px">
+
+                    <TextView
+                        android:id="@+id/robot_bottom_bpm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/black"
+                        android:textSize="40px" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20px"
+                        android:layout_toRightOf="@id/robot_bottom_bpm"
+                        android:layout_alignBaseline="@id/robot_bottom_bpm"
+                        android:text="bpm"
+                        android:textColor="@color/black"
+                        android:textSize="20px" />
+
+                </RelativeLayout>
+
+                <TextView
+                    style="@style/TextviewPadding"
+                    android:layout_marginLeft="20px"
+                    android:text="心率"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_30" />
+
+                <LinearLayout
+                    style="@style/TextviewPadding"
+                    android:layout_marginLeft="10px"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/robot_bottom_low"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="最低"
+                        android:padding="@dimen/text_size_10"
+                        android:textSize="@dimen/text_size_28"
+                        android:textColor="@color/theme_blue" />
+
+                    <TextView
+                        android:id="@+id/robot_bottom_average"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10px"
+                        android:text="平均"
+                        android:padding="@dimen/text_size_10"
+                        android:textSize="@dimen/text_size_28"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/robot_bottom_high"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10px"
+                        android:text="最高"
+                        android:padding="@dimen/text_size_10"
+                        android:textSize="@dimen/text_size_28"
+                        android:textColor="@color/black" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            style="@style/DividingLine"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginLeft="20px"
+            android:layout_marginRight="20px"/>
+        <!-- 血压、睡眠 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <LinearLayout style="@style/robot_binding_have_ll">
+
+                <RelativeLayout style="@style/TextviewPadding"
+                    android:layout_marginLeft="20px">
+
+                    <TextView
+                        android:id="@+id/robot_bottom_mmgh"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0/0"
+                        android:textColor="@color/black"
+                        android:textSize="40px" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@id/robot_bottom_mmgh"
+                        android:layout_marginLeft="20px"
+                        android:layout_toRightOf="@id/robot_bottom_mmgh"
+                        android:text="mmgh"
+                        android:textColor="@color/black"
+                        android:textSize="20px" />
+
+                </RelativeLayout>
+
+                <TextView
+                    style="@style/TextviewPadding"
+                    android:layout_marginLeft="20px"
+                    android:text="血压"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_30" />
+
+                <TextView
+                    android:id="@+id/robot_bottom_time"
+                    style="@style/TextviewPadding"
+                    android:layout_marginLeft="20px"
+                    android:text="00:00 am"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_28" />
+
+            </LinearLayout>
+
+            <View
+                style="@style/DividingLine"
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="20px"/>
+
+            <LinearLayout style="@style/robot_binding_have_ll">
+
+                <RelativeLayout
+                    style="@style/TextviewPadding"
+                    android:layout_marginLeft="20px">
+
+                    <TextView
+                        android:id="@+id/robot_bottom_hours"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0.0"
+                        android:textColor="@color/black"
+                        android:textSize="40px" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20px"
+                        android:layout_toRightOf="@id/robot_bottom_hours"
+                        android:layout_alignBaseline="@id/robot_bottom_hours"
+                        android:text="h"
+                        android:textColor="@color/black"
+                        android:textSize="20px" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/textView"
+                    style="@style/TextviewPadding"
+                    android:layout_marginLeft="20px"
+                    android:text="睡眠"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_30" />
+
+                <TextView
+                    android:id="@+id/robot_bottom_grade"
+                    style="@style/TextviewPadding"
+                    android:layout_marginLeft="20px"
+                    android:text="优"
+                    android:textColor="@color/theme_blue"
+                    android:textSize="@dimen/text_size_28" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

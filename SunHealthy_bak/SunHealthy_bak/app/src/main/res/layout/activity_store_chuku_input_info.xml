@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <include layout="@layout/title_bar"/>
+
+    <ScrollView
+        android:id="@+id/order_chuku_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/text_size_20"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/light_gray6"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/text_size_20"
+                android:paddingTop="@dimen/text_size_20">
+
+                <TextView
+                    android:id="@+id/order_chuku_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/text_size_36"
+                    android:text="订单编号：201701011111"
+                    android:textSize="@dimen/text_size_24" />
+
+                <TextView
+                    android:id="@+id/order_chuku_way"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/text_size_36"
+                    android:layout_marginTop="@dimen/text_size_20"
+                    android:text="交易方式：快递"
+                    android:textSize="@dimen/text_size_24" />
+
+                <TextView
+                    android:id="@+id/order_chuku_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/text_size_36"
+                    android:layout_marginTop="@dimen/text_size_20"
+                    android:text="下单时间：2017-1-1"
+                    android:textSize="@dimen/text_size_24" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="66px"
+                android:layout_marginTop="@dimen/text_size_20"
+                android:background="@color/light_gray5"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/text_size_36"
+                android:text="@string/sales_shouhuoren"
+                android:textSize="@dimen/text_size_28" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="92px"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/text_size_38"
+                    android:text="@string/sales_xinghao"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_30" />
+
+                <TextView
+                    android:id="@+id/order_chuku_robot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/text_size_38"
+                    android:layout_marginRight="@dimen/text_size_38"
+                    android:text="太阳家族小火宝"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_30" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/fg_line" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:visibility="visible"
+                android:id="@+id/order_chuku_num_layout"
+                android:layout_width="match_parent"
+                android:layout_height="92px"
+                android:background="@color/white"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <TextView
+                    android:id="@+id/order_chuku_tv5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/text_size_38"
+                    android:text="@string/sales_product_num"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_30" />
+
+                <TextView
+                    android:id="@+id/order_chuku_num"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/text_size_38"
+                    android:layout_marginRight="@dimen/text_size_38"
+                    android:layout_toRightOf="@+id/order_chuku_tv5"
+                    android:background="@null"
+                    android:gravity="right|center_vertical"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_30" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/fg_line" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="92px"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/text_size_38"
+                    android:text="@string/apply_sale_tv4"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_30" />
+
+                <TextView
+                    android:id="@+id/order_chuku_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/text_size_38"
+                    android:layout_marginRight="@dimen/text_size_38"
+                    android:text="张三"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_30" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/fg_line" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="92px"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/text_size_38"
+                    android:text="@string/new_order_phone"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_30" />
+
+                <TextView
+                    android:id="@+id/order_chuku_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/text_size_38"
+                    android:layout_marginRight="@dimen/text_size_38"
+                    android:text="13112341234"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_30" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/fg_line" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="92px"
+                android:background="@color/white"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/text_size_38"
+                    android:text="@string/sales_youzheng"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_30" />
+
+                <TextView
+                    android:id="@+id/order_chuku_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/text_size_38"
+                    android:layout_marginRight="@dimen/text_size_38"
+                    android:text="1234567"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_30" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/fg_line" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/order_chuku_tv1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/text_size_38"
+                    android:layout_marginTop="@dimen/text_size_34"
+                    android:text="@string/sales_address"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_30" />
+
+                <TextView
+                    android:id="@+id/order_chuku_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/order_chuku_tv1"
+                    android:layout_marginBottom="@dimen/text_size_34"
+                    android:layout_marginLeft="@dimen/text_size_38"
+                    android:layout_marginTop="@dimen/text_size_34"
+                    android:text="xx省xx市xx区xx路xx号"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_30" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/order_dingdan_layout"
+                android:layout_width="match_parent"
+                android:layout_height="66px"
+                android:background="@color/light_gray5"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/text_size_36"
+                android:text="@string/sales_dingdan"
+                android:textSize="@dimen/text_size_28" />
+
+            <com.longcai.medical.ui.view.FamilyListView
+                android:id="@+id/order_chuku_lv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@null"
+                android:scrollbars="none">
+
+            </com.longcai.medical.ui.view.FamilyListView>
+
+            <RelativeLayout
+                android:id="@+id/order_chuku_scanner"
+                android:layout_width="match_parent"
+                android:layout_height="92px"
+                android:background="@drawable/btn_sales_bg_selector">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="@dimen/text_size_38"
+                    android:text="@string/sales_saomiao"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_30" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="66px"
+                android:background="@color/light_gray5"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/text_size_36"
+                android:text="@string/sales_kuaidi"
+                android:textSize="@dimen/text_size_28" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="92px"
+                android:background="@color/white"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/order_chuku_tv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/text_size_38"
+                    android:text="@string/sales_kuaidi_name"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_30" />
+
+                <EditText
+                    android:id="@+id/order_chuku_name2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/text_size_38"
+                    android:layout_marginRight="@dimen/text_size_38"
+                    android:layout_toRightOf="@+id/order_chuku_tv2"
+                    android:background="@null"
+                    android:gravity="right|center_vertical"
+                    android:hint="请输入发货员姓名"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_30" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/fg_line" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/order_chuku_company_layout"
+                android:layout_width="match_parent"
+                android:layout_height="92px"
+                android:background="@drawable/btn_sales_bg_selector"
+                android:clickable="true"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <TextView
+                    android:id="@+id/order_chuku_tv3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/text_size_38"
+                    android:text="@string/sales_kuaidi_company"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_30" />
+
+                <TextView
+                    android:id="@+id/order_chuku_company"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/text_size_38"
+                    android:layout_marginRight="@dimen/text_size_38"
+                    android:layout_toRightOf="@+id/order_chuku_tv3"
+                    android:background="@null"
+                    android:gravity="right|center_vertical"
+                    android:hint="请选择快递公司"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_30" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/fg_line" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/order_chuku_danhao_layout"
+                android:layout_width="match_parent"
+                android:layout_height="92px"
+                android:layout_marginBottom="@dimen/text_size_30"
+                android:background="@color/white"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <TextView
+                    android:id="@+id/order_chuku_tv4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/text_size_38"
+                    android:text="@string/sales_kuaidi_num"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_30" />
+
+                <EditText
+                    android:id="@+id/order_chuku_danhao"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/text_size_38"
+                    android:layout_marginRight="@dimen/text_size_38"
+                    android:layout_toRightOf="@+id/order_chuku_tv4"
+                    android:background="@null"
+                    android:gravity="right|center_vertical"
+                    android:hint="请输入物流单号"
+                    android:inputType="number"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_30" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/fg_line" />
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/order_chuku_btn"
+        android:layout_width="match_parent"
+        android:layout_height="98px"
+        android:text="@string/store_chuku"
+        android:textColor="@color/blue1"
+        android:background="@color/white"
+        android:textSize="@dimen/text_size_40"/>
+</LinearLayout>

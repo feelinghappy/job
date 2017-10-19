@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="103px"
+        android:layout_height="103px"
+        android:background="@drawable/sport_timebkg"
+        android:tag="(103,103)">
+
+        <TextView
+            android:id="@+id/tx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:tag="(25)"
+            android:text="22"
+            android:textColor="@color/sport_tx_selecter"
+            android:textSize="25px" />
+    </RelativeLayout>
+
+
+</LinearLayout>

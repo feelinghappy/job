@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+
+        <RelativeLayout
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="104px"
+            android:background="@color/appColor2"
+            android:tag="(0,104)">
+
+
+            <RelativeLayout
+                android:id="@+id/bank_btn"
+                android:layout_width="200px"
+                android:layout_height="match_parent"
+                android:tag="(200,0)">
+
+                <ImageView
+                    android:id="@+id/back"
+                    android:layout_width="24px"
+                    android:layout_height="42px"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="35px"
+                    android:src="@mipmap/fanhui"
+                    android:tag="(24,42){35,0,0,0}" />
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:tag="(37)"
+                android:text="@string/center"
+                android:textColor="@color/white"
+                android:textSize="37px" />
+
+            <TextView
+                android:id="@+id/title_text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20px"
+                android:tag="(34){0,0,20,0}"
+                android:text="@string/mycenter"
+                android:textColor="@color/white"
+                android:textSize="34px" />
+        </RelativeLayout>
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/refresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/title">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/activity_center_layout"
+                android:background="#ffffff">
+
+            </android.support.v7.widget.RecyclerView>
+        </android.support.v4.widget.SwipeRefreshLayout>
+    </RelativeLayout>
+</LinearLayout>

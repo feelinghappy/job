@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:background="@color/white">
+        <TextView
+            android:id="@+id/team_member_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1.安鹏"
+            android:textColor="@color/black"
+            android:layout_marginLeft="@dimen/text_size_38"
+            android:textSize="@dimen/text_size_26"
+            android:layout_centerVertical="true"/>
+        <TextView
+            android:id="@+id/team_member_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1234567元"
+            android:textColor="@color/black"
+            android:layout_marginLeft="@dimen/text_size_38"
+            android:textSize="@dimen/text_size_26"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/text_size_24"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/fg_line"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+</LinearLayout>

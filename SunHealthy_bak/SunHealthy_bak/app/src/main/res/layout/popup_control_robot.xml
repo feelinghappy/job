@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="590px"
+    android:layout_height="255px"
+    android:background="@drawable/dialog_control_robot"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:gravity="center"
+        android:text="管理机器人"
+        android:textColor="#000000" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#d9d9d9"></View>
+
+    <TextView
+        android:id="@+id/tv_changebind"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:gravity="center"
+        android:text="修改绑定"
+        android:textColor="#26AFDC" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#d9d9d9"></View>
+
+    <TextView
+        android:id="@+id/tv_unbind"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:gravity="center"
+        android:text="解除绑定"
+        android:textColor="#26AFDC" />
+
+
+</com.zhy.autolayout.AutoLinearLayout>

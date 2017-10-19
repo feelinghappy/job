@@ -1,0 +1,726 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <include layout="@layout/title_bar"></include>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/title_common"
+        android:scrollbars="none"
+        android:fillViewport="true">
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:id="@+id/autoRelativeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true">
+
+                <ImageView
+                    android:id="@+id/fd_familyPage"
+                    android:layout_width="match_parent"
+                    android:layout_height="330px"
+                    android:layout_alignParentTop="true"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/test_zhanweitu"/>
+
+                <com.zhy.autolayout.AutoRelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40px">
+
+                    <TextView
+                        android:id="@+id/fd_tv_xfyj"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40px"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_28" />
+
+                    <TextView
+                        android:id="@+id/fd_tv_jtID"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/fd_tv_xfyj"
+                        android:layout_marginLeft="@dimen/text_size_40"
+                        android:layout_marginTop="@dimen/text_size_18"
+                        android:text="家庭ID："
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_24" />
+
+                    <LinearLayout
+                        android:layout_width="50px"
+                        android:layout_height="28px"
+                        android:layout_below="@id/fd_tv_jtID"
+                        android:layout_marginLeft="@dimen/text_size_40"
+                        android:layout_marginTop="@dimen/text_size_18"
+                        android:background="@drawable/fd_corner_blue"
+                        android:paddingLeft="1px"
+                        android:paddingRight="1px">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/icon_jiatingrenshu"
+                            android:layout_gravity="center"/>
+
+                        <TextView
+                            android:id="@+id/fd_tv_jtrs"
+                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:text=""
+                            android:gravity="center"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_24" />
+                    </LinearLayout>
+                </com.zhy.autolayout.AutoRelativeLayout>
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:id="@+id/fd_rll_layout_vp"
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                android:layout_marginTop="238px"
+                android:background="@drawable/fd_radius">
+
+            </com.zhy.autolayout.AutoRelativeLayout>
+            <!--头像viewpager-->
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:id="@+id/page_container"
+                android:layout_width="290px"
+                android:layout_centerHorizontal="true"
+                android:layout_height="150px"
+                android:layout_marginTop="188px"
+                android:clipChildren="false">
+
+                <com.longcai.medical.ui.view.ClipViewPager
+                    android:id="@+id/viewpager"
+                    android:layout_width="114px"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:clipChildren="false"
+                    android:overScrollMode="never" />
+
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/fd_rll_layout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/page_container"
+                android:layout_marginTop="12px"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="4px"
+                    android:layout_height="24px"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="40px"
+                    android:background="@color/blue1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20px"
+                    android:text="健康信息"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_28" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:layout_width="24px"
+                    android:layout_height="30px"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="10px"
+                    android:src="@mipmap/icon_map" />
+
+                <TextView
+                    android:id="@+id/iv_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="@dimen/text_size_50"
+                    android:text="@string/mylocation"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="@dimen/text_size_26" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:id="@+id/fd_rll_layout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/fd_rll_layout1"
+                android:layout_marginLeft="110px"
+                android:layout_marginTop="40px">
+
+                <TextView
+                    android:id="@+id/fd_info_tv1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sex"
+                    android:textColor="@color/dark_gray2"
+                    android:textSize="@dimen/text_size_30" />
+
+                <TextView
+                    android:id="@+id/fd_sex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20px"
+                    android:layout_toRightOf="@+id/fd_info_tv1"
+                    android:text=""
+                    android:textColor="@color/dark_gray2"
+                    android:textSize="@dimen/text_size_30" />
+
+                <TextView
+                    android:id="@+id/fd_info_tv11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="190px"
+                    android:layout_toRightOf="@+id/fd_sex"
+                    android:text="@string/height"
+                    android:textColor="@color/dark_gray2"
+                    android:textSize="@dimen/text_size_30" />
+
+                <TextView
+                    android:id="@+id/fd_height"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20px"
+                    android:layout_toRightOf="@+id/fd_info_tv11"
+                    android:text=""
+                    android:textColor="@color/dark_gray2"
+                    android:textSize="@dimen/text_size_30" />
+
+                <TextView
+                    android:id="@+id/fd_info_tv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/fd_info_tv1"
+                    android:layout_marginTop="@dimen/text_size_28"
+                    android:text="@string/age"
+                    android:textColor="@color/dark_gray2"
+                    android:textSize="@dimen/text_size_30" />
+
+                <TextView
+                    android:id="@+id/fd_age"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/fd_sex"
+                    android:layout_marginLeft="20px"
+                    android:layout_marginTop="@dimen/text_size_28"
+                    android:layout_toRightOf="@+id/fd_info_tv2"
+                    android:text=""
+                    android:textColor="@color/dark_gray2"
+                    android:textSize="@dimen/text_size_30" />
+
+                <TextView
+                    android:id="@+id/fd_info_tv12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/fd_info_tv11"
+                    android:layout_below="@+id/fd_info_tv11"
+                    android:layout_marginTop="@dimen/text_size_28"
+                    android:layout_toRightOf="@+id/fd_age"
+                    android:text="@string/weight"
+                    android:textColor="@color/dark_gray2"
+                    android:textSize="@dimen/text_size_30" />
+
+                <TextView
+                    android:id="@+id/fd_weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/fd_info_tv11"
+                    android:layout_marginLeft="20px"
+                    android:layout_marginTop="@dimen/text_size_28"
+                    android:layout_toRightOf="@+id/fd_info_tv12"
+                    android:text=""
+                    android:textColor="@color/dark_gray2"
+                    android:textSize="@dimen/text_size_30" />
+
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/fd_rll_layout3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/fd_rll_layout2"
+                android:layout_marginTop="40px"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="4px"
+                    android:layout_height="24px"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="40px"
+                    android:background="@color/blue1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20px"
+                    android:text="实时监测"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_28" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:layout_width="24px"
+                    android:layout_height="30px"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="10px"
+                    android:src="@mipmap/icon_history" />
+
+                <TextView
+                    android:id="@+id/family_detail_history"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="@dimen/text_size_50"
+                    android:text="@string/histroy"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="@dimen/text_size_26" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <!--已经绑定手表时 的布局-->
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/fd_monitor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/fd_rll_layout3"
+                android:orientation="vertical"
+                android:visibility="visible">
+                <!--步数-->
+                <com.zhy.autolayout.AutoRelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="124px"
+                    android:layout_marginTop="10px">
+
+                    <ImageView
+                        android:id="@+id/fd_info_iv1"
+                        android:layout_width="@dimen/text_size_66"
+                        android:layout_height="@dimen/text_size_66"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/text_size_60"
+                        android:src="@mipmap/icon_bushu" />
+
+                    <TextView
+                        android:id="@+id/fd_info_tv3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/text_size_20"
+                        android:layout_toRightOf="@+id/fd_info_iv1"
+                        android:text="@string/step"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_30" />
+
+                    <TextView
+                        android:id="@+id/sport_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="480px"
+                        android:text="0"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_40" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/sport_num"
+                        android:layout_marginLeft="20px"
+                        android:layout_toRightOf="@+id/sport_num"
+                        android:text="步"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_20" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:background="@color/fg_line" />
+                    <!--
+                        android:layout_marginLeft="@dimen/text_size_60"
+                        android:layout_marginRight="@dimen/text_size_30"-->
+                </com.zhy.autolayout.AutoRelativeLayout>
+                <!--心率-->
+                <com.zhy.autolayout.AutoRelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="124px">
+
+                    <ImageView
+                        android:id="@+id/fd_info_iv2"
+                        android:layout_width="@dimen/text_size_66"
+                        android:layout_height="@dimen/text_size_66"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/text_size_60"
+                        android:src="@mipmap/icon_xinlv" />
+
+                    <TextView
+                        android:id="@+id/fd_info_tv4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/text_size_20"
+                        android:layout_marginTop="@dimen/text_size_26"
+                        android:layout_toRightOf="@+id/fd_info_iv2"
+                        android:text="@string/heart"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_30" />
+
+                    <TextView
+                        android:id="@+id/heart_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/fd_info_tv4"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="480px"
+                        android:text="0"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_40" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/heart_num"
+                        android:layout_marginLeft="20px"
+                        android:layout_toRightOf="@+id/heart_num"
+                        android:text="次/分"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_20" />
+
+                    <TextView
+                        android:id="@+id/fd_info_tv5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/fd_info_tv4"
+                        android:layout_below="@+id/fd_info_tv4"
+                        android:layout_marginTop="@dimen/text_size_20"
+                        android:text="最快: "
+                        android:textColor="@color/dark_gray2"
+                        android:textSize="@dimen/text_size_24" />
+
+                    <TextView
+                        android:id="@+id/heart_fast_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/fd_info_tv4"
+                        android:layout_marginTop="@dimen/text_size_20"
+                        android:layout_toRightOf="@+id/fd_info_tv5"
+                        android:text="140"
+                        android:textColor="@color/dark_gray2"
+                        android:textSize="@dimen/text_size_24" />
+
+                    <TextView
+                        android:id="@+id/fd_info_tv6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/fd_info_tv4"
+                        android:layout_marginLeft="@dimen/text_size_48"
+                        android:layout_marginTop="@dimen/text_size_20"
+                        android:layout_toRightOf="@+id/heart_fast_num"
+                        android:text="最慢: "
+                        android:textColor="@color/dark_gray2"
+                        android:textSize="@dimen/text_size_24" />
+
+                    <TextView
+                        android:id="@+id/heart_slow_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/fd_info_tv4"
+                        android:layout_marginTop="@dimen/text_size_20"
+                        android:layout_toRightOf="@+id/fd_info_tv6"
+                        android:text="60"
+                        android:textColor="@color/dark_gray2"
+                        android:textSize="@dimen/text_size_24" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:background="@color/fg_line" />
+                </com.zhy.autolayout.AutoRelativeLayout>
+                <!--血压-->
+                <com.zhy.autolayout.AutoRelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="124px">
+
+                    <ImageView
+                        android:id="@+id/fd_info_iv3"
+                        android:layout_width="@dimen/text_size_66"
+                        android:layout_height="@dimen/text_size_66"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/text_size_60"
+                        android:src="@mipmap/icon_blood_pressure" />
+
+                    <TextView
+                        android:id="@+id/fd_info_tv7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/text_size_20"
+                        android:layout_marginTop="@dimen/text_size_26"
+                        android:layout_toRightOf="@+id/fd_info_iv3"
+                        android:text="@string/blood"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_30" />
+
+                    <TextView
+                        android:id="@+id/blood_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/fd_info_tv7"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="480px"
+                        android:text="121/77"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_40" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/blood_num"
+                        android:layout_marginLeft="20px"
+                        android:layout_toRightOf="@+id/blood_num"
+                        android:text="mmgh"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_20" />
+
+                    <TextView
+                        android:id="@+id/blood_time_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/fd_info_tv7"
+                        android:layout_below="@+id/fd_info_tv7"
+                        android:layout_marginTop="@dimen/text_size_20"
+                        android:layout_toRightOf="@+id/fd_info_tv5"
+                        android:text="08.07 14:00 更新"
+                        android:textColor="@color/dark_gray2"
+                        android:textSize="@dimen/text_size_24" />
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:background="@color/fg_line" />
+                </com.zhy.autolayout.AutoRelativeLayout>
+                <!--睡眠-->
+                <com.zhy.autolayout.AutoRelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="124px">
+
+                    <ImageView
+                        android:id="@+id/fd_info_iv4"
+                        android:layout_width="@dimen/text_size_66"
+                        android:layout_height="@dimen/text_size_66"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/text_size_60"
+                        android:src="@mipmap/icon_sleep" />
+
+                    <TextView
+                        android:id="@+id/fd_info_tv8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/text_size_20"
+                        android:layout_marginTop="@dimen/text_size_26"
+                        android:layout_toRightOf="@+id/fd_info_iv4"
+                        android:text="@string/sleep"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_30" />
+
+                    <TextView
+                        android:id="@+id/sleep_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/fd_info_tv8"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="480px"
+                        android:text="0.0"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_40" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/sleep_num"
+                        android:layout_marginLeft="20px"
+                        android:layout_toRightOf="@+id/sleep_num"
+                        android:text="小时"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_20" />
+
+                    <TextView
+                        android:id="@+id/sleep_grade"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/fd_info_tv8"
+                        android:layout_below="@+id/fd_info_tv8"
+                        android:layout_marginTop="@dimen/text_size_20"
+                        android:layout_toRightOf="@+id/fd_info_tv5"
+                        android:text="良好"
+                        android:textColor="@color/dark_gray2"
+                        android:textSize="@dimen/text_size_24" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:background="@color/fg_line" />
+                </com.zhy.autolayout.AutoRelativeLayout>
+                <!--心电图-->
+                <com.zhy.autolayout.AutoRelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="160px"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/fd_info_iv5"
+                        android:layout_width="@dimen/text_size_66"
+                        android:layout_height="@dimen/text_size_66"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/text_size_60"
+                        android:src="@mipmap/icon_xindiantu" />
+
+                    <TextView
+                        android:id="@+id/fd_info_tv9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/text_size_20"
+                        android:layout_marginTop="@dimen/text_size_26"
+                        android:layout_toRightOf="@+id/fd_info_iv5"
+                        android:text="@string/heart_pic"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_30" />
+
+                    <TextView
+                        android:id="@+id/heart_pic_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/fd_info_tv9"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="480px"
+                        android:text="58"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_40" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/heart_pic_num"
+                        android:layout_marginLeft="@dimen/text_size_20"
+                        android:layout_toRightOf="@+id/heart_pic_num"
+                        android:text="压力指数"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_20" />
+
+                    <TextView
+                        android:id="@+id/fd_info_tv10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/fd_info_tv9"
+                        android:layout_below="@+id/fd_info_tv9"
+                        android:layout_marginTop="@dimen/text_size_18"
+                        android:text="疲劳指数:"
+                        android:textColor="@color/dark_gray2"
+                        android:textSize="@dimen/text_size_24" />
+
+                    <TextView
+                        android:id="@+id/heart_pilao_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/fd_info_tv9"
+                        android:layout_marginLeft="@dimen/text_size_20"
+                        android:layout_marginTop="@dimen/text_size_20"
+                        android:layout_toRightOf="@+id/fd_info_tv10"
+                        android:text="疲劳"
+                        android:textColor="@color/dark_gray2"
+                        android:textSize="@dimen/text_size_24" />
+
+                    <TextView
+                        android:id="@+id/heart_pic_time_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/fd_info_tv9"
+                        android:layout_below="@+id/heart_pilao_num"
+                        android:layout_marginTop="@dimen/text_size_16"
+                        android:layout_toRightOf="@+id/fd_info_tv5"
+                        android:text="08.07 14:00 更新"
+                        android:textColor="@color/dark_gray2"
+                        android:textSize="@dimen/text_size_24" />
+
+                </com.zhy.autolayout.AutoRelativeLayout>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+            <!--还未绑定手表android:visibility="gone"-->
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:id="@+id/fd_unBindButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/fd_rll_layout3"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/text_size_28"
+                android:visibility="gone">
+                <ImageView
+                    android:id="@+id/fd_clickBind"
+                    android:layout_width="wrap_content"
+                    android:layout_height="88px"
+                    android:src="@mipmap/bangding"
+                    android:layout_marginBottom="@dimen/text_size_60"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/quickly_binding"
+                    android:layout_above="@+id/fd_clickBind"
+                    android:layout_marginBottom="@dimen/text_size_36"
+                    android:layout_centerHorizontal="true"/>
+
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/fd_unBindload"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/loading" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+        </com.zhy.autolayout.AutoRelativeLayout>
+    </ScrollView>
+
+</com.zhy.autolayout.AutoRelativeLayout>

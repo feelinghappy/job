@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?><!-- 机器人  选择绑定家庭 界面  autor ajiang 2017.05.18 -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="horizontal">
+
+    <!--<RelativeLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_marginRight="15dp">-->
+
+        <ImageView
+            android:id="@+id/have_fam_item_iv"
+            android:layout_width="128px"
+            android:layout_height="128px"
+            android:layout_marginTop="40px"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"/>
+    <!--</RelativeLayout>-->
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_weight="1"-->
+        <!--android:orientation="vertical">-->
+
+        <TextView
+            android:id="@+id/have_fam_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/have_fam_item_iv"
+            android:layout_marginLeft="20dp"
+            android:layout_centerVertical="true"
+            android:text="幸福一家"
+            android:textColor="@color/search"
+            android:textSize="30px" />
+
+        <!--<TextView-->
+            <!--android:id="@+id/have_fam_num"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="17dp"-->
+            <!--android:drawableLeft="@drawable/person_num"-->
+            <!--android:drawablePadding="7dp"-->
+            <!--android:text="5"-->
+            <!--android:textColor="@color/search"-->
+            <!--android:textSize="14sp" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/have_fam_count"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:drawableLeft="@drawable/phone_num"-->
+            <!--android:drawablePadding="7dp"-->
+            <!--android:text="1358623"-->
+            <!--android:textColor="@color/search"-->
+            <!--android:textSize="14sp" />-->
+    <!--</LinearLayout>-->
+
+    <!--<RelativeLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="match_parent">-->
+
+        <Button
+            android:id="@+id/have_fam_bundling"
+            android:layout_width="130px"
+            android:layout_height="60px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="30px"
+            android:background="@drawable/shape_corner_blue"
+            android:text="绑定"
+            android:textColor="@color/white"
+            android:textSize="30px" />
+    <!--</RelativeLayout>-->
+
+</RelativeLayout>

@@ -1,0 +1,57 @@
+<!-- 设备管理  机器人  界面  autor ajiang 2017.05.18 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/robot_myRobot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="22dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="22dp"
+        android:text="我的机器人"
+        android:textColor="#333333"
+        android:textSize="16sp" />
+    <!-- 列表 -->
+
+    <ListView
+        android:id="@+id/robot_managment_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@null"
+        android:visibility="visible"></ListView>
+    <!-- 没有信息 -->
+
+    <RelativeLayout
+        android:id="@+id/robot_managment_rl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/device_robot_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="107dp"
+            android:background="@drawable/no_have_robot" />
+
+        <Button
+            android:id="@+id/device_robot_add_btn"
+            android:layout_width="84dp"
+            android:layout_height="29dp"
+            android:layout_below="@+id/device_robot_add"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="22dp"
+            android:background="@drawable/shape_corner_blue"
+            android:text="立即添加"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+
+</LinearLayout>

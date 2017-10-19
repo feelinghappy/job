@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_bar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_marginTop="@dimen/text_size_24"
+        android:background="@color/white"
+        android:clickable="true"
+        android:orientation="horizontal"
+        android:paddingRight="@dimen/text_size_20">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/text_size_38"
+            android:text="@string/customer_name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_30" />
+
+        <com.longcai.medical.ui.view.ClearEditText
+            android:id="@+id/customer_ed_name"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="80px"
+            android:layout_weight="0.72"
+            android:background="@color/white"
+            android:hint="@string/customer_ed_name"
+            android:inputType="text"
+            android:maxLines="1"
+            android:textColor="@color/black"
+            android:textColorHint="@color/grey"
+            android:textSize="@dimen/text_size_30" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_alignParentBottom="true"
+        android:background="@color/fg_line" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:background="@color/white"
+        android:clickable="true"
+        android:orientation="horizontal"
+        android:paddingRight="@dimen/text_size_20">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/text_size_38"
+            android:text="@string/customer_tel"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_30" />
+
+        <com.longcai.medical.ui.view.ClearEditText
+            android:id="@+id/customer_ed_tel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/text_size_20"
+            android:background="@color/white"
+            android:hint="@string/customer_ed_tel"
+            android:inputType="number"
+            android:maxLength="11"
+            android:maxLines="1"
+            android:textColor="@color/black"
+            android:textColorHint="@color/grey"
+            android:textSize="@dimen/text_size_30" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/fg_line" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:background="@color/white"
+        android:clickable="true"
+        android:orientation="horizontal"
+        android:paddingRight="@dimen/text_size_20">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/text_size_38"
+            android:text="@string/customer_buy"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_30" />
+
+        <com.longcai.medical.ui.view.ClearEditText
+            android:id="@+id/customer_ed_buy"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/text_size_20"
+            android:background="@color/white"
+            android:hint="@string/customer_ed_buy"
+            android:inputType="text"
+            android:maxLength="8"
+            android:maxLines="1"
+            android:textColor="@color/black"
+            android:textColorHint="@color/grey"
+            android:textSize="@dimen/text_size_30" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/fg_line" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200px"
+        android:background="@color/white"
+        android:clickable="true"
+        android:orientation="horizontal"
+        android:paddingRight="@dimen/text_size_20">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_size_24"
+            android:paddingLeft="@dimen/text_size_38"
+            android:text="@string/customer_mark"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_30" />
+
+        <com.longcai.medical.ui.view.ClearEditText
+            android:id="@+id/customer_ed_mark"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="88px"
+            android:layout_marginTop="@dimen/text_size_24"
+            android:background="@color/white"
+            android:gravity="top"
+            android:inputType="text"
+            android:lineSpacingExtra="@dimen/text_size_10"
+            android:maxLength="20"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_30" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/text_size_20"
+        android:text="@string/customer_mark2"
+        android:textColor="@color/grey"
+        android:textSize="@dimen/text_size_20" />
+
+    <Button
+        android:id="@+id/customer_btn_save"
+        android:layout_width="500px"
+        android:layout_height="100px"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50px"
+        android:background="@drawable/btn_background_shape"
+        android:gravity="center"
+        android:text="@string/save"
+        android:textColor="@android:color/white"
+        android:textSize="32px" />
+</LinearLayout>
+

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/stamina_layout_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title_container"
+        android:layout_marginTop="70px"
+        android:tag="{0,70,0,0}"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:tag="(25)"
+            android:text="3分钟了解您的体制，获得个性化调理方案"
+            android:textColor="#888888"
+            android:textSize="25px" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20px"
+        android:layout_marginRight="20px"
+        android:layout_marginTop="20px"
+        android:background="@drawable/dati_bkg"
+        android:orientation="vertical"
+        android:tag="{20,20,20,0}">
+
+        <TextView
+            android:id="@+id/adapter_stamina_text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30px"
+            android:layout_marginTop="25px"
+            android:tag="(30){30,25,0,0}"
+            android:textColor="@color/black"
+            android:textSize="30px" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_marginLeft="29px"
+            android:background="#efefef"
+            android:tag="(0,2){29,0,0,0}" />
+
+        <LinearLayout
+            android:id="@+id/adapter_stamina_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30px"
+            android:orientation="vertical"
+            android:paddingBottom="10px"
+            android:tag="{30,0,0,0}[0,0,0,10]">
+
+            <LinearLayout
+                android:id="@+id/adapter_stamina_layout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20px"
+                android:gravity="center_vertical"
+                android:tag="{0,20,0,0}">
+
+                <CheckBox
+                    android:id="@+id/adapter_stamina_image2"
+                    android:layout_width="20px"
+                    android:layout_height="20px"
+                    android:background="@drawable/radio_select"
+                    android:button="@null"
+                    android:checked="true"
+                    android:tag="(20,20)" />
+
+                <TextView
+                    android:id="@+id/adapter_stamina_text2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20px"
+                    android:tag="(26){20,0,0,0}"
+                    android:textSize="26px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/adapter_stamina_layout3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20px"
+                android:gravity="center_vertical"
+                android:tag="{0,20,0,0}">
+
+                <CheckBox
+                    android:id="@+id/adapter_stamina_image3"
+                    android:layout_width="20px"
+                    android:layout_height="20px"
+                    android:background="@drawable/radio_select"
+                    android:button="@null"
+                    android:tag="(20,20)" />
+
+                <TextView
+                    android:id="@+id/adapter_stamina_text3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20px"
+                    android:tag="(26){20,0,0,0}"
+                    android:textSize="26px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/adapter_stamina_layout4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20px"
+                android:gravity="center_vertical"
+                android:tag="{0,20,0,0}">
+
+                <CheckBox
+                    android:id="@+id/adapter_stamina_image4"
+                    android:layout_width="20px"
+                    android:layout_height="20px"
+                    android:background="@drawable/radio_select"
+                    android:button="@null"
+                    android:tag="(20,20)" />
+
+                <TextView
+                    android:id="@+id/adapter_stamina_text4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20px"
+                    android:tag="(26){20,0,0,0}"
+                    android:textSize="26px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/adapter_stamina_layout5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20px"
+                android:gravity="center_vertical"
+                android:tag="{0,20,0,0}">
+
+                <CheckBox
+                    android:id="@+id/adapter_stamina_image5"
+                    android:layout_width="20px"
+                    android:layout_height="20px"
+                    android:background="@drawable/radio_select"
+                    android:button="@null"
+                    android:tag="(20,20)" />
+
+                <TextView
+                    android:id="@+id/adapter_stamina_text5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20px"
+                    android:tag="(26){20,0,0,0}"
+                    android:textSize="26px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/adapter_stamina_layout6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20px"
+                android:gravity="center_vertical"
+                android:tag="{0,20,0,0}">
+
+                <CheckBox
+                    android:id="@+id/adapter_stamina_image6"
+                    android:layout_width="20px"
+                    android:layout_height="20px"
+                    android:background="@drawable/radio_select"
+                    android:button="@null"
+                    android:tag="(20,20)" />
+
+                <TextView
+                    android:id="@+id/adapter_stamina_text6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20px"
+                    android:tag="(26){20,0,0,0}"
+                    android:textSize="26px" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

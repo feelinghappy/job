@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="20px"
+    android:paddingRight="20px"
+    android:paddingTop="20px">
+
+    <RelativeLayout
+        android:id="@+id/fg_layout1"
+        android:layout_width="match_parent"
+        android:layout_height="360px"
+        android:background="@color/mine_bg">
+
+        <ImageView
+            android:id="@+id/fg_family_page"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/family_bg_radius_no"
+            android:scaleType="fitXY"
+            android:src="@mipmap/test_zhanweitu" />
+
+        <ImageView
+            android:id="@+id/fg_family_left"
+            android:layout_width="@dimen/text_size_44"
+            android:layout_height="@dimen/text_size_44"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/text_size_20"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/icon_lunbo_left"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/fg_family_right"
+            android:layout_width="@dimen/text_size_44"
+            android:layout_height="@dimen/text_size_44"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/text_size_20"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/icon_family_lunbo"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/fg_family_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="@dimen/text_size_22"
+            android:layout_marginRight="@dimen/text_size_20"
+            android:alpha="0.6"
+            android:background="@drawable/family_bg"
+            android:src="@mipmap/icon_family_tag"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/text_size_10"
+            android:layout_marginLeft="@dimen/text_size_30"
+            android:alpha="0.4"
+            android:background="@drawable/family_bg"
+            android:padding="@dimen/text_size_10">
+
+            <TextView
+                android:id="@+id/fg_family_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="幸福一家"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_36" />
+
+            <TextView
+                android:id="@+id/fg_family_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/fg_family_name"
+                android:layout_marginTop="@dimen/text_size_10"
+                android:text="家庭成员 6"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_24" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/family_layout_detail"
+        android:layout_width="match_parent"
+        android:layout_height="140px"
+        android:layout_below="@+id/fg_layout1"
+        android:background="@android:color/white"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/family_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/text_size_20"
+            android:src="@mipmap/icon_family_detail" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/text_size_30"
+            android:layout_toRightOf="@+id/family_iv"
+            android:text="家庭详情"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_30" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/text_size_30"
+            android:src="@mipmap/mine_jiantou_img" />
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/family_layout_detail"
+        android:layout_marginLeft="5px"
+        android:layout_marginRight="5px"
+        android:background="@color/fg_line"
+        android:visibility="gone" />
+    <!---->
+    <RelativeLayout
+        android:id="@+id/family_layout_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line"
+        android:background="@drawable/family_bg_radius"
+        android:paddingTop="@dimen/text_size_30">
+
+        <View
+            android:id="@+id/fg_view1"
+            android:layout_width="3px"
+            android:layout_height="26px"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="@dimen/text_size_20"
+            android:background="@color/blue" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/text_size_20"
+            android:layout_toRightOf="@+id/fg_view1"
+            android:text="@string/family_tongzhi"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_28" />
+
+        <ListView
+            android:id="@+id/fg_family_lv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/fg_view1"
+            android:layout_marginTop="@dimen/text_size_20"
+            android:divider="@null"
+            android:scrollbars="none">
+
+        </ListView>
+        <!--没有消息-->
+        <ImageView
+            android:id="@+id/fg_family_none"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/textView4"
+            android:layout_marginTop="80px"
+            android:src="@mipmap/family_msg_no"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/family_btn_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/text_size_30"
+        android:src="@mipmap/jinruxiangqing" />
+    <!--视频通话，添加提醒-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="164px"
+        android:layout_below="@+id/fg_layout1"
+        android:layout_marginTop="@dimen/text_size_24"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:id="@+id/fg_family_video"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/fg_iv1"
+                android:layout_width="100px"
+                android:layout_height="100px"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/text_size_30"
+                android:src="@mipmap/icon_family_shipin" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/text_size_38"
+                android:layout_toRightOf="@+id/fg_iv1"
+                android:text="@string/family_video"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_30" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20px"
+            android:layout_marginTop="20px"
+            android:background="@color/fg_line" />
+
+        <RelativeLayout
+            android:id="@+id/fg_family_remind"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/fg_iv2"
+                android:layout_width="100px"
+                android:layout_height="100px"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/text_size_30"
+                android:src="@mipmap/robot_history" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/text_size_38"
+                android:layout_toRightOf="@+id/fg_iv2"
+                android:text="@string/family_remind"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_30" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

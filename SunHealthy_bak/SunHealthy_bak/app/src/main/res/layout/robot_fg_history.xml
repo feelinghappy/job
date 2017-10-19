@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?><!-- 机器人历史记录  界面  autor ajiang 2017.05.18 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_bar"></include>
+
+    <!-- 机器人绑定 -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="175dp"
+        android:background="@drawable/shape_corner_blue_history">
+
+        <TextView
+            android:id="@+id/history_robot_fg_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="5"
+            android:textColor="@color/white"
+            android:textSize="48sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:layout_alignParentBottom="true"
+            android:background="#4fff">
+
+            <TextView
+                android:id="@+id/history_robot_fg_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="2017年4月" />
+
+            <ImageView
+                android:id="@+id/history_robot_fg_calendar_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="18dp"
+                android:background="@drawable/calendar" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/history_robot_fg_last"
+            android:layout_width="48dp"
+            android:layout_height="22dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="18dp"
+            android:paddingRight="18dp"
+            android:src="@drawable/last" />
+
+        <ImageView
+            android:id="@+id/history_robot_fg_next"
+            android:layout_width="48dp"
+            android:layout_height="22dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingRight="18dp"
+            android:paddingLeft="18dp"
+            android:src="@drawable/next"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <View
+            style="@style/DividingLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="22dp"
+            android:background="@color/white" />
+        <!-- 实时检测 -->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:background="@color/white"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <include layout="@layout/robot_bottom" />
+        </RelativeLayout>
+
+        <!--<FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"></FrameLayout>-->
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+        <ImageView
+            android:scaleType="fitXY"
+            android:src="@drawable/robot_small_hot"
+            android:layout_width="match_parent"
+            android:layout_height="340px"/>
+
+    <include layout="@layout/include_robot_status"/>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/robot_info"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="34px"
+        app:cardBackgroundColor="#e6ffffff"
+        app:cardCornerRadius="12px"
+        app:cardElevation="20px">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <include layout="@layout/include_robot_main_function"/>
+
+            <include
+                layout="@layout/include_robot_setting"
+                tools:visibility="invisible"/>
+
+            <include
+                layout="@layout/include_air_box_ground"
+                tools:visibility="invisible"/>
+
+            <include
+                layout="@layout/include_air_box_desktop"
+                tools:visibility="invisible"/>
+
+            <include
+                layout="@layout/include_robot_name_setting_view"
+                tools:visibility="invisible"/>
+
+        </FrameLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

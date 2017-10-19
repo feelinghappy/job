@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_bar"></include>
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:background="@color/white"
+        android:id="@+id/fl_bind_scanner"
+        android:layout_width="match_parent"
+        android:layout_height="214px"
+        android:layout_marginBottom="@dimen/text_size_24"
+        android:layout_marginTop="@dimen/text_size_30"
+        android:layout_below="@+id/title_common">
+    <!--扫码绑定机器人-->
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/act_create_scanner"
+        android:layout_width="match_parent"
+        android:layout_height="210px"
+        android:layout_marginBottom="@dimen/text_size_24"
+        android:layout_marginTop="@dimen/text_size_30"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="690px"
+            android:layout_height="160px"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/xiankuang_bind"/>
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <!--绑定了机器人-->
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/scanner_robot_imei"
+        android:layout_width="690px"
+        android:layout_height="160px"
+        android:layout_marginBottom="@dimen/text_size_24"
+        android:layout_marginTop="@dimen/text_size_30"
+        android:layout_below="@+id/title_common"
+        android:layout_centerHorizontal="true"
+        android:background="@mipmap/xiankuang"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/fm_iv4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/text_size_30"
+            android:layout_marginRight="@dimen/text_size_30"
+            android:background="@mipmap/icon_robot" />
+
+        <TextView
+            android:id="@+id/fm_robot_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="小火宝"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_28"
+            android:layout_toRightOf="@+id/fm_iv4"
+            android:layout_marginTop="@dimen/text_size_44"/>
+
+        <TextView
+            android:id="@+id/fm_tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/family_robot"
+            android:textColor="@color/black"
+            android:textSize="28px"
+            android:layout_below="@+id/fm_robot_name"
+            android:layout_toRightOf="@+id/fm_iv4"
+            android:layout_marginTop="@dimen/text_size_20"/>
+
+        <TextView
+            android:id="@+id/robot_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_28"
+            android:layout_below="@+id/fm_robot_name"
+            android:layout_toRightOf="@+id/fm_tv2"
+            android:layout_marginTop="@dimen/text_size_20"/>
+    </com.zhy.autolayout.AutoRelativeLayout>
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/cf_layout1"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_below="@+id/fl_bind_scanner"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/tv_family_name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="36px"
+            android:gravity="center"
+            android:text="@string/fm_name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_28" />
+
+        <ImageView
+            android:id="@+id/cf_iv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/text_size_20"
+            android:padding="5dp"
+            android:src="@mipmap/mine_jiantou_img"
+            android:visibility="visible" />
+
+        <EditText
+            android:id="@+id/ed_inputname"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/text_size_26"
+            android:layout_toLeftOf="@+id/cf_iv1"
+            android:layout_toRightOf="@+id/tv_family_name"
+            android:background="@null"
+            android:textCursorDrawable="@null"
+            android:gravity="right|center_vertical"
+            android:hint="请输入家庭名称"
+            android:textColorHint="@color/grey"
+            android:singleLine="true"
+            android:textColor="#333333"
+            android:textSize="30px" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <View
+        android:id="@+id/cf_line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/cf_layout1"
+        android:background="@color/mine_bg" />
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_below="@+id/cf_line"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="250px"
+            android:layout_below="@+id/cf_line"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/text_size_20">
+            <TextView
+                android:id="@+id/cf_tv1"
+                android:layout_below="@+id/cf_line"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="36px"
+                android:layout_marginTop="@dimen/text_size_20"
+                android:gravity="center"
+                android:text="@string/fm_photo"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_28"/>
+
+            <HorizontalScrollView
+                android:id="@+id/scrollView"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20px"
+                android:gravity="center"
+                android:scrollbars="none">
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:id="@+id/pageGallery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/addphoto"
+                        android:layout_width="260px"
+                        android:layout_height="150px"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="25px"
+                        android:src="@mipmap/addphoto2x"/>
+
+                    <ImageView
+                        android:id="@+id/iv_familypage0"
+                        android:layout_width="260px"
+                        android:layout_height="150px"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="20px"
+                        android:clickable="true"
+                        android:scaleType="fitXY"
+                        android:visibility="gone"/>
+
+                    <ImageView
+                        android:id="@+id/iv_familypage1"
+                        android:layout_width="260px"
+                        android:layout_height="150px"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="20px"
+                        android:clickable="true"
+                        android:scaleType="fitXY"/>
+
+                    <ImageView
+                        android:id="@+id/iv_familypage2"
+                        android:layout_width="260px"
+                        android:layout_height="150px"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="20px"
+                        android:clickable="true"
+                        android:scaleType="fitXY" />
+
+                    <ImageView
+                        android:id="@+id/iv_familypage3"
+                        android:layout_width="260px"
+                        android:layout_height="150px"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="20px"
+                        android:layout_marginRight="25px"
+                        android:clickable="true"
+                        android:scaleType="fitXY" />
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+            </HorizontalScrollView>
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <Button
+            android:id="@+id/create_family_save"
+            android:layout_width="700px"
+            android:layout_height="88px"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/text_size_30"
+            android:background="@drawable/apply_sales_bkg1"
+            android:text="@string/next"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_36" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+    <!--<com.zhy.autolayout.AutoLinearLayout
+        android:layout_below="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/text_size_24"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="84px"
+            android:layout_marginLeft="36px"
+            android:gravity="center_vertical"
+            android:text="邀请成员"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="36px"
+            android:background="#efefef"></View>
+
+        <ListView
+            android:id="@+id/lv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></ListView>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/invite_member"
+            android:layout_width="match_parent"
+            android:layout_height="124px"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="80px"
+                android:layout_height="80px"
+                android:layout_gravity="center"
+                android:layout_marginLeft="36px"
+                android:src="@mipmap/invitemember2x" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="34px"
+                android:text="邀请新成员"
+                android:textColor="@color/black"
+                android:textSize="30px" />
+        </com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>-->
+</com.zhy.autolayout.AutoRelativeLayout>

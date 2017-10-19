@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <include layout="@layout/title_bar"></include>
+    <RelativeLayout
+        android:id="@+id/remind_item_layout1"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_below="@+id/title_common"
+        android:layout_marginTop="@dimen/text_size_24"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/text_size_40"
+            android:text="@string/remind_content"
+            android:textSize="@dimen/text_size_32"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/remind_item_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/text_size_20"
+            android:layout_toLeftOf="@+id/remind_item_right1"
+            android:gravity="right|center_vertical"
+            android:hint="提醒内容"
+            android:textColorHint="@color/grey"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/text_size_32" />
+
+        <ImageView
+            android:id="@+id/remind_item_right1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/text_size_20"
+            android:src="@mipmap/icon_right" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/fg_line" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/remind_item_layout2"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_below="@+id/remind_item_layout1"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/text_size_40"
+            android:text="@string/remind_time"
+            android:textSize="@dimen/text_size_32"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/remind_item_time"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/text_size_20"
+            android:layout_toLeftOf="@+id/family_mem_right6"
+            android:gravity="right|center_vertical"
+            android:text="即刻推送"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/text_size_32" />
+
+        <ImageView
+            android:id="@+id/family_mem_right6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/text_size_20"
+            android:src="@mipmap/icon_right" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/fg_line" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/remind_item_layout3"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_below="@+id/remind_item_layout2"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/text_size_40"
+            android:text="@string/remind_repeat"
+            android:textSize="@dimen/text_size_32"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/remind_item_repeat"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/text_size_20"
+            android:layout_toLeftOf="@+id/remind_item_right2"
+            android:gravity="right|center_vertical"
+            android:text="永不"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/text_size_32" />
+
+        <ImageView
+            android:id="@+id/remind_item_right2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/text_size_20"
+            android:src="@mipmap/icon_right" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/fg_line" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/remind_item_layout4"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_below="@+id/remind_item_layout3"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/text_size_40"
+            android:text="@string/remind_target"
+            android:textSize="@dimen/text_size_32"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/remind_item_target"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/text_size_20"
+            android:layout_toLeftOf="@+id/remind_item_right3"
+            android:gravity="right|center_vertical"
+            android:text="家庭提醒"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/text_size_32" />
+
+        <ImageView
+            android:id="@+id/remind_item_right3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/text_size_20"
+            android:src="@mipmap/icon_right" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/fg_line" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/remind_item_save"
+        android:layout_width="700px"
+        android:layout_height="88px"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/text_size_30"
+        android:background="@drawable/apply_sales_bkg1"
+        android:text="@string/yingyong"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_36" />
+</RelativeLayout>

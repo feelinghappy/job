@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="1280px"
+    android:orientation="vertical"
+    android:layout_height="800px">
+     <com.wilddog.video.WilddogVideoView
+                android:id="@+id/called_remote_video_view"
+                android:layout_width="1280px"
+                android:layout_height="800px"
+         android:layout_alignParentTop="true"
+         android:layout_alignParentStart="true" />
+
+        <com.wilddog.video.WilddogVideoViewLayout
+            android:id="@+id/called_local_video_layout"
+            android:layout_width="400px"
+            android:layout_height="250px"/>
+
+            <com.wilddog.video.WilddogVideoView
+                android:id="@+id/called_local_video_view"
+                android:layout_width="400px"
+                android:layout_height="250px" />
+
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/call_cancel"
+            android:layout_width="88px"
+            android:layout_height="88px"
+            android:layout_centerHorizontal="true"
+            android:clickable="true"
+            android:layout_marginTop="680px"
+            android:src="@drawable/turnoff" />
+
+
+
+</RelativeLayout>

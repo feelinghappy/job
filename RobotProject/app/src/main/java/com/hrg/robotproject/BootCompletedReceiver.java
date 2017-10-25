@@ -14,6 +14,7 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         Intent service = new Intent(context, LoginService.class);
         context.startService(service);
         Log.e("TAG", "开机自动服务自动启动.....");
+
         //这个必须添加flags
 
 

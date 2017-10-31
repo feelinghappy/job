@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="392px"
+    android:layout_marginTop="40px"
+    android:layout_marginLeft="90px"
+    android:layout_marginBottom="50px"
+    android:orientation="vertical"
+    android:layout_height="220px">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textSize="46px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:text="9.0"
+            />
+        <TextView
+            android:textSize="24px"
+            android:textColor="@android:color/white"
+            android:layout_marginLeft="30px"
+            android:text="h"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <TextView
+        android:textSize="26px"
+        android:textColor="#ffffff"
+        android:text="睡眠"
+        android:layout_marginTop="14px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_marginTop="14px"
+            android:textColor="#ffffff"
+            android:textSize="28px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="深睡:" />
+        <TextView
+            android:layout_marginLeft="25px"
+            android:id="@+id/txtLast"
+            android:layout_marginTop="14px"
+            android:textColor="#ffffff"
+            android:textSize="28px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5h" />
+          <LinearLayout
+              android:layout_marginTop="14px"
+              android:layout_marginBottom="50px"
+              android:layout_marginLeft="10dp"
+              android:background="@android:color/white"
+            android:layout_width="2px"
+            android:layout_height="32px">
+          </LinearLayout>
+           <TextView
+               android:layout_marginLeft="10dp"
+            android:layout_marginTop="14px"
+            android:textColor="#ffffff"
+            android:textSize="28px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="质量:" />
+            <TextView
+            android:id="@+id/txtQty"
+                android:layout_marginLeft="10dp"
+            android:layout_marginTop="14px"
+            android:textColor="#ffffff"
+            android:textSize="28px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="一般" />
+        </LinearLayout>
+</LinearLayout>

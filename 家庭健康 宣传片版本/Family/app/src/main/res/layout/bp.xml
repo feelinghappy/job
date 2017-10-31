@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="482px"
+    android:orientation="vertical"
+    android:layout_height="220px">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+    <TextView
+        android:layout_marginLeft="90px"
+        android:id="@+id/txtBP"
+        android:textColor="#ffffff"
+        android:textSize="46px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="120/90" />
+
+        <TextView
+            android:layout_marginLeft="30px"
+            android:textColor="#ffffff"
+            android:textSize="24px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="mmgh" />
+    </LinearLayout>
+    <TextView
+        android:layout_marginLeft="90px"
+        android:layout_marginTop="14px"
+        android:textColor="#ffffff"
+        android:textSize="26px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="血压" />
+
+    <TextView
+        android:id="@+id/txtTime"
+        android:layout_marginLeft="90px"
+        android:layout_marginTop="14px"
+        android:textColor="#ffffff"
+        android:textSize="28px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="数据获取于16:30" />
+
+</LinearLayout>

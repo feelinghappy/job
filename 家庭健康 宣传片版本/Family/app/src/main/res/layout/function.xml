@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_marginTop="30px"
+    android:layout_width="904px"
+    android:layout_height="168px">
+    <android.support.v7.widget.AppCompatImageView
+        android:layout_marginLeft="99px"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="#00ffffff"
+        android:id="@+id/imgbtncall"
+        android:layout_width="112px"
+        android:layout_height="128px"
+        app:srcCompat="@drawable/call" >
+    </android.support.v7.widget.AppCompatImageView>
+    <android.support.v7.widget.AppCompatImageView
+        android:layout_marginLeft="86px"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="#00ffffff"
+        android:id="@+id/imgbtnreport"
+        android:layout_width="112px"
+        android:layout_height="128px"
+        app:srcCompat="@drawable/report" >
+    </android.support.v7.widget.AppCompatImageView>
+    <android.support.v7.widget.AppCompatImageView
+        android:layout_marginLeft="86px"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="#00ffffff"
+        android:id="@+id/imgbtnhistory"
+        android:layout_width="112px"
+        android:layout_height="128px"
+        app:srcCompat="@drawable/history" >
+    </android.support.v7.widget.AppCompatImageView>
+    <android.support.v7.widget.AppCompatImageView
+        android:layout_marginLeft="86px"
+        android:id="@+id/imgbtnposition"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="#00ffffff"
+        android:layout_width="112px"
+        android:layout_height="128px"
+        app:srcCompat="@drawable/position" >
+    </android.support.v7.widget.AppCompatImageView>
+</LinearLayout>

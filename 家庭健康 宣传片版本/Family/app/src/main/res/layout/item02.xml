@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="1180px"
+	android:layout_height="660px"
+	android:background="@drawable/bgall"
+	android:orientation="horizontal">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="horizontal"
+		android:baselineAligned="false">
+		<LinearLayout
+			android:layout_width="276px"
+			android:layout_height="660px"
+			android:background="@drawable/detailbg"
+			android:orientation="vertical">
+			<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+				android:layout_width="276px"
+				android:orientation="vertical"
+				android:layout_height="290px">
+
+				<ImageView
+					android:id="@+id/imageView"
+					android:layout_width="150px"
+					android:layout_height="150px"
+					android:layout_marginLeft="66px"
+					android:layout_marginTop="70px"
+					android:src="@drawable/papa" />
+
+				<TextView
+					android:id="@+id/txtName"
+					android:textSize="30px"
+					android:layout_marginTop="30px"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textColor="#ffffff"
+					android:layout_gravity="center_horizontal"
+					android:gravity="center_horizontal"
+					android:text="爸爸" />
+			</LinearLayout>
+			<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+				android:layout_marginTop="66px"
+				android:layout_width="276px"
+				android:layout_height="240px"
+				android:orientation="vertical">
+
+				<LinearLayout
+					android:layout_marginTop="0px"
+					android:layout_width="276px"
+					android:layout_height="36px"
+					android:orientation="horizontal">
+					<TextView
+						android:layout_height="36px"
+						android:layout_width="wrap_content"
+						android:layout_marginLeft="56px"
+						android:text="年龄"
+						android:textStyle="bold"
+						android:textColor="#ffffff"
+						android:textSize="28px" />
+
+					<TextView
+						android:id="@+id/txtAge"
+						android:layout_width="36px"
+						android:layout_height="wrap_content"
+						android:layout_marginLeft="38px"
+						android:text="35"
+						android:textStyle="bold"
+						android:textColor="#ffffff"
+						android:textSize="28px" />
+				</LinearLayout>
+
+				<LinearLayout
+					android:layout_marginTop="30px"
+					android:layout_width="276px"
+					android:layout_height="36px">
+					<TextView
+						android:textStyle="bold"
+						android:textSize="28px"
+						android:textColor="#ffffff"
+						android:layout_marginLeft="56px"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="性别" />
+					<TextView
+						android:textSize="28px"
+						android:textColor="#ffffff"
+						android:id="@+id/txtSex"
+						android:textStyle="bold"
+						android:layout_marginLeft="38px"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="男" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_marginTop="30px"
+					android:layout_width="276px"
+					android:layout_height="36px"
+
+					android:orientation="horizontal">
+					<TextView
+						android:textSize="28px"
+						android:textStyle="bold"
+						android:textColor="#ffffff"
+						android:layout_marginLeft="56px"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="身高" />
+					<TextView
+						android:textSize="28px"
+						android:textColor="#ffffff"
+						android:id="@+id/txtHeight"
+						android:textStyle="bold"
+						android:layout_marginLeft="38px"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="170cm" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_marginTop="30px"
+					android:layout_width="276px"
+					android:layout_height="36px"
+					android:orientation="horizontal">
+					<TextView
+						android:textSize="28px"
+						android:textStyle="bold"
+						android:textColor="#ffffff"
+						android:layout_marginLeft="56px"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="体重" />
+					<TextView
+						android:textSize="28px"
+						android:textColor="#ffffff"
+						android:id="@+id/txtWeight"
+						android:textStyle="bold"
+						android:layout_marginLeft="38px"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:gravity="left"
+						android:text="75kg" />
+				</LinearLayout>
+			</LinearLayout>
+		</LinearLayout>
+		<LinearLayout
+			android:layout_width="904px"
+			android:layout_height="660px"
+			android:orientation="vertical">
+
+			<LinearLayout
+				android:layout_width="904px"
+				android:layout_height="168px"
+				android:orientation="vertical">
+				<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+					xmlns:app="http://schemas.android.com/apk/res-auto"
+					android:orientation="horizontal"
+					android:layout_marginTop="30px"
+					android:layout_width="904px"
+					android:layout_height="168px">
+					<android.support.v7.widget.AppCompatImageView
+						android:layout_marginLeft="99px"
+						android:clickable="true"
+						android:focusable="true"
+						android:background="#00ffffff"
+						android:id="@+id/imgbtncall"
+						android:layout_width="112px"
+						android:layout_height="128px"
+						app:srcCompat="@drawable/call" >
+					</android.support.v7.widget.AppCompatImageView>
+					<android.support.v7.widget.AppCompatImageView
+						android:layout_marginLeft="86px"
+						android:clickable="true"
+						android:focusable="true"
+						android:background="#00ffffff"
+						android:id="@+id/imgbtnreport"
+						android:layout_width="112px"
+						android:layout_height="128px"
+						app:srcCompat="@drawable/report" >
+					</android.support.v7.widget.AppCompatImageView>
+					<android.support.v7.widget.AppCompatImageView
+						android:layout_marginLeft="86px"
+						android:clickable="true"
+						android:focusable="true"
+						android:background="#00ffffff"
+						android:id="@+id/imgbtnhistory"
+						android:layout_width="112px"
+						android:layout_height="128px"
+						app:srcCompat="@drawable/history" >
+					</android.support.v7.widget.AppCompatImageView>
+					<android.support.v7.widget.AppCompatImageView
+						android:layout_marginLeft="86px"
+						android:id="@+id/imgbtnposition"
+						android:clickable="true"
+						android:focusable="true"
+						android:background="#00ffffff"
+						android:layout_width="112px"
+						android:layout_height="128px"
+						app:srcCompat="@drawable/position" >
+					</android.support.v7.widget.AppCompatImageView>
+				</LinearLayout>
+			</LinearLayout>
+
+			<LinearLayout
+				android:layout_marginTop="40px"
+				android:layout_width="904px"
+				android:layout_height="190px"
+				android:orientation="horizontal">
+				<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+					android:layout_width="482px"
+					android:orientation="vertical"
+					android:layout_height="220px">
+
+					<LinearLayout
+						android:layout_width="wrap_content"
+						android:orientation="horizontal"
+						android:layout_height="wrap_content">
+						<TextView
+							android:layout_marginLeft="90px"
+							android:id="@+id/txtBP"
+							android:textColor="#ffffff"
+							android:textSize="46px"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="110/80" />
+
+						<TextView
+							android:layout_marginLeft="30px"
+							android:textColor="#ffffff"
+							android:textSize="24px"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="mmgh" />
+					</LinearLayout>
+					<TextView
+						android:layout_marginLeft="90px"
+						android:layout_marginTop="14px"
+						android:textColor="#ffffff"
+						android:textSize="26px"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="血压" />
+
+					<TextView
+						android:id="@+id/txtTime"
+						android:layout_marginLeft="90px"
+						android:layout_marginTop="14px"
+						android:textColor="#ffffff"
+						android:textSize="28px"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="数据获取于17:30" />
+
+				</LinearLayout>
+				<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+					android:layout_width="452px"
+					android:orientation="vertical"
+					android:layout_height="220px">
+
+					<LinearLayout
+						android:layout_width="wrap_content"
+						android:orientation="horizontal"
+						android:layout_height="wrap_content">
+						<TextView
+							android:id="@+id/txtheartrate"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:textColor="#ffffff"
+							android:textSize="46px"
+							android:text="90"
+							>
+						</TextView>
+						<TextView
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:textColor="#ffffff"
+							android:layout_marginLeft="30px"
+							android:textSize="24px"
+							android:layout_marginRight="236px"
+							android:text="bpm">
+						</TextView>
+					</LinearLayout>
+					<TextView
+						android:textSize="26px"
+						android:textColor="#ffffff"
+
+						android:text="心率"
+						android:layout_marginTop="16px"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content" />
+					<RadioGroup
+						android:layout_marginTop="14px"
+						android:orientation="horizontal"
+						android:layout_width="350px"
+						android:layout_height="40px"
+						>
+						<RadioButton
+							android:id="@+id/btn_0"
+							android:layout_width="84px"
+							android:layout_height="40px"
+							android:text="平均"
+							android:textSize="26px"
+							android:textColor="@android:color/white"
+							android:gravity="center"
+							android:checked="true"
+							android:button="@null"
+							android:background="@drawable/radio"
+							/>
+						<RadioButton
+							android:layout_marginLeft="30px"
+							android:id="@+id/btn_1"
+							android:layout_width="84px"
+							android:layout_height="40px"
+							android:text="最高"
+							android:textSize="26px"
+							android:textColor="#CFD3DA"
+							android:gravity="center"
+							android:button="@null"
+							android:background="@drawable/radio"
+							/>
+						<RadioButton
+							android:layout_marginLeft="30px"
+							android:id="@+id/btn_2"
+							android:layout_width="84px"
+							android:layout_height="40px"
+							android:text="最低"
+							android:textColor="#CFD3DA"
+							android:textSize="26px"
+							android:gravity="center"
+							android:button="@null"
+							android:background="@drawable/radio"
+							/>
+					</RadioGroup>
+
+
+				</LinearLayout>
+			</LinearLayout>
+
+			<LinearLayout
+				android:layout_width="904px"
+				android:layout_height="220px"
+				android:layout_marginBottom="50px"
+				android:orientation="horizontal">
+				<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+					android:layout_width="392px"
+					android:layout_marginTop="40px"
+					android:layout_marginLeft="90px"
+					android:layout_marginBottom="50px"
+					android:orientation="vertical"
+					android:layout_height="220px">
+
+					<LinearLayout
+						android:layout_width="wrap_content"
+						android:orientation="horizontal"
+						android:layout_height="wrap_content">
+						<TextView
+							android:textSize="46px"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:textColor="@android:color/white"
+							android:text="8.0"
+							/>
+						<TextView
+							android:textSize="24px"
+							android:textColor="@android:color/white"
+							android:layout_marginLeft="30px"
+							android:text="h"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content" />
+					</LinearLayout>
+					<TextView
+						android:textSize="26px"
+						android:textColor="#ffffff"
+						android:text="睡眠"
+						android:layout_marginTop="14px"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content" />
+					<LinearLayout
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:orientation="horizontal">
+						<TextView
+							android:layout_marginTop="14px"
+							android:textColor="#ffffff"
+							android:textSize="28px"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="深睡:" />
+						<TextView
+							android:layout_marginLeft="25px"
+							android:id="@+id/txtLast"
+							android:layout_marginTop="14px"
+							android:textColor="#ffffff"
+							android:textSize="28px"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="5h" />
+						<LinearLayout
+							android:layout_marginTop="14px"
+							android:layout_marginBottom="50px"
+							android:layout_marginLeft="10dp"
+							android:background="@android:color/white"
+							android:layout_width="2px"
+							android:layout_height="32px">
+						</LinearLayout>
+						<TextView
+							android:layout_marginLeft="10dp"
+							android:layout_marginTop="14px"
+							android:textColor="#ffffff"
+							android:textSize="28px"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="质量:" />
+						<TextView
+							android:id="@+id/txtQty"
+							android:layout_marginLeft="10dp"
+							android:layout_marginTop="14px"
+							android:textColor="#ffffff"
+							android:textSize="28px"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="一般" />
+					</LinearLayout>
+				</LinearLayout>
+				<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+					android:layout_width="452px"
+					android:orientation="vertical"
+					android:layout_marginTop="40px"
+					android:layout_height="220px">
+					<TextView
+						android:id="@+id/txtwalknum"
+						android:textColor="#ffffff"
+						android:textSize="46px"
+						android:text="20559"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content" />
+					<TextView
+						android:textSize="26px"
+						android:textColor="#ffffff"
+						android:text="步数"
+						android:layout_marginTop="14px"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content" />
+					<TextView
+						android:layout_marginTop="14px"
+						android:textColor="#ffffff"
+						android:textSize="28px"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="行走10.1km，消耗500cal" />
+				</LinearLayout>
+			</LinearLayout>
+
+		</LinearLayout>
+
+	</LinearLayout>
+</LinearLayout>

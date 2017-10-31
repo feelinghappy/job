@@ -1,0 +1,79 @@
+<LinearLayout
+    android:orientation="horizontal"
+    android:id="@+id/top_navigate_report"
+    android:background="#4878d8"
+    android:layout_width="1280px"
+    android:layout_height="100px"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:weightSum="1">
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/back"
+        android:layout_width="19px"
+        android:layout_height="32px"
+        android:layout_marginLeft="36px"
+        android:layout_marginTop="34px"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@mipmap/back" />
+
+    <RadioGroup
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="27px"
+        android:layout_marginLeft="70px"
+        android:layout_marginBottom="27px"
+        android:orientation="horizontal"
+        android:layout_width="1000px"
+        android:layout_height="100px"
+        >
+        <RadioButton
+            android:id="@+id/btn_0"
+            android:layout_width="120px"
+            android:layout_height="100px"
+            android:text="血压"
+            android:textSize="46px"
+            android:textColor="@drawable/report_radio"
+            android:gravity="center"
+            android:checked="true"
+            android:button="@null"
+            />
+        <RadioButton
+            android:layout_marginLeft="60px"
+            android:id="@+id/btn_1"
+            android:layout_width="120px"
+            android:layout_height="100px"
+            android:text="心率"
+            android:textSize="46px"
+            android:textColor="@drawable/report_radio"
+            android:gravity="center"
+            android:button="@null"
+            />
+        <RadioButton
+            android:layout_marginLeft="60px"
+            android:id="@+id/btn_2"
+            android:layout_width="120px"
+            android:layout_height="100px"
+            android:text="运动"
+            android:textColor="@drawable/report_radio"
+            android:textSize="46px"
+            android:gravity="center"
+            android:button="@null"
+            />
+
+        <RadioButton
+            android:layout_marginLeft="60px"
+            android:id="@+id/btn_3"
+            android:layout_width="120px"
+            android:layout_height="100px"
+            android:text="睡眠"
+            android:textColor="@drawable/report_radio"
+            android:textSize="46px"
+            android:gravity="center"
+            android:button="@null"
+            />
+    </RadioGroup>
+
+
+
+</LinearLayout>

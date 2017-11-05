@@ -158,7 +158,7 @@
 					android:layout_marginTop="30px"
 					android:layout_width="904px"
 					android:layout_height="168px">
-					<android.support.v7.widget.AppCompatImageView
+					<ImageView
 						android:layout_marginLeft="99px"
 						android:clickable="true"
 						android:focusable="true"
@@ -166,9 +166,9 @@
 						android:id="@+id/imgbtncall"
 						android:layout_width="112px"
 						android:layout_height="128px"
-						app:srcCompat="@drawable/call" >
-					</android.support.v7.widget.AppCompatImageView>
-					<android.support.v7.widget.AppCompatImageView
+                        android:src="@drawable/call" >
+					</ImageView>
+					<ImageView
 						android:layout_marginLeft="86px"
 						android:clickable="true"
 						android:focusable="true"
@@ -176,9 +176,9 @@
 						android:id="@+id/imgbtnreport"
 						android:layout_width="112px"
 						android:layout_height="128px"
-						app:srcCompat="@drawable/report" >
-					</android.support.v7.widget.AppCompatImageView>
-					<android.support.v7.widget.AppCompatImageView
+                        android:src="@drawable/report" >
+					</ImageView>
+					<ImageView
 						android:layout_marginLeft="86px"
 						android:clickable="true"
 						android:focusable="true"
@@ -186,9 +186,9 @@
 						android:id="@+id/imgbtnhistory"
 						android:layout_width="112px"
 						android:layout_height="128px"
-						app:srcCompat="@drawable/history" >
-					</android.support.v7.widget.AppCompatImageView>
-					<android.support.v7.widget.AppCompatImageView
+                        android:src="@drawable/history" >
+					</ImageView>
+					<ImageView
 						android:layout_marginLeft="86px"
 						android:id="@+id/imgbtnposition"
 						android:clickable="true"
@@ -196,8 +196,8 @@
 						android:background="#00ffffff"
 						android:layout_width="112px"
 						android:layout_height="128px"
-						app:srcCompat="@drawable/position" >
-					</android.support.v7.widget.AppCompatImageView>
+                        android:src="@drawable/position" >
+					</ImageView>
 				</LinearLayout>
 			</LinearLayout>
 
@@ -206,9 +206,52 @@
 				android:layout_width="904px"
 				android:layout_height="190px"
 				android:orientation="horizontal">
-				<include
-					android:id="@+id/item_bp"
-					layout="@layout/bp" />
+				<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+					android:layout_width="482px"
+					android:orientation="vertical"
+					android:layout_height="220px">
+
+					<LinearLayout
+						android:layout_width="wrap_content"
+						android:orientation="horizontal"
+						android:layout_height="wrap_content">
+						<TextView
+							android:layout_marginLeft="90px"
+							android:id="@+id/txtBP"
+							android:textColor="#ffffff"
+							android:textSize="46px"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="110/85" />
+
+						<TextView
+							android:layout_marginLeft="30px"
+							android:textColor="#ffffff"
+							android:textSize="24px"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="mmgh" />
+					</LinearLayout>
+					<TextView
+						android:layout_marginLeft="90px"
+						android:layout_marginTop="14px"
+						android:textColor="#ffffff"
+						android:textSize="26px"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="血压" />
+
+					<TextView
+						android:id="@+id/txtTime"
+						android:layout_marginLeft="90px"
+						android:layout_marginTop="14px"
+						android:textColor="#ffffff"
+						android:textSize="28px"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="数据获取于8:30" />
+
+				</LinearLayout>
 				<include
 					android:id="@+id/item_heartrate"
 					layout="@layout/heartrate" />
@@ -300,8 +343,33 @@
 							android:text="一般" />
 					</LinearLayout>
 				</LinearLayout>
-				<include android:id="@+id/walk"
-					layout="@layout/walk"/>
+				<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+					android:layout_width="452px"
+					android:orientation="vertical"
+					android:layout_marginTop="40px"
+					android:layout_height="220px">
+					<TextView
+						android:id="@+id/txtwalknum"
+						android:textColor="#ffffff"
+						android:textSize="46px"
+						android:text="8842"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content" />
+					<TextView
+						android:textSize="26px"
+						android:textColor="#ffffff"
+						android:text="步数"
+						android:layout_marginTop="14px"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content" />
+					<TextView
+						android:layout_marginTop="14px"
+						android:textColor="#ffffff"
+						android:textSize="28px"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="行走5.8km，消耗390cal" />
+				</LinearLayout>
 			</LinearLayout>
 
 		</LinearLayout>

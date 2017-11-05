@@ -11,33 +11,33 @@
         android:layout_width="wrap_content"
         android:layout_height="760px"
         android:orientation="vertical">
+
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="1280px"
             android:layout_height="100px"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            >
-            <android.support.v7.widget.AppCompatImageView
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_marginTop="8px"
+                android:layout_marginLeft="20px"
                 android:id="@+id/video_back"
-                android:layout_marginLeft="70px"
-                android:layout_marginTop="34px"
-                android:src="@mipmap/back"
+                android:layout_width="83px"
+                android:layout_height="80px"
                 android:clickable="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:src="@drawable/back_touming" />
 
             <TextView
-                android:textSize="36px"
-                android:layout_marginTop="24px"
-                android:layout_marginBottom="34px"
-                android:layout_marginLeft="24px"
-                android:textColor="#ffffff"
                 android:id="@+id/callNavigateBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:clickable="true"
                 android:text="视频通话"
-                android:layout_width="200px"
-                android:layout_height="42px" />
+                android:textColor="#ffffff"
+                android:textSize="34px" />
         </LinearLayout>
 
-</LinearLayout>
+    </LinearLayout>
 </LinearLayout>

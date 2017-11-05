@@ -12,26 +12,24 @@
 		android:layout_alignParentLeft="true" 
 		android:layout_centerVertical="true"
 		>
-        <android.support.v7.widget.AppCompatImageView
+        <ImageView
 			android:id="@+id/back"
-            android:layout_marginLeft="70px"
-			android:layout_marginTop="34px"
-            android:src="@mipmap/back"
+			android:layout_marginTop="8px"
+			android:layout_marginLeft="20px"
+            android:src="@drawable/back_touming"
 			android:clickable="true"
 			android:focusable="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="83px"
+            android:layout_height="80px" />
 		
 		<TextView
-            android:textSize="36px"
-			android:layout_marginTop="24px"
-			android:layout_marginBottom="34px"
-			android:layout_marginLeft="24px"
+            android:textSize="34px"
+			android:layout_gravity="center"
 		    android:textColor="#ffffff"
 			android:id="@+id/NavigateBack"
 			android:text="我的一家"
-			android:layout_width="200px"
-			android:layout_height="42px" />
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" />
 		
 	</LinearLayout>
 

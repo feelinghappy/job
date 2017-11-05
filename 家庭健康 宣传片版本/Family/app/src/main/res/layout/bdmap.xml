@@ -12,22 +12,20 @@
         android:layout_height="100px"
         xmlns:android="http://schemas.android.com/apk/res/android">
 
-        <android.support.v7.widget.AppCompatImageView
+        <ImageView
             android:id="@+id/position_back"
-            android:layout_marginLeft="36px"
-            android:layout_marginTop="34px"
-            android:src="@mipmap/back"
+            android:src="@drawable/back_blue"
             android:clickable="true"
             android:focusable="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="134px"
+            android:layout_height="98px" />
 
         <TextView
             android:text="定位"
-            android:textSize="42px"
-            android:layout_marginTop="20px"
+            android:textSize="34px"
+            android:layout_marginTop="30px"
             android:layout_marginBottom="20px"
-            android:layout_marginLeft="500px"
+            android:layout_marginLeft="420px"
             android:textColor="@android:color/white"
             android:layout_width="wrap_content"
             android:layout_height="56px" />

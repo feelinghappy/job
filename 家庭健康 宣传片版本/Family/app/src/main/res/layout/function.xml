@@ -5,7 +5,7 @@
     android:layout_marginTop="30px"
     android:layout_width="904px"
     android:layout_height="168px">
-    <android.support.v7.widget.AppCompatImageView
+    <ImageView
         android:layout_marginLeft="99px"
         android:clickable="true"
         android:focusable="true"
@@ -13,9 +13,9 @@
         android:id="@+id/imgbtncall"
         android:layout_width="112px"
         android:layout_height="128px"
-        app:srcCompat="@drawable/call" >
-    </android.support.v7.widget.AppCompatImageView>
-    <android.support.v7.widget.AppCompatImageView
+        android:src ="@drawable/call" >
+    </ImageView>
+    <ImageView
         android:layout_marginLeft="86px"
         android:clickable="true"
         android:focusable="true"
@@ -23,9 +23,9 @@
         android:id="@+id/imgbtnreport"
         android:layout_width="112px"
         android:layout_height="128px"
-        app:srcCompat="@drawable/report" >
-    </android.support.v7.widget.AppCompatImageView>
-    <android.support.v7.widget.AppCompatImageView
+        android:src="@drawable/report" >
+    </ImageView>
+    <ImageView
         android:layout_marginLeft="86px"
         android:clickable="true"
         android:focusable="true"
@@ -33,9 +33,9 @@
         android:id="@+id/imgbtnhistory"
         android:layout_width="112px"
         android:layout_height="128px"
-        app:srcCompat="@drawable/history" >
-    </android.support.v7.widget.AppCompatImageView>
-    <android.support.v7.widget.AppCompatImageView
+        android:src="@drawable/history" >
+    </ImageView>
+    <ImageView
         android:layout_marginLeft="86px"
         android:id="@+id/imgbtnposition"
         android:clickable="true"
@@ -43,6 +43,6 @@
         android:background="#00ffffff"
         android:layout_width="112px"
         android:layout_height="128px"
-        app:srcCompat="@drawable/position" >
-    </android.support.v7.widget.AppCompatImageView>
+        android:src="@drawable/position" >
+    </ImageView>
 </LinearLayout>

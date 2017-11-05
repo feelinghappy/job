@@ -6,11 +6,11 @@
     android:layout_height="100px"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <android.support.v7.widget.AppCompatImageView
+    <ImageView
         android:id="@+id/back"
         android:layout_marginLeft="36px"
         android:layout_marginTop="34px"
-        android:src="@mipmap/back"
+        android:src="@drawable/back_touming"
         android:clickable="true"
         android:focusable="true"
         android:layout_width="wrap_content"

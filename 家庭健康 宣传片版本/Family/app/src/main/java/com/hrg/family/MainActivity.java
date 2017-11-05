@@ -1,11 +1,11 @@
 package com.hrg.family;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutCompat;
 import android.util.Log;
@@ -25,7 +25,7 @@ import static android.view.View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
 import static android.view.View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION;
 import static android.view.View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
 
-public class MainActivity extends  AppCompatActivity{
+public class MainActivity extends Activity {
     private ViewPager viewPager;
     private ArrayList<View> pageViews;
     private ImageView imageView;
@@ -37,7 +37,7 @@ public class MainActivity extends  AppCompatActivity{
     private int currIndex = 0;// 当前页卡编号
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         //隐藏状态栏
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
@@ -76,10 +76,7 @@ public class MainActivity extends  AppCompatActivity{
         {
             public void onClick(View v)
             {
-                Intent home = new Intent(Intent.ACTION_MAIN);
-                home.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                home.addCategory(Intent.CATEGORY_HOME);
-                startActivity(home);
+               finish();
                 /*Intent intent  = new Intent(MainActivity.this,LocationActivity.class);
                 startActivity(intent);*/////LocationActivity ok
                 /*Intent intent  = new Intent(MainActivity.this,ReportActivity.class);

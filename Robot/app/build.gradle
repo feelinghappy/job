@@ -57,4 +57,5 @@ dependencies {
     compile 'com.wilddog.client:wilddog-auth-android:2.0.6'
     compile 'com.wilddog.client:wilddog-sync-android:2.3.6'
     compile 'com.wilddog.client:wilddog-video-android:2.0.4'
+    compile files('libs/zklibrary.jar')
 }

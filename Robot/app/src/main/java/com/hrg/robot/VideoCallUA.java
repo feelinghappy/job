@@ -172,10 +172,10 @@ public class VideoCallUA {
     /**
      * 呼叫
      * @param remoteUid
-     * @param data
      */
     public  void callVideo(String remoteUid, String data){
         if(isOnline()){
+            remoteUid = "c33bebf2-b4c1-45ca-b256-7f095ec42eeb";
             this.setRemouteUid(remoteUid);
             this.localStream = createLocalStream();
             this.conversation = wilddogVideo.call(remoteUid, localStream, "liutao");

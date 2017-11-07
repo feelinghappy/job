@@ -26,11 +26,21 @@ import com.wilddog.wilddogauth.WilddogAuth;
 import com.wilddog.wilddogauth.core.Task;
 import com.wilddog.wilddogauth.core.listener.OnCompleteListener;
 import com.wilddog.wilddogauth.core.result.AuthResult;
+import com.zhikang.zklibrary.api.ZKRequest;
+import com.zhikang.zklibrary.bean.AirData;
+import com.zhikang.zklibrary.bean.MoveDirection;
+import com.zhikang.zklibrary.bean.ResultData;
+import com.zhikang.zklibrary.bean.RobotData;
+import com.zhikang.zklibrary.callBack.ZKCallback;
+import com.zhikang.zklibrary.config.ZKConfig;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.StreamCorruptedException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
@@ -47,14 +57,17 @@ import okhttp3.Response;
 import static android.view.View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
 import static android.view.View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION;
 import static android.view.View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
+import static com.hrg.robot.MediaApplication.mContext;
 
-public class PhonebookActivity extends Activity {
+public class PhonebookActivity extends Activity implements ZKCallback {
+    private ImageView img;
     private Oauth oauth;
     private static final int REQUEST_CODE = 0; // 请求码
     private WilddogAuth auth;
     private boolean isInlogin =false;
     final OkHttpClient client = new OkHttpClient();
     String wilddogcustomtoken = null;
+    private boolean isOnline = false;
     public static final  int UPDATE_TOKEN = 1;
     public static final  int UPDATE_CUSTOM_TOKEN = 2;
     public static final  int UPDATE_SECRET = 3;
@@ -64,6 +77,9 @@ public class PhonebookActivity extends Activity {
     public static final  int UPDATE_GET_NAME = 7;
     public static final  int UPDATE_SET_CONTROLABLE = 8;
     public static final  int UPDATE_GET_CONTROLABLE = 9;
+
+    public static final  int UPDATE_ROBOT_MSG = 20;
+    public static final  int UPDATE_AIRBOX_MSG = 21;
     String strSecret;
     String strfromserver;
     String Login_token;
@@ -74,8 +90,12 @@ public class PhonebookActivity extends Activity {
     String strsetnamefromsever;
     String strgetcontrolfromsever;
     String strsetcontrolfromsver;
+    private com.zhikang.zklibrary.api.ZKRequest zkRequest;
     private ValueEventListener mConnectedListener;
     private SyncReference mWilddogRef;
+    private RobotData robotDataloc;
+    private AirData airData;
+    private String uid;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -83,6 +103,7 @@ public class PhonebookActivity extends Activity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.activity_phonebook);
+        zkRequest = new ZKRequest(this, this);
         hideNavigationBar();
         hideVirtualKey();
         ImageView imgback = (ImageView)findViewById(R.id.video_back);
@@ -92,6 +113,7 @@ public class PhonebookActivity extends Activity {
                 finish();
             }
         });
+       // TextView txtback = (TextView)findViewById(R.id.txtSPTH);
         TextView txtback = (TextView)findViewById(R.id.callNavigateBack);
         txtback.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,12 +123,42 @@ public class PhonebookActivity extends Activity {
                 startService(startIntent);
             }
         });
-        sendRequestWithOkHttp();
+        GetRobotMsg();
+
+/*        img = (ImageView)findViewById(R.id.imgyeye);
+        img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+  //              callVideo("111111");
+            }
+        });*/
 
 
 
 
     }
+
+    /**
+     *
+     * @param command
+     * @param value
+     */
+    private void sendCommand(int command, int value){
+        if (zkRequest != null) {
+            zkRequest.sendRequest(command, value);
+        }
+    }
+
+    public void GetRobotMsg()
+    {
+        sendCommand(com.zhikang.zklibrary.config.ZKConfig.GET_ROBOT_MSG, com.zhikang.zklibrary.config.ZKConfig.GET_ROBOT_MSG);
+
+    }
+    public void GetAirMsg()
+    {
+        sendCommand(ZKConfig.GET_AIR_MSG, ZKConfig.GET_AIR_MSG);
+    }
+
     public void oauthInit()
     {
         oauth = new Oauth();
@@ -360,6 +412,13 @@ public class PhonebookActivity extends Activity {
                         e.printStackTrace();
                     }
                     break;*/
+                case UPDATE_ROBOT_MSG:
+                    String DevSN = robotDataloc.getDevSN();
+                    sendRequestWithOkHttp();
+                    break;
+                case UPDATE_AIRBOX_MSG:
+                    writeAirbox(uid);
+                    break;
 
                 default:
                     break;
@@ -386,11 +445,13 @@ public class PhonebookActivity extends Activity {
             public void onComplete(Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     //身份认证成功
-                    String uid = auth.getCurrentUser().getUid();
+                    uid = auth.getCurrentUser().getUid();
                     SharedPrefUtils.saveConfigInfo(PhonebookActivity.this, Constants.WILDDOG_UID, uid);
                     Log.e("uid",uid);
                     mWilddogRef = WilddogSync.getInstance().getReference().child("roots");
-                    writeRobotInfo(uid);
+                    //writeRobotInfo(uid);
+                    isOnline = true;
+                    GetAirMsg();
 
 
                 } else {
@@ -401,6 +462,67 @@ public class PhonebookActivity extends Activity {
                 }
             }
         });
+    }
+    public void writeAirbox(String uid)
+    {
+        if(uid==null) {
+            return;
+        }
+        else
+        {
+            //写空气净化器
+            Log.e("writeAirbox","writeAirbox");
+            SyncReference ref = WilddogSync.getInstance().getReference("robots").child(uid).child("airBox");
+            int fanStatus = airData.getFanStatus();
+            int anionStatus = airData.getAnionStatus();
+            String airDataElectricity = airData.getElectricity();
+            boolean isCharging = airData.isCharging();
+            String co = airData.getCo();
+            String co_decimal = airData.getCo_decimal();
+            String ch2o = airData.getCh2o();
+            String ch2o_decimal = airData.getCh2o_decimal();
+            String pm = airData.getPm();
+            String humidity = airData.getHumidity();
+            String humidity_decimal = airData.getHumidity_decimal();
+            String temperature = airData.getTemperature();
+            String temperature_decimal = airData.getTemperature_decimal();
+            final AirBox airBox = new AirBox();
+            airBox.setPm25(pm);
+            String wendu = temperature +"."+temperature_decimal;
+            airBox.setTemperature(wendu);
+            String strCh2o = ch2o +"."+ ch2o_decimal;
+            airBox.setCh2o(strCh2o);
+            airBox.setGas(airData.getGas()+"");
+            String humidityall = humidity + "."+humidity_decimal;
+            airBox.setHumidity(humidityall);
+            String coall = co+"."+ co_decimal;
+            airBox.setCo2(coall);
+                /*  public int fanStatus;//风扇状态 1:开  0:关
+                public int anionStatus;//负离子状态
+                public String electricity;
+                public boolean isCharging;
+                public String co;
+                public String co_decimal;
+                public String ch2o;//甲醛，整数部分
+                public String ch2o_decimal;//甲醛，小数部分
+                public String pm;
+                public String humidity;
+                public String humidity_decimal;
+                public String temperature;
+                public String temperature_decimal;
+                public int gas;*/
+            ref.setValue(airBox, new SyncReference.CompletionListener() {
+                @Override
+                public void onComplete(SyncError error, SyncReference ref) {
+                    if (error != null) {
+                        Log.e("error", error.toString());
+                    } else {
+                        Log.e("success", "setValue success");
+                    }
+                }
+            });
+        }
+
     }
 
     public void writeRobotInfo(String uid) {
@@ -599,6 +721,7 @@ public class PhonebookActivity extends Activity {
     @Override
     protected void onDestroy()
     {
+        zkRequest.unregister();
         super.onDestroy();
     }
     @Override
@@ -628,5 +751,81 @@ public class PhonebookActivity extends Activity {
         WindowManager.LayoutParams params = window.getAttributes();
         params.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
         window.setAttributes(params);
+    }
+
+    @Override
+    public void resultMsg(ResultData resultData) {
+     //   resultMsg: resultData:ResultData{type=1, obj=RobotData{status=1111, robotName='', devSN=HSRasd0170400003, electricity=0}}
+     //   resultMsg: resultData:ResultData{type=2,
+        // obj=AirData{fanStatus=1, anionStatus=1, electricity='0',
+        // isCharging=false, co='0', co_decimal='0', ch2o='0', ch2o_decimal='43', pm='23',
+        // humidity='49', humidity_decimal='9', temperature='25', temperature_decimal='8', gas=1}}
+       int type =  resultData.getType();
+        Message msg = new Message();
+        switch (type)
+        {
+ /*           public int status;//在线:0, 离线:1
+            public String robotName;//机器人名字
+            public String devSN;//机器人SN
+            public int electricity;//机器人电量*/
+            case 1:
+                RobotData robotData =(RobotData)resultData. getObj();
+                robotDataloc = robotData;
+                if(robotDataloc == null)
+                {
+                    Log.e("UPDATE_ROBOT_MSG","robotDataloc == null");
+                }
+                int status = robotData.getStatus();
+                String robotName = robotData.getRobotName();
+                Log.e("robotName",robotName);
+                String devSN = robotData.getDevSN();
+                Log.e("devSN",devSN);
+                int electricity = robotData.getElectricity();
+                msg = new Message();
+                msg.what = UPDATE_ROBOT_MSG;
+                handler.sendMessage(msg);
+                Log.e("UPDATE_ROBOT_MSG","robotDataloc");
+                break;
+            /*  public int fanStatus;//风扇状态 1:开  0:关
+                public int anionStatus;//负离子状态
+                public String electricity;
+                public boolean isCharging;
+                public String co;
+                public String co_decimal;
+                public String ch2o;//甲醛，整数部分
+                public String ch2o_decimal;//甲醛，小数部分
+                public String pm;
+                public String humidity;
+                public String humidity_decimal;
+                public String temperature;
+                public String temperature_decimal;
+                public int gas;*/
+            case 2:
+                airData = (AirData)resultData.getObj();
+                if(airData==null)
+                {
+                    Log.e("UPDATE_AIRBOX_MSG","airData == null");
+                }
+                int gas = airData.getGas();
+                Log.e("gas",gas+"");
+                msg.what = UPDATE_AIRBOX_MSG;
+                handler.sendMessage(msg);
+                Log.e("UPDATE_AIRBOX_MSG","airData");
+                break;
+
+
+
+
+
+
+
+        }
+
+
+    }
+
+    @Override
+    public void error(String msg) {
+
     }
 }

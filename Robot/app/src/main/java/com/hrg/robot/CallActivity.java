@@ -14,7 +14,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import com.hrg.robot.Commands;
 import com.hrg.robot.Constants;
 import com.hrg.robot.VideoCallUA;
@@ -30,6 +29,7 @@ import com.wilddog.video.RemoteStream;
 import com.wilddog.video.WilddogVideoView;
 import com.wilddog.video.WilddogVideoViewLayout;
 
+
 import java.util.HashMap;
 
 
@@ -37,7 +37,7 @@ import java.util.HashMap;
  * Created by liutao on 2017/9/17.
  */
 
-public class CallActivity extends Activity implements VideoCallUA.DataChangerListener{
+public class CallActivity extends Activity implements VideoCallUA.DataChangerListener,ZKCallback {
     private TextView stateTxt;
     private int callId;
     private RelativeLayout callingIncomeLayout, remoteUserLayout;
@@ -56,6 +56,7 @@ public class CallActivity extends Activity implements VideoCallUA.DataChangerLis
     private PowerManager powerManager;
     private PowerManager.WakeLock wakeLock;
     private Commands commands;
+    private ZKRequest zkRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,15 +65,16 @@ public class CallActivity extends Activity implements VideoCallUA.DataChangerLis
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_call);
+        zkRequest = new ZKRequest(this, this);
         this.powerManager = (PowerManager) this.getSystemService(Context.POWER_SERVICE);
         this.wakeLock = this.powerManager.newWakeLock(PowerManager.FULL_WAKE_LOCK, "My Lock");
         this.wakeLock.acquire();
         Intent intent = getIntent();
         callId = intent.getIntExtra(VideoCallUA.CALL_COMING_OR_OUTGOING, -1);
         callUid = intent.getStringExtra("callUid");
-//        Log.e("getStringExtra callUid", callUid);
+        Log.e("getStringExtra callUid", callUid);
         localuid = SharedPrefUtils.getConfigInfo(CallActivity.this, Constants.WILDDOG_UID);
-//        Log.e("localuid", localuid);
+        Log.e("localuid", localuid);
         initData();
         initView();
         refcontrol = WilddogSync.getInstance().getReference("robots").child(localuid).child("control");
@@ -84,22 +86,30 @@ public class CallActivity extends Activity implements VideoCallUA.DataChangerLis
                 if (str.equals(callUid)) {
                     String strcommand = (String) dataSnapshot.getValue();
                     Log.e("add control strcommand", strcommand);
-                   /* if (strcommand.equals(commands.MOVE_FORWARD)) {
-                        zkRequest.moveControl(ZKConfig.ACTION_MOVE_FORWARD, 5);
-                        Log.e("ACTION_MOVE_FORWARD", "ACTION_MOVE_FORWARD");
+                    if (strcommand.equals(commands.MOVE_FORWARD)) {
+                        if (zkRequest != null){
+                            zkRequest.moveControl(MoveDirection.FORWARD);
+                            Log.e("commands.MOVE_FORWARD", "zkRequest != null");
+                        }
                     } else if (strcommand.equals(commands.MOVE_BACK)) {
-                        zkRequest.moveControl(ZKConfig.ACTION_MOVE_BACK, 5);
-                        Log.e("ACTION_MOVE_BACK", "ACTION_MOVE_BACK");
+                        if (zkRequest != null) {
+                            zkRequest.moveControl(MoveDirection.BACKWARD);
+                            Log.e("ACTION_MOVE_BACK", "ACTION_MOVE_BACK");
+                        }
+
                     } else if (strcommand.equals(commands.MOVE_LEFT)) {
-                        zkRequest.moveControl(ZKConfig.ACTION_MOVE_LEFT, 5);
-                        Log.e("ACTION_MOVE_LEFT", "ACTION_MOVE_LEFT");
+                        if (zkRequest != null) {
+                            zkRequest.moveControl(MoveDirection.TURN_LEFT);
+                            Log.e("ACTION_MOVE_LEFT", "ACTION_MOVE_LEFT");
+                        }
+
                     } else if (strcommand.equals(commands.MOVE_RIGHT)) {
-                        zkRequest.moveControl(ZKConfig.ACTION_MOVE_RIGHT, 5);
-                        Log.e("ACTION_MOVE_RIGHT", "ACTION_MOVE_RIGHT");
-                    } else if (strcommand.equals(commands.MOVE_STOP)) {
-                        zkRequest.moveControl(ZKConfig.ACTION_MOVE_STOP, 5);
-                        Log.e("ACTION_MOVE_STOP", "ACTION_MOVE_STOP");
-                    }*/
+                        if (zkRequest != null) {
+                            zkRequest.moveControl(MoveDirection.TURN_RIGHT);
+                            Log.e("ACTION_MOVE_RIGHT", "ACTION_MOVE_RIGHT");
+                        }
+
+                    }
 
                 }
 
@@ -112,22 +122,30 @@ public class CallActivity extends Activity implements VideoCallUA.DataChangerLis
                 if (str.equals(callUid)) {
                     String strcommand = (String) dataSnapshot.getValue();
                     Log.e("ch  control strcoand", strcommand);
-             /*       if (strcommand.equals(commands.MOVE_FORWARD)) {
-                        zkRequest.moveControl(ZKConfig.ACTION_MOVE_FORWARD, 5);
-                        Log.e("ACTION_MOVE_FORWARD", "ACTION_MOVE_FORWARD");
+                    if (strcommand.equals(commands.MOVE_FORWARD)) {
+                        if (zkRequest != null){
+                            zkRequest.moveControl(MoveDirection.FORWARD);
+                            Log.e("commands.MOVE_FORWARD", "zkRequest != null");
+                        }
                     } else if (strcommand.equals(commands.MOVE_BACK)) {
-                        zkRequest.moveControl(ZKConfig.ACTION_MOVE_BACK, 5);
-                        Log.e("ACTION_MOVE_BACK", "ACTION_MOVE_BACK");
+                        if (zkRequest != null) {
+                            zkRequest.moveControl(MoveDirection.BACKWARD);
+                            Log.e("ACTION_MOVE_BACK", "ACTION_MOVE_BACK");
+                        }
+
                     } else if (strcommand.equals(commands.MOVE_LEFT)) {
-                        zkRequest.moveControl(ZKConfig.ACTION_MOVE_LEFT, 5);
-                        Log.e("ACTION_MOVE_LEFT", "ACTION_MOVE_LEFT");
+                        if (zkRequest != null) {
+                            zkRequest.moveControl(MoveDirection.TURN_LEFT);
+                            Log.e("ACTION_MOVE_LEFT", "ACTION_MOVE_LEFT");
+                        }
+
                     } else if (strcommand.equals(commands.MOVE_RIGHT)) {
-                        zkRequest.moveControl(ZKConfig.ACTION_MOVE_RIGHT, 5);
-                        Log.e("ACTION_MOVE_RIGHT", "ACTION_MOVE_RIGHT");
-                    } else if (strcommand.equals(commands.MOVE_STOP)) {
-                        zkRequest.moveControl(ZKConfig.ACTION_MOVE_STOP, 5);
-                        Log.e("ACTION_MOVE_STOP", "ACTION_MOVE_STOP");
-                    }*/
+                        if (zkRequest != null) {
+                            zkRequest.moveControl(MoveDirection.TURN_RIGHT);
+                            Log.e("ACTION_MOVE_RIGHT", "ACTION_MOVE_RIGHT");
+                        }
+
+                    }
 
                 }
             }
@@ -213,7 +231,7 @@ public class CallActivity extends Activity implements VideoCallUA.DataChangerLis
         ref.removeValue();
         this.wakeLock.release();
         refcontrol.removeEventListener(controllistener);
-      //  zkRequest.unregister();
+        zkRequest.unregister();
         VideoCallUA.getInstance().release();
     }
 
@@ -224,13 +242,24 @@ public class CallActivity extends Activity implements VideoCallUA.DataChangerLis
         this.wakeLock.acquire();
     }
 
-  /*  @Override
+
+/*    resultData:ResultData{type=1, obj=RobotData{status=1111, robotName='',
+      devSN=HSRasd0170400003, electricity=0}}*/
+ /*   resultMsg: resultData:ResultData{type=2, obj=AirData{fanStatus=1, anionStatus=1,
+     electricity='0', isCharging=false, co='0',
+     co_decimal='0', ch2o='0', ch2o_decimal='43',
+     pm='23', humidity='49', humidity_decimal='9', temperature='25', temperature_decimal='8', gas=1}}*/
+
+    @Override
     public void resultMsg(ResultData resultData) {
         Log.e("resultMsg", "ResultData" + resultData.toString());
+
     }
+
+
 
     @Override
     public void error(String s) {
         Log.e("error", "error:" + s);
-    }*/
+    }
 }

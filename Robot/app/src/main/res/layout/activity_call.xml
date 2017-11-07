@@ -26,6 +26,6 @@
         android:layout_height="88px"
         android:layout_centerHorizontal="true"
         android:clickable="true"
-        android:layout_marginTop="680px"
+        android:layout_marginTop="650px"
         android:src="@drawable/turnoff" />
 </RelativeLayout>

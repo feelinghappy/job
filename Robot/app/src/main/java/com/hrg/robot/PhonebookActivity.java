@@ -106,21 +106,13 @@ public class PhonebookActivity extends Activity implements ZKCallback {
         zkRequest = new ZKRequest(this, this);
         hideNavigationBar();
         hideVirtualKey();
+
+
         ImageView imgback = (ImageView)findViewById(R.id.video_back);
         imgback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
-            }
-        });
-       // TextView txtback = (TextView)findViewById(R.id.txtSPTH);
-        TextView txtback = (TextView)findViewById(R.id.callNavigateBack);
-        txtback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                login();
-                Intent startIntent = new Intent(PhonebookActivity.this, VideoCallService.class);
-                startService(startIntent);
             }
         });
         GetRobotMsg();
@@ -435,7 +427,7 @@ public class PhonebookActivity extends Activity implements ZKCallback {
         //获取Sync & Auth 对象
         if(strcustomtoken==null)
         {
-            Toast.makeText(getApplicationContext(), "登录失败!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "strcustomtoken登录失败!", Toast.LENGTH_SHORT).show();
             isInlogin = false;
             return;
         }
@@ -452,16 +444,126 @@ public class PhonebookActivity extends Activity implements ZKCallback {
                     //writeRobotInfo(uid);
                     isOnline = true;
                     GetAirMsg();
+                    writeRobot(uid);
+                    //写在线不在线信息
+                    SyncReference ref = WilddogSync.getInstance().getReference("robots");
+                    ref = ref.child(uid).child("status");
+                    ref.setValue("online", new SyncReference.CompletionListener() {
+                        @Override
+                        public void onComplete(SyncError error, SyncReference ref) {
+                            if (error != null) {
+                                Log.e("status error", error.toString());
+                            } else {
+                                Log.e("status success", "setValue success");
+                            }
+                        }
+                    });
+                    Intent intent = new Intent(PhonebookActivity.this, VideoCallService.class);
+                    startService(intent);
 
 
                 } else {
                     Log.d("result", "认证失败" + task.getException().toString());
                     Toast.makeText(getApplicationContext(), task.getException().toString(), Toast.LENGTH_SHORT).show();
                     Log.e("getException()",task.getException().toString());
-                    Toast.makeText(getApplicationContext(), "登录失败!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), task.getException().toString(), Toast.LENGTH_SHORT).show();
                 }
             }
         });
+    }
+    public void writeRobot(String uid)
+    {
+        if((robotDataloc==null)||(uid==null))
+        {
+            return;
+        }
+        else
+        {
+            SyncReference ref = WilddogSync.getInstance().getReference("robots");
+            ref = ref.child(uid).child("name");
+            String name = robotDataloc.getRobotName();
+            //写机器人名称
+            ref.setValue(name, new SyncReference.CompletionListener() {
+                @Override
+                public void onComplete(SyncError error, SyncReference ref) {
+                    if (error != null) {
+                        Log.e("error", error.toString());
+                    } else {
+                        Log.e("success", "setValue success");
+                    }
+                }
+            });
+            String  status = (robotDataloc.getStatus()> 0)?"offline":"online";
+            //写在线不在线信息
+            ref = WilddogSync.getInstance().getReference("robots");
+            ref = ref.child(uid).child("status");
+            ref.setValue(status, new SyncReference.CompletionListener() {
+                @Override
+                public void onComplete(SyncError error, SyncReference ref) {
+                    if (error != null) {
+                        Log.e("status error", error.toString());
+                    } else {
+                        Log.e("status success", "setValue success");
+                    }
+                }
+            });
+            //type
+            ref = WilddogSync.getInstance().getReference("robots");
+            ref = ref.child(uid).child("type");
+
+            ref.setValue("ground", new SyncReference.CompletionListener() {
+                @Override
+                public void onComplete(SyncError error, SyncReference ref) {
+                    if (error != null) {
+                        Log.e("type error", error.toString());
+                    } else {
+                        Log.e("type success", "setValue success");
+                    }
+                }
+            });
+            //electricity
+            ref = WilddogSync.getInstance().getReference("robots");
+            ref = ref.child(uid).child("electricity");
+            double electricity = robotDataloc.getElectricity();
+            ref.setValue(electricity, new SyncReference.CompletionListener() {
+                @Override
+                public void onComplete(SyncError error, SyncReference ref) {
+                    if (error != null) {
+                        Log.e("ele error", error.toString());
+                    } else {
+                        Log.e("ele success", "setValue success");
+                    }
+                }
+            });
+
+            ref = WilddogSync.getInstance().getReference("robots");
+            ref = ref.child(uid).child("currentUser");
+            ref.setValue("undefine", new SyncReference.CompletionListener() {
+                @Override
+                public void onComplete(SyncError error, SyncReference ref) {
+                    if (error != null) {
+                        Log.e("fanState error", error.toString());
+                    } else {
+                        Log.e("fanState success", "setValue success");
+                    }
+                }
+            });
+            ref = WilddogSync.getInstance().getReference("robots");
+            ref = ref.child(uid).child("monitor");
+            ref.setValue("undefine", new SyncReference.CompletionListener() {
+                @Override
+                public void onComplete(SyncError error, SyncReference ref) {
+                    if (error != null) {
+                        Log.e("fanState error", error.toString());
+                    } else {
+                        Log.e("fanState success", "setValue success");
+                    }
+                }
+            });
+
+
+
+        }
     }
     public void writeAirbox(String uid)
     {
@@ -473,7 +575,7 @@ public class PhonebookActivity extends Activity implements ZKCallback {
             //写空气净化器
             Log.e("writeAirbox","writeAirbox");
             SyncReference ref = WilddogSync.getInstance().getReference("robots").child(uid).child("airBox");
-            int fanStatus = airData.getFanStatus();
+            String fanStatus = (airData.getFanStatus()>0)?"on":"off";
             int anionStatus = airData.getAnionStatus();
             String airDataElectricity = airData.getElectricity();
             boolean isCharging = airData.isCharging();
@@ -512,6 +614,17 @@ public class PhonebookActivity extends Activity implements ZKCallback {
                 public String temperature_decimal;
                 public int gas;*/
             ref.setValue(airBox, new SyncReference.CompletionListener() {
+                @Override
+                public void onComplete(SyncError error, SyncReference ref) {
+                    if (error != null) {
+                        Log.e("error", error.toString());
+                    } else {
+                        Log.e("success", "setValue success");
+                    }
+                }
+            });
+            ref = WilddogSync.getInstance().getReference("robots").child(uid).child("fanState");
+            ref.setValue(fanStatus, new SyncReference.CompletionListener() {
                 @Override
                 public void onComplete(SyncError error, SyncReference ref) {
                     if (error != null) {
@@ -769,18 +882,17 @@ public class PhonebookActivity extends Activity implements ZKCallback {
             public String devSN;//机器人SN
             public int electricity;//机器人电量*/
             case 1:
-                RobotData robotData =(RobotData)resultData. getObj();
-                robotDataloc = robotData;
+                robotDataloc =(RobotData)resultData. getObj();
                 if(robotDataloc == null)
                 {
                     Log.e("UPDATE_ROBOT_MSG","robotDataloc == null");
                 }
-                int status = robotData.getStatus();
+       /*         int status = robotData.getStatus();
                 String robotName = robotData.getRobotName();
                 Log.e("robotName",robotName);
                 String devSN = robotData.getDevSN();
                 Log.e("devSN",devSN);
-                int electricity = robotData.getElectricity();
+                int electricity = robotData.getElectricity();*/
                 msg = new Message();
                 msg.what = UPDATE_ROBOT_MSG;
                 handler.sendMessage(msg);

@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/linearLayoutreport"
+    android:background="#f2f2f2"
+        android:layout_width="1280px"
+        android:orientation="vertical"
+        android:layout_height="800px">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:id="@+id/top_navigate_report"
+            android:background="#4284E2"
+            android:layout_width="1280px"
+            android:layout_height="100px"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:weightSum="1">
+            <ImageView
+                android:id="@+id/report_back"
+                android:layout_width="134px"
+                android:layout_height="98px"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/back_blue" />
+
+            <RadioGroup
+                android:id="@+id/history"
+                android:gravity="center"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="27px"
+                android:layout_marginBottom="27px"
+                android:orientation="horizontal"
+                android:layout_width="1000px"
+                android:layout_height="100px"
+                >
+                <RadioButton
+                    android:id="@+id/btn_0"
+                    android:layout_width="120px"
+                    android:layout_height="100px"
+                    android:text="血压"
+                    android:textSize="34px"
+                    android:textColor="@drawable/report_radio"
+                    android:gravity="center"
+                    android:checked="true"
+                    android:button="@null"
+                    />
+                <RadioButton
+                    android:layout_marginLeft="60px"
+                    android:id="@+id/btn_1"
+                    android:layout_width="120px"
+                    android:layout_height="100px"
+                    android:text="心率"
+                    android:textSize="34px"
+                    android:textColor="@drawable/report_radio"
+                    android:gravity="center"
+                    android:button="@null"
+                    />
+                <RadioButton
+                    android:layout_marginLeft="60px"
+                    android:id="@+id/btn_2"
+                    android:layout_width="120px"
+                    android:layout_height="100px"
+                    android:text="运动"
+                    android:textColor="@drawable/report_radio"
+                    android:textSize="34px"
+                    android:gravity="center"
+                    android:button="@null"
+                    />
+
+                <RadioButton
+                    android:layout_marginLeft="60px"
+                    android:id="@+id/btn_3"
+                    android:layout_width="120px"
+                    android:layout_height="100px"
+                    android:text="睡眠"
+                    android:textColor="@drawable/report_radio"
+                    android:textSize="34px"
+                    android:gravity="center"
+                    android:button="@null"
+                    />
+            </RadioGroup>
+        </LinearLayout>
+        <LinearLayout
+            android:background="#f2f2f2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_marginTop="30px"
+        android:layout_width="1280px"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginLeft="170px"
+            android:textColor="#000000"
+            android:textSize="30px"
+            android:text="最高心率"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginLeft="283px"
+            android:text="平均心率"
+            android:textColor="#000000"
+            android:textSize="30px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginLeft="283px"
+            android:text="最低心率"
+            android:textColor="#000000"
+            android:textSize="30px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_marginTop="26px"
+        android:layout_width="1280px"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginLeft="175px"
+            android:text="120"
+            android:textColor="#000000"
+            android:layout_gravity="center"
+            android:textSize="54px"
+            android:layout_width="120px"
+            android:layout_height="60px" />
+        <TextView
+            android:textColor="#000000"
+            android:layout_marginTop="26px"
+            android:textSize="28px"
+            android:text="bpm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_marginLeft="235px"
+            android:text="120"
+            android:textColor="#000000"
+            android:layout_gravity="center"
+            android:textSize="54px"
+            android:layout_width="120px"
+            android:layout_height="60px" />
+        <TextView
+            android:textColor="#000000"
+            android:layout_marginTop="26px"
+            android:textSize="28px"
+            android:text="bpm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_marginLeft="235px"
+            android:text="120"
+            android:textColor="#000000"
+            android:layout_gravity="center"
+            android:textSize="54px"
+            android:layout_width="120px"
+            android:layout_height="60px" />
+        <TextView
+            android:textColor="#000000"
+            android:layout_marginTop="26px"
+            android:textSize="28px"
+            android:text="bpm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_marginTop="42px"
+        android:layout_width="1280px"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginLeft="225px"
+            android:clickable="true"
+            android:textColor="#FF693E"
+            android:textSize="30px"
+            android:text="日"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textColor="#FF693E"
+            android:layout_marginLeft="370px"
+            android:clickable="true"
+            android:textSize="30px"
+            android:text="月"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textColor="#FF693E"
+            android:layout_marginLeft="370px"
+            android:textSize="30px"
+            android:clickable="true"
+            android:text="年"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginLeft="40px"
+        android:orientation="horizontal"
+        android:layout_marginTop="12px"
+        android:layout_width="1200px"
+        android:layout_height="12px">
+    <ImageView
+        android:src = "@drawable/heart"
+        android:layout_width="400px"
+        android:layout_height="12px"/>
+    <ImageView
+        android:src = "@drawable/heart"
+        android:layout_width="400px"
+        android:layout_height="12px"/>
+    <ImageView
+        android:src = "@drawable/heart"
+        android:layout_width="400px"
+        android:layout_height="12px"/>
+    </LinearLayout>
+    <View
+        android:layout_gravity="center"
+        android:layout_width="1200px"
+        android:layout_height="2px"
+        android:background="#E6E6E6" />
+    <TextView
+        android:layout_marginLeft="40px"
+        android:layout_marginTop="10px"
+        android:textSize="24px"
+        android:textColor="#666666"
+        android:text="五月"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/chart"
+        android:layout_width="1280px"
+        android:layout_height="380px"
+        />
+</LinearLayout>

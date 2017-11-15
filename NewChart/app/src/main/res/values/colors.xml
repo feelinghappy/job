@@ -6,4 +6,5 @@
     <color name="colorTM">#00FFFFFF</color>
     <color name="colorCommon">#CFD3DA</color>
     <color name="colorChart">#FF693E</color>
+    <color name="colorBlack">#000000</color>
 </resources>

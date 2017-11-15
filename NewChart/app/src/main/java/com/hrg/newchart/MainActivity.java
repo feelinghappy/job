@@ -2,6 +2,7 @@ package com.hrg.newchart;
 
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
+import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +10,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.LineChart;
@@ -41,6 +45,21 @@ import static android.view.View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
 public class MainActivity extends AppCompatActivity {
     private LineChart mLineChart;
     private TextView chart_value;
+    private TextView report_title_1;
+    private TextView report_title_2;
+    private TextView report_title_3;
+    private TextView report_value_1;
+    private TextView report_value_2;
+    private TextView report_value_3;
+    private TextView report_value_uint_1;
+    private TextView report_value_uint_2;
+    private TextView report_value_uint_3;
+    private TextView report_select_1;
+    private TextView report_select_2;
+    private TextView report_select_3;
+    private ImageView report_img1;
+    private ImageView report_img2;
+    private ImageView report_img3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +71,122 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         hideVirtualKey();
         hideNavigationBar();
+        report_select_1 = (TextView)findViewById(R.id.report_select_1);
+        report_select_2 = (TextView)findViewById(R.id.report_select_2);
+        report_select_3 = (TextView)findViewById(R.id.report_select_3);
+        report_title_1 = (TextView)findViewById(R.id.report_title_1);
+        report_title_2 = (TextView)findViewById(R.id.report_title_2);
+        report_title_3 = (TextView)findViewById(R.id.report_title_3);
+        report_value_1 = (TextView)findViewById(R.id.report_value_1);
+        report_value_2 = (TextView)findViewById(R.id.report_value_2);
+        report_value_3 = (TextView)findViewById(R.id.report_value_3);
+        report_value_uint_1 = (TextView)findViewById(R.id.report_value_unit_1);
+        report_value_uint_2 = (TextView)findViewById(R.id.report_value_unit_2);
+        report_value_uint_3 = (TextView)findViewById(R.id.report_value_unit_3);
+        report_img1 = (ImageView)findViewById(R.id.report_img1);
+        report_img2 = (ImageView)findViewById(R.id.report_img2);
+        report_img3 = (ImageView)findViewById(R.id.report_img3);
+        //通过findViewById获得RadioGroup对象  
+        RadioGroup raGrouphis =(RadioGroup)findViewById(R.id.history);
+        //添加事件监听器  
+        raGrouphis.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+            if(checkedId == R.id.btn_0)
+            {
+               // LinearLayout layout=(LinearLayout) findViewById(R.id.linearLayoutreport);//需要设置linearlayout的id为layout
+               // layout.setBackgroundDrawable(getResources().getDrawable(R.drawable.xueya));
+                report_title_1.setText("高血压");
+                report_title_2.setText("血压");
+                report_title_3.setText("低血压");
+                report_value_1.setText("120");
+                report_value_2.setText("正常");
+                report_value_3.setText("80");
+                report_value_uint_1.setText("mmgh");
+                report_value_uint_2.setText("    ");
+                report_value_uint_3.setText("mmgh");
+
+            }
+            else if(checkedId == R.id.btn_1)
+            {
+                report_title_1.setText("最高心率");
+                report_title_2.setText("平均心率");
+                report_title_3.setText("最低心率");
+                report_value_1.setText("120");
+                report_value_2.setText("100");
+                report_value_3.setText("80");
+                report_value_uint_1.setText("bpm");
+                report_value_uint_2.setText("bpm");
+                report_value_uint_3.setText("bmp");
+            }
+            else if(checkedId == R.id.btn_2)
+            {
+                //LinearLayout layout=(LinearLayout) findViewById(R.id.linearLayoutreport);//需要设置linearlayout的id为layout
+                //layout.setBackgroundDrawable(getResources().getDrawable(R.drawable.sport));
+                report_title_1.setText("累计行走");
+                report_title_2.setText("运动步数");
+                report_title_3.setText("消耗");
+                report_value_1.setText("12");
+                report_value_2.setText("20145");
+                report_value_3.setText("458");
+                report_value_uint_1.setText("km");
+                report_value_uint_2.setText("");
+                report_value_uint_3.setText("cal");
+            }
+            else if(checkedId == R.id.btn_3)
+            {
+                report_title_1.setText("睡眠时长");
+                report_title_2.setText("睡眠质量");
+                report_title_3.setText("深睡时长");
+                report_value_1.setText("9.0");
+                report_value_2.setText("一般");
+                report_value_3.setText("4.2");
+                report_value_uint_1.setText("h");
+                report_value_uint_2.setText("  ");
+                report_value_uint_3.setText("h");
+            }
+
+           }
+         }
+        );
+        report_select_1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                report_select_1.setTextColor(getResources().getColor(R.color.colorChart));
+                report_select_2.setTextColor(getResources().getColor(R.color.colorBlack));
+                report_select_3.setTextColor(getResources().getColor(R.color.colorBlack));
+                report_img1.setVisibility(View.VISIBLE);
+                report_img2.setVisibility(View.INVISIBLE);
+                report_img3.setVisibility(View.INVISIBLE);
+
+
+            }
+        });
+        report_select_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                report_select_2.setTextColor(getResources().getColor(R.color.colorChart));
+                report_select_1.setTextColor(getResources().getColor(R.color.colorBlack));
+                report_select_3.setTextColor(getResources().getColor(R.color.colorBlack));
+                report_img2.setVisibility(View.VISIBLE);
+                report_img1.setVisibility(View.INVISIBLE);
+                report_img3.setVisibility(View.INVISIBLE);
+
+            }
+        });
+        report_select_3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                report_select_3.setTextColor(getResources().getColor(R.color.colorChart));
+                report_select_2.setTextColor(getResources().getColor(R.color.colorBlack));
+                report_select_1.setTextColor(getResources().getColor(R.color.colorBlack));
+                report_img3.setVisibility(View.VISIBLE);
+                report_img1.setVisibility(View.INVISIBLE);
+                report_img2.setVisibility(View.INVISIBLE);
+
+            }
+        });
+
         mLineChart = (LineChart) findViewById(R.id.chart);
         //设置是否可以触摸，如为false，则不能拖动，缩放等
         mLineChart.setTouchEnabled(true);

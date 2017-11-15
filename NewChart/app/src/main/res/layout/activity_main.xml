@@ -11,7 +11,6 @@
             android:background="#4284E2"
             android:layout_width="1280px"
             android:layout_height="100px"
-            xmlns:android="http://schemas.android.com/apk/res/android"
             android:weightSum="1">
             <ImageView
                 android:id="@+id/report_back"
@@ -64,7 +63,6 @@
                     android:gravity="center"
                     android:button="@null"
                     />
-
                 <RadioButton
                     android:layout_marginLeft="60px"
                     android:id="@+id/btn_3"
@@ -89,25 +87,32 @@
         android:layout_width="1280px"
         android:layout_height="wrap_content">
         <TextView
-            android:layout_marginLeft="170px"
+            android:id="@+id/report_title_1"
+            android:layout_marginLeft="175px"
             android:textColor="#000000"
+            android:layout_gravity="center_horizontal"
             android:textSize="30px"
             android:text="最高心率"
-            android:layout_width="wrap_content"
+            android:layout_width="130px"
             android:layout_height="wrap_content" />
         <TextView
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/report_title_2"
             android:layout_marginLeft="283px"
             android:text="平均心率"
             android:textColor="#000000"
             android:textSize="30px"
-            android:layout_width="wrap_content"
+            android:layout_width="130px"
             android:layout_height="wrap_content" />
         <TextView
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/report_title_3"
             android:layout_marginLeft="283px"
             android:text="最低心率"
+            android:gravity="center_horizontal"
             android:textColor="#000000"
             android:textSize="30px"
-            android:layout_width="wrap_content"
+            android:layout_width="130px"
             android:layout_height="wrap_content" />
     </LinearLayout>
     <LinearLayout
@@ -116,51 +121,57 @@
         android:layout_width="1280px"
         android:layout_height="wrap_content">
         <TextView
+            android:id="@+id/report_value_1"
             android:layout_marginLeft="175px"
             android:text="120"
             android:textColor="#000000"
-            android:layout_gravity="center"
+            android:layout_gravity="center_horizontal"
             android:textSize="54px"
-            android:layout_width="120px"
+            android:layout_width="150px"
             android:layout_height="60px" />
         <TextView
+            android:id="@+id/report_value_unit_1"
             android:textColor="#000000"
-            android:layout_marginTop="26px"
+            android:layout_gravity="center"
             android:textSize="28px"
             android:text="bpm"
-            android:layout_width="wrap_content"
+            android:layout_width="100px"
             android:layout_height="wrap_content" />
 
         <TextView
-            android:layout_marginLeft="235px"
+            android:id="@+id/report_value_2"
+            android:layout_marginLeft="155px"
             android:text="120"
             android:textColor="#000000"
             android:layout_gravity="center"
             android:textSize="54px"
-            android:layout_width="120px"
-            android:layout_height="60px" />
+            android:layout_width="150px"
+            android:layout_height="wrap_content" />
         <TextView
+            android:layout_gravity="center"
+            android:id="@+id/report_value_unit_2"
             android:textColor="#000000"
-            android:layout_marginTop="26px"
             android:textSize="28px"
             android:text="bpm"
-            android:layout_width="wrap_content"
+            android:layout_width="100px"
             android:layout_height="wrap_content" />
 
         <TextView
-            android:layout_marginLeft="235px"
+            android:id="@+id/report_value_3"
+            android:layout_marginLeft="175px"
             android:text="120"
             android:textColor="#000000"
-            android:layout_gravity="center"
+            android:layout_gravity="center_horizontal"
             android:textSize="54px"
-            android:layout_width="120px"
-            android:layout_height="60px" />
+            android:layout_width="150px"
+            android:layout_height="wrap_content" />
         <TextView
+            android:layout_gravity="center"
+            android:id="@+id/report_value_unit_3"
             android:textColor="#000000"
-            android:layout_marginTop="26px"
             android:textSize="28px"
             android:text="bpm"
-            android:layout_width="wrap_content"
+            android:layout_width="100px"
             android:layout_height="wrap_content" />
 
     </LinearLayout>
@@ -170,6 +181,7 @@
         android:layout_width="1280px"
         android:layout_height="wrap_content">
         <TextView
+            android:id="@+id/report_select_1"
             android:layout_marginLeft="225px"
             android:clickable="true"
             android:textColor="#FF693E"
@@ -178,6 +190,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
+            android:id="@+id/report_select_2"
             android:textColor="#FF693E"
             android:layout_marginLeft="370px"
             android:clickable="true"
@@ -186,6 +199,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
+            android:id="@+id/report_select_3"
             android:textColor="#FF693E"
             android:layout_marginLeft="370px"
             android:textSize="30px"
@@ -201,14 +215,20 @@
         android:layout_width="1200px"
         android:layout_height="12px">
     <ImageView
+        android:id="@+id/report_img1"
+        android:visibility="invisible"
         android:src = "@drawable/heart"
         android:layout_width="400px"
         android:layout_height="12px"/>
     <ImageView
+        android:id="@+id/report_img2"
+        android:visibility="invisible"
         android:src = "@drawable/heart"
         android:layout_width="400px"
         android:layout_height="12px"/>
     <ImageView
+        android:id="@+id/report_img3"
+        android:visibility="invisible"
         android:src = "@drawable/heart"
         android:layout_width="400px"
         android:layout_height="12px"/>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="128px"
+    android:layout_height="38px"
+    >
+    <TextView
+        android:id="@+id/tv_content_marker_view"
+        android:background="@drawable/text_backgroud"
+        android:textSize="24px"
+        android:gravity="center"
+        android:textColor="#666666"
+        android:text="100mmgh"
+        android:layout_width="128px"
+        android:layout_height="38px" />
+
+</RelativeLayout >

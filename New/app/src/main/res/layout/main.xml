@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+	android:background="@drawable/bg"
+    android:orientation="horizontal" >
+	<LinearLayout
+		android:id="@+id/linearLayout01"
+		android:layout_width="wrap_content"
+		android:layout_height="760px"
+		android:orientation="vertical">
+		<include
+			android:id="@+id/item_header"
+			layout="@layout/item_header" />
+		<android.support.v4.view.ViewPager
+			android:id="@+id/guidePages"
+			android:layout_marginLeft="50px"
+			android:layout_marginRight="50px"
+			android:layout_width="1180px"
+			android:layout_height="660px" />
+	</LinearLayout>
+	<LinearLayout
+		android:id="@+id/viewGroup"
+		android:layout_marginTop="14px"
+		android:layout_marginBottom="14px"
+		android:layout_width="200px"
+		android:layout_height="12px"
+		android:gravity="center_horizontal"
+		android:layout_gravity="center_horizontal|bottom"
+		android:orientation="horizontal" >
+	</LinearLayout>
+
+</FrameLayout>

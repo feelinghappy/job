@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="1280px"
+    android:background="@drawable/baogao"
+    android:orientation="vertical"
+    android:layout_height="800px">
+
+    <LinearLayout
+        android:id="@+id/top_navigate_report"
+        android:layout_width="1280px"
+        android:layout_height="110px"
+        android:background="#4284E2"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_marginTop="5px"
+            android:id="@+id/health_back"
+            android:layout_width="134px"
+            android:layout_height="98px"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/back_blue" />
+
+        <TextView
+            android:layout_marginTop="5px"
+            android:id="@+id/health_back_text"
+            android:layout_width="wrap_content"
+            android:layout_height="98px"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="20px"
+            android:layout_marginLeft="420px"
+            android:clickable="true"
+            android:text="健康报告"
+            android:textColor="@android:color/white"
+            android:textSize="34px" />
+    </LinearLayout>
+
+</LinearLayout>

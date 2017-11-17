@@ -344,6 +344,8 @@ public class MainActivity extends Activity {
                         @Override
                         public void onClick(View v) {
                             Intent intent = new Intent(MainActivity.this, ReportActivity.class);
+                            intent.putExtra("token",Login_token);
+                            intent.putExtra("family_member_id",family_member_id_list.get(0));
                             startActivity(intent);
                             finish();
                         }
@@ -381,6 +383,8 @@ public class MainActivity extends Activity {
                         @Override
                         public void onClick(View v) {
                             Intent intent = new Intent(MainActivity.this, ReportActivity.class);
+                            intent.putExtra("token",Login_token);
+                            intent.putExtra("family_member_id",family_member_id_list.get(0));
                             startActivity(intent);
                             finish();
                         }
@@ -418,6 +422,8 @@ public class MainActivity extends Activity {
                         @Override
                         public void onClick(View v) {
                             Intent intent = new Intent(MainActivity.this, ReportActivity.class);
+                            intent.putExtra("token",Login_token);
+                            intent.putExtra("family_member_id",family_member_id_list.get(0));
                             startActivity(intent);
                             finish();
                         }

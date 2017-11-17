@@ -1,5 +1,6 @@
 package com.hrg.anew;
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Handler;
@@ -37,9 +38,30 @@ import com.github.mikephil.charting.listener.ChartTouchListener;
 import com.github.mikephil.charting.listener.OnChartGestureListener;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ViewPortHandler;
+import com.hrg.anew.bean.Blood_data;
+import com.hrg.anew.bean.Heart_data;
+import com.hrg.anew.bean.History;
+import com.hrg.anew.bean.Sleep;
+import com.hrg.anew.bean.Sport_data;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.List;
+
+import okhttp3.FormBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 import static android.view.View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
 import static android.view.View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION;
@@ -77,8 +99,23 @@ public class ReportActivity extends Activity {
     public static final  int UPDATE_RATE_YEAR = 10;
     public static final  int UPDATE_WALK_YEAR = 11;
     public static final  int UPDATE_SLEEP_YEAR = 12;
-    Message msg = new Message();
-
+    public static final  int UPDATE_HISTORY_INFO =30;
+    private Message msg = new Message();
+    private String token;
+    private String family_member_id;
+    private String strfromserver;
+    final OkHttpClient client = new OkHttpClient();
+    private int data_time;
+    private Bundle bundle;
+    private int content;
+    History.Sleep_history sleep_history = new History.Sleep_history();
+    History.Heart_data_history  heart_data_history = new History.Heart_data_history ();
+    Blood_data blood_data = new Blood_data();
+    History.Sport_data_history sport_data_history = new History.Sport_data_history();
+    private List<History.Heart_data_history> heart_data_list = new ArrayList<>();
+    private List<Blood_data> blood_data_list = new ArrayList<>();
+    private List<History.Sport_data_history> sport_data_list = new ArrayList<>();
+    private List<History.Sleep_history> sleep_list = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,88 +126,93 @@ public class ReportActivity extends Activity {
         setContentView(R.layout.report_layout);
         hideVirtualKey();
         hideNavigationBar();
-        report_select_1 = (TextView)findViewById(R.id.report_select_1);
-        report_select_2 = (TextView)findViewById(R.id.report_select_2);
-        report_select_3 = (TextView)findViewById(R.id.report_select_3);
-        report_title_1 = (TextView)findViewById(R.id.report_title_1);
-        report_title_2 = (TextView)findViewById(R.id.report_title_2);
-        report_title_3 = (TextView)findViewById(R.id.report_title_3);
-        report_value_1 = (TextView)findViewById(R.id.report_value_1);
-        report_value_2 = (TextView)findViewById(R.id.report_value_2);
-        report_value_3 = (TextView)findViewById(R.id.report_value_3);
-        report_value_uint_1 = (TextView)findViewById(R.id.report_value_unit_1);
-        report_value_uint_2 = (TextView)findViewById(R.id.report_value_unit_2);
-        report_value_uint_3 = (TextView)findViewById(R.id.report_value_unit_3);
-        report_img1 = (ImageView)findViewById(R.id.report_img1);
-        report_img2 = (ImageView)findViewById(R.id.report_img2);
-        report_img3 = (ImageView)findViewById(R.id.report_img3);
+        Intent intent = new Intent();
+        this.bundle = getIntent().getExtras();
+        token = this.bundle.getString("token");
+        Log.e("token", token);
+        family_member_id = this.bundle.getString("family_member_id");
+        Log.e("family_member_id", family_member_id);
+        try {
+            String s = getBeforeMonth();
+            dateToStamp(s);
+            GetHistoryData();
+        } catch (ParseException e) {
+            e.printStackTrace();
+            Log.e("InitData",e.toString());
+        }
+        report_select_1 = (TextView) findViewById(R.id.report_select_1);
+        report_select_2 = (TextView) findViewById(R.id.report_select_2);
+        report_select_3 = (TextView) findViewById(R.id.report_select_3);
+        report_title_1 = (TextView) findViewById(R.id.report_title_1);
+        report_title_2 = (TextView) findViewById(R.id.report_title_2);
+        report_title_3 = (TextView) findViewById(R.id.report_title_3);
+        report_value_1 = (TextView) findViewById(R.id.report_value_1);
+        report_value_2 = (TextView) findViewById(R.id.report_value_2);
+        report_value_3 = (TextView) findViewById(R.id.report_value_3);
+        report_value_uint_1 = (TextView) findViewById(R.id.report_value_unit_1);
+        report_value_uint_2 = (TextView) findViewById(R.id.report_value_unit_2);
+        report_value_uint_3 = (TextView) findViewById(R.id.report_value_unit_3);
+        report_img1 = (ImageView) findViewById(R.id.report_img1);
+        report_img2 = (ImageView) findViewById(R.id.report_img2);
+        report_img3 = (ImageView) findViewById(R.id.report_img3);
         mLineChart = (LineChart) findViewById(R.id.chart);
         //通过findViewById获得RadioGroup对象  
-        RadioGroup raGrouphis =(RadioGroup)findViewById(R.id.history);
+        RadioGroup raGrouphis = (RadioGroup) findViewById(R.id.history);
         //添加事件监听器  
         raGrouphis.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-        @Override
-        public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
-            if(checkedId == R.id.btn_0)
-            {
-               // LinearLayout layout=(LinearLayout) findViewById(R.id.linearLayoutreport);//需要设置linearlayout的id为layout
-               // layout.setBackgroundDrawable(getResources().getDrawable(R.drawable.xueya));
-                report_title_1.setText("高血压");
-                report_title_2.setText("血压");
-                report_title_3.setText("低血压");
-                report_value_1.setText("120");
-                report_value_2.setText("正常");
-                report_value_3.setText("80");
-                report_value_uint_1.setText("mmgh");
-                report_value_uint_2.setText("    ");
-                report_value_uint_3.setText("mmgh");
-                function = "blood";
+              @Override
+              public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                  if (checkedId == R.id.btn_0) {
+                      report_title_1.setText("高血压");
+                      report_title_2.setText("血压");
+                      report_title_3.setText("低血压");
+                      report_value_1.setText("120");
+                      report_value_2.setText("正常");
+                      report_value_3.setText("80");
+                      report_value_uint_1.setText("mmgh");
+                      report_value_uint_2.setText("    ");
+                      report_value_uint_3.setText("mmgh");
+                      function = "blood";
 
-            }
-            else if(checkedId == R.id.btn_1)
-            {
-                report_title_1.setText("最高心率");
-                report_title_2.setText("平均心率");
-                report_title_3.setText("最低心率");
-                report_value_1.setText("120");
-                report_value_2.setText("100");
-                report_value_3.setText("80");
-                report_value_uint_1.setText("bpm");
-                report_value_uint_2.setText("bpm");
-                report_value_uint_3.setText("bmp");
-                function = "rate";
-            }
-            else if(checkedId == R.id.btn_2)
-            {
-                //LinearLayout layout=(LinearLayout) findViewById(R.id.linearLayoutreport);//需要设置linearlayout的id为layout
-                //layout.setBackgroundDrawable(getResources().getDrawable(R.drawable.sport));
-                report_title_1.setText("累计行走");
-                report_title_2.setText("运动步数");
-                report_title_3.setText("消耗");
-                report_value_1.setText("12");
-                report_value_2.setText("20145");
-                report_value_3.setText("458");
-                report_value_uint_1.setText("km");
-                report_value_uint_2.setText("");
-                report_value_uint_3.setText("cal");
-                function = "walk";
-            }
-            else if(checkedId == R.id.btn_3)
-            {
-                report_title_1.setText("睡眠时长");
-                report_title_2.setText("睡眠质量");
-                report_title_3.setText("深睡时长");
-                report_value_1.setText("9.0");
-                report_value_2.setText("一般");
-                report_value_3.setText("4.2");
-                report_value_uint_1.setText("h");
-                report_value_uint_2.setText("  ");
-                report_value_uint_3.setText("h");
-                function = "sleep";
-            }
+                  } else if (checkedId == R.id.btn_1) {
+                      report_title_1.setText("最高心率");
+                      report_title_2.setText("平均心率");
+                      report_title_3.setText("最低心率");
+                      report_value_1.setText("120");
+                      report_value_2.setText("100");
+                      report_value_3.setText("80");
+                      report_value_uint_1.setText("bpm");
+                      report_value_uint_2.setText("bpm");
+                      report_value_uint_3.setText("bmp");
+                      function = "rate";
+                  } else if (checkedId == R.id.btn_2) {
+                      //LinearLayout layout=(LinearLayout) findViewById(R.id.linearLayoutreport);//需要设置linearlayout的id为layout
+                      //layout.setBackgroundDrawable(getResources().getDrawable(R.drawable.sport));
+                      report_title_1.setText("累计行走");
+                      report_title_2.setText("运动步数");
+                      report_title_3.setText("消耗");
+                      report_value_1.setText("12");
+                      report_value_2.setText("20145");
+                      report_value_3.setText("458");
+                      report_value_uint_1.setText("km");
+                      report_value_uint_2.setText("");
+                      report_value_uint_3.setText("cal");
+                      function = "walk";
+                  } else if (checkedId == R.id.btn_3) {
+                      report_title_1.setText("睡眠时长");
+                      report_title_2.setText("睡眠质量");
+                      report_title_3.setText("深睡时长");
+                      report_value_1.setText("9.0");
+                      report_value_2.setText("一般");
+                      report_value_3.setText("4.2");
+                      report_value_uint_1.setText("h");
+                      report_value_uint_2.setText("  ");
+                      report_value_uint_3.setText("h");
+                      function = "sleep";
+                  }
 
-           }
-         }
+              }
+          }
         );
         report_select_1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -182,23 +224,22 @@ public class ReportActivity extends Activity {
                 report_img2.setVisibility(View.INVISIBLE);
                 report_img3.setVisibility(View.INVISIBLE);
                 time_select = "day";
-                new Thread(new Runnable() {
-                    public void run() {
-                        if (function.equals("blood")) {
-                            msg.what = UPDATE_BLOOD_DAY;
-                            handler.sendMessage(msg);
-                        } else if (function.equals("rate")) {
-                            msg.what = UPDATE_RATE_DAY;
-                            handler.sendMessage(msg);
-                        } else if (function.equals("walk")) {
-                            msg.what = UPDATE_WALK_DAY;
-                            handler.sendMessage(msg);
-                        } else if (function.equals("sleep")) {
-                            msg.what = UPDATE_SLEEP_DAY;
-                            handler.sendMessage(msg);
-                        }
-                    }
-                }).start();
+                if (function.equals("blood"))
+                {
+                    content =  UPDATE_BLOOD_DAY;
+                 }
+                 else if (function.equals("rate")) {
+                    content = UPDATE_RATE_DAY;
+                 }
+                 else if (function.equals("walk"))
+                 {
+                     content =UPDATE_SLEEP_DAY;
+                 }
+                else if (function.equals("sleep"))
+                        {
+                    content = UPDATE_SLEEP_DAY;
+                }
+
             }
         });
         report_select_2.setOnClickListener(new View.OnClickListener() {
@@ -211,32 +252,24 @@ public class ReportActivity extends Activity {
                 report_img1.setVisibility(View.INVISIBLE);
                 report_img3.setVisibility(View.INVISIBLE);
                 time_select = "month";
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
                         if(function.equals("blood"))
                         {
-                            msg.what = UPDATE_BLOOD_MONTH;
-                            handler.sendMessage(msg);
+                            content = UPDATE_BLOOD_MONTH;
                         }
                         else if(function.equals("rate"))
                         {
-                            msg.what = UPDATE_RATE_MONTH;
-                            handler.sendMessage(msg);
+                            content= UPDATE_RATE_MONTH;
+
                         }
                         else if(function.equals("walk"))
                         {
-                            msg.what = UPDATE_WALK_MONTH;
-                            handler.sendMessage(msg);
+                            content = UPDATE_WALK_MONTH;
                         }
                         else if(function.equals("sleep"))
                         {
-                            msg.what = UPDATE_SLEEP_MONTH;
-                            handler.sendMessage(msg);
-                        }
-                    }
-                }).start();
+                            content = UPDATE_SLEEP_MONTH;
 
+                        }
 
             }
         });
@@ -250,40 +283,23 @@ public class ReportActivity extends Activity {
                 report_img1.setVisibility(View.INVISIBLE);
                 report_img2.setVisibility(View.INVISIBLE);
                 time_select = "year";
-                new Thread(new Runnable() {
-                    public void run()
-                    {
-                        if(function.equals("blood"))
-                        {
-                            msg.what = UPDATE_BLOOD_YEAR;
-                            handler.sendMessage(msg);
-                        }
-                        else if(function.equals("rate"))
-                        {
-                            msg.what = UPDATE_RATE_YEAR;
-                            handler.sendMessage(msg);
-                        }
-                        else if(function.equals("walk"))
-                        {
-                            msg.what = UPDATE_WALK_YEAR;
-                            handler.sendMessage(msg);
-                        }
-                        else if(function.equals("sleep"))
-                        {
-                            msg.what = UPDATE_SLEEP_YEAR;
-                            handler.sendMessage(msg);
-                        }
-
-                    }
-                }).start();
-
-
+                if (function.equals("blood")) {
+                    content = UPDATE_BLOOD_YEAR;
+                } else if (function.equals("rate")) {
+                    content = UPDATE_RATE_YEAR;
+                } else if (function.equals("walk")) {
+                    content = UPDATE_WALK_YEAR;
+                } else if (function.equals("sleep")) {
+                    content = UPDATE_SLEEP_YEAR;
+                }
             }
         });
-
-
-
     }
+    private void InitData() throws JSONException, ParseException {
+
+        UpdateHistoryData(strfromserver);
+    }
+
     private void ShowHeartRateChart()
     {
         //设置是否可以触摸，如为false，则不能拖动，缩放等
@@ -477,17 +493,161 @@ public class ReportActivity extends Activity {
         params.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
         window.setAttributes(params);
     }
+    /*
+* 将时间戳转换为时间
+*/
+    public String stampToDate(long timeMillis) {
+        String date = new java.text.SimpleDateFormat("dd/MM/yyyy HH:mm:ss").
+                format(new java.util.Date(timeMillis * 1000));
+      return date;
+    }
 
+    /*
+         * 将时间转换为时间戳
+         */
+    public void dateToStamp(String s) throws ParseException {
+        String res;
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date = simpleDateFormat.parse(s);
+        long ts = date.getTime();
+        data_time =(int) (ts/1000);
+        Log.e("data",data_time +"");
+    }
+
+    public String getBeforeDay() {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Calendar c = Calendar.getInstance();
+       //过去1天
+        c.setTime(new Date());
+        c.add(Calendar.DATE, -1);
+        Date d = c.getTime();
+        String day = format.format(d);
+        System.out.println("过去七天："+day);
+        return day;
+    }
+
+    public String getBeforeMonth() {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Calendar c = Calendar.getInstance();
+        //过去1天
+        c.setTime(new Date());
+        c.add(Calendar.MONTH, -1);
+        Date d = c.getTime();
+        String day = format.format(d);
+        System.out.println("过去1月："+day);
+        return day;
+    }
+
+    public  String getBeforeYear() {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Calendar c = Calendar.getInstance();
+        //过去1天
+        c.setTime(new Date());
+        c.add(Calendar.YEAR, -1);
+        Date d = c.getTime();
+        String day = format.format(d);
+        System.out.println("过去1月："+day);
+        return day;
+    }
+/*
+ {"code":"200","msg":"success","result":
+ {"sleep_data":[{"sleep_time":"0","sleep_grade":"5","start_time":"0 :00"}],
+ "heart_data":[{"avg_heart":89,"min_heart":0,"max_heart":0,"create_time":1508208529},
+ {"avg_heart":97,"min_heart":0,"max_heart":0,"create_time":1508208590},
+ {"avg_heart":83,"min_heart":0,"max_heart":0,"create_time":1508208570},
+ {"avg_heart":89,"min_heart":0,"max_heart":0,"create_time":1508208405},
+ {"avg_heart":87,"min_heart":0,"max_heart":0,"create_time":1508208554},
+ {"avg_heart":91,"min_heart":0,"max_heart":0,"create_time":1508208606},
+ {"avg_heart":102,"min_heart":0,"max_heart":0,"create_time":1508208374},
+ {"avg_heart":118,"min_heart":0,"max_heart":0,"create_time":1508208431},
+ {"avg_heart":105,"min_heart":0,"max_heart":0,"create_time":1508208493},
+ {"avg_heart":106,"min_heart":0,"max_heart":0,"create_time":1508208463},
+ {"avg_heart":107,"min_heart":0,"max_heart":0,"create_time":1508208447},
+ {"avg_heart":75,"min_heart":0,"max_heart":0,"create_time":1508208510},
+ {"avg_heart":66,"min_heart":0,"max_heart":0,"create_time":1508228790},
+ {"avg_heart":72,"min_heart":0,"max_heart":0,"create_time":1510819493}],
+ "blood_data":[{"systolic":122,"diastolic":80,"create_time":1508208648},
+ {"systolic":117,"diastolic":79,"create_time":1510819686}],
+ "sport_data":[{"step_num":215,"calory":9,"create_time":1508169600},
+ {"step_num":0,"calory":0,"create_time":1508256000},
+ {"step_num":18,"calory":0,"create_time":1510070400},
+ {"step_num":803,"calory":30,"create_time":1510761600},
+ {"step_num":2933,"calory":113,"create_time":1510848000}]}}
+* */
+
+    private void UpdateHistoryData(String strData) throws JSONException {
+        JSONObject jsonObject = new JSONObject(strData);
+        int  code =Integer.parseInt(jsonObject.getString("code"));
+        Log.e("code",code+"");
+        String strresult = jsonObject.getString("result");
+        Log.e("strresult",strresult);
+        JSONObject jsonresult = new JSONObject(strresult);
+        String strSleep = jsonresult.getString("sleep_data");
+        Log.e("sleep_data",strSleep);
+        String strheart_data = jsonresult.getString("heart_data");
+        Log.e("strexpires_in",strheart_data);
+        String strblood_data = jsonresult.getString("blood_data");
+        String strSport_data = jsonresult.getString("sport_data");
+        JSONArray sleeparray = new JSONArray(strSleep);
+        for (int i = 0;i<sleeparray.length();i++)
+        {
+            JSONObject object =sleeparray.getJSONObject(i);
+            sleep_history.sleep_grade = object.getInt("sleep_grade");
+            sleep_history.sleep_time = object.getInt("sleep_time");
+   //         sleep_history.create_time =  stampToDate((long)object.getInt("create_time"));
+            sleep_list.add(i,sleep_history);
+        }
+        JSONArray bloodarray = new JSONArray(strblood_data);
+        for(int i=0;i<bloodarray.length();i++)
+        {
+            JSONObject object = bloodarray.getJSONObject(i);
+            blood_data.diastolic = object.getInt("diastolic");
+            blood_data.create_time = stampToDate((long)(object.getInt("create_time")));
+            Log.e("blood_data.create_time",blood_data.create_time+"");
+            blood_data.systolic = object.getInt("systolic");
+            blood_data_list.add(i,blood_data);
+        }
+        JSONArray sportarray = new JSONArray(strSport_data);
+        for(int i=0;i<sportarray.length();i++)
+        {
+            JSONObject object = sportarray.getJSONObject(i);
+            sport_data_history.calory = object.getInt("calory");
+            sport_data_history.create_time = stampToDate((long)object.getInt("create_time"));
+            Log.e("sport_data_history",sport_data_history.create_time);
+            sport_data_history.step_num = object.getInt("step_num");
+            sport_data_list.add(i,sport_data_history);
+        }
+        JSONArray heartarray = new JSONArray(strheart_data);
+        Log.e("strheart_data",strheart_data);
+        Log.e("heartarray",heartarray.length()+"");
+        for(int i=0;i<heartarray.length();i++)
+        {
+            JSONObject object = heartarray.getJSONObject(i);
+            heart_data_history.avg_heart = object.getString("avg_heart");
+            heart_data_history.max_heart = object.getInt("max_heart");
+            Log.e("avg_heart",heart_data_history.avg_heart+"");
+            heart_data_history.min_heart = object.getInt("min_heart");
+            heart_data_history.create_time = stampToDate(((long)object.getInt("create_time")));
+            Log.e("heart_data_history",heart_data_history.create_time);
+            heart_data_list.add(i,heart_data_history);
+        }
+    }
     private Handler handler = new Handler() {
 
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case UPDATE_BLOOD_DAY:
-                    try {
+                /*    try {
+                        Log.e("UPDATE_BLOOD_DAY","UPDATE_BLOOD_DAY");
+                        String s = getBeforeMonth();
+                        dateToStamp(s);
+                        GetHistoryData();
+                        UpdateHistoryData(strfromserver);
 
                     } catch (Exception e) {
                         e.printStackTrace();
-                    }
+                        Log.e("UPDATE_BLOOD_DAY", e.toString() );
+                    }*/
                     break;
                 case UPDATE_RATE_DAY:
                     try {
@@ -566,6 +726,16 @@ public class ReportActivity extends Activity {
 
                     } catch (Exception e) {
                         e.printStackTrace();
+                    }
+                    break;
+                case UPDATE_HISTORY_INFO:
+                    try {
+                        Log.e("UPDATE_HISTORY_INFO",strfromserver);
+                        UpdateHistoryData(strfromserver);
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Log.e("UPDATE_HISTORY_INFO",e.toString());
                     }
                     break;
 
@@ -740,6 +910,56 @@ public class ReportActivity extends Activity {
 
             }
         });
+
+    }
+    private void GetHistoryData() {
+        Log.e("GetMemberDetails", "GetMemberDetails");
+
+
+        /**
+         * 创建请求的参数body
+         */
+        FormBody.Builder builder = new FormBody.Builder();
+        builder.add("token",token);
+        builder.add("data_time",data_time+"");
+        builder.add("family_member_id", family_member_id);
+
+
+        /**
+         * 遍历key
+         */
+        RequestBody requestBody = builder.build();
+        Log.e("requestBody", requestBody.toString());
+
+
+        //设置编码
+        //发送Post,并返回一个HttpResponse对象
+
+
+        final Request request = new Request.Builder()
+                .url("http://sun.healthywo.com/robot/family/get_monitor_history")
+                .post(requestBody)
+                .build();
+        //发送请求获取响应
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Response response = null;
+                try {
+                    response = client.newCall(request).execute();
+                    if (response.isSuccessful()) {
+                        strfromserver = null;
+                        strfromserver = response.body().string();
+                        Message msg = new Message();
+                        msg.what = UPDATE_HISTORY_INFO;
+                        handler.sendMessage(msg);
+                    }
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+            }
+        }).start();
+
 
     }
 

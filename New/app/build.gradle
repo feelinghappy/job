@@ -29,4 +29,5 @@ dependencies {
     compile 'com.squareup.okio:okio:1.7.0'
     compile files('libs/mpandroidchartlibrary-2-1-6.jar')
     testCompile 'junit:junit:4.12'
+    compile files('libs/BaiduLBS_Android.jar')
 }

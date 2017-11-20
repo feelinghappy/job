@@ -73,6 +73,7 @@ public class VideoCallUA {
                 case REJECTED:
                     Log.d(TAG,"通话被拒绝");
                     state = "reject";
+                    onClosed();
 
                     break;
                 case BUSY:

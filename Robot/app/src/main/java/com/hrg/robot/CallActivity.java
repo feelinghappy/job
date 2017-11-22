@@ -72,11 +72,24 @@ public class CallActivity extends Activity implements VideoCallUA.DataChangerLis
         Intent intent = getIntent();
         callId = intent.getIntExtra(VideoCallUA.CALL_COMING_OR_OUTGOING, -1);
         callUid = intent.getStringExtra("callUid");
+
         Log.e("getStringExtra callUid", callUid);
         localuid = SharedPrefUtils.getConfigInfo(CallActivity.this, Constants.WILDDOG_UID);
         Log.e("localuid", localuid);
         initData();
         initView();
+        SyncReference ref = WilddogSync.getInstance().getReference("robots");
+        ref = ref.child(localuid).child("currentUser");
+        ref.setValue(callUid, new SyncReference.CompletionListener() {
+            @Override
+            public void onComplete(SyncError error, SyncReference ref) {
+                if (error != null) {
+                    Log.e("currentUser error", error.toString());
+                } else {
+                    Log.e("currentUser success", "setValue success");
+                }
+            }
+        });
         refcontrol = WilddogSync.getInstance().getReference("robots").child(localuid).child("control");
         controllistener = refcontrol.addChildEventListener(new ChildEventListener() {
             @Override

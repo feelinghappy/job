@@ -124,7 +124,25 @@ public class PhonebookActivity extends Activity implements ZKCallback {
   //              callVideo("111111");
             }
         });*/
+        Button call_liutao = (Button)findViewById(R.id.call_liutao);
+        call_liutao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Intent intent = new Intent(PhonebookActivity.this, CallingActivity.class);
+                    intent.putExtra(VideoCallUA.CALL_COMING_OR_OUTGOING, VideoCallUA.CALL_OUTGOING);
+                    intent.putExtra("monitor", false);
+                    intent.putExtra("callUid", "c33bebf2-b4c1-45ca-b256-7f095ec42eeb");
+                    startActivity(intent);
+                    Toast.makeText(PhonebookActivity.this, "发起视频", Toast.LENGTH_SHORT).show();
+                }
+                catch(Exception ex)
+                {
+                    Toast.makeText(PhonebookActivity.this, ex.toString(), Toast.LENGTH_SHORT).show();
+                }
 
+            }
+        });
 
 
 
@@ -406,6 +424,7 @@ public class PhonebookActivity extends Activity implements ZKCallback {
                     break;*/
                 case UPDATE_ROBOT_MSG:
                     String DevSN = robotDataloc.getDevSN();
+                    Toast.makeText(getApplicationContext(), DevSN, Toast.LENGTH_SHORT).show();
                     sendRequestWithOkHttp();
                     break;
                 case UPDATE_AIRBOX_MSG:
@@ -882,10 +901,15 @@ public class PhonebookActivity extends Activity implements ZKCallback {
             public String devSN;//机器人SN
             public int electricity;//机器人电量*/
             case 1:
+                String str = resultData.toString();
+                Toast.makeText(getApplicationContext(), str, Toast.LENGTH_SHORT).show();
+
                 robotDataloc =(RobotData)resultData. getObj();
                 if(robotDataloc == null)
                 {
                     Log.e("UPDATE_ROBOT_MSG","robotDataloc == null");
+                    Toast.makeText(getApplicationContext(), "robotDataloc == null", Toast.LENGTH_SHORT).show();
+
                 }
        /*         int status = robotData.getStatus();
                 String robotName = robotData.getRobotName();
@@ -897,6 +921,7 @@ public class PhonebookActivity extends Activity implements ZKCallback {
                 msg.what = UPDATE_ROBOT_MSG;
                 handler.sendMessage(msg);
                 Log.e("UPDATE_ROBOT_MSG","robotDataloc");
+                Toast.makeText(getApplicationContext(), "robotDataloc", Toast.LENGTH_SHORT).show();
                 break;
             /*  public int fanStatus;//风扇状态 1:开  0:关
                 public int anionStatus;//负离子状态
@@ -917,12 +942,14 @@ public class PhonebookActivity extends Activity implements ZKCallback {
                 if(airData==null)
                 {
                     Log.e("UPDATE_AIRBOX_MSG","airData == null");
+                    Toast.makeText(getApplicationContext(), "airData == null", Toast.LENGTH_SHORT).show();
                 }
                 int gas = airData.getGas();
                 Log.e("gas",gas+"");
                 msg.what = UPDATE_AIRBOX_MSG;
                 handler.sendMessage(msg);
                 Log.e("UPDATE_AIRBOX_MSG","airData");
+                Toast.makeText(getApplicationContext(), "airData", Toast.LENGTH_SHORT).show();
                 break;
 
 

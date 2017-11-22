@@ -39,6 +39,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.hrg.robot.CallingActivity"
+            android:screenOrientation="landscape"
+            android:launchMode="singleTask"
+            />
+
         <activity android:name="com.hrg.robot.CalledActivity"
             android:screenOrientation="landscape"
             android:launchMode="singleTask"

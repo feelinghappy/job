@@ -28,8 +28,17 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="EnhhoIGBTLnirutXropVvxVfmTAfypxy" >
+            android:value="qn1SraF4aZmKKnGGWbpwXVGwLzQddgDY" >
         </meta-data>
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" >
+            <intent-filter>
+                <action android:name="com.baidu.location.service_v2.2" >
+                </action>
+            </intent-filter>
+        </service>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTask"

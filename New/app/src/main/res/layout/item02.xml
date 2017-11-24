@@ -16,13 +16,13 @@
 			android:layout_height="660px"
 			android:background="@drawable/detailbg"
 			android:orientation="vertical">
-			<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			<LinearLayout
 				android:layout_width="276px"
 				android:orientation="vertical"
 				android:layout_height="290px">
 
 				<ImageView
-					android:id="@+id/imageView"
+					android:id="@+id/item02_imageView"
 					android:layout_width="150px"
 					android:layout_height="150px"
 					android:layout_marginLeft="66px"
@@ -30,7 +30,7 @@
 					android:src="@drawable/papa" />
 
 				<TextView
-					android:id="@+id/txtName"
+					android:id="@+id/item02_txtName"
 					android:textSize="30px"
 					android:layout_marginTop="30px"
 					android:layout_width="wrap_content"
@@ -40,7 +40,7 @@
 					android:gravity="center_horizontal"
 					android:text="爸爸" />
 			</LinearLayout>
-			<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			<LinearLayout
 				android:layout_marginTop="66px"
 				android:layout_width="276px"
 				android:layout_height="240px"
@@ -61,7 +61,7 @@
 						android:textSize="28px" />
 
 					<TextView
-						android:id="@+id/txtAge"
+						android:id="@+id/item02_txtAge"
 						android:layout_width="36px"
 						android:layout_height="wrap_content"
 						android:layout_marginLeft="38px"
@@ -86,7 +86,7 @@
 					<TextView
 						android:textSize="28px"
 						android:textColor="#ffffff"
-						android:id="@+id/txtSex"
+						android:id="@+id/item02_txtSex"
 						android:textStyle="bold"
 						android:layout_marginLeft="38px"
 						android:layout_width="wrap_content"
@@ -133,7 +133,7 @@
 					<TextView
 						android:textSize="28px"
 						android:textColor="#ffffff"
-						android:id="@+id/txtWeight"
+						android:id="@+id/item02_txtWeight"
 						android:textStyle="bold"
 						android:layout_marginLeft="38px"
 						android:layout_width="wrap_content"
@@ -152,8 +152,7 @@
 				android:layout_width="904px"
 				android:layout_height="168px"
 				android:orientation="vertical">
-				<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-					xmlns:app="http://schemas.android.com/apk/res-auto"
+				<LinearLayout
 					android:orientation="horizontal"
 					android:layout_marginTop="30px"
 					android:layout_width="904px"
@@ -206,7 +205,7 @@
 				android:layout_width="904px"
 				android:layout_height="190px"
 				android:orientation="horizontal">
-				<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+				<LinearLayout
 					android:layout_width="482px"
 					android:orientation="vertical"
 					android:layout_height="220px">
@@ -341,7 +340,7 @@
 				android:layout_height="220px"
 				android:layout_marginBottom="50px"
 				android:orientation="horizontal">
-				<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+				<LinearLayout
 					android:layout_width="392px"
 					android:layout_marginTop="40px"
 					android:layout_marginLeft="90px"
@@ -422,7 +421,7 @@
 							android:text="一般" />
 					</LinearLayout>
 				</LinearLayout>
-				<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+				<LinearLayout
 					android:layout_width="452px"
 					android:orientation="vertical"
 					android:layout_marginTop="40px"

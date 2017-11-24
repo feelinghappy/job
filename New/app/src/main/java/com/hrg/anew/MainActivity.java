@@ -1,5 +1,6 @@
 package com.hrg.anew;
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -73,6 +74,7 @@ public class MainActivity extends Activity {
     public static final int UPDATE_TOKEN = 1;
     public static final int UPDATE_FAMILY_INFO = 2;
     public static final int UPDATE_MEMBER_INFO = 3;
+    public static final int UPDATE_GPS_INFO = 4;
     private Oauth oauth;
     final OkHttpClient client = new OkHttpClient();
     private ViewPager viewPager;
@@ -104,6 +106,15 @@ public class MainActivity extends Activity {
     private TextView item01_walk_state;
     private RadioGroup item01_heart_rate_option;
     private TextView item01_heart_rate_value;
+    private TextView item01_txtName;
+    private TextView item01_txtHeight;
+    private TextView item01_txtAge;
+    private TextView item01_txtSex;
+    private TextView item01_weight;
+    private TextView item01_sleep_grade;
+    private String lngData;
+    private String latData;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -114,8 +125,8 @@ public class MainActivity extends Activity {
         LayoutInflater inflater = getLayoutInflater();
         pageViews = new ArrayList<View>();
         pageViews.add(inflater.inflate(R.layout.item01, null));
-        pageViews.add(inflater.inflate(R.layout.item02, null));
-        pageViews.add(inflater.inflate(R.layout.item03, null));
+        //pageViews.add(inflater.inflate(R.layout.item02, null));
+        // pageViews.add(inflater.inflate(R.layout.item03, null));
         imageViews = new ImageView[pageViews.size()];
         main = (ViewGroup) inflater.inflate(R.layout.main, null);
         viewPager = (ViewPager) findViewById(R.id.guidePages);
@@ -185,19 +196,42 @@ public class MainActivity extends Activity {
     }
     private void UpdatePageData(int pageindex)
     {
+        item01_txtName = (TextView)viewPager.findViewById(R.id.item01_txtName);
+        item01_txtHeight = (TextView)viewPager.findViewById(R.id.item01_txtHeight);
+        item01_txtAge = (TextView)viewPager.findViewById(R.id.item01_txtAge);
+        item01_txtSex = (TextView)viewPager.findViewById(R.id.item01_txtSex);
+        item01_weight = (TextView)viewPager.findViewById(R.id.item01_weight);
         item01_blood_value = (TextView)viewPager.findViewById(R.id.item01_blood_value);
         item01_blood_create_time = (TextView)viewPager.findViewById(R.id.item01_blood_create_time);
         item01_sleep_time = (TextView)viewPager.findViewById(R.id.item01_sleep_time);
+        item01_sleep_grade = (TextView)viewPager.findViewById(R.id.item01_sleep_grade);
         item01_walk_num =  (TextView)viewPager.findViewById(R.id.item01_walk_num);
         item01_walk_state = (TextView)viewPager.findViewById(R.id.item01_walk_state);
         item01_heart_rate_option =(RadioGroup)viewPager.findViewById(R.id.item01_heart_rate_option);
         item01_heart_rate_value = (TextView)viewPager.findViewById(R.id.item01_heart_rate_value);
         String str;
-        if(getmonitor==null||family==null||blood_data==null)
+        Member temp = member_list.get(pageindex);
+        if(getmonitor==null||family==null||blood_data==null||temp==null)
         {
             return;
         }
         str = "数据获取于"+ blood_data.create_time;
+        item01_txtName.setText(temp.member_name);
+        String tempstr = temp.heath.member_height+"cm";
+        item01_txtHeight.setText(tempstr);
+        tempstr = temp.heath.member_age + getString(R.string.age_year);
+        item01_txtAge.setText(tempstr);
+        String sex;
+        if(temp.heath.member_sex==1)
+        {
+            sex = "男";
+        }
+        else
+        {
+            sex = "女";
+        }
+        item01_txtSex.setText(sex);
+        item01_weight.setText(temp.heath.GetMember_weight()+"kg");
         item01_blood_create_time.setText(str);
         int systolic = blood_data.systolic;
         int diastolic = blood_data.diastolic;
@@ -210,6 +244,29 @@ public class MainActivity extends Activity {
         str = "消耗" + sport_data.calory + "卡路里";
         item01_walk_state.setText(str);
         //通过findViewById获得RadioGroup对象  
+        String sleep_level_str;
+        if (getmonitor.sleep.sleep_grade ==1)
+        {
+            sleep_level_str = "优秀";
+        }
+        else  if (getmonitor.sleep.sleep_grade ==2)
+        {
+            sleep_level_str = "良好";
+        }
+        else  if (getmonitor.sleep.sleep_grade ==3)
+        {
+            sleep_level_str = "一般";
+        }
+        else  if (getmonitor.sleep.sleep_grade ==4)
+        {
+            sleep_level_str = "不好";
+        }
+        else
+        {
+            sleep_level_str = "极不好";
+        }
+        item01_sleep_grade.setText(sleep_level_str);
+        item01_heart_rate_value.setText(heart_data.getAvg_heart()+"");
 
         //添加事件监听器  
         item01_heart_rate_option.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -218,11 +275,11 @@ public class MainActivity extends Activity {
                    if (checkedId == R.id.item_heart_rate_btn_0) {
                        item01_heart_rate_value.setText(heart_data.getAvg_heart()+"");
 
-                   } else if (checkedId == R.id.item_heart_rate_btn_0) {
-                       item01_heart_rate_value.setText(heart_data.getMax_heart()+"");
+                   } else if (checkedId == R.id.item_heart_rate_btn_1) {
+                       item01_heart_rate_value.setText(heart_data.max_heart+"");
 
-                   } else if (checkedId == R.id.item_heart_rate_btn_0) {
-                       item01_heart_rate_value.setText(heart_data.getMin_heart()+"");
+                   } else if (checkedId == R.id.item_heart_rate_btn_2) {
+                       item01_heart_rate_value.setText(heart_data.min_heart+"");
                    }
                }
 
@@ -317,17 +374,22 @@ public class MainActivity extends Activity {
                         @Override
                         public void onClick(View v) {
                             // TODO Auto-generated method stub
-                            Intent intent = new Intent(MainActivity.this, VideoActivity.class);
+                            ComponentName componetName = new ComponentName(
+                                    //这个是另外一个应用程序的包名  
+                                     "com.hrg.robot",
+                                    //这个是要启动的Activity  
+                                    "com.hrg.robot.PhonebookActivity");
+                            Intent intent = new Intent();
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            intent.setComponent(componetName);
                             startActivity(intent);
-                            finish();
                         }
                     });
                     ImageView imgposition0 = (ImageView) pageViews.get(arg1).findViewById(R.id.imgbtnposition);
                     imgposition0.setOnClickListener(new View.OnClickListener() {
                         public void onClick(View m) {
-                            Intent intent = new Intent(MainActivity.this, LocationActivity.class);
-                            startActivity(intent);
-                            finish();
+                            GetGpsInfo(family_member_id_list.get(0));
+
                         }
                     });
                     ImageView imghealth0 = (ImageView) pageViews.get(arg1).findViewById(R.id.imgbtnreport);
@@ -358,9 +420,15 @@ public class MainActivity extends Activity {
                         @Override
                         public void onClick(View v) {
                             // TODO Auto-generated method stub
-                            Intent intent = new Intent(MainActivity.this, VideoActivity.class);
+                            ComponentName componetName = new ComponentName(
+                                    //这个是另外一个应用程序的包名  
+                                    "com.hrg.robot",
+                                    //这个是要启动的Activity  
+                                    "com.hrg.robot.PhonebookActivity");
+                            Intent intent = new Intent();
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            intent.setComponent(componetName);
                             startActivity(intent);
-                            finish();
                         }
                     });
                     ImageView imgposition1 = (ImageView) pageViews.get(arg1).findViewById(R.id.imgbtnposition);
@@ -397,9 +465,15 @@ public class MainActivity extends Activity {
                         @Override
                         public void onClick(View v) {
                             // TODO Auto-generated method stub
-                            Intent intent = new Intent(MainActivity.this, VideoActivity.class);
+                            ComponentName componetName = new ComponentName(
+                                    //这个是另外一个应用程序的包名  
+                                    "com.hrg.robot",
+                                    //这个是要启动的Activity  
+                                    "com.hrg.robot.PhonebookActivity");
+                            Intent intent = new Intent();
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            intent.setComponent(componetName);
                             startActivity(intent);
-                            finish();
                         }
                     });
                     ImageView imgposition2 = (ImageView) pageViews.get(arg1).findViewById(R.id.imgbtnposition);
@@ -471,8 +545,6 @@ public class MainActivity extends Activity {
         public void onPageScrollStateChanged(int arg0) {
             // TODO Auto-generated method stub
             Log.e("scrollStateChanged", arg0 + "");
-            String family_member_id = family_member_id_list.get(0);
-            GetMemberDetails(family_member_id);
 
 
 
@@ -610,6 +682,20 @@ public class MainActivity extends Activity {
                         e.printStackTrace();
                     }
                     break;
+                case UPDATE_GPS_INFO:
+                    try {
+                        Log.e("strfromserver",strfromserver);
+                        UpdateGPSInfo(strfromserver);
+                        Intent intent = new Intent(MainActivity.this, LocationActivity.class);
+                        intent.putExtra("lngData",lngData);
+                        intent.putExtra("latData",latData);
+                        startActivity(intent);
+                        finish();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+
                 case UPDATE_FAMILY_INFO:
                     try {
                         Log.e("strfromserver",strfromserver);
@@ -633,6 +719,20 @@ public class MainActivity extends Activity {
             }
         }
     };
+    /*{"code":"200","msg":"success","result":{"lng":"121.4876408","lat":"31.200772"}}*/
+    private void  UpdateGPSInfo(String strData)  throws JSONException {
+        JSONObject jsonObject = new JSONObject(strData);
+        int code = Integer.parseInt(jsonObject.getString("code"));
+        Log.e("code", code + "");
+        String str = jsonObject.getString("result");
+        JSONObject json = new JSONObject(str);
+        lngData = json.getString("lng");
+        Log.e("lng", str);
+        latData = json.getString("lat");
+
+
+
+    }
     /*
     {"code":"200","msg":"success","result":
     {"sleep_data":{"sleep_time":"0","sleep_grade":"5"},
@@ -880,6 +980,54 @@ public class MainActivity extends Activity {
                         strfromserver = response.body().string();
                         Message msg = new Message();
                         msg.what = UPDATE_MEMBER_INFO;
+                        handler.sendMessage(msg);
+                    }
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+            }
+        }).start();
+
+
+    }
+
+    private void GetGpsInfo(String family_member_id) {
+        Log.e("GetMemberDetails", "GetMemberDetails");
+        /**
+         * 创建请求的参数body
+         */
+        FormBody.Builder builder = new FormBody.Builder();
+        builder.add("token",Login_token);
+        builder.add("family_member_id", family_member_id);
+
+
+        /**
+         * 遍历key
+         */
+        RequestBody requestBody = builder.build();
+        Log.e("requestBody", requestBody.toString());
+
+
+        //设置编码
+        //发送Post,并返回一个HttpResponse对象
+
+
+        final Request request = new Request.Builder()
+                .url("http://sun.healthywo.com/robot/family/get_location")
+                .post(requestBody)
+                .build();
+        //发送请求获取响应
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Response response = null;
+                try {
+                    response = client.newCall(request).execute();
+                    if (response.isSuccessful()) {
+                        strfromserver = null;
+                        strfromserver = response.body().string();
+                        Message msg = new Message();
+                        msg.what = UPDATE_GPS_INFO;
                         handler.sendMessage(msg);
                     }
                 } catch (IOException e1) {

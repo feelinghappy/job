@@ -21,15 +21,15 @@
 					android:layout_height="290px">
 
 					<ImageView
-						android:id="@+id/imageView"
+						android:id="@+id/item01_imageView"
 						android:layout_width="150px"
 						android:layout_height="150px"
 						android:layout_marginLeft="66px"
 						android:layout_marginTop="70px"
-						android:src="@drawable/yeye" />
+						android:src="@drawable/mama" />
 
 					<TextView
-						android:id="@+id/txtName"
+						android:id="@+id/item01_txtName"
 						android:textSize="30px"
 						android:layout_marginTop="30px"
 						android:layout_width="wrap_content"
@@ -37,7 +37,7 @@
 						android:textColor="#ffffff"
 						android:layout_gravity="center_horizontal"
 						android:gravity="center_horizontal"
-						android:text="爷爷" />
+						android:text="" />
 				</LinearLayout>
 				<LinearLayout
 					android:layout_marginTop="66px"
@@ -46,7 +46,6 @@
 					android:orientation="vertical">
 
 					<LinearLayout
-						android:layout_marginTop="0px"
 						android:layout_width="276px"
 						android:layout_height="36px"
 						android:orientation="horizontal">
@@ -60,11 +59,11 @@
 							android:textSize="28px" />
 
 						<TextView
-							android:id="@+id/txtAge"
-							android:layout_width="36px"
+							android:id="@+id/item01_txtAge"
+							android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
 							android:layout_marginLeft="38px"
-							android:text="65"
+							android:text=""
 							android:textStyle="bold"
 							android:textColor="#ffffff"
 							android:textSize="28px" />
@@ -85,12 +84,12 @@
 						<TextView
 							android:textSize="28px"
 							android:textColor="#ffffff"
-							android:id="@+id/txtSex"
+							android:id="@+id/item01_txtSex"
 							android:textStyle="bold"
 							android:layout_marginLeft="38px"
 							android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
-							android:text="男" />
+							android:text="" />
 					</LinearLayout>
 					<LinearLayout
 						android:layout_marginTop="30px"
@@ -108,12 +107,12 @@
 						<TextView
 							android:textSize="28px"
 							android:textColor="#ffffff"
-							android:id="@+id/txtHeight"
+							android:id="@+id/item01_txtHeight"
 							android:textStyle="bold"
 							android:layout_marginLeft="38px"
 							android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
-							android:text="170cm" />
+							android:text="" />
 					</LinearLayout>
 					<LinearLayout
 						android:layout_marginTop="30px"
@@ -137,7 +136,7 @@
 							android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
 							android:gravity="left"
-							android:text="75kg" />
+							android:text="" />
 					</LinearLayout>
 				</LinearLayout>
 			</LinearLayout>
@@ -216,7 +215,7 @@
 								android:textSize="46px"
 								android:layout_width="wrap_content"
 								android:layout_height="wrap_content"
-								android:text="120/90" />
+								android:text="" />
 
 							<TextView
 								android:layout_marginLeft="30px"
@@ -242,7 +241,7 @@
 							android:textSize="28px"
 							android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
-							android:text="数据获取于16:30" />
+							android:text="" />
 
 					</LinearLayout>
 					<LinearLayout
@@ -259,7 +258,7 @@
 								android:layout_height="wrap_content"
 								android:textColor="#ffffff"
 								android:textSize="46px"
-								android:text="88"
+								android:text=""
 								>
 							</TextView>
 							<TextView

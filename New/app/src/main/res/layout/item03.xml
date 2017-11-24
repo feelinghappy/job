@@ -16,13 +16,13 @@
 			android:layout_height="660px"
 			android:background="@drawable/detailbg"
 			android:orientation="vertical">
-			<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			<LinearLayout
 				android:layout_width="276px"
 				android:orientation="vertical"
 				android:layout_height="290px">
 
 				<ImageView
-					android:id="@+id/imageView"
+					android:id="@+id/item03_imageView"
 					android:layout_width="150px"
 					android:layout_height="150px"
 					android:layout_marginLeft="66px"
@@ -30,7 +30,7 @@
 					android:src="@drawable/nainai" />
 
 				<TextView
-					android:id="@+id/txtName"
+					android:id="@+id/item03_txtName"
 					android:textSize="30px"
 					android:layout_marginTop="30px"
 					android:layout_width="wrap_content"
@@ -40,7 +40,7 @@
 					android:gravity="center_horizontal"
 					android:text="奶奶" />
 			</LinearLayout>
-			<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			<LinearLayout
 				android:layout_marginTop="66px"
 				android:layout_width="276px"
 				android:layout_height="240px"
@@ -61,7 +61,7 @@
 						android:textSize="28px" />
 
 					<TextView
-						android:id="@+id/txtAge"
+						android:id="@+id/item03_txtAge"
 						android:layout_width="36px"
 						android:layout_height="wrap_content"
 						android:layout_marginLeft="38px"
@@ -86,7 +86,7 @@
 					<TextView
 						android:textSize="28px"
 						android:textColor="#ffffff"
-						android:id="@+id/txtSex"
+						android:id="@+id/item03_txtSex"
 						android:textStyle="bold"
 						android:layout_marginLeft="38px"
 						android:layout_width="wrap_content"
@@ -110,7 +110,7 @@
 					<TextView
 						android:textSize="28px"
 						android:textColor="#ffffff"
-						android:id="@+id/txtHeight"
+						android:id="@+id/item03_txtHeight"
 						android:textStyle="bold"
 						android:layout_marginLeft="38px"
 						android:layout_width="wrap_content"
@@ -133,7 +133,7 @@
 					<TextView
 						android:textSize="28px"
 						android:textColor="#ffffff"
-						android:id="@+id/txtWeight"
+						android:id="@+id/item03_txtWeight"
 						android:textStyle="bold"
 						android:layout_marginLeft="38px"
 						android:layout_width="wrap_content"

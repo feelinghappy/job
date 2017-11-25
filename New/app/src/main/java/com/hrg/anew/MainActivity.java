@@ -164,9 +164,9 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(MainActivity.this, ReportActivity.class);
+      /*          Intent intent = new Intent(MainActivity.this, ReportActivity.class);
                 startActivity(intent);
-                finish();
+                finish();*/
 
             }
         });
@@ -174,9 +174,9 @@ public class MainActivity extends Activity {
         ImgLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, LocationActivity.class);
+             /*   Intent intent = new Intent(MainActivity.this, LocationActivity.class);
                 startActivity(intent);
-                finish();
+                finish();*/
 
 
             }

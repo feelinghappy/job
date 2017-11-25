@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,17 +51,26 @@ public class LocationActivity extends Activity {
     private BitmapDescriptor mCurrentMarker;
     private View mPop;
     private  TextView address;
-    final LatLng llText = new LatLng(39.963175, 116.400244);
+    private  String lng;
+    private String lat;
+    private String strDetails_Data;
+    private  static final int UPDATE_DETAILS_DATA = 40;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+        lng = getIntent().getStringExtra("lngData");
+        lat = getIntent().getStringExtra("latData");
         //隐藏状态栏
+        double dlng = Double.valueOf(lng).doubleValue();
+        double dlat = Double.valueOf(lat).doubleValue();
+        point = new LatLng(dlat,dlng);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         SDKInitializer.initialize(getApplicationContext());//初始化百度地图
         // 初始化MKSearch  
         setContentView(R.layout.bdmap);
+
         mMapView = (TextureMapView) findViewById(R.id.mTexturemap);
         mBaiduMap = mMapView.getMap();
         mBaiduMap.setMyLocationEnabled(true);
@@ -67,7 +78,7 @@ public class LocationActivity extends Activity {
         location.setLongitude(x);
         location.setLatitude(y);
         navigateTo();
-        reverseGeoCode(llText);
+        reverseGeoCode(point);
         hideNavigationBar();
         hideVirtualKey();
         ImageView imgback = (ImageView)findViewById(R.id.position_back);
@@ -102,17 +113,22 @@ public class LocationActivity extends Activity {
             public void onGetReverseGeoCodeResult(ReverseGeoCodeResult result) {
                 if (result == null
                         || result.error != SearchResult.ERRORNO.NO_ERROR) {
-                    // 没有检测到结果
-                    Toast.makeText(LocationActivity.this, "抱歉，未能找到结果",
-                            Toast.LENGTH_LONG).show();
+                    reverseGeoCode(point);
                 }
 
                 if(result.getAddress()!=null) {
-                    InfoWindow mInfoWindow = new InfoWindow(mPop, llText, -47);
+
+      /*              InfoWindow mInfoWindow = new InfoWindow(mPop, point, -47);
                     address.setText(result.getAddress());
                     mBaiduMap.showInfoWindow(mInfoWindow);
-                    MapStatusUpdate update = MapStatusUpdateFactory.newLatLng(llText);
-                    mBaiduMap.setMapStatus(update);
+                    MapStatusUpdate update = MapStatusUpdateFactory.newLatLng(point);
+                    mBaiduMap.setMapStatus(update);*/
+                    strDetails_Data = result.getAddress();
+                    Message msg = new Message();
+                    msg.what =UPDATE_DETAILS_DATA;
+                    handler.sendMessage(msg);
+
+
 
                 }
 
@@ -136,7 +152,6 @@ public class LocationActivity extends Activity {
     }
 	
 	   private void navigateTo() {
-        LatLng point = new LatLng(39.963175, 116.400244);
         //LatLng point = new LatLng(location.getLongitude(), location.getLatitude());
         MapStatus mMapStatus = new MapStatus.Builder().target(point).build();
         MapStatusUpdate update = newMapStatus(mMapStatus);
@@ -197,4 +212,32 @@ public class LocationActivity extends Activity {
         params.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
         window.setAttributes(params);
     }
+
+    private Handler handler = new Handler() {
+
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case UPDATE_DETAILS_DATA:
+                   try {
+                        Log.e("UPDATE_DETAILS_DATA","UPDATE_DETAILS_DATA");
+                       OverlayOptions textOption = new TextOptions()
+                               .bgColor(0xAA4284E2)
+                               .fontSize(24)
+                               .fontColor(0xFFFFFFFF)
+                               .text(strDetails_Data)
+                               .rotate(0)
+                               .position(point);
+
+//在地图上添加该文字对象并显示
+                       mBaiduMap.addOverlay(textOption);
+
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Log.e("UPDATE_BLOOD_DAY", e.toString() );
+                    }
+                    break;
+            }
+        }
+    };
 }

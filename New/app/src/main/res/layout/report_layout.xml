@@ -215,20 +215,20 @@
         android:layout_height="12px">
     <ImageView
         android:id="@+id/report_img1"
-        android:visibility="invisible"
-        android:src = "@drawable/heart"
+        android:visibility="visible"
+        android:src = "@drawable/select_blood"
         android:layout_width="400px"
         android:layout_height="12px"/>
     <ImageView
         android:id="@+id/report_img2"
         android:visibility="invisible"
-        android:src = "@drawable/heart"
+        android:src ="@drawable/select_blood"
         android:layout_width="400px"
         android:layout_height="12px"/>
     <ImageView
         android:id="@+id/report_img3"
         android:visibility="invisible"
-        android:src = "@drawable/heart"
+        android:src = "@drawable/select_blood"
         android:layout_width="400px"
         android:layout_height="12px"/>
     </LinearLayout>
@@ -237,6 +237,10 @@
         android:layout_width="1200px"
         android:layout_height="2px"
         android:background="#E6E6E6" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
     <TextView
         android:layout_marginLeft="40px"
         android:layout_marginTop="10px"
@@ -245,7 +249,13 @@
         android:text="五月"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-
+    <android.widget.ImageView
+        android:src="@drawable/blood_icon"
+        android:layout_marginTop="18px"
+        android:layout_marginLeft="975px"
+        android:layout_width="176px"
+        android:layout_height="62px" />
+    </LinearLayout>
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/chart"
         android:layout_width="1280px"

@@ -385,7 +385,7 @@
 								android:textSize="28px"
 								android:layout_width="wrap_content"
 								android:layout_height="wrap_content"
-								android:text="5h" />
+								android:text="0h" />
 							<LinearLayout
 								android:layout_marginTop="14px"
 								android:layout_marginBottom="50px"

@@ -7,4 +7,8 @@
     <color name="colorCommon">#CFD3DA</color>
     <color name="colorChart">#FF693E</color>
     <color name="colorBlack">#000000</color>
+    <color name="colorBlood">#FEA501</color>
+    <color name="colorSleep">#1CCAFB</color>
+    <color name="colorRate">#FF693E</color>
+    <color name="colorWalk">#1BB284</color>
 </resources>

@@ -7,11 +7,13 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.IdRes;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
@@ -84,8 +86,8 @@ public class ReportActivity extends Activity {
     private ImageView report_img1;
     private ImageView report_img2;
     private ImageView report_img3;
-    private String  function;
-    private String  time_select;
+    private String  function ="blood";
+    private String  time_select = "day";
     public static final  int UPDATE_BLOOD_DAY = 1;
     public static final  int UPDATE_RATE_DAY = 2;
     public static final  int UPDATE_WALK_DAY = 3;
@@ -107,6 +109,7 @@ public class ReportActivity extends Activity {
     private int data_time;
     private Bundle bundle;
     private int content;
+    private ImageView  report_back;
     History.Sleep_history sleep_history = new History.Sleep_history();
     History.Heart_data_history  heart_data_history = new History.Heart_data_history ();
     Blood_data blood_data = new Blood_data();
@@ -139,6 +142,7 @@ public class ReportActivity extends Activity {
             e.printStackTrace();
             Log.e("InitData",e.toString());
         }
+        report_back = (ImageView)findViewById(R.id.report_back);
         report_select_1 = (TextView) findViewById(R.id.report_select_1);
         report_select_2 = (TextView) findViewById(R.id.report_select_2);
         report_select_3 = (TextView) findViewById(R.id.report_select_3);
@@ -151,10 +155,15 @@ public class ReportActivity extends Activity {
         report_value_uint_1 = (TextView) findViewById(R.id.report_value_unit_1);
         report_value_uint_2 = (TextView) findViewById(R.id.report_value_unit_2);
         report_value_uint_3 = (TextView) findViewById(R.id.report_value_unit_3);
+        report_select_1.setTextColor(getResources().getColor(R.color.colorBlood));
+        report_select_2.setTextColor(getResources().getColor(R.color.colorBlack));
+        report_select_3.setTextColor(getResources().getColor(R.color.colorBlack));
         report_img1 = (ImageView) findViewById(R.id.report_img1);
         report_img2 = (ImageView) findViewById(R.id.report_img2);
         report_img3 = (ImageView) findViewById(R.id.report_img3);
         mLineChart = (LineChart) findViewById(R.id.chart);
+        report_img1.setImageResource(R.drawable.select_blood);
+        report_select_1.setTextColor(getResources().getColor(R.color.colorBlood));
         //通过findViewById获得RadioGroup对象  
         RadioGroup raGrouphis = (RadioGroup) findViewById(R.id.history);
         //添加事件监听器  
@@ -172,6 +181,12 @@ public class ReportActivity extends Activity {
                       report_value_uint_2.setText("    ");
                       report_value_uint_3.setText("mmgh");
                       function = "blood";
+                      report_img1.setImageResource(R.drawable.select_blood);
+                      report_img2.setImageResource(R.drawable.select_blood);
+                      report_img3.setImageResource(R.drawable.select_blood);
+                      report_select_2.setTextColor(getResources().getColor(R.color.colorBlack));
+                      report_select_3.setTextColor(getResources().getColor(R.color.colorBlack));
+                      report_select_1.setTextColor(getResources().getColor(R.color.colorBlood));
 
                   } else if (checkedId == R.id.btn_1) {
                       report_title_1.setText("最高心率");
@@ -184,6 +199,12 @@ public class ReportActivity extends Activity {
                       report_value_uint_2.setText("bpm");
                       report_value_uint_3.setText("bmp");
                       function = "rate";
+                      report_img1.setImageResource(R.drawable.select_rate);
+                      report_img2.setImageResource(R.drawable.select_rate);
+                      report_img3.setImageResource(R.drawable.select_rate);
+                      report_select_1.setTextColor(getResources().getColor(R.color.colorRate));
+                      report_select_2.setTextColor(getResources().getColor(R.color.colorBlack));
+                      report_select_3.setTextColor(getResources().getColor(R.color.colorBlack));
                   } else if (checkedId == R.id.btn_2) {
                       //LinearLayout layout=(LinearLayout) findViewById(R.id.linearLayoutreport);//需要设置linearlayout的id为layout
                       //layout.setBackgroundDrawable(getResources().getDrawable(R.drawable.sport));
@@ -197,6 +218,10 @@ public class ReportActivity extends Activity {
                       report_value_uint_2.setText("");
                       report_value_uint_3.setText("cal");
                       function = "walk";
+                      report_img1.setImageResource(R.drawable.select_walk);
+                      report_select_1.setTextColor(getResources().getColor(R.color.colorWalk));
+                      report_select_2.setTextColor(getResources().getColor(R.color.colorBlack));
+                      report_select_3.setTextColor(getResources().getColor(R.color.colorBlack));
                   } else if (checkedId == R.id.btn_3) {
                       report_title_1.setText("睡眠时长");
                       report_title_2.setText("睡眠质量");
@@ -208,6 +233,10 @@ public class ReportActivity extends Activity {
                       report_value_uint_2.setText("  ");
                       report_value_uint_3.setText("h");
                       function = "sleep";
+                      report_img1.setImageResource(R.drawable.select_sleep);
+                      report_select_1.setTextColor(getResources().getColor(R.color.colorSleep));
+                      report_select_2.setTextColor(getResources().getColor(R.color.colorBlack));
+                      report_select_3.setTextColor(getResources().getColor(R.color.colorBlack));
                   }
 
               }
@@ -216,27 +245,38 @@ public class ReportActivity extends Activity {
         report_select_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                report_select_1.setTextColor(getResources().getColor(R.color.colorChart));
-                report_select_2.setTextColor(getResources().getColor(R.color.colorBlack));
-                report_select_3.setTextColor(getResources().getColor(R.color.colorBlack));
                 report_img1.setVisibility(View.VISIBLE);
                 report_img2.setVisibility(View.INVISIBLE);
                 report_img3.setVisibility(View.INVISIBLE);
                 time_select = "day";
+                report_select_2.setTextColor(getResources().getColor(R.color.colorBlack));
+                report_select_3.setTextColor(getResources().getColor(R.color.colorBlack));
                 if (function.equals("blood"))
                 {
                     content =  UPDATE_BLOOD_DAY;
+                    report_select_1.setTextColor(getResources().getColor(R.color.colorBlood));
+                    report_img1.setImageResource(R.drawable.select_blood);
+                    //report_img1.setVisibility(View.VISIBLE);
+                   //report_img2.setVisibility(View.INVISIBLE);
+                    //report_img3.setVisibility(View.INVISIBLE);
+
                  }
                  else if (function.equals("rate")) {
                     content = UPDATE_RATE_DAY;
+                    report_select_1.setTextColor(getResources().getColor(R.color.colorRate));
+                    report_img1.setImageResource(R.drawable.select_rate);
                  }
                  else if (function.equals("walk"))
                  {
                      content =UPDATE_SLEEP_DAY;
+                     report_select_1.setTextColor(getResources().getColor(R.color.colorWalk));
+                     report_img1.setImageResource(R.drawable.select_walk);
                  }
                 else if (function.equals("sleep"))
-                        {
+                {
                     content = UPDATE_SLEEP_DAY;
+                    report_select_1.setTextColor(getResources().getColor(R.color.colorSleep));
+                    report_img1.setImageResource(R.drawable.select_sleep);
                 }
 
             }
@@ -244,7 +284,6 @@ public class ReportActivity extends Activity {
         report_select_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                report_select_2.setTextColor(getResources().getColor(R.color.colorChart));
                 report_select_1.setTextColor(getResources().getColor(R.color.colorBlack));
                 report_select_3.setTextColor(getResources().getColor(R.color.colorBlack));
                 report_img2.setVisibility(View.VISIBLE);
@@ -254,19 +293,28 @@ public class ReportActivity extends Activity {
                         if(function.equals("blood"))
                         {
                             content = UPDATE_BLOOD_MONTH;
+                            report_select_2.setTextColor(getResources().getColor(R.color.colorBlood));
+                            report_img2.setImageResource(R.drawable.select_blood);
+
                         }
                         else if(function.equals("rate"))
                         {
                             content= UPDATE_RATE_MONTH;
+                            report_select_2.setTextColor(getResources().getColor(R.color.colorRate));
+                            report_img2.setImageResource(R.drawable.select_rate);
 
                         }
                         else if(function.equals("walk"))
                         {
                             content = UPDATE_WALK_MONTH;
+                            report_select_2.setTextColor(getResources().getColor(R.color.colorWalk));
+                            report_img2.setImageResource(R.drawable.select_walk);
                         }
                         else if(function.equals("sleep"))
                         {
                             content = UPDATE_SLEEP_MONTH;
+                            report_img2.setImageResource(R.drawable.select_sleep);
+                            report_select_2.setTextColor(getResources().getColor(R.color.colorSleep));
 
                         }
 
@@ -275,7 +323,6 @@ public class ReportActivity extends Activity {
         report_select_3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                report_select_3.setTextColor(getResources().getColor(R.color.colorChart));
                 report_select_2.setTextColor(getResources().getColor(R.color.colorBlack));
                 report_select_1.setTextColor(getResources().getColor(R.color.colorBlack));
                 report_img3.setVisibility(View.VISIBLE);
@@ -284,13 +331,29 @@ public class ReportActivity extends Activity {
                 time_select = "year";
                 if (function.equals("blood")) {
                     content = UPDATE_BLOOD_YEAR;
+                    report_img3.setImageResource(R.drawable.select_blood);
+                    report_select_3.setTextColor(getResources().getColor(R.color.colorBlood));
                 } else if (function.equals("rate")) {
                     content = UPDATE_RATE_YEAR;
+                    report_img3.setImageResource(R.drawable.select_rate);
+                    report_select_3.setTextColor(getResources().getColor(R.color.colorBlood));
                 } else if (function.equals("walk")) {
                     content = UPDATE_WALK_YEAR;
+                    report_img3.setImageResource(R.drawable.select_blood);
+                    report_select_3.setTextColor(getResources().getColor(R.color.colorBlood));
                 } else if (function.equals("sleep")) {
                     content = UPDATE_SLEEP_YEAR;
+                    report_img3.setImageResource(R.drawable.select_sleep);
+                    report_select_3.setTextColor(getResources().getColor(R.color.colorSleep));
                 }
+            }
+        });
+        report_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ReportActivity.this,MainActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }
@@ -298,7 +361,18 @@ public class ReportActivity extends Activity {
 
         UpdateHistoryData(strfromserver);
     }
+    private void ShowUPDATE_BLOOD_DAY()
+    {
 
+    }
+    private void  ShowChart(int content)
+    {
+        switch (content)
+        {
+            case UPDATE_BLOOD_DAY:
+                ShowUPDATE_BLOOD_DAY();
+        }
+    }
     private void ShowHeartRateChart()
     {
         //设置是否可以触摸，如为false，则不能拖动，缩放等

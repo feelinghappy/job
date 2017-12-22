@@ -124,8 +124,8 @@ public class PhonebookActivity extends Activity implements ZKCallback {
   //              callVideo("111111");
             }
         });*/
-        Button call_liutao = (Button)findViewById(R.id.call_liutao);
-        call_liutao.setOnClickListener(new View.OnClickListener() {
+        ImageView img = (ImageView)findViewById(R.id.imageView3);
+        img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {

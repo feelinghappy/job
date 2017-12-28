@@ -9,16 +9,32 @@ import com.github.mikephil.charting.highlight.Highlight;
 
 public class MyMarkerView extends MarkerView {
     private TextView mContentTv;
+    private String function;
 
-    public MyMarkerView(Context context, int layoutResource) {
+    public MyMarkerView(Context context, int layoutResource,String Repfunction) {
         super(context, layoutResource);
         mContentTv = (TextView) findViewById(R.id.tv_content_marker_view);
+        function = Repfunction;
     }
 
     @Override
     public void refreshContent(Entry e, Highlight highlight) {
         Log.e("refreshContent",e.toString());
-        mContentTv.setText( Math.round(e.getVal())+"mmgh");
+        if(function.equals("blood")) {
+            mContentTv.setText(Math.round(e.getVal()) + "mmgh");
+        }
+        else if(function.equals("rate"))
+        {
+            mContentTv.setText(Math.round(e.getVal()) + "bpm");
+        }
+        else if(function.equals("walk"))
+        {
+            mContentTv.setText(Math.round(e.getVal()) + "²½");
+        }
+        else
+        {
+            mContentTv.setText(Math.round(e.getVal()) + "h");
+        }
     }
 
     @Override
@@ -30,7 +46,7 @@ public class MyMarkerView extends MarkerView {
     public int getYOffset(float ypos) {
         Log.e("ypos",ypos+"");
         Log.e("getHeight",getHeight()+"");
-        return  -(getHeight()+ 4);
+        return  -(getHeight() + 8);
 
     }
 }

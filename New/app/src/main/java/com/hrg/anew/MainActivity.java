@@ -410,6 +410,7 @@ public class MainActivity extends Activity {
                             intent.putExtra("family_member_id",family_member_id_list.get(0));
                             startActivity(intent);
                             finish();
+                            //Toast.makeText(MainActivity.this, "该功能暂未开放，尽情期待。", Toast.LENGTH_LONG).show();
                         }
                     });
 
@@ -793,80 +794,84 @@ public class MainActivity extends Activity {
             JSONObject jsonObject = new JSONObject(strData);
             int code = Integer.parseInt(jsonObject.getString("code"));
             Log.e("code", code + "");
-            String strresult = jsonObject.getString("result");
-            Log.e("strresult", strresult);
-            JSONObject jsonresult = new JSONObject(strresult);
-            String str = jsonresult.getString("family_info");
-            Log.e("str", str);
-            JSONObject familyresult = new JSONObject(str);
-            str = familyresult.getString("family_id");
-            Log.e("family_id", str);
-            family.family_id = str;
-            Log.e("family", family.getFamily_id());
-            str = familyresult.getString("family_name");
-            family.setFamily_name(str);
-            Log.e("family getFamily_name", family.getFamily_name());
-            str = familyresult.getString("family_number");
-            family.setFamily_number(str);
-            str = familyresult.getString("member_count");
-            family.setMember_count(str);
-            str = familyresult.getString("robot_imei");
-            family.setRobot_imei(str);
-            Log.e("setRobot_imei", family.getRobot_imei());
-            //str = familyresult.getString("family_member_id");
-            //family.setFamily_member_id(str);
-            //Log.e("setFamily_member_id",family.getFamily_member_id());
-            str = familyresult.getString("affix");
-            JSONObject jsonAffix = new JSONObject(str);
-            str = jsonAffix.getString("file_path");
-            affix.setFile_path(str);
-            int num = jsonAffix.getInt("is_image");
-            affix.setIs_image(num);
-            family.setAffix(affix);
-            Log.e("setAffix", family.getAffix().toString());
-            ////////////////////////////family//////////////////////////////
-            /////////////////////////////member///////////////////////////////////
-            String strmember = jsonresult.getString("member_list");
-            Log.e("strmember", strmember);
-            JSONArray jsonmember = new JSONArray(strmember);
-            for (int i=0;i<jsonmember.length();i++)
-            {
-                JSONObject jsonObject1 = jsonmember.getJSONObject(i);
-                String member_info = jsonObject1.getString("member_info");
-                String health_info = jsonObject1.getString("health_info");
-                Log.e("health_info",health_info);
-                JSONObject memberJSONObject = new JSONObject(member_info);
-                member.member_id = memberJSONObject.getString("member_id");
-                Log.e("member.member_id",member.member_id);
-                member.member_avatar = memberJSONObject.getString("member_avatar");
-                Log.e("member.member_avatar",member.member_avatar);
-                member.member_name = memberJSONObject.getString("member_name");
-                Log.e("member.member_name",member.member_name);
-                member.family_member_id = memberJSONObject.getString("family_member_id");
-                Log.e("family_member_id",member.family_member_id );
-                family_member_id_list.add(i,member.family_member_id);
-                member.is_member = memberJSONObject.getInt("is_member");
-                Log.e("member.is_member ",member.is_member+"");
-                JSONObject healthJSONObject = new JSONObject(health_info);
-                health.member_age = healthJSONObject.getInt("member_age");
-                Log.e("health.member_age",health.member_age+"");
-                health.member_weight = healthJSONObject.getDouble("member_weight");
-                Log.e("health.member_weight",health.member_weight+"");
-                health.member_height = healthJSONObject.getDouble("member_height");
-                Log.e("health.member_height",health.member_height+"");
-                health.member_sex = healthJSONObject.getInt("member_sex");
-                Log.e("health.member_sex",health.member_sex+"");
-                member.heath = health;
-                if(member.equals(null))
-                {
-                    Log.e("member.equals(null)","member.equals(null)");
+            if(code==200) {
+                String strresult = jsonObject.getString("result");
+                Log.e("strresult", strresult);
+                JSONObject jsonresult = new JSONObject(strresult);
+                String str = jsonresult.getString("family_info");
+                Log.e("str", str);
+                JSONObject familyresult = new JSONObject(str);
+                str = familyresult.getString("family_id");
+                Log.e("family_id", str);
+                family.family_id = str;
+                Log.e("family", family.getFamily_id());
+                str = familyresult.getString("family_name");
+                family.setFamily_name(str);
+                Log.e("family getFamily_name", family.getFamily_name());
+                str = familyresult.getString("family_number");
+                family.setFamily_number(str);
+                str = familyresult.getString("member_count");
+                family.setMember_count(str);
+                str = familyresult.getString("robot_imei");
+                family.setRobot_imei(str);
+                Log.e("setRobot_imei", family.getRobot_imei());
+                //str = familyresult.getString("family_member_id");
+                //family.setFamily_member_id(str);
+                //Log.e("setFamily_member_id",family.getFamily_member_id());
+                str = familyresult.getString("affix");
+                JSONObject jsonAffix = new JSONObject(str);
+                str = jsonAffix.getString("file_path");
+                affix.setFile_path(str);
+                int num = jsonAffix.getInt("is_image");
+                affix.setIs_image(num);
+                family.setAffix(affix);
+                Log.e("setAffix", family.getAffix().toString());
+                ////////////////////////////family//////////////////////////////
+                /////////////////////////////member///////////////////////////////////
+                String strmember = jsonresult.getString("member_list");
+                Log.e("strmember", strmember);
+                JSONArray jsonmember = new JSONArray(strmember);
+                for (int i = 0; i < jsonmember.length(); i++) {
+                    JSONObject jsonObject1 = jsonmember.getJSONObject(i);
+                    String member_info = jsonObject1.getString("member_info");
+                    String health_info = jsonObject1.getString("health_info");
+                    Log.e("health_info", health_info);
+                    JSONObject memberJSONObject = new JSONObject(member_info);
+                    member.member_id = memberJSONObject.getString("member_id");
+                    Log.e("member.member_id", member.member_id);
+                    member.member_avatar = memberJSONObject.getString("member_avatar");
+                    Log.e("member.member_avatar", member.member_avatar);
+                    member.member_name = memberJSONObject.getString("member_name");
+                    Log.e("member.member_name", member.member_name);
+                    member.family_member_id = memberJSONObject.getString("family_member_id");
+                    Log.e("family_member_id", member.family_member_id);
+                    family_member_id_list.add(i, member.family_member_id);
+                    member.is_member = memberJSONObject.getInt("is_member");
+                    Log.e("member.is_member ", member.is_member + "");
+                    JSONObject healthJSONObject = new JSONObject(health_info);
+                    health.member_age = healthJSONObject.getInt("member_age");
+                    Log.e("health.member_age", health.member_age + "");
+                    health.member_weight = healthJSONObject.getDouble("member_weight");
+                    Log.e("health.member_weight", health.member_weight + "");
+                    health.member_height = healthJSONObject.getDouble("member_height");
+                    Log.e("health.member_height", health.member_height + "");
+                    health.member_sex = healthJSONObject.getInt("member_sex");
+                    Log.e("health.member_sex", health.member_sex + "");
+                    member.heath = health;
+                    if (member.equals(null)) {
+                        Log.e("member.equals(null)", "member.equals(null)");
+                    }
+                    member_list.add(i, member);
+
+
                 }
-                member_list.add(i,member);
-
-
+                //str = jsonmember.getString("member_info");
+                // Log.e("str", str);
             }
-            //str = jsonmember.getString("member_info");
-           // Log.e("str", str);
+            else
+            {
+                Log.e("code",code+"");
+            }
         }
         catch (JSONException ex)
         {

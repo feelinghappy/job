@@ -50,12 +50,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Iterator;
 import java.util.List;
 
 import okhttp3.FormBody;
@@ -67,11 +69,13 @@ import okhttp3.Response;
 import static android.view.View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
 import static android.view.View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION;
 import static android.view.View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
+import static java.lang.Float.parseFloat;
 
 public class ReportActivity extends Activity {
     private LineChart mLineChart;
     private TextView chart_value;
     private TextView report_title_1;
+    private TextView month_index;
     private TextView report_title_2;
     private TextView report_title_3;
     private TextView report_value_1;
@@ -86,7 +90,8 @@ public class ReportActivity extends Activity {
     private ImageView report_img1;
     private ImageView report_img2;
     private ImageView report_img3;
-    private String  function ="blood";
+    private ImageView chart_icon;
+    public  String  function ="blood";
     private String  time_select = "day";
     public static final  int UPDATE_BLOOD_DAY = 1;
     public static final  int UPDATE_RATE_DAY = 2;
@@ -115,9 +120,15 @@ public class ReportActivity extends Activity {
     Blood_data blood_data = new Blood_data();
     History.Sport_data_history sport_data_history = new History.Sport_data_history();
     private List<History.Heart_data_history> heart_data_list = new ArrayList<>();
+    private List<String> heart_avg_list = new ArrayList<>();
+    private List<String> heart_time_list = new ArrayList<>();
     private List<Blood_data> blood_data_list = new ArrayList<>();
+    private List<String>blood_systolic_list = new ArrayList<>();
+    private List<String>blood_diastolic_list = new ArrayList<>();
     private List<History.Sport_data_history> sport_data_list = new ArrayList<>();
     private List<History.Sleep_history> sleep_list = new ArrayList<>();
+    private ArrayList<String> xValues = new ArrayList<String>();
+    private ArrayList<Entry> yValues = new ArrayList<Entry>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -142,6 +153,8 @@ public class ReportActivity extends Activity {
             e.printStackTrace();
             Log.e("InitData",e.toString());
         }
+        month_index = (TextView)findViewById(R.id.month_index);
+        chart_icon = (ImageView)findViewById(R.id.chart_icon);
         report_back = (ImageView)findViewById(R.id.report_back);
         report_select_1 = (TextView) findViewById(R.id.report_select_1);
         report_select_2 = (TextView) findViewById(R.id.report_select_2);
@@ -164,6 +177,26 @@ public class ReportActivity extends Activity {
         mLineChart = (LineChart) findViewById(R.id.chart);
         report_img1.setImageResource(R.drawable.select_blood);
         report_select_1.setTextColor(getResources().getColor(R.color.colorBlood));
+        if(function.equals("blood"))
+        {
+            report_title_1.setText("高血压");
+            report_title_2.setText("血压");
+            report_title_3.setText("低血压");
+            report_value_1.setText("120");
+            report_value_2.setText("正常");
+            report_value_3.setText("80");
+            report_value_uint_1.setText("mmgh");
+            report_value_uint_2.setText("    ");
+            report_value_uint_3.setText("mmgh");
+            function = "blood";
+            report_img1.setImageResource(R.drawable.select_blood);
+            report_img2.setImageResource(R.drawable.select_blood);
+            report_img3.setImageResource(R.drawable.select_blood);
+            report_select_2.setTextColor(getResources().getColor(R.color.colorBlack));
+            report_select_3.setTextColor(getResources().getColor(R.color.colorBlack));
+            report_select_1.setTextColor(getResources().getColor(R.color.colorBlood));
+            content = UPDATE_BLOOD_DAY;
+        }
         //通过findViewById获得RadioGroup对象  
         RadioGroup raGrouphis = (RadioGroup) findViewById(R.id.history);
         //添加事件监听器  
@@ -187,6 +220,7 @@ public class ReportActivity extends Activity {
                       report_select_2.setTextColor(getResources().getColor(R.color.colorBlack));
                       report_select_3.setTextColor(getResources().getColor(R.color.colorBlack));
                       report_select_1.setTextColor(getResources().getColor(R.color.colorBlood));
+                      content = UPDATE_BLOOD_DAY;
 
                   } else if (checkedId == R.id.btn_1) {
                       report_title_1.setText("最高心率");
@@ -199,15 +233,18 @@ public class ReportActivity extends Activity {
                       report_value_uint_2.setText("bpm");
                       report_value_uint_3.setText("bmp");
                       function = "rate";
+                      chart_icon.setVisibility(View.GONE);
                       report_img1.setImageResource(R.drawable.select_rate);
                       report_img2.setImageResource(R.drawable.select_rate);
                       report_img3.setImageResource(R.drawable.select_rate);
                       report_select_1.setTextColor(getResources().getColor(R.color.colorRate));
                       report_select_2.setTextColor(getResources().getColor(R.color.colorBlack));
                       report_select_3.setTextColor(getResources().getColor(R.color.colorBlack));
+                      content = UPDATE_RATE_DAY;
                   } else if (checkedId == R.id.btn_2) {
                       //LinearLayout layout=(LinearLayout) findViewById(R.id.linearLayoutreport);//需要设置linearlayout的id为layout
                       //layout.setBackgroundDrawable(getResources().getDrawable(R.drawable.sport));
+                      chart_icon.setVisibility(View.GONE);
                       report_title_1.setText("累计行走");
                       report_title_2.setText("运动步数");
                       report_title_3.setText("消耗");
@@ -222,7 +259,9 @@ public class ReportActivity extends Activity {
                       report_select_1.setTextColor(getResources().getColor(R.color.colorWalk));
                       report_select_2.setTextColor(getResources().getColor(R.color.colorBlack));
                       report_select_3.setTextColor(getResources().getColor(R.color.colorBlack));
+                      content = UPDATE_WALK_DAY;
                   } else if (checkedId == R.id.btn_3) {
+                      chart_icon.setVisibility(View.GONE);
                       report_title_1.setText("睡眠时长");
                       report_title_2.setText("睡眠质量");
                       report_title_3.setText("深睡时长");
@@ -237,11 +276,125 @@ public class ReportActivity extends Activity {
                       report_select_1.setTextColor(getResources().getColor(R.color.colorSleep));
                       report_select_2.setTextColor(getResources().getColor(R.color.colorBlack));
                       report_select_3.setTextColor(getResources().getColor(R.color.colorBlack));
+                      content = UPDATE_SLEEP_DAY;
                   }
 
               }
           }
         );
+        report_value_uint_1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                report_img1.setVisibility(View.VISIBLE);
+                report_img2.setVisibility(View.INVISIBLE);
+                report_img3.setVisibility(View.INVISIBLE);
+                time_select = "day";
+                report_select_2.setTextColor(getResources().getColor(R.color.colorBlack));
+                report_select_3.setTextColor(getResources().getColor(R.color.colorBlack));
+                if (function.equals("blood")) {
+                    content = UPDATE_BLOOD_DAY;
+                    report_select_1.setTextColor(getResources().getColor(R.color.colorBlood));
+                    report_img1.setImageResource(R.drawable.select_blood);
+                    ShowNewChart(content);
+                    //report_img1.setVisibility(View.VISIBLE);
+                    //report_img2.setVisibility(View.INVISIBLE);
+                    //report_img3.setVisibility(View.INVISIBLE);
+
+                } else if (function.equals("rate")) {
+                    content = UPDATE_RATE_DAY;
+                    report_select_1.setTextColor(getResources().getColor(R.color.colorRate));
+                    report_img1.setImageResource(R.drawable.select_rate);
+                    ShowNewChart(content);
+                } else if (function.equals("walk")) {
+                    content = UPDATE_WALK_DAY;
+                    report_select_1.setTextColor(getResources().getColor(R.color.colorWalk));
+                    report_img1.setImageResource(R.drawable.select_walk);
+                    ShowNewChart(content);
+                } else if (function.equals("sleep")) {
+                    content = UPDATE_SLEEP_DAY;
+                    report_select_1.setTextColor(getResources().getColor(R.color.colorSleep));
+                    report_img1.setImageResource(R.drawable.select_sleep);
+                    Log.e("report_value_uint_1","UPDATE_SLEEP_DAY");
+                    ShowNewChart(content);
+                }
+            }
+
+        });
+        report_value_uint_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                report_select_1.setTextColor(getResources().getColor(R.color.colorBlack));
+                report_select_3.setTextColor(getResources().getColor(R.color.colorBlack));
+                report_img2.setVisibility(View.VISIBLE);
+                report_img1.setVisibility(View.INVISIBLE);
+                report_img3.setVisibility(View.INVISIBLE);
+                time_select = "month";
+                if(function.equals("blood"))
+                {
+                    content = UPDATE_BLOOD_MONTH;
+                    report_select_2.setTextColor(getResources().getColor(R.color.colorBlood));
+                    report_img2.setImageResource(R.drawable.select_blood);
+                    ShowNewChart(content);
+
+                }
+                else if(function.equals("rate"))
+                {
+                    content= UPDATE_RATE_MONTH;
+                    report_select_2.setTextColor(getResources().getColor(R.color.colorRate));
+                    report_img2.setImageResource(R.drawable.select_rate);
+                    ShowNewChart(content);
+
+                }
+                else if(function.equals("walk"))
+                {
+                    content = UPDATE_WALK_MONTH;
+                    report_select_2.setTextColor(getResources().getColor(R.color.colorWalk));
+                    report_img2.setImageResource(R.drawable.select_walk);
+                    ShowNewChart(content);
+                }
+                else if(function.equals("sleep"))
+                {
+                    content = UPDATE_SLEEP_MONTH;
+                    report_img2.setImageResource(R.drawable.select_sleep);
+                    report_select_2.setTextColor(getResources().getColor(R.color.colorSleep));
+                    ShowNewChart(content);
+
+                }
+
+            }
+        });
+        report_value_uint_3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                report_select_2.setTextColor(getResources().getColor(R.color.colorBlack));
+                report_select_1.setTextColor(getResources().getColor(R.color.colorBlack));
+                report_img3.setVisibility(View.VISIBLE);
+                report_img1.setVisibility(View.INVISIBLE);
+                report_img2.setVisibility(View.INVISIBLE);
+                time_select = "year";
+                if (function.equals("blood")) {
+                    content = UPDATE_BLOOD_YEAR;
+                    report_img3.setImageResource(R.drawable.select_blood);
+                    report_select_3.setTextColor(getResources().getColor(R.color.colorBlood));
+                    ShowNewChart(content);
+                } else if (function.equals("rate")) {
+                    content = UPDATE_RATE_YEAR;
+                    report_img3.setImageResource(R.drawable.select_rate);
+                    report_select_3.setTextColor(getResources().getColor(R.color.colorBlood));
+                    ShowNewChart(content);
+                } else if (function.equals("walk")) {
+                    content = UPDATE_WALK_YEAR;
+                    report_img3.setImageResource(R.drawable.select_blood);
+                    report_select_3.setTextColor(getResources().getColor(R.color.colorBlood));
+                    ShowNewChart(content);
+                } else if (function.equals("sleep")) {
+                    content = UPDATE_SLEEP_YEAR;
+                    report_img3.setImageResource(R.drawable.select_sleep);
+                    report_select_3.setTextColor(getResources().getColor(R.color.colorSleep));
+                    ShowNewChart(content);
+                }
+            }
+        });
         report_select_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -256,6 +409,7 @@ public class ReportActivity extends Activity {
                     content =  UPDATE_BLOOD_DAY;
                     report_select_1.setTextColor(getResources().getColor(R.color.colorBlood));
                     report_img1.setImageResource(R.drawable.select_blood);
+                    ShowNewChart(content);
                     //report_img1.setVisibility(View.VISIBLE);
                    //report_img2.setVisibility(View.INVISIBLE);
                     //report_img3.setVisibility(View.INVISIBLE);
@@ -265,18 +419,21 @@ public class ReportActivity extends Activity {
                     content = UPDATE_RATE_DAY;
                     report_select_1.setTextColor(getResources().getColor(R.color.colorRate));
                     report_img1.setImageResource(R.drawable.select_rate);
+                    ShowNewChart(content);
                  }
                  else if (function.equals("walk"))
                  {
-                     content =UPDATE_SLEEP_DAY;
+                     content =UPDATE_WALK_DAY;
                      report_select_1.setTextColor(getResources().getColor(R.color.colorWalk));
                      report_img1.setImageResource(R.drawable.select_walk);
+                     ShowNewChart(content);
                  }
                 else if (function.equals("sleep"))
                 {
                     content = UPDATE_SLEEP_DAY;
                     report_select_1.setTextColor(getResources().getColor(R.color.colorSleep));
                     report_img1.setImageResource(R.drawable.select_sleep);
+                    ShowNewChart(content);
                 }
 
             }
@@ -295,6 +452,7 @@ public class ReportActivity extends Activity {
                             content = UPDATE_BLOOD_MONTH;
                             report_select_2.setTextColor(getResources().getColor(R.color.colorBlood));
                             report_img2.setImageResource(R.drawable.select_blood);
+                            ShowNewChart(content);
 
                         }
                         else if(function.equals("rate"))
@@ -302,6 +460,7 @@ public class ReportActivity extends Activity {
                             content= UPDATE_RATE_MONTH;
                             report_select_2.setTextColor(getResources().getColor(R.color.colorRate));
                             report_img2.setImageResource(R.drawable.select_rate);
+                            ShowNewChart(content);
 
                         }
                         else if(function.equals("walk"))
@@ -309,12 +468,14 @@ public class ReportActivity extends Activity {
                             content = UPDATE_WALK_MONTH;
                             report_select_2.setTextColor(getResources().getColor(R.color.colorWalk));
                             report_img2.setImageResource(R.drawable.select_walk);
+                            ShowNewChart(content);
                         }
                         else if(function.equals("sleep"))
                         {
                             content = UPDATE_SLEEP_MONTH;
                             report_img2.setImageResource(R.drawable.select_sleep);
                             report_select_2.setTextColor(getResources().getColor(R.color.colorSleep));
+                            ShowNewChart(content);
 
                         }
 
@@ -333,18 +494,22 @@ public class ReportActivity extends Activity {
                     content = UPDATE_BLOOD_YEAR;
                     report_img3.setImageResource(R.drawable.select_blood);
                     report_select_3.setTextColor(getResources().getColor(R.color.colorBlood));
+                    ShowNewChart(content);
                 } else if (function.equals("rate")) {
                     content = UPDATE_RATE_YEAR;
                     report_img3.setImageResource(R.drawable.select_rate);
-                    report_select_3.setTextColor(getResources().getColor(R.color.colorBlood));
+                    report_select_3.setTextColor(getResources().getColor(R.color.colorRate));
+                    ShowNewChart(content);
                 } else if (function.equals("walk")) {
                     content = UPDATE_WALK_YEAR;
-                    report_img3.setImageResource(R.drawable.select_blood);
-                    report_select_3.setTextColor(getResources().getColor(R.color.colorBlood));
+                    report_img3.setImageResource(R.drawable.select_walk);
+                    report_select_3.setTextColor(getResources().getColor(R.color.colorWalk));
+                    ShowNewChart(content);
                 } else if (function.equals("sleep")) {
                     content = UPDATE_SLEEP_YEAR;
                     report_img3.setImageResource(R.drawable.select_sleep);
                     report_select_3.setTextColor(getResources().getColor(R.color.colorSleep));
+                    ShowNewChart(content);
                 }
             }
         });
@@ -356,35 +521,80 @@ public class ReportActivity extends Activity {
                 finish();
             }
         });
+        ShowNewChart(content);
     }
     private void InitData() throws JSONException, ParseException {
 
         UpdateHistoryData(strfromserver);
     }
-    private void ShowUPDATE_BLOOD_DAY()
-    {
 
-    }
-    private void  ShowChart(int content)
-    {
-        switch (content)
-        {
-            case UPDATE_BLOOD_DAY:
-                ShowUPDATE_BLOOD_DAY();
-        }
-    }
-    private void ShowHeartRateChart()
+
+    private void ShowUPDATE_RATE_DAY()
     {
         //设置是否可以触摸，如为false，则不能拖动，缩放等
         mLineChart.setTouchEnabled(true);
-
-
         XAxis xl = mLineChart.getXAxis();
         xl.setPosition(XAxisPosition.BOTTOM); // 设置X轴的数据在底部显示
         xl.setTextSize(30f); // 设置字体大小
         xl.setSpaceBetweenLabels(0); // 设置数据之间的间距'
+        ArrayList<String> xValues = new ArrayList<String>();
+        // create a dataset and give it a type    
+        // y轴的数据集合 
+        // y轴的数据    
+        ArrayList<Entry> yValues = new ArrayList<Entry>();
+        String strRate;
+        String strTime;
+        for(int i = 0; i< heart_avg_list.size(); i++)
+        {
+            strRate =  heart_avg_list.get(i);
+            strTime = heart_time_list.get(i);
+            DateFormat fmt =new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            xValues.add((i+1)+"");
+            Log.e(i+"heart_data.avg_heart",heart_data_history.avg_heart);
+            yValues.add(new Entry(parseFloat(strRate), i));
 
-        LineData mLineData = getLineData(36, 100);
+            try {
+                Date date = fmt.parse(strTime);
+                int year = date.getYear();
+                int month = date.getMonth();
+                month_index.setText((month+1)+"月");
+                int day = date.getDate();
+                Log.e("ShowUPDATE_RATE_DAY day",day+"");
+                Log.e("UPDATE_RATE_DAY month",month+"");
+            }
+            catch(ParseException ex)
+            {
+                ex.printStackTrace();
+                Log.e("ex.printStackTrace()",ex.toString());
+            }
+        }
+        LineDataSet lineDataSet = new LineDataSet(yValues, "");
+        //用y轴的集合来设置参数    
+        lineDataSet.setLineWidth(2.0f);// 线宽    
+        lineDataSet.setCircleSize(2);// 显示的圆形大小       
+        lineDataSet.setDrawCubic(true);
+        lineDataSet.setCircleColor(Color.parseColor("#FF693E"));
+        lineDataSet.setDrawHighlightIndicators(true);
+        // 圆球的颜色  
+        //点击后，十字交叉线的颜色  +
+        lineDataSet.setColor(Color.parseColor("#FF693E"));// 显示颜色 
+        lineDataSet.setHighLightColor(Color.parseColor("#00FFFFFF"));
+        lineDataSet.setValueFormatter(new ValueFormatter()
+        {
+            @Override
+            public String getFormattedValue(float value, Entry entry, int dataSetIndex,
+                                            ViewPortHandler viewPortHandler) {
+                int num = (int)value;
+                return "";
+            }
+        });//  
+        ArrayList<LineDataSet> lineDataSets = new ArrayList<LineDataSet>();
+        lineDataSets.add(lineDataSet);
+        LineData lineData = new LineData(xValues, lineDataSets);
+
+        //设置是否可以触摸，如为false，则不能拖动，缩放等
+        LineData mLineData = lineData;
+        mLineChart.setTouchEnabled(true);
         showChart(mLineChart, mLineData, Color.rgb(255, 105,62));
         //隐藏左边坐标轴横网格线
         mLineChart.getAxisLeft().setDrawGridLines(false);
@@ -392,8 +602,8 @@ public class ReportActivity extends Activity {
         mLineChart.getXAxis().setPosition(XAxisPosition.BOTTOM);// 让x轴在下面
         mLineChart.getXAxis().setGridColor(getResources().getColor(R.color.colorTM));
         mLineChart.getLegend().setEnabled(false);
-        mLineChart.getXAxis().setAxisLineColor(Color.parseColor("#FF693E"));
-        mLineChart.getXAxis().setAxisLineWidth(2f);
+        mLineChart.getXAxis().setAxisLineColor(getResources().getColor(R.color.colorRate));
+        mLineChart.getXAxis().setAxisLineWidth(1f);
         mLineChart.getAxisLeft().setEnabled(false);
         mLineChart.setDragEnabled(true);// 是否可以拖拽  
         mLineChart.setScaleEnabled(true);// 是否可以缩放 x和y轴, 默认是true  
@@ -401,74 +611,62 @@ public class ReportActivity extends Activity {
         mLineChart.setScaleYEnabled(true);//是可以缩放 仅y轴 
         mLineChart.setDoubleTapToZoomEnabled(true);////  
         // 设置MarkerView
-        MarkerView mv = new MyMarkerView(this,R.layout.markerview_value);
+        MarkerView mv = new MyMarkerView(this,R.layout.markerview_value,function);
+
         mLineChart.setMarkerView(mv);
-        mLineChart.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
-            @Override
-            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
-
-            }
-        });
-        mLineChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
-            @Override
-            public void onValueSelected(Entry e, int dataSetIndex, Highlight h) {
-                Log.e("dataSetIndex",dataSetIndex+"");
-
-                Log.e("Entry",e.toString());
-                int xindex = e.getXIndex();
-
-            }
-
-            @Override
-            public void onNothingSelected() {
-
-            }
-        });
-
-        mLineChart.setOnChartGestureListener(new OnChartGestureListener() {
-            @Override
-            public void onChartGestureStart(MotionEvent me, ChartTouchListener.ChartGesture lastPerformedGesture) {
-
-            }
-
-            @Override
-            public void onChartGestureEnd(MotionEvent me, ChartTouchListener.ChartGesture lastPerformedGesture) {
-
-            }
-
-            @Override
-            public void onChartLongPressed(MotionEvent me) {
-
-            }
-
-            @Override
-            public void onChartDoubleTapped(MotionEvent me) {
-
-            }
-
-            @Override
-            public void onChartSingleTapped(MotionEvent me) {
-
-            }
-
-            @Override
-            public void onChartFling(MotionEvent me1, MotionEvent me2, float velocityX, float velocityY) {
-
-            }
-
-            @Override
-            public void onChartScale(MotionEvent me, float scaleX, float scaleY) {
-
-            }
-
-            @Override
-            public void onChartTranslate(MotionEvent me, float dX, float dY) {
-
-            }
-        });
-
 
     }
+    private void  ShowNewChart(int content)
+    {
+        switch (content)
+        {
+            case UPDATE_BLOOD_DAY:
+                Log.e("UPDATE_BLOOD_DAY","UPDATE_BLOOD_DAY");
+                ShowBloodDayChart();
+                break;
+            case UPDATE_BLOOD_MONTH:
+                Log.e("UPDATE_BLOOD_MONTH","UPDATE_BLOOD_MONTH");
+                ShowBloodDayChart();
+                break;
+            case UPDATE_BLOOD_YEAR:
+                ShowBloodDayChart();
+                break;
+            case UPDATE_RATE_DAY:
+                Log.e("UPDATE_RATE_DAY","UPDATE_RATE_DAY");
+                ShowUPDATE_RATE_DAY();
+                break;
+            case UPDATE_RATE_MONTH:
+                ShowUPDATE_RATE_DAY();
+                break;
+            case UPDATE_RATE_YEAR:
+                ShowUPDATE_RATE_DAY();
+                break;
+            case UPDATE_SLEEP_DAY:
+                ShowSleepDayChart();
+                break;
+            case UPDATE_SLEEP_MONTH:
+                ShowSleepDayChart();
+                break;
+            case UPDATE_SLEEP_YEAR:
+                ShowSleepDayChart();
+                break;
+            case UPDATE_WALK_DAY:
+                Log.e("UPDATE_WALK_DAY","UPDATE_WALK_DAY");
+                ShowWalkDayChart();
+
+                break;
+            case UPDATE_WALK_MONTH:
+                ShowWalkDayChart();
+                break;
+            case UPDATE_WALK_YEAR:
+                ShowWalkDayChart();
+                break;
+
+
+
+        }
+    }
+
     // 设置显示的样式    
     private void showChart(LineChart lineChart, LineData lineData, int color) {
         lineChart.setDrawBorders(false);//是否在折线图上添加边框    
@@ -522,8 +720,9 @@ public class ReportActivity extends Activity {
          LineDataSet lineDataSet = new LineDataSet(yValues, "");
          //用y轴的集合来设置参数    
          lineDataSet.setLineWidth(2.0f);// 线宽    
-         lineDataSet.setCircleSize(2);// 显示的圆形大小       
+         lineDataSet.setCircleSize(4);// 显示的圆形大小       
          lineDataSet.setDrawCubic(true);
+
          lineDataSet.setCircleColor(Color.parseColor("#FF693E"));
          lineDataSet.setDrawHighlightIndicators(true);
          // 圆球的颜色  
@@ -575,7 +774,7 @@ public class ReportActivity extends Activity {
       return date;
     }
 
-    /*
+        /*
          * 将时间转换为时间戳
          */
     public void dateToStamp(String s) throws ParseException {
@@ -595,7 +794,7 @@ public class ReportActivity extends Activity {
         c.add(Calendar.DATE, -1);
         Date d = c.getTime();
         String day = format.format(d);
-        System.out.println("过去七天："+day);
+        System.out.println("过去1天："+day);
         return day;
     }
 
@@ -619,7 +818,7 @@ public class ReportActivity extends Activity {
         c.add(Calendar.YEAR, -1);
         Date d = c.getTime();
         String day = format.format(d);
-        System.out.println("过去1月："+day);
+        System.out.println("过去1年："+day);
         return day;
     }
 /*
@@ -679,32 +878,68 @@ public class ReportActivity extends Activity {
             Log.e("blood_data.create_time",blood_data.create_time+"");
             blood_data.systolic = object.getInt("systolic");
             blood_data_list.add(i,blood_data);
+            blood_diastolic_list.add(object.getInt("diastolic")+"");
+            blood_systolic_list.add(object.getInt("systolic")+"");
         }
         JSONArray sportarray = new JSONArray(strSport_data);
         for(int i=0;i<sportarray.length();i++)
         {
             JSONObject object = sportarray.getJSONObject(i);
             sport_data_history.calory = object.getInt("calory");
+            Log.e("sport_data_.calory",sport_data_history.calory+"" );
             sport_data_history.create_time = stampToDate((long)object.getInt("create_time"));
             Log.e("sport_data_history",sport_data_history.create_time);
             sport_data_history.step_num = object.getInt("step_num");
             sport_data_list.add(i,sport_data_history);
         }
+        for (int i=0;i<sport_data_list.size();i++)
+        {
+            sport_data_history  = sport_data_list.get(i);
+            Log.e("sport_data_.calory",sport_data_history.calory+"");
+        }
         JSONArray heartarray = new JSONArray(strheart_data);
         Log.e("strheart_data",strheart_data);
         Log.e("heartarray",heartarray.length()+"");
+
         for(int i=0;i<heartarray.length();i++)
         {
             JSONObject object = heartarray.getJSONObject(i);
             heart_data_history.avg_heart = object.getString("avg_heart");
-            heart_data_history.max_heart = object.getInt("max_heart");
             Log.e("avg_heart",heart_data_history.avg_heart+"");
+            heart_data_history.max_heart = object.getInt("max_heart");
             heart_data_history.min_heart = object.getInt("min_heart");
             heart_data_history.create_time = stampToDate(((long)object.getInt("create_time")));
             Log.e("heart_data_history",heart_data_history.create_time);
-            heart_data_list.add(i,heart_data_history);
+            heart_data_list.add(heart_data_history);
+            heart_avg_list.add(object.getString("avg_heart"));
+            heart_time_list.add(stampToDate(((long)object.getInt("create_time"))));
+        }
+        for (int i=0;i<heart_avg_list.size();i++)
+        {
+            String str =  heart_avg_list.get(i);
+            String time = heart_data_history.create_time;
+            DateFormat fmt =new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            xValues.add((i+1)+"");
+            Log.e(i+" heart_avg_list",str);
+            yValues.add(new Entry(parseFloat(heart_data_history.avg_heart), i));
+
+            try {
+                Date date = fmt.parse(time);
+                int year = date.getYear();
+                int month = date.getMonth();
+                month_index.setText((month+1)+"月");
+                int day = date.getDate();
+                Log.e("UpdateHistoryData  day",day+"");
+                Log.e("UpdateHistoryData month",month+"");
+            }
+            catch(ParseException ex)
+            {
+                ex.printStackTrace();
+                Log.e("ex.printStackTrace()",ex.toString());
+            }
         }
     }
+
     private Handler handler = new Handler() {
 
         public void handleMessage(Message msg) {
@@ -725,7 +960,7 @@ public class ReportActivity extends Activity {
                 case UPDATE_RATE_DAY:
                     try {
                         Log.e("UPDATE_RATE_DAY","UPDATE_RATE_DAY");
-                        ShowHeartRateChart();
+
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -849,7 +1084,7 @@ public class ReportActivity extends Activity {
     private LineData getWalkDayLineData(int count, float range)
     {
         ArrayList<String> xValues = new ArrayList<String>();
-        for (int i = 0; i < count; i++)
+        for (int i = 1; i < count+1; i++)
         {
             // x轴显示的数据，这里默认使用数字下标显示    
             xValues.add("" + i);
@@ -866,8 +1101,9 @@ public class ReportActivity extends Activity {
         LineDataSet lineDataSet = new LineDataSet(yValues, "");
         //用y轴的集合来设置参数    
         lineDataSet.setLineWidth(2.0f);// 线宽    
-        lineDataSet.setCircleSize(0);// 显示的圆形大小       
+        lineDataSet.setCircleSize(4);// 显示的圆形大小       
         lineDataSet.setDrawCubic(true);
+        lineDataSet.setCircleColor(Color.parseColor("#1BB284"));
         lineDataSet.setDrawHighlightIndicators(true);
         // 圆球的颜色  
         //点击后，十字交叉线的颜色  +
@@ -910,7 +1146,7 @@ public class ReportActivity extends Activity {
         mLineChart.getXAxis().setGridColor(getResources().getColor(R.color.colorTM));
         mLineChart.getLegend().setEnabled(false);
         mLineChart.getXAxis().setAxisLineColor(Color.parseColor("#1BB284"));
-        mLineChart.getXAxis().setAxisLineWidth(2f);
+        mLineChart.getXAxis().setAxisLineWidth(1f);
         mLineChart.getAxisLeft().setEnabled(false);
         mLineChart.setDragEnabled(true);// 是否可以拖拽  
         mLineChart.setScaleEnabled(true);// 是否可以缩放 x和y轴, 默认是true  
@@ -918,7 +1154,7 @@ public class ReportActivity extends Activity {
         mLineChart.setScaleYEnabled(true);//是可以缩放 仅y轴 
         mLineChart.setDoubleTapToZoomEnabled(true);////  
         // 设置MarkerView
-        MarkerView mv = new MyMarkerView(this,R.layout.markerview_value);
+        MarkerView mv = new MyMarkerView(this,R.layout.markerview_value,function);
         mLineChart.setMarkerView(mv);
         mLineChart.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
             @Override
@@ -1033,6 +1269,358 @@ public class ReportActivity extends Activity {
             }
         }).start();
 
+
+    }
+    /////////////////////////血压///////////////////////////////////
+    // 设置显示的样式    
+    private void showBloodDayChart(LineChart lineChart, LineData lineData, int color) {
+        lineChart.setDrawBorders(false);//是否在折线图上添加边框    
+
+        // no description text    
+        lineChart.setDescription("");// 数据描述    
+        // 如果没有数据的时候，会显示这个，类似listview的emtpyview    
+        lineChart.setNoDataTextDescription("You need to provide data for the chart.");
+
+        // enable / disable grid background    
+        lineChart.setDrawGridBackground(false);// 是否显示表格颜色    
+
+        // enable touch gestures    
+        lineChart.setTouchEnabled(true);// 设置是否可以触摸    
+
+        // enable scaling and dragging    
+        lineChart.setDragEnabled(true);// 是否可以拖拽    
+        lineChart.setScaleEnabled(true);// 是否可以缩放    
+
+        // if disabled, scaling can be done on x- and y-axis separately    
+        lineChart.setPinchZoom(false);//   
+        //取消legend
+
+
+
+        // add data    
+        lineChart.setData(lineData);// 设置数据    
+    }
+
+    private void ShowBloodDayChart()
+    {
+        //设置是否可以触摸，如为false，则不能拖动，缩放等
+        mLineChart.setTouchEnabled(true);
+        XAxis xl = mLineChart.getXAxis();
+        xl.setPosition(XAxisPosition.BOTTOM); // 设置X轴的数据在底部显示
+        xl.setTextSize(30f); // 设置字体大小
+        xl.setSpaceBetweenLabels(0); // 设置数据之间的间距'
+
+        ArrayList<String> xValues = new ArrayList<String>();
+        for (int i = 1; i < 16; i++)
+        {
+            // x轴显示的数据，这里默认使用数字下标显示    
+            xValues.add("" + i);
+        }
+        // create a dataset and give it a type    
+        // y轴的数据集合 
+        // y轴的数据    
+        ArrayList<Entry> yValues = new ArrayList<Entry>();
+        ArrayList<Entry> yAddValues = new ArrayList<Entry>();
+        for(int i = 1; i< 16; i++)
+        {
+            float value =(float)(Math.random()* 130) + 3;
+            float valueAdd =(float)(Math.random()* 130) + 3-30;
+            yValues.add(new Entry(value, i));
+            yAddValues.add(new Entry(valueAdd, i));
+        }
+        LineDataSet lineDataSet = new LineDataSet(yValues, "");
+        LineDataSet lineDataAddSet = new LineDataSet(yAddValues, "");
+        //用y轴的集合来设置参数    
+        lineDataSet.setLineWidth(2.0f);// 线宽  
+        lineDataAddSet.setLineWidth(2.0f);// 线宽 
+        lineDataSet.setCircleSize(4);// 显示的圆形大小  
+        lineDataAddSet.setCircleSize(4);// 显示的圆形大小//      
+        lineDataSet.setDrawCubic(true);
+        lineDataAddSet.setDrawCubic(true);
+        lineDataSet.setCircleColor(Color.parseColor("#1B87F3"));
+        lineDataAddSet.setCircleColor(Color.parseColor("#FEA501"));
+        lineDataSet.setDrawHighlightIndicators(true);
+        lineDataAddSet.setDrawHighlightIndicators(true);
+        // 圆球的颜色  
+        //点击后，十字交叉线的颜色  +
+        lineDataSet.setColor(Color.parseColor("#1B87F3"));// 显示颜色 
+        lineDataSet.setHighLightColor(Color.parseColor("#00FFFFFF"));
+        //点击后，十字交叉线的颜色  +
+        lineDataAddSet.setColor(Color.parseColor("#FEA501"));// 显示颜色 
+        lineDataAddSet.setHighLightColor(Color.parseColor("#00FFFFFF"));
+
+        lineDataSet.setValueFormatter(new ValueFormatter()
+        {
+            @Override
+            public String getFormattedValue(float value, Entry entry, int dataSetIndex,
+                                            ViewPortHandler viewPortHandler) {
+                int num = (int)value;
+                return "";
+            }
+        });
+        lineDataAddSet.setValueFormatter(new ValueFormatter()
+        {
+            @Override
+            public String getFormattedValue(float value, Entry entry, int dataSetIndex,
+                                            ViewPortHandler viewPortHandler) {
+                int num = (int)value;
+                return "";
+            }
+        });
+
+        ArrayList<LineDataSet> lineDataSets = new ArrayList<LineDataSet>();
+        ArrayList<LineDataSet> lineAddDataSets = new ArrayList<LineDataSet>();
+        lineDataSets.add(lineDataSet);// add the datasets    
+        lineAddDataSets.add(lineDataSet);// add the datasets  
+        // create a data object with the datasets    
+        LineData lineData = new LineData(xValues, lineDataSets);
+        LineData lineAddData = new LineData(xValues, lineAddDataSets);
+        showBloodDayChart(mLineChart, lineData, Color.rgb(255, 105,62));
+        showBloodDayChart(mLineChart, lineAddData, Color.rgb(255, 105,62));
+        //隐藏左边坐标轴横网格线
+        mLineChart.getAxisLeft().setDrawGridLines(false);
+        mLineChart.getAxisRight().setEnabled(false);// 隐藏右边 的坐标轴
+        mLineChart.getXAxis().setPosition(XAxisPosition.BOTTOM);// 让x轴在下面
+        mLineChart.getXAxis().setGridColor(getResources().getColor(R.color.colorTM));
+        mLineChart.getLegend().setEnabled(false);
+        mLineChart.getXAxis().setAxisLineColor(Color.parseColor("#FEA501"));
+        mLineChart.getXAxis().setAxisLineWidth(1f);
+        mLineChart.getAxisLeft().setEnabled(false);
+        mLineChart.setDragEnabled(true);// 是否可以拖拽  
+        mLineChart.setScaleEnabled(true);// 是否可以缩放 x和y轴, 默认是true  
+        mLineChart.setScaleXEnabled(true);//是否可以缩放 仅x轴  
+        mLineChart.setScaleYEnabled(true);//是可以缩放 仅y轴 
+        mLineChart.setDoubleTapToZoomEnabled(true);////  
+        // 设置MarkerView
+        MarkerView mv = new MyMarkerView(this,R.layout.markerview_value,function);
+        mLineChart.setMarkerView(mv);
+        mLineChart.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+            @Override
+            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+
+            }
+        });
+        mLineChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
+            @Override
+            public void onValueSelected(Entry e, int dataSetIndex, Highlight h) {
+                Log.e("dataSetIndex",dataSetIndex+"");
+
+                Log.e("Entry",e.toString());
+                int xindex = e.getXIndex();
+
+            }
+
+            @Override
+            public void onNothingSelected() {
+
+            }
+        });
+
+        mLineChart.setOnChartGestureListener(new OnChartGestureListener() {
+            @Override
+            public void onChartGestureStart(MotionEvent me, ChartTouchListener.ChartGesture lastPerformedGesture) {
+
+            }
+
+            @Override
+            public void onChartGestureEnd(MotionEvent me, ChartTouchListener.ChartGesture lastPerformedGesture) {
+
+            }
+
+            @Override
+            public void onChartLongPressed(MotionEvent me) {
+
+            }
+
+            @Override
+            public void onChartDoubleTapped(MotionEvent me) {
+
+            }
+
+            @Override
+            public void onChartSingleTapped(MotionEvent me) {
+
+            }
+
+            @Override
+            public void onChartFling(MotionEvent me1, MotionEvent me2, float velocityX, float velocityY) {
+
+            }
+
+            @Override
+            public void onChartScale(MotionEvent me, float scaleX, float scaleY) {
+
+            }
+
+            @Override
+            public void onChartTranslate(MotionEvent me, float dX, float dY) {
+
+            }
+        });
+
+    }
+    ////////////////////////////////////////////////////////////////睡眠///////////////////////////////////////
+    // 设置显示的样式    
+    private void showSleepDayChart(LineChart lineChart, LineData lineData, int color) {
+        lineChart.setDrawBorders(false);//是否在折线图上添加边框    
+
+        // no description text    
+        lineChart.setDescription("");// 数据描述    
+        // 如果没有数据的时候，会显示这个，类似listview的emtpyview    
+        lineChart.setNoDataTextDescription("You need to provide data for the chart.");
+
+        // enable / disable grid background    
+        lineChart.setDrawGridBackground(false);// 是否显示表格颜色    
+
+        // enable touch gestures    
+        lineChart.setTouchEnabled(true);// 设置是否可以触摸    
+
+        // enable scaling and dragging    
+        lineChart.setDragEnabled(true);// 是否可以拖拽    
+        lineChart.setScaleEnabled(true);// 是否可以缩放    
+
+        // if disabled, scaling can be done on x- and y-axis separately    
+        lineChart.setPinchZoom(false);//   
+        //取消legend
+
+
+
+        // add data    
+        lineChart.setData(lineData);// 设置数据    
+    }
+
+    private void ShowSleepDayChart()
+    {
+        //设置是否可以触摸，如为false，则不能拖动，缩放等
+        mLineChart.setTouchEnabled(true);
+        XAxis xl = mLineChart.getXAxis();
+        xl.setPosition(XAxisPosition.BOTTOM); // 设置X轴的数据在底部显示
+        xl.setTextSize(30f); // 设置字体大小
+        xl.setSpaceBetweenLabels(2); // 设置数据之间的间距'
+
+        ArrayList<String> xValues = new ArrayList<String>();
+        for (int i = 1; i < 16; i++)
+        {
+            // x轴显示的数据，这里默认使用数字下标显示    
+            xValues.add("" + i);
+        }
+        // create a dataset and give it a type    
+        // y轴的数据集合 
+        // y轴的数据    
+        ArrayList<Entry> yValues = new ArrayList<Entry>();
+        for(int i = 1; i< 16; i++)
+        {
+            float value =(float)(Math.random()* 12);
+            yValues.add(new Entry(value, i));
+        }
+        LineDataSet lineDataSet = new LineDataSet(yValues, "");
+        //用y轴的集合来设置参数    
+        lineDataSet.setLineWidth(2.0f);// 线宽  
+        lineDataSet.setCircleSize(4);// 显示的圆形大小      
+        lineDataSet.setDrawCubic(true);
+        lineDataSet.setCircleColor(Color.parseColor("#1CC1FB"));
+        lineDataSet.setDrawHighlightIndicators(true);
+        // 圆球的颜色  
+        //点击后，十字交叉线的颜色  +
+        lineDataSet.setColor(Color.parseColor("#1CC1FB"));// 显示颜色 
+        lineDataSet.setHighLightColor(Color.parseColor("#00FFFFFF"));
+        //点击后，十字交叉线的颜色  +
+
+        lineDataSet.setValueFormatter(new ValueFormatter()
+        {
+            @Override
+            public String getFormattedValue(float value, Entry entry, int dataSetIndex,
+                                            ViewPortHandler viewPortHandler) {
+                int num = (int)value;
+                return "";
+            }
+        });
+
+        ArrayList<LineDataSet> lineDataSets = new ArrayList<LineDataSet>();
+        lineDataSets.add(lineDataSet);// add the datasets    
+        // create a data object with the datasets    
+        LineData lineData = new LineData(xValues, lineDataSets);
+        showBloodDayChart(mLineChart, lineData, Color.rgb(28, 193,21));
+        //隐藏左边坐标轴横网格线
+        mLineChart.getAxisLeft().setDrawGridLines(false);
+        mLineChart.getAxisRight().setEnabled(false);// 隐藏右边 的坐标轴
+        mLineChart.getXAxis().setPosition(XAxisPosition.BOTTOM);// 让x轴在下面
+        mLineChart.getXAxis().setGridColor(getResources().getColor(R.color.colorTM));
+        mLineChart.getLegend().setEnabled(false);
+        mLineChart.getXAxis().setAxisLineColor(Color.parseColor("#1CC1FB"));
+        mLineChart.getXAxis().setAxisLineWidth(1f);
+        mLineChart.getAxisLeft().setEnabled(false);
+        mLineChart.setDragEnabled(true);// 是否可以拖拽  
+        mLineChart.setScaleEnabled(true);// 是否可以缩放 x和y轴, 默认是true  
+        mLineChart.setScaleXEnabled(true);//是否可以缩放 仅x轴  
+        mLineChart.setScaleYEnabled(true);//是可以缩放 仅y轴 
+        mLineChart.setDoubleTapToZoomEnabled(true);////  
+        // 设置MarkerView
+        MarkerView mv = new MyMarkerView(this,R.layout.markerview_value,function);
+        mLineChart.setMarkerView(mv);
+        mLineChart.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+            @Override
+            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+
+            }
+        });
+        mLineChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
+            @Override
+            public void onValueSelected(Entry e, int dataSetIndex, Highlight h) {
+                Log.e("dataSetIndex",dataSetIndex+"");
+
+                Log.e("Entry",e.toString());
+                int xindex = e.getXIndex();
+
+            }
+
+            @Override
+            public void onNothingSelected() {
+
+            }
+        });
+
+        mLineChart.setOnChartGestureListener(new OnChartGestureListener() {
+            @Override
+            public void onChartGestureStart(MotionEvent me, ChartTouchListener.ChartGesture lastPerformedGesture) {
+
+            }
+
+            @Override
+            public void onChartGestureEnd(MotionEvent me, ChartTouchListener.ChartGesture lastPerformedGesture) {
+
+            }
+
+            @Override
+            public void onChartLongPressed(MotionEvent me) {
+
+            }
+
+            @Override
+            public void onChartDoubleTapped(MotionEvent me) {
+
+            }
+
+            @Override
+            public void onChartSingleTapped(MotionEvent me) {
+
+            }
+
+            @Override
+            public void onChartFling(MotionEvent me1, MotionEvent me2, float velocityX, float velocityY) {
+
+            }
+
+            @Override
+            public void onChartScale(MotionEvent me, float scaleX, float scaleY) {
+
+            }
+
+            @Override
+            public void onChartTranslate(MotionEvent me, float dX, float dY) {
+
+            }
+        });
 
     }
 

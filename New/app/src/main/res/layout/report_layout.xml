@@ -242,6 +242,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
     <TextView
+        android:id="@+id/month_index"
         android:layout_marginLeft="40px"
         android:layout_marginTop="10px"
         android:textSize="24px"
@@ -249,16 +250,19 @@
         android:text="五月"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
     <android.widget.ImageView
+        android:id= "@+id/chart_icon"
         android:src="@drawable/blood_icon"
         android:layout_marginTop="18px"
         android:layout_marginLeft="975px"
         android:layout_width="176px"
         android:layout_height="62px" />
     </LinearLayout>
+
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/chart"
-        android:layout_width="1280px"
-        android:layout_height="380px"
+        android:layout_width="match_parent"
+        android:layout_height="320px"
         />
 </LinearLayout>

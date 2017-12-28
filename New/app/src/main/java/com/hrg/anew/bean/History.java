@@ -5,7 +5,7 @@ import java.util.List;
 
 public class History implements Serializable
 {
-    public List<Heart_data_history> eart_data_list;
+    public List<Heart_data_history> heart_data_list;
     public List<Sleep_history> sleepList;
     public List<Sport_data_history> sport_dataList;
     public List<Blood_data> blood_dataList;

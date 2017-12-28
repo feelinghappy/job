@@ -131,7 +131,6 @@ public class ReportActivity extends Activity {
     private ArrayList<Entry> yValues = new ArrayList<Entry>();
     ArrayList<LineDataSet> dataSets = new ArrayList<>();
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -1304,7 +1303,7 @@ public class ReportActivity extends Activity {
     }
     /////////////////////////血压///////////////////////////////////
     // 设置显示的样式    
-    private void showBloodDayChart(LineChart lineChart, LineData lineData1,LineData lineData2) {
+    private void showBloodDayChart(LineChart lineChart, LineData lineData) {
         lineChart.setDrawBorders(false);//是否在折线图上添加边框    
 
         // no description text    
@@ -1329,10 +1328,9 @@ public class ReportActivity extends Activity {
 
 
 
-        // add data    
-        lineChart.setData(lineData1);// 设置数据  
+
         // // add data    
-        lineChart.setData(lineData2);// 设置数据   
+        lineChart.setData(lineData);// 设置数据   
     }
 
     private void ShowBloodDayChart()
@@ -1406,13 +1404,12 @@ public class ReportActivity extends Activity {
         ArrayList<LineDataSet> lineDataSets = new ArrayList<LineDataSet>();
         ArrayList<LineDataSet> lineAddDataSets = new ArrayList<LineDataSet>();
         lineDataSets.add(lineDataSet);// add the datasets    
-        lineAddDataSets.add(lineDataSet);// add the datasets  
+        lineDataSets.add(lineDataAddSet);// add the datasets  
         // create a data object with the datasets    
-        LineData lineData = new LineData(xValues, lineDataSets);
-        LineData lineAddData = new LineData(xValues, lineAddDataSets);
+        LineData lineData = new LineData(xValues,lineDataSets);
+// 创建一个数据集的数据对象
 
-
-        showBloodDayChart(mLineChart, lineData,lineAddData);
+        showBloodDayChart(mLineChart, lineData);
         //隐藏左边坐标轴横网格线
         mLineChart.getAxisLeft().setDrawGridLines(false);
         mLineChart.getAxisRight().setEnabled(false);// 隐藏右边 的坐标轴

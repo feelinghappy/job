@@ -129,6 +129,9 @@ public class ReportActivity extends Activity {
     private List<History.Sleep_history> sleep_list = new ArrayList<>();
     private ArrayList<String> xValues = new ArrayList<String>();
     private ArrayList<Entry> yValues = new ArrayList<Entry>();
+    ArrayList<LineDataSet> dataSets = new ArrayList<>();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -221,6 +224,8 @@ public class ReportActivity extends Activity {
                       report_select_3.setTextColor(getResources().getColor(R.color.colorBlack));
                       report_select_1.setTextColor(getResources().getColor(R.color.colorBlood));
                       content = UPDATE_BLOOD_DAY;
+                      chart_icon.setVisibility(View.VISIBLE);
+                      ShowNewChart(content);
 
                   } else if (checkedId == R.id.btn_1) {
                       report_title_1.setText("最高心率");
@@ -241,6 +246,9 @@ public class ReportActivity extends Activity {
                       report_select_2.setTextColor(getResources().getColor(R.color.colorBlack));
                       report_select_3.setTextColor(getResources().getColor(R.color.colorBlack));
                       content = UPDATE_RATE_DAY;
+
+                      ShowNewChart(content);
+                      mLineChart.invalidate();
                   } else if (checkedId == R.id.btn_2) {
                       //LinearLayout layout=(LinearLayout) findViewById(R.id.linearLayoutreport);//需要设置linearlayout的id为layout
                       //layout.setBackgroundDrawable(getResources().getDrawable(R.drawable.sport));
@@ -260,6 +268,8 @@ public class ReportActivity extends Activity {
                       report_select_2.setTextColor(getResources().getColor(R.color.colorBlack));
                       report_select_3.setTextColor(getResources().getColor(R.color.colorBlack));
                       content = UPDATE_WALK_DAY;
+                      ShowNewChart(content);
+                      mLineChart.invalidate();
                   } else if (checkedId == R.id.btn_3) {
                       chart_icon.setVisibility(View.GONE);
                       report_title_1.setText("睡眠时长");
@@ -277,6 +287,8 @@ public class ReportActivity extends Activity {
                       report_select_2.setTextColor(getResources().getColor(R.color.colorBlack));
                       report_select_3.setTextColor(getResources().getColor(R.color.colorBlack));
                       content = UPDATE_SLEEP_DAY;
+                      ShowNewChart(content);
+                      mLineChart.invalidate();
                   }
 
               }
@@ -296,6 +308,7 @@ public class ReportActivity extends Activity {
                     report_select_1.setTextColor(getResources().getColor(R.color.colorBlood));
                     report_img1.setImageResource(R.drawable.select_blood);
                     ShowNewChart(content);
+                    mLineChart.invalidate();
                     //report_img1.setVisibility(View.VISIBLE);
                     //report_img2.setVisibility(View.INVISIBLE);
                     //report_img3.setVisibility(View.INVISIBLE);
@@ -305,17 +318,20 @@ public class ReportActivity extends Activity {
                     report_select_1.setTextColor(getResources().getColor(R.color.colorRate));
                     report_img1.setImageResource(R.drawable.select_rate);
                     ShowNewChart(content);
+                    mLineChart.invalidate();
                 } else if (function.equals("walk")) {
                     content = UPDATE_WALK_DAY;
                     report_select_1.setTextColor(getResources().getColor(R.color.colorWalk));
                     report_img1.setImageResource(R.drawable.select_walk);
                     ShowNewChart(content);
+                    mLineChart.invalidate();
                 } else if (function.equals("sleep")) {
                     content = UPDATE_SLEEP_DAY;
                     report_select_1.setTextColor(getResources().getColor(R.color.colorSleep));
                     report_img1.setImageResource(R.drawable.select_sleep);
                     Log.e("report_value_uint_1","UPDATE_SLEEP_DAY");
                     ShowNewChart(content);
+                    mLineChart.invalidate();
                 }
             }
 
@@ -335,6 +351,7 @@ public class ReportActivity extends Activity {
                     report_select_2.setTextColor(getResources().getColor(R.color.colorBlood));
                     report_img2.setImageResource(R.drawable.select_blood);
                     ShowNewChart(content);
+                    mLineChart.invalidate();
 
                 }
                 else if(function.equals("rate"))
@@ -343,6 +360,7 @@ public class ReportActivity extends Activity {
                     report_select_2.setTextColor(getResources().getColor(R.color.colorRate));
                     report_img2.setImageResource(R.drawable.select_rate);
                     ShowNewChart(content);
+                    mLineChart.invalidate();
 
                 }
                 else if(function.equals("walk"))
@@ -351,6 +369,7 @@ public class ReportActivity extends Activity {
                     report_select_2.setTextColor(getResources().getColor(R.color.colorWalk));
                     report_img2.setImageResource(R.drawable.select_walk);
                     ShowNewChart(content);
+                    mLineChart.invalidate();
                 }
                 else if(function.equals("sleep"))
                 {
@@ -358,6 +377,7 @@ public class ReportActivity extends Activity {
                     report_img2.setImageResource(R.drawable.select_sleep);
                     report_select_2.setTextColor(getResources().getColor(R.color.colorSleep));
                     ShowNewChart(content);
+                    mLineChart.invalidate();
 
                 }
 
@@ -377,11 +397,13 @@ public class ReportActivity extends Activity {
                     report_img3.setImageResource(R.drawable.select_blood);
                     report_select_3.setTextColor(getResources().getColor(R.color.colorBlood));
                     ShowNewChart(content);
+                    mLineChart.invalidate();
                 } else if (function.equals("rate")) {
                     content = UPDATE_RATE_YEAR;
                     report_img3.setImageResource(R.drawable.select_rate);
                     report_select_3.setTextColor(getResources().getColor(R.color.colorBlood));
                     ShowNewChart(content);
+                    mLineChart.invalidate();
                 } else if (function.equals("walk")) {
                     content = UPDATE_WALK_YEAR;
                     report_img3.setImageResource(R.drawable.select_blood);
@@ -392,6 +414,7 @@ public class ReportActivity extends Activity {
                     report_img3.setImageResource(R.drawable.select_sleep);
                     report_select_3.setTextColor(getResources().getColor(R.color.colorSleep));
                     ShowNewChart(content);
+                    mLineChart.invalidate();
                 }
             }
         });
@@ -410,6 +433,7 @@ public class ReportActivity extends Activity {
                     report_select_1.setTextColor(getResources().getColor(R.color.colorBlood));
                     report_img1.setImageResource(R.drawable.select_blood);
                     ShowNewChart(content);
+                    mLineChart.invalidate();
                     //report_img1.setVisibility(View.VISIBLE);
                    //report_img2.setVisibility(View.INVISIBLE);
                     //report_img3.setVisibility(View.INVISIBLE);
@@ -420,6 +444,7 @@ public class ReportActivity extends Activity {
                     report_select_1.setTextColor(getResources().getColor(R.color.colorRate));
                     report_img1.setImageResource(R.drawable.select_rate);
                     ShowNewChart(content);
+                    mLineChart.invalidate();
                  }
                  else if (function.equals("walk"))
                  {
@@ -427,6 +452,7 @@ public class ReportActivity extends Activity {
                      report_select_1.setTextColor(getResources().getColor(R.color.colorWalk));
                      report_img1.setImageResource(R.drawable.select_walk);
                      ShowNewChart(content);
+                     mLineChart.invalidate();
                  }
                 else if (function.equals("sleep"))
                 {
@@ -434,6 +460,7 @@ public class ReportActivity extends Activity {
                     report_select_1.setTextColor(getResources().getColor(R.color.colorSleep));
                     report_img1.setImageResource(R.drawable.select_sleep);
                     ShowNewChart(content);
+                    mLineChart.invalidate();
                 }
 
             }
@@ -495,21 +522,25 @@ public class ReportActivity extends Activity {
                     report_img3.setImageResource(R.drawable.select_blood);
                     report_select_3.setTextColor(getResources().getColor(R.color.colorBlood));
                     ShowNewChart(content);
+                    mLineChart.invalidate();
                 } else if (function.equals("rate")) {
                     content = UPDATE_RATE_YEAR;
                     report_img3.setImageResource(R.drawable.select_rate);
                     report_select_3.setTextColor(getResources().getColor(R.color.colorRate));
                     ShowNewChart(content);
+                    mLineChart.invalidate();
                 } else if (function.equals("walk")) {
                     content = UPDATE_WALK_YEAR;
                     report_img3.setImageResource(R.drawable.select_walk);
                     report_select_3.setTextColor(getResources().getColor(R.color.colorWalk));
                     ShowNewChart(content);
+                    mLineChart.invalidate();
                 } else if (function.equals("sleep")) {
                     content = UPDATE_SLEEP_YEAR;
                     report_img3.setImageResource(R.drawable.select_sleep);
                     report_select_3.setTextColor(getResources().getColor(R.color.colorSleep));
                     ShowNewChart(content);
+                    mLineChart.invalidate();
                 }
             }
         });
@@ -1095,7 +1126,7 @@ public class ReportActivity extends Activity {
         ArrayList<Entry> yValues = new ArrayList<Entry>();
         for(int i = 0; i< count; i++)
         {
-            float value =(float)(Math.random()* range) + 3;
+            float value =(float)(Math.random()* range)/3 + 7000;
             yValues.add(new Entry(value, i));
         }
         LineDataSet lineDataSet = new LineDataSet(yValues, "");
@@ -1273,7 +1304,7 @@ public class ReportActivity extends Activity {
     }
     /////////////////////////血压///////////////////////////////////
     // 设置显示的样式    
-    private void showBloodDayChart(LineChart lineChart, LineData lineData, int color) {
+    private void showBloodDayChart(LineChart lineChart, LineData lineData1,LineData lineData2) {
         lineChart.setDrawBorders(false);//是否在折线图上添加边框    
 
         // no description text    
@@ -1297,8 +1328,11 @@ public class ReportActivity extends Activity {
 
 
 
+
         // add data    
-        lineChart.setData(lineData);// 设置数据    
+        lineChart.setData(lineData1);// 设置数据  
+        // // add data    
+        lineChart.setData(lineData2);// 设置数据   
     }
 
     private void ShowBloodDayChart()
@@ -1323,11 +1357,12 @@ public class ReportActivity extends Activity {
         ArrayList<Entry> yAddValues = new ArrayList<Entry>();
         for(int i = 1; i< 16; i++)
         {
-            float value =(float)(Math.random()* 130) + 3;
-            float valueAdd =(float)(Math.random()* 130) + 3-30;
+            float value =(float)(Math.random()* 130/3+50) + 30;
+            float valueAdd =(float)(Math.random()* 130/3+50) + 3-30;
             yValues.add(new Entry(value, i));
             yAddValues.add(new Entry(valueAdd, i));
         }
+
         LineDataSet lineDataSet = new LineDataSet(yValues, "");
         LineDataSet lineDataAddSet = new LineDataSet(yAddValues, "");
         //用y轴的集合来设置参数    
@@ -1375,8 +1410,9 @@ public class ReportActivity extends Activity {
         // create a data object with the datasets    
         LineData lineData = new LineData(xValues, lineDataSets);
         LineData lineAddData = new LineData(xValues, lineAddDataSets);
-        showBloodDayChart(mLineChart, lineData, Color.rgb(255, 105,62));
-        showBloodDayChart(mLineChart, lineAddData, Color.rgb(255, 105,62));
+
+
+        showBloodDayChart(mLineChart, lineData,lineAddData);
         //隐藏左边坐标轴横网格线
         mLineChart.getAxisLeft().setDrawGridLines(false);
         mLineChart.getAxisRight().setEnabled(false);// 隐藏右边 的坐标轴
@@ -1499,18 +1535,18 @@ public class ReportActivity extends Activity {
         xl.setSpaceBetweenLabels(2); // 设置数据之间的间距'
 
         ArrayList<String> xValues = new ArrayList<String>();
-        for (int i = 1; i < 16; i++)
+        for (int i = 0; i < 16; i++)
         {
             // x轴显示的数据，这里默认使用数字下标显示    
-            xValues.add("" + i);
+            xValues.add("" + (i+1));
         }
         // create a dataset and give it a type    
         // y轴的数据集合 
         // y轴的数据    
         ArrayList<Entry> yValues = new ArrayList<Entry>();
-        for(int i = 1; i< 16; i++)
+        for(int i = 0; i< 16; i++)
         {
-            float value =(float)(Math.random()* 12);
+            float value =(float)(Math.random()* 12/3+7);
             yValues.add(new Entry(value, i));
         }
         LineDataSet lineDataSet = new LineDataSet(yValues, "");
@@ -1540,7 +1576,7 @@ public class ReportActivity extends Activity {
         lineDataSets.add(lineDataSet);// add the datasets    
         // create a data object with the datasets    
         LineData lineData = new LineData(xValues, lineDataSets);
-        showBloodDayChart(mLineChart, lineData, Color.rgb(28, 193,21));
+        showSleepDayChart(mLineChart, lineData, Color.rgb(28, 193,21));
         //隐藏左边坐标轴横网格线
         mLineChart.getAxisLeft().setDrawGridLines(false);
         mLineChart.getAxisRight().setEnabled(false);// 隐藏右边 的坐标轴

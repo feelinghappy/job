@@ -254,7 +254,7 @@
     <android.widget.ImageView
         android:id= "@+id/chart_icon"
         android:src="@drawable/blood_icon"
-        android:layout_marginTop="18px"
+        android:layout_marginTop="5px"
         android:layout_marginLeft="975px"
         android:layout_width="176px"
         android:layout_height="62px" />
@@ -263,6 +263,6 @@
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/chart"
         android:layout_width="match_parent"
-        android:layout_height="320px"
+        android:layout_height="350px"
         />
 </LinearLayout>

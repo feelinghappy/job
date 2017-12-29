@@ -69,6 +69,7 @@ import okhttp3.Response;
 import static android.view.View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
 import static android.view.View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION;
 import static android.view.View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
+import static java.lang.Float.floatToIntBits;
 import static java.lang.Float.parseFloat;
 
 public class ReportActivity extends Activity {
@@ -198,6 +199,8 @@ public class ReportActivity extends Activity {
             report_select_3.setTextColor(getResources().getColor(R.color.colorBlack));
             report_select_1.setTextColor(getResources().getColor(R.color.colorBlood));
             content = UPDATE_BLOOD_DAY;
+            ShowNewChart(content);
+            mLineChart.invalidate();
         }
         //通过findViewById获得RadioGroup对象  
         RadioGroup raGrouphis = (RadioGroup) findViewById(R.id.history);
@@ -225,6 +228,7 @@ public class ReportActivity extends Activity {
                       content = UPDATE_BLOOD_DAY;
                       chart_icon.setVisibility(View.VISIBLE);
                       ShowNewChart(content);
+                      mLineChart.invalidate();
 
                   } else if (checkedId == R.id.btn_1) {
                       report_title_1.setText("最高心率");
@@ -245,7 +249,6 @@ public class ReportActivity extends Activity {
                       report_select_2.setTextColor(getResources().getColor(R.color.colorBlack));
                       report_select_3.setTextColor(getResources().getColor(R.color.colorBlack));
                       content = UPDATE_RATE_DAY;
-
                       ShowNewChart(content);
                       mLineChart.invalidate();
                   } else if (checkedId == R.id.btn_2) {
@@ -908,8 +911,11 @@ public class ReportActivity extends Activity {
             Log.e("blood_data.create_time",blood_data.create_time+"");
             blood_data.systolic = object.getInt("systolic");
             blood_data_list.add(i,blood_data);
-            blood_diastolic_list.add(object.getInt("diastolic")+"");
-            blood_systolic_list.add(object.getInt("systolic")+"");
+            Log.e("object.getIntdiastolic",object.getInt("diastolic")+"");
+            String strdiastolic =  object.getInt("diastolic")+"";
+            String strsystolic = object.getInt("systolic")+"";
+            blood_diastolic_list.add(strdiastolic);
+            blood_systolic_list.add(strsystolic);
         }
         JSONArray sportarray = new JSONArray(strSport_data);
         for(int i=0;i<sportarray.length();i++)
@@ -1343,20 +1349,22 @@ public class ReportActivity extends Activity {
         xl.setSpaceBetweenLabels(0); // 设置数据之间的间距'
 
         ArrayList<String> xValues = new ArrayList<String>();
-        for (int i = 1; i < 16; i++)
+        for (int i = 0; i < blood_diastolic_list.size(); i++)
         {
             // x轴显示的数据，这里默认使用数字下标显示    
-            xValues.add("" + i);
+            xValues.add("" + (i+1));
         }
         // create a dataset and give it a type    
         // y轴的数据集合 
         // y轴的数据    
         ArrayList<Entry> yValues = new ArrayList<Entry>();
         ArrayList<Entry> yAddValues = new ArrayList<Entry>();
-        for(int i = 1; i< 16; i++)
+        for(int i = 0; i< blood_diastolic_list.size(); i++)
         {
-            float value =(float)(Math.random()* 130/3+50) + 30;
-            float valueAdd =(float)(Math.random()* 130/3+50) + 3-30;
+            //float value =(float)(Math.random()* 130/3+50) + 30;
+            //float valueAdd =(float)(Math.random()* 130/3+50) + 3-30;
+            float value =parseFloat(blood_systolic_list.get(i));
+            float valueAdd =parseFloat( blood_diastolic_list.get(i));
             yValues.add(new Entry(value, i));
             yAddValues.add(new Entry(valueAdd, i));
         }

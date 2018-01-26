@@ -103,6 +103,7 @@ public class PhonebookActivity extends Activity implements ZKCallback {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.activity_phonebook);
+        sendRequestWithOkHttp();
         zkRequest = new ZKRequest(this, this);
         hideNavigationBar();
         hideVirtualKey();
@@ -135,6 +136,7 @@ public class PhonebookActivity extends Activity implements ZKCallback {
                     intent.putExtra("callUid", "c33bebf2-b4c1-45ca-b256-7f095ec42eeb");
                     startActivity(intent);
                     Toast.makeText(PhonebookActivity.this, "发起视频", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PhonebookActivity.this, "c33bebf2-b4c1-45ca-b256-7f095ec42eeb", Toast.LENGTH_SHORT).show();
                 }
                 catch(Exception ex)
                 {
@@ -297,6 +299,7 @@ public class PhonebookActivity extends Activity implements ZKCallback {
                     }
                 } catch (IOException e1) {
                     e1.printStackTrace();
+                    Toast.makeText(PhonebookActivity.this, e1.toString(), Toast.LENGTH_SHORT).show();
                 }
             }
         }).start();
@@ -459,6 +462,7 @@ public class PhonebookActivity extends Activity implements ZKCallback {
                     uid = auth.getCurrentUser().getUid();
                     SharedPrefUtils.saveConfigInfo(PhonebookActivity.this, Constants.WILDDOG_UID, uid);
                     Log.e("uid",uid);
+                    Toast.makeText(getApplicationContext(), uid, Toast.LENGTH_SHORT).show();
                     mWilddogRef = WilddogSync.getInstance().getReference().child("roots");
                     //writeRobotInfo(uid);
                     isOnline = true;
@@ -472,8 +476,10 @@ public class PhonebookActivity extends Activity implements ZKCallback {
                         public void onComplete(SyncError error, SyncReference ref) {
                             if (error != null) {
                                 Log.e("status error", error.toString());
+                                Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_SHORT).show();
                             } else {
                                 Log.e("status success", "setValue success");
+                                Toast.makeText(getApplicationContext(), "setValue success", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
@@ -500,7 +506,9 @@ public class PhonebookActivity extends Activity implements ZKCallback {
         {
             SyncReference ref = WilddogSync.getInstance().getReference("robots");
             ref = ref.child(uid).child("name");
-            String name = robotDataloc.getRobotName();
+
+            //String name = robotDataloc.getRobotName();
+            String name = "小火宝";
             //写机器人名称
             ref.setValue(name, new SyncReference.CompletionListener() {
                 @Override
@@ -569,7 +577,7 @@ public class PhonebookActivity extends Activity implements ZKCallback {
             });
             ref = WilddogSync.getInstance().getReference("robots");
             ref = ref.child(uid).child("monitor");
-            ref.setValue("undefine", new SyncReference.CompletionListener() {
+            ref.setValue("low", new SyncReference.CompletionListener() {
                 @Override
                 public void onComplete(SyncError error, SyncReference ref) {
                     if (error != null) {

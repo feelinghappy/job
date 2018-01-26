@@ -19,6 +19,7 @@
             android:layout_centerVertical="true"
             >
             <ImageView
+                android:layout_marginTop="10px"
                 android:id="@+id/video_back"
                 android:src="@drawable/back_touming"
                 android:clickable="true"

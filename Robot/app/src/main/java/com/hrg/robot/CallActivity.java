@@ -37,7 +37,7 @@ import java.util.HashMap;
  * Created by liutao on 2017/9/17.
  */
 
-public class CallActivity extends Activity implements VideoCallUA.DataChangerListener,ZKCallback {
+public class CallActivity extends Activity implements VideoCallUA.DataChangerListener,ZKCallback,VideoCallUA.CallStateListener {
     private TextView stateTxt;
     private int callId;
     private RelativeLayout callingIncomeLayout, remoteUserLayout;
@@ -65,15 +65,16 @@ public class CallActivity extends Activity implements VideoCallUA.DataChangerLis
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_call);
+        VideoCallUA.getInstance().setCallStateListener(CallActivity.this);
         zkRequest = new ZKRequest(this, this);
         this.powerManager = (PowerManager) this.getSystemService(Context.POWER_SERVICE);
         this.wakeLock = this.powerManager.newWakeLock(PowerManager.FULL_WAKE_LOCK, "My Lock");
         this.wakeLock.acquire();
         Intent intent = getIntent();
-        callId = intent.getIntExtra(VideoCallUA.CALL_COMING_OR_OUTGOING, -1);
+        //callId = intent.getIntExtra(VideoCallUA.CALL_COMING_OR_OUTGOING, -1);
         callUid = intent.getStringExtra("callUid");
 
-        Log.e("getStringExtra callUid", callUid);
+        //Log.e("getStringExtra callUid", callUid);
         localuid = SharedPrefUtils.getConfigInfo(CallActivity.this, Constants.WILDDOG_UID);
         Log.e("localuid", localuid);
         initData();

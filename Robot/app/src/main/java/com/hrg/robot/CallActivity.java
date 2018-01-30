@@ -14,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.hrg.robot.Commands;
 import com.hrg.robot.Constants;
 import com.hrg.robot.VideoCallUA;
@@ -41,7 +43,7 @@ public class CallActivity extends Activity implements VideoCallUA.DataChangerLis
     private TextView stateTxt;
     private int callId;
     private RelativeLayout callingIncomeLayout, remoteUserLayout;
-    private String callUid;
+    private String strcallUid;
     private String remouteUid;
     private boolean monitor = false;
     private WilddogVideoView localView, remoteView;
@@ -72,16 +74,15 @@ public class CallActivity extends Activity implements VideoCallUA.DataChangerLis
         this.wakeLock.acquire();
         Intent intent = getIntent();
         //callId = intent.getIntExtra(VideoCallUA.CALL_COMING_OR_OUTGOING, -1);
-        callUid = intent.getStringExtra("callUid");
-
-        //Log.e("getStringExtra callUid", callUid);
+        strcallUid = intent.getStringExtra("callUid");
+        Log.e("getStringExtra callUid", strcallUid);
         localuid = SharedPrefUtils.getConfigInfo(CallActivity.this, Constants.WILDDOG_UID);
         Log.e("localuid", localuid);
         initData();
         initView();
         SyncReference ref = WilddogSync.getInstance().getReference("robots");
         ref = ref.child(localuid).child("currentUser");
-        ref.setValue(callUid, new SyncReference.CompletionListener() {
+        ref.setValue(strcallUid, new SyncReference.CompletionListener() {
             @Override
             public void onComplete(SyncError error, SyncReference ref) {
                 if (error != null) {
@@ -97,7 +98,7 @@ public class CallActivity extends Activity implements VideoCallUA.DataChangerLis
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 String str = (String) dataSnapshot.getKey();
                 Log.e("add control user", str);
-                if (str.equals(callUid)) {
+                if (str.equals(strcallUid)) {
                     String strcommand = (String) dataSnapshot.getValue();
                     Log.e("add control strcommand", strcommand);
                     if (strcommand.equals(commands.MOVE_FORWARD)) {
@@ -124,6 +125,18 @@ public class CallActivity extends Activity implements VideoCallUA.DataChangerLis
                         }
 
                     }
+                    refcontrol.setValue(" ", new SyncReference.CompletionListener() {
+                        @Override
+                        public void onComplete(SyncError syncError, SyncReference syncReference) {
+                            if (syncError != null) {
+                                Log.e("refcontrol error", syncError.toString());
+                                Toast.makeText(getApplicationContext(), syncError.toString(), Toast.LENGTH_SHORT).show();
+                            } else {
+                                Log.e("refcontrol success", "refcontrol success");
+                                Toast.makeText(getApplicationContext(), "refcontrol success", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
 
                 }
 
@@ -133,33 +146,51 @@ public class CallActivity extends Activity implements VideoCallUA.DataChangerLis
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
                 String str = (String) dataSnapshot.getKey();
                 Log.e("ch  control user", str);
-                if (str.equals(callUid)) {
+                if (str.equals(strcallUid)) {
                     String strcommand = (String) dataSnapshot.getValue();
                     Log.e("ch  control strcoand", strcommand);
                     if (strcommand.equals(commands.MOVE_FORWARD)) {
                         if (zkRequest != null){
                             zkRequest.moveControl(MoveDirection.FORWARD);
                             Log.e("commands.MOVE_FORWARD", "zkRequest != null");
+                            Toast.makeText(getApplicationContext(), "commands.MOVE_FORWARD zkRequest != null", Toast.LENGTH_SHORT).show();
+
                         }
                     } else if (strcommand.equals(commands.MOVE_BACK)) {
                         if (zkRequest != null) {
                             zkRequest.moveControl(MoveDirection.BACKWARD);
                             Log.e("ACTION_MOVE_BACK", "ACTION_MOVE_BACK");
+                            Toast.makeText(getApplicationContext(), "ACTION_MOVE_BACK", Toast.LENGTH_SHORT).show();
                         }
 
                     } else if (strcommand.equals(commands.MOVE_LEFT)) {
                         if (zkRequest != null) {
                             zkRequest.moveControl(MoveDirection.TURN_LEFT);
                             Log.e("ACTION_MOVE_LEFT", "ACTION_MOVE_LEFT");
+                            Toast.makeText(getApplicationContext(), "ACTION_MOVE_LEFT", Toast.LENGTH_SHORT).show();
                         }
 
                     } else if (strcommand.equals(commands.MOVE_RIGHT)) {
                         if (zkRequest != null) {
                             zkRequest.moveControl(MoveDirection.TURN_RIGHT);
                             Log.e("ACTION_MOVE_RIGHT", "ACTION_MOVE_RIGHT");
+                            Toast.makeText(getApplicationContext(), "ACTION_MOVE_RIGHT", Toast.LENGTH_SHORT).show();
                         }
 
                     }
+                    refcontrol.setValue(" ", new SyncReference.CompletionListener() {
+                        @Override
+                        public void onComplete(SyncError syncError, SyncReference syncReference) {
+                            if (syncError != null) {
+                                Log.e("refcontrol error", syncError.toString());
+                                Toast.makeText(getApplicationContext(), syncError.toString(), Toast.LENGTH_SHORT).show();
+                            } else {
+                                Log.e("refcontrol success", "refcontrol success");
+                                Toast.makeText(getApplicationContext(), "refcontrol success", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+
 
                 }
             }
@@ -204,7 +235,7 @@ public class CallActivity extends Activity implements VideoCallUA.DataChangerLis
         ref = WilddogSync.getInstance().getReference("robots");
         ref = ref.child(localuid);
         HashMap<String, Object> current = new HashMap<>();
-        current.put("currentUser", callUid);
+        current.put("currentUser", strcallUid);
         ref.setValue(current, new SyncReference.CompletionListener() {
             @Override
             public void onComplete(SyncError error, SyncReference ref) {
@@ -267,6 +298,11 @@ public class CallActivity extends Activity implements VideoCallUA.DataChangerLis
     @Override
     public void resultMsg(ResultData resultData) {
         Log.e("resultMsg", "ResultData" + resultData.toString());
+        if (resultData.getType()== 5)////返回数据类型，1：机器人基本信息，2：空气盒子信息，3：监控状态信息，4：控制开关结果信息，5：控制移动
+        {
+
+        }
+
 
     }
 

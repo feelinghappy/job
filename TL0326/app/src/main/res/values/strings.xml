@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">图灵机器人的样例程序</string>
+    <string name="hello">你好,我是小墨</string>
+
+    <string
+        name="tts_toast_format"
+        formatted="false">缓冲进度为%d%%，播放进度为%d%%</string>
+</resources>

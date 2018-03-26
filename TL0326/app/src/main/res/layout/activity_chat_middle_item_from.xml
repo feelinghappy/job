@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/chat_item_from_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="2016-09-13 20:36:02"
+        android:textSize="12sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="5dp"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/chat_item_from_icon_imageview"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:src="@drawable/headicon_girl" />
+
+            <TextView
+                android:id="@+id/chat_item_from_username_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="小墨" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/chat_item_from_content_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/hello"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+</LinearLayout>

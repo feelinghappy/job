@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/hrg/tl/turing/MainActivity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/hrg/tl/turing/domain/TuringChildPoemFunction.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/hrg/tl/turing/domain/TuringChildSongFunction.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/hrg/tl/turing/domain/TuringCook.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/hrg/tl/turing/domain/TuringCookList.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/hrg/tl/turing/domain/TuringError.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/hrg/tl/turing/domain/TuringLink.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/hrg/tl/turing/domain/TuringText.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/hrg/tl/turing/util/HttpUtilsAndroid.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/hrg/tl/turing/util/TuringCodeType.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/hrg/tl/turing/util/TuringHandler.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/hrg/tl/turing/util/TuringUtil.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/hrg/tl/util/LogUtil.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/hrg/tl/util/NotificationUtil.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/hrg/tl/util/NotifyUtil.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/hrg/tl/util/SleepThread.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/hrg/tl/util/ToastUtil.java" charset="GBK" />
+  </component>
+</project>

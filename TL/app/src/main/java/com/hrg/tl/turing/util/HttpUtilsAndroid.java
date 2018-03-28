@@ -10,10 +10,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 /**
- * HttpÇëÇóµÄ¹¤¾ßÀà
- * 
+ * Httpè¯·æ±‚çš„å·¥å…·ç±»
+ *
  * @author shankes
- * 
+ *
  */
 public class HttpUtilsAndroid {
 
@@ -23,9 +23,10 @@ public class HttpUtilsAndroid {
 		void onRequestComplete(String result);
 	}
 
+
 	/**
-	 * Òì²½µÄGetÇëÇó
-	 * 
+	 * å¼‚æ­¥çš„Getè¯·æ±‚
+	 *
 	 * @param urlStr
 	 * @param callBack
 	 */
@@ -46,8 +47,8 @@ public class HttpUtilsAndroid {
 	}
 
 	/**
-	 * Òì²½µÄPostÇëÇó
-	 * 
+	 * å¼‚æ­¥çš„Postè¯·æ±‚
+	 *
 	 * @param urlStr
 	 * @param params
 	 * @param callBack
@@ -69,10 +70,9 @@ public class HttpUtilsAndroid {
 		}.start();
 
 	}
-
 	/**
-	 * GetÇëÇó£¬»ñµÃ·µ»ØÊı¾İ
-	 * 
+	 * Getè¯·æ±‚ï¼Œè·å¾—è¿”å›æ•°æ®
+	 *
 	 * @param urlStr
 	 * @return
 	 * @throws Exception
@@ -125,14 +125,15 @@ public class HttpUtilsAndroid {
 
 	}
 
+
 	/**
-	 * ÏòÖ¸¶¨ URL ·¢ËÍPOST·½·¨µÄÇëÇó
-	 * 
+	 * å‘æŒ‡å®š URL å‘é€POSTæ–¹æ³•çš„è¯·æ±‚
+	 *
 	 * @param url
-	 *            ·¢ËÍÇëÇóµÄ URL
+	 *            å‘é€è¯·æ±‚çš„ URL
 	 * @param param
-	 *            ÇëÇó²ÎÊı£¬ÇëÇó²ÎÊıÓ¦¸ÃÊÇ name1=value1&name2=value2 µÄĞÎÊ½¡£
-	 * @return Ëù´ú±íÔ¶³Ì×ÊÔ´µÄÏìÓ¦½á¹û
+	 *            è¯·æ±‚å‚æ•°ï¼Œè¯·æ±‚å‚æ•°åº”è¯¥æ˜¯ name1=value1&name2=value2 çš„å½¢å¼ã€‚
+	 * @return æ‰€ä»£è¡¨è¿œç¨‹èµ„æºçš„å“åº”ç»“æœ
 	 * @throws Exception
 	 */
 	public static String doPost(String url, String param) {
@@ -141,30 +142,23 @@ public class HttpUtilsAndroid {
 		String result = "";
 		try {
 			URL realUrl = new URL(url);
-			// ´ò¿ªºÍURLÖ®¼äµÄÁ¬½Ó
 			HttpURLConnection conn = (HttpURLConnection) realUrl.openConnection();
-			// ÉèÖÃÍ¨ÓÃµÄÇëÇóÊôĞÔ
 			conn.setRequestProperty("accept", "*/*");
 			conn.setRequestProperty("connection", "Keep-Alive");
 			conn.setRequestMethod("POST");
 			conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
 			conn.setRequestProperty("charset", "utf-8");
 			conn.setUseCaches(false);
-			// ·¢ËÍPOSTÇëÇó±ØĞëÉèÖÃÈçÏÂÁ½ĞĞ
 			conn.setDoOutput(true);
 			conn.setDoInput(true);
 			conn.setReadTimeout(TIMEOUT_IN_MILLIONS);
 			conn.setConnectTimeout(TIMEOUT_IN_MILLIONS);
 
 			if (param != null && !param.trim().equals("")) {
-				// »ñÈ¡URLConnection¶ÔÏó¶ÔÓ¦µÄÊä³öÁ÷
 				out = new PrintWriter(conn.getOutputStream());
-				// ·¢ËÍÇëÇó²ÎÊı
 				out.print(param);
-				// flushÊä³öÁ÷µÄ»º³å
 				out.flush();
 			}
-			// ¶¨ÒåBufferedReaderÊäÈëÁ÷À´¶ÁÈ¡URLµÄÏìÓ¦
 			in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 			String line;
 			while ((line = in.readLine()) != null) {
@@ -173,7 +167,6 @@ public class HttpUtilsAndroid {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		// Ê¹ÓÃfinally¿éÀ´¹Ø±ÕÊä³öÁ÷¡¢ÊäÈëÁ÷
 		finally {
 			try {
 				if (out != null) {

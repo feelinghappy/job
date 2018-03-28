@@ -3,7 +3,7 @@ package com.hrg.tl.util;
 import android.util.Log;
 
 /**
- * LogÍ³Ò»¹ÜÀíÀà
+ * Logç»Ÿä¸€ç®¡ç†ç±»
  * <p>
  * Created by shankes on 2016/9/4.
  */
@@ -14,16 +14,16 @@ public class LogUtil {
 		throw new UnsupportedOperationException("cannot be instantiated");
 	}
 
-	public static boolean isDebug = true;// ÊÇ·ñĞèÒª´òÓ¡bug£¬¿ÉÒÔÔÚapplicationµÄonCreateº¯ÊıÀïÃæ³õÊ¼»¯
+	public static boolean isDebug = true;// æ˜¯å¦éœ€è¦æ‰“å°bugï¼Œå¯ä»¥åœ¨applicationçš„onCreateå‡½æ•°é‡Œé¢åˆå§‹åŒ–
 	private static final String TAG = "shankes";
 
-	// ÏÂÃæËÄ¸öÊÇÄ¬ÈÏtagµÄº¯Êı
+	// ä¸‹é¢å››ä¸ªæ˜¯é»˜è®¤tagçš„å‡½æ•°
 	public static void i(String msg) {
 		if (isDebug)
 			if (msg != null && !"".equalsIgnoreCase(msg)) {
 				Log.i(TAG, msg);
 			} else {
-				Log.e(TAG, "msgÎª¿Õ");
+				Log.e(TAG, "msgä¸ºç©º");
 			}
 	}
 
@@ -32,7 +32,7 @@ public class LogUtil {
 			if (msg != null && !"".equalsIgnoreCase(msg)) {
 				Log.d(TAG, msg);
 			} else {
-				Log.e(TAG, "msgÎª¿Õ");
+				Log.e(TAG, "msgä¸ºç©º");
 			}
 	}
 
@@ -41,7 +41,7 @@ public class LogUtil {
 			if (msg != null && !"".equalsIgnoreCase(msg)) {
 				Log.e(TAG, msg);
 			} else {
-				Log.e(TAG, "msgÎª¿Õ");
+				Log.e(TAG, "msgä¸ºç©º");
 			}
 	}
 
@@ -50,17 +50,17 @@ public class LogUtil {
 			if (msg != null && !"".equalsIgnoreCase(msg)) {
 				Log.v(TAG, msg);
 			} else {
-				Log.e(TAG, "msgÎª¿Õ");
+				Log.e(TAG, "msgä¸ºç©º");
 			}
 	}
 
-	// ÏÂÃæÊÇ´«Èë×Ô¶¨ÒåtagµÄº¯Êı
+	// ä¸‹é¢æ˜¯ä¼ å…¥è‡ªå®šä¹‰tagçš„å‡½æ•°
 	public static void i(String tag, String msg) {
 		if (isDebug)
 			if (msg != null && !"".equalsIgnoreCase(msg)) {
 				Log.i(tag, msg);
 			} else {
-				Log.e(tag, "msgÎª¿Õ");
+				Log.e(tag, "msgä¸ºç©º");
 			}
 	}
 
@@ -69,7 +69,7 @@ public class LogUtil {
 			if (msg != null && !"".equalsIgnoreCase(msg)) {
 				Log.d(tag, msg);
 			} else {
-				Log.e(tag, "msgÎª¿Õ");
+				Log.e(tag, "msgä¸ºç©º");
 			}
 	}
 
@@ -78,7 +78,7 @@ public class LogUtil {
 			if (msg != null && !"".equalsIgnoreCase(msg)) {
 				Log.e(tag, msg);
 			} else {
-				Log.e(tag, "msgÎª¿Õ");
+				Log.e(tag, "msgä¸ºç©º");
 			}
 	}
 
@@ -87,7 +87,7 @@ public class LogUtil {
 			if (msg != null && !"".equalsIgnoreCase(msg)) {
 				Log.v(tag, msg);
 			} else {
-				Log.e(tag, "msgÎª¿Õ");
+				Log.e(tag, "msgä¸ºç©º");
 			}
 	}
 }

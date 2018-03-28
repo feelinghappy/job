@@ -13,26 +13,26 @@ public class NotificationUtil {
 	private static Notification notification;
 
 	/**
-	 * ´´½¨Í¨Öª£¬ * ÇëÔÚµ÷ÓÃ´Ë·½·¨Ê±¿ªÆô×ÓÏß³Ì
-	 * 
+	 * åˆ›å»ºé€šçŸ¥ï¼Œ * è¯·åœ¨è°ƒç”¨æ­¤æ–¹æ³•æ—¶å¼€å¯å­çº¿ç¨‹
+	 *
 	 * @param context
-	 *            ÉÏÏÂÎÄ
+	 *            ä¸Šä¸‹æ–‡
 	 * @param icon
-	 *            Í¨ÖªÍ¼Æ¬
+	 *            é€šçŸ¥å›¾ç‰‡
 	 * @param tickerText
-	 *            Í¨ÖªÎ´À­¿ªµÄÄÚÈİ
+	 *            é€šçŸ¥æœªæ‹‰å¼€çš„å†…å®¹
 	 * @param title
-	 *            Í¨Öª±êÌâ
+	 *            é€šçŸ¥æ ‡é¢˜
 	 * @param content
-	 *            Í¨ÖªÖ÷ÄÚÈİ
+	 *            é€šçŸ¥ä¸»å†…å®¹
 	 * @param intent
-	 *            ÒâÍ¼
+	 *            æ„å›¾
 	 * @param id
 	 * @param time
-	 *            ¿ØÖÆÏß³ÌË¯ÃßÊ±¼ä
+	 *            æ§åˆ¶çº¿ç¨‹ç¡çœ æ—¶é—´
 	 */
 	public static void createNotif(Context context, int icon, String tickerText, String title, String content,
-			Intent intent, int id, long time) {
+								   Intent intent, int id, long time) {
 		intent.addCategory(Intent.CATEGORY_LAUNCHER);
 		intent.setAction(Intent.ACTION_MAIN);
 		// intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
@@ -59,7 +59,7 @@ public class NotificationUtil {
 		}
 
 	}
-	
-	
+
+
 
 }

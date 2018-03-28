@@ -1,10 +1,9 @@
 package com.hrg.tl.util;
-
 import android.content.Context;
 import android.widget.Toast;
 
 /**
- * ToastÍ³Ò»¹ÜÀíÀà
+ * Toastç»Ÿä¸€ç®¡ç†ç±»
  * <p>
  * Created by shankes on 2016/9/4.
  */
@@ -19,7 +18,7 @@ public class ToastUtil {
     public static boolean debugger = true;
 
     /**
-     * ¶ÌÊ±¼äÏÔÊ¾Toast
+     * çŸ­æ—¶é—´æ˜¾ç¤ºToast
      *
      * @param context
      * @param message
@@ -30,7 +29,7 @@ public class ToastUtil {
     }
 
     /**
-     * ¶ÌÊ±¼äÏÔÊ¾Toast
+     * çŸ­æ—¶é—´æ˜¾ç¤ºToast
      *
      * @param context
      * @param message
@@ -41,7 +40,7 @@ public class ToastUtil {
     }
 
     /**
-     * ¶ÌÊ±¼äÏÔÊ¾Toast
+     * çŸ­æ—¶é—´æ˜¾ç¤ºToast
      *
      * @param context
      * @param message
@@ -52,7 +51,7 @@ public class ToastUtil {
     }
 
     /**
-     * ¶ÌÊ±¼äÏÔÊ¾Toast
+     * çŸ­æ—¶é—´æ˜¾ç¤ºToast
      *
      * @param context
      * @param message
@@ -63,7 +62,7 @@ public class ToastUtil {
     }
 
     /**
-     * ³¤Ê±¼äÏÔÊ¾Toast
+     * é•¿æ—¶é—´æ˜¾ç¤ºToast
      *
      * @param context
      * @param message
@@ -74,7 +73,7 @@ public class ToastUtil {
     }
 
     /**
-     * ³¤Ê±¼äÏÔÊ¾Toast
+     * é•¿æ—¶é—´æ˜¾ç¤ºToast
      *
      * @param context
      * @param message
@@ -85,7 +84,7 @@ public class ToastUtil {
     }
 
     /**
-     * ³¤Ê±¼äÏÔÊ¾Toast
+     * é•¿æ—¶é—´æ˜¾ç¤ºToast
      *
      * @param context
      * @param message
@@ -96,7 +95,7 @@ public class ToastUtil {
     }
 
     /**
-     * ³¤Ê±¼äÏÔÊ¾Toast
+     * é•¿æ—¶é—´æ˜¾ç¤ºToast
      *
      * @param context
      * @param message
@@ -107,7 +106,7 @@ public class ToastUtil {
     }
 
     /**
-     * ×Ô¶¨ÒåÏÔÊ¾ToastÊ±¼ä
+     * è‡ªå®šä¹‰æ˜¾ç¤ºToastæ—¶é—´
      *
      * @param context
      * @param message
@@ -119,7 +118,7 @@ public class ToastUtil {
     }
 
     /**
-     * ×Ô¶¨ÒåÏÔÊ¾ToastÊ±¼ä
+     * è‡ªå®šä¹‰æ˜¾ç¤ºToastæ—¶é—´
      *
      * @param context
      * @param message
@@ -131,7 +130,7 @@ public class ToastUtil {
     }
 
     /**
-     * ×Ô¶¨ÒåÏÔÊ¾ToastÊ±¼ä
+     * è‡ªå®šä¹‰æ˜¾ç¤ºToastæ—¶é—´
      *
      * @param context
      * @param message
@@ -143,7 +142,7 @@ public class ToastUtil {
     }
 
     /**
-     * ×Ô¶¨ÒåÏÔÊ¾ToastÊ±¼ä
+     * è‡ªå®šä¹‰æ˜¾ç¤ºToastæ—¶é—´
      *
      * @param context
      * @param message

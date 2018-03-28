@@ -6,7 +6,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -23,6 +25,13 @@ import com.hrg.tl.turing.domain.TuringText;
 import com.hrg.tl.util.LogUtil;
 import com.hrg.tl.util.NotifyUtil;
 import com.hrg.tl.util.ToastUtil;
+import com.iflytek.cloud.ErrorCode;
+import com.iflytek.cloud.InitListener;
+import com.iflytek.cloud.SpeechConstant;
+import com.iflytek.cloud.SpeechError;
+import com.iflytek.cloud.SpeechSynthesizer;
+import com.iflytek.cloud.SpeechUtility;
+import com.iflytek.cloud.SynthesizerListener;
 
 
 public class TuringHandler {
@@ -39,6 +48,7 @@ public class TuringHandler {
 	public static TuringHandler getInstance(Context context) {
 		if (instance == null) {
 			instance = new TuringHandler(context);
+
 		}
 		return instance;
 	}
@@ -50,9 +60,11 @@ public class TuringHandler {
 		public void handleMessage(Message msg) {
 			result = msg.getData().getString("result");
 			switch (TuringCodeType.valueOfInt(msg.what)) {
+
 			case NORMAL_TEXT://
 				LogUtil.i(TuringCodeType.NORMAL_TEXT.getValueText());
 				ToastUtil.showShortDebug(mContext, TuringCodeType.NORMAL_TEXT.getValueText());
+
 				turingInfo = gson.fromJson(result, TuringText.class);
 				break;
 			case NORMAL_LINK://
@@ -112,11 +124,13 @@ public class TuringHandler {
 			TuringBaseInfo turingBaseInfo = new TuringBaseInfo();
 			turingBaseInfo.setMessageType(MessageType.FROM);
 			turingBaseInfo.setText(turingInfo.getText());
+
 			turingBaseInfo.setTime(new Date());
 			MainActivity.getInstance().mData.add(turingBaseInfo);
-			MainActivity.getInstance().mTuringInfoAdapter.notifyDataSetChanged();
 
-			//
+			MainActivity.getInstance().mTuringInfoAdapter.notifyDataSetChanged();
+			MainActivity.getInstance().mTts.tts_play(turingInfo.getText());
+
 			NotifyUtil notifyUtil = NotifyUtil.getInstance(MainActivity.getInstance(), ID);
 
 			Intent intent = new Intent(MainActivity.getInstance(), MainActivity.class);
@@ -129,6 +143,7 @@ public class TuringHandler {
 			boolean vibrate = true;
 			boolean lights = true;
 			notifyUtil.notify_normail_moreline(pendingIntent, 0, ticker, title, content, sound, vibrate, lights);
+
 		};
 	};
 }

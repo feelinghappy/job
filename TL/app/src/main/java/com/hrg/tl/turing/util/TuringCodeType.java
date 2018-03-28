@@ -1,5 +1,4 @@
 package com.hrg.tl.turing.util;
-
 public enum TuringCodeType {
 
 	NORMAL_TEXT(100000, "文本类"), // 文本类
@@ -33,39 +32,39 @@ public enum TuringCodeType {
 	public static TuringCodeType valueOfInt(int value) {
 		TuringCodeType turingCodeType = ERROR_DATA_TYPE_EXCEPTION;
 		switch (value) {
-		case 100000:
-			turingCodeType = NORMAL_TEXT;
-			break;
-		case 200000:
-			turingCodeType = NORMAL_LINK;
-			break;
-		case 302000:
-			turingCodeType = NORMAL_NEWS;
-			break;
-		case 308000:
-			turingCodeType = NORMAL_COOK;
-			break;
-		case 313000:
-			turingCodeType = NORMAL_CHILD_SONG;
-			break;
-		case 314000:
-			turingCodeType = NORMAL_CHILD_POEM;
-			break;
-		case 40001:
-			turingCodeType = ERROR_KEY;
-			break;
-		case 40002:
-			turingCodeType = ERROR_INFO;
-			break;
-		case 40004:
-			turingCodeType = ERROR_TOO_MANY_TIMES;
-			break;
-		case 40007:
-			turingCodeType = ERROR_DATA_TYPE_EXCEPTION;
-			break;
-		default:
-			turingCodeType = ERROR_DATA_TYPE_EXCEPTION;
-			break;
+			case 100000:
+				turingCodeType = NORMAL_TEXT;
+				break;
+			case 200000:
+				turingCodeType = NORMAL_LINK;
+				break;
+			case 302000:
+				turingCodeType = NORMAL_NEWS;
+				break;
+			case 308000:
+				turingCodeType = NORMAL_COOK;
+				break;
+			case 313000:
+				turingCodeType = NORMAL_CHILD_SONG;
+				break;
+			case 314000:
+				turingCodeType = NORMAL_CHILD_POEM;
+				break;
+			case 40001:
+				turingCodeType = ERROR_KEY;
+				break;
+			case 40002:
+				turingCodeType = ERROR_INFO;
+				break;
+			case 40004:
+				turingCodeType = ERROR_TOO_MANY_TIMES;
+				break;
+			case 40007:
+				turingCodeType = ERROR_DATA_TYPE_EXCEPTION;
+				break;
+			default:
+				turingCodeType = ERROR_DATA_TYPE_EXCEPTION;
+				break;
 		}
 		return turingCodeType;
 	}

@@ -12,10 +12,10 @@ import com.hrg.tl.util.LogUtil;
 
 
 /**
- * Í¼Áé»úÆ÷ÈË
- * 
+ * å›¾çµæœºå™¨äºº
+ *
  * @author shankes
- * 
+ *
  * @api:http://www.tuling123.com
  */
 public class TuringUtil {
@@ -25,16 +25,12 @@ public class TuringUtil {
 	private static String HTTP_URL = "http://www.tuling123.com/openapi/api";
 	private static String APIKEY = "b5c15ac081f34b929ff252cc08f8a8d8";
 
-	// * ×¢²áÖ®ºóÔÚ»úÆ÷ÈË½ÓÈëÒ³Ãæ»ñµÃ
 	private static String key;// * APIKEY
-	// * ÇëÇóÄÚÈİ£¬±àÂë·½Ê½ÎªUTF-8³¤¶È1-30
-	private static String info;// * ½ñÌìÌìÆøÔõÃ´Ñù
-	private static String loc;// ±±¾©ÊĞÖĞ¹Ø´å¡±£¬
-	// ¿ª·¢Õß¸ø×Ô¼ºµÄÓÃ»§·ÖÅäµÄÎ¨Ò»±êÖ¾£¨¶ÔÓ¦×Ô¼ºµÄÃ¿Ò»¸öÓÃ»§£©
-	// abc123£¨Ö§³Ö0-9£¬a-z,A-Z×éºÏ£¬²»ÄÜ°üº¬ÌØÊâ×Ö·û£©
+	private static String info;
+	private static String loc;
+
 	private static String userid;// 123456
 
-	// Æ´½Ó²ÎÊı
 	private static StringBuffer HTTP_ARG = null;
 
 	private static void init(String infoValue, String locValue, String useridValue) {
@@ -69,21 +65,21 @@ public class TuringUtil {
 
 	/**
 	 * @param infoValue
-	 *            ÇëÇóÄÚÈİ£¬±àÂë·½Ê½ÎªUTF-8³¤¶È1-30,ÀıÈç:½ñÌìÌìÆøÔõÃ´Ñù
+	 *            è¯·æ±‚å†…å®¹ï¼Œç¼–ç æ–¹å¼ä¸ºUTF-8é•¿åº¦1-30,ä¾‹å¦‚:ä»Šå¤©å¤©æ°”æ€ä¹ˆæ ·
 	 * @param locValue
-	 *            µØµã
+	 *            åœ°ç‚¹
 	 * @param useridValue
-	 *            ¿ª·¢Õß¸ø×Ô¼ºµÄÓÃ»§·ÖÅäµÄÎ¨Ò»±êÖ¾£¨¶ÔÓ¦×Ô¼ºµÄÃ¿Ò»¸öÓÃ»§£©
+	 *            å¼€å‘è€…ç»™è‡ªå·±çš„ç”¨æˆ·åˆ†é…çš„å”¯ä¸€æ ‡å¿—ï¼ˆå¯¹åº”è‡ªå·±çš„æ¯ä¸€ä¸ªç”¨æˆ·ï¼‰
 	 * @param textView
-	 *            ÏÔÊ¾½á¹ûµÄÎÄ±¾¿ò
+	 *            æ˜¾ç¤ºç»“æœçš„æ–‡æœ¬æ¡†
 	 */
 	public static void turingPost(final Handler handler, String infoValue, String locValue, String useridValue) {
 		if (TextUtils.isEmpty(infoValue)) {
-			infoValue = "·¢ËÍÏûÏ¢Ê§°Ü";
+			infoValue = "å‘é€æ¶ˆæ¯å¤±è´¥";
 		}
 		init(infoValue, locValue, useridValue);
 		try {
-			// get·½·¨
+
 			HttpUtilsAndroid.doGetAsyn(HTTP_URL + "?" + HTTP_ARG.toString(), new HttpUtilsAndroid.CallBack() {
 				@Override
 				public void onRequestComplete(String result) {
